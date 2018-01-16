@@ -145,7 +145,7 @@ class SalesController extends Controller {
 
         $sales = $sales->orderBy('created_at', 'desc')->paginate(30);
 
-
+        // dd($sales);
 
         //return $sales;
 
