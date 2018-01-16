@@ -6641,6 +6641,14 @@
 		text-align: center;
 
 		height: 200px !important;
+		/*width: -webkit-fill-available !important;*/
+		/*position: sticky;
+		/*margin-top: 150px;  negative value of footer height */
+		/*  height: 150px;
+		  clear:both;
+		  padding-top:20px;
+	    left: 0;
+	    bottom: 0;*/
 
 		
 

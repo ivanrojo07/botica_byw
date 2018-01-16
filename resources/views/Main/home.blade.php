@@ -52,6 +52,7 @@
                         <p>Enviamos a toda Latinoamerica Incluyendo a VENEZUELA Y CUBA.</p>
 
                         <p class="satisfic-font"><a href="{{ url('/seguimiento')}}">¡Dale Seguimiento a tu pedido!</a></p>
+                        <p class="statisfic-font"><a href="{{ url('/Products1')}}">¡COMPRAR!</a>
                         
 
                     </div>
@@ -126,7 +127,93 @@
 
     </div>
 
-    <!-- One -->
+    <!-- Four -->
+
+    <section id="four" class="wrapper style1 special fade-up">
+
+        <div id="productos" class="container">
+
+            <header class="major">
+
+                <h2 class="grey">Categorias</h2>
+
+                <p class="grey">
+
+                    * Precio exclusivo de Tienda en Línea.
+
+                    Puede variar por zona geográfica.
+
+                </p>
+
+            </header>
+
+            @if(count($categories))
+
+                <div class="box alt">
+
+                    <div class="row uniform category">
+
+                        @foreach($categories as $index => $category)
+
+                            <section
+
+                                    class="{{ ((($index+1)%3) == 0) ? '4u$ 6u(medium) 12u$(xsmall)' : '4u 6u(medium) 12u$(xsmall)' }}">
+
+                                <a href="{{ url('/Products1?category=' . $category->slug) }}">
+
+                                    <h3 class="grey">
+
+                                        {{ $category->title }}
+
+                                    </h3>
+
+                                    <p class="grey">
+
+                                        {{ $category->description }}
+
+                                    </p>
+
+                                </a>
+
+                            </section>
+
+                        @endforeach
+
+                    </div>
+
+                </div>
+
+            @else
+
+                <div class="alert alert-warning">
+
+                    No hay categorías disponibles.
+
+                </div>
+
+            @endif
+
+
+
+
+
+            <footer class="major">
+
+                <ul class="actions">
+
+                    <li><a href="{{ url('/Products1') }}" class="button blue-template1">Ver Mas Productos</a></li>
+
+                </ul>
+
+            </footer>
+
+        </div>
+
+    </section>
+
+
+
+    {{-- <!-- One -->
 
     <section id="one" class="spotlight style1 left">
 
@@ -227,7 +314,7 @@
 
         </div>
 
-    </section>
+    </section> --}}
 
     <!--<section class="spotlight style1 top">
 
@@ -313,91 +400,7 @@
 
 
 
-    <!-- Four -->
-
-    <section id="four" class="wrapper style1 special fade-up">
-
-        <div id="productos" class="container">
-
-            <header class="major">
-
-                <h2 class="grey">Categorias</h2>
-
-                <p class="grey">
-
-                    * Precio exclusivo de Tienda en Línea.
-
-                    Puede variar por zona geográfica.
-
-                </p>
-
-            </header>
-
-            @if(count($categories))
-
-                <div class="box alt">
-
-                    <div class="row uniform category">
-
-                        @foreach($categories as $index => $category)
-
-                            <section
-
-                                    class="{{ ((($index+1)%3) == 0) ? '4u$ 6u(medium) 12u$(xsmall)' : '4u 6u(medium) 12u$(xsmall)' }}">
-
-                                <a href="{{ url('/Products1?category=' . $category->slug) }}">
-
-                                    <h3 class="grey">
-
-                                        {{ $category->title }}
-
-                                    </h3>
-
-                                    <p class="grey">
-
-                                        {{ $category->description }}
-
-                                    </p>
-
-                                </a>
-
-                            </section>
-
-                        @endforeach
-
-                    </div>
-
-                </div>
-
-            @else
-
-                <div class="alert alert-warning">
-
-                    No hay categorías disponibles.
-
-                </div>
-
-            @endif
-
-
-
-
-
-            <footer class="major">
-
-                <ul class="actions">
-
-                    <li><a href="{{ url('/Products1') }}" class="button blue-template1">Ver Mas Productos</a></li>
-
-                </ul>
-
-            </footer>
-
-        </div>
-
-    </section>
-
-
+    
 
 
 
