@@ -16,7 +16,7 @@
 
             <div class="content">
 
-                    <div style="margin-top: 380px !important;">
+                    <div style="margin-top: 300px !important;">
                         <div class="container">
                             <nav class="navbar navbar-inverse navbar-xs" style="background: #1c1d26;" role="navigation">
                           <!-- Brand and toggle get grouped for better mobile display -->
@@ -72,7 +72,7 @@
 
     @if($product->extension)
 
-        <img class="bt1" src="{{ url("/img_prod/$product->id.$product->extension")}}" class="product_avatar">
+        <img class="bt1" src="{{ url("/products/images/$product->id.$product->extension")}}" class="product_avatar">
 
     @else
 

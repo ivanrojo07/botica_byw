@@ -12,7 +12,7 @@
 
             <div class="content">
 
-                    <div style="margin-top: 380px !important;">
+                    <div style="margin-top: 300px !important;">
                         <div class="container">
                             <nav class="navbar navbar-inverse navbar-xs" style="background: #1c1d26;" role="navigation">
                           <!-- Brand and toggle get grouped for better mobile display -->
@@ -68,7 +68,7 @@
 
     <?php if($product->extension): ?>
 
-        <img class="bt1" src="<?php echo e(url("/img_prod/$product->id.$product->extension")); ?>" class="product_avatar">
+        <img class="bt1" src="<?php echo e(url("/products/images/$product->id.$product->extension")); ?>" class="product_avatar">
 
     <?php else: ?>
 
