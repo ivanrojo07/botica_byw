@@ -16,15 +16,43 @@
 
             <div class="content">
 
+                    <div style="margin-top: 380px !important;">
+                        <div class="container">
+                            <nav class="navbar navbar-inverse navbar-xs" style="background: #1c1d26;" role="navigation">
+                          <!-- Brand and toggle get grouped for better mobile display -->
+                          <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                              <span class="sr-only">Toggle navigation</span>
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="#"><b>Categorías</b></a>
+                          </div>
+
+                          <!-- Collect the nav links, forms, and other content for toggling -->
+                          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                              @foreach ($categories as $category)
+                                  {{-- expr --}}
+                                  <li><a href="#" title="{{$category->description}}" style="font-size: 12px">{{$category->title}}</a></li>
+                              @endforeach
+                                </ul>
+                              </li>
+                            </ul>
+                          </div><!-- /.navbar-collapse -->
+                        </nav>
+                        </div>
+                    </div>
                 <header>
            
-
                     <div class="info-header">
                         <h2 class="satisfic-font">TuFarmaciaLatina.com</h2>
 
                         <p>Enviamos a toda Latinoamerica Incluyendo a VENEZUELA Y CUBA.</p>
 
                         <p class="satisfic-font"><a href="{{ url('/seguimiento')}}">¡Dale Seguimiento a tu pedido!</a></p>
+                        
 
                     </div>
 

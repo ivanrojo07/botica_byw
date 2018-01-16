@@ -10,21 +10,45 @@
 
         <section id="banner">
 
-            
-            <div style="padding-top: -320px !important;">
-                <nav class="navbar navbar-inverse"> <div class="container-fluid"> <div class="navbar-header"> <button type="button" class="collapsed navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a href="#" class="navbar-brand">Brand</a> </div> <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9"> <ul class="nav navbar-nav"> <li class="active"><a href="#">Home</a></li> <li><a href="#">Link</a></li> <li><a href="#">Link</a></li> </ul> </div> </div> </nav>
-            </div>    
             <div class="content">
 
+                    <div style="margin-top: 380px !important;">
+                        <div class="container">
+                            <nav class="navbar navbar-inverse navbar-xs" style="background: #1c1d26;" role="navigation">
+                          <!-- Brand and toggle get grouped for better mobile display -->
+                          <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                              <span class="sr-only">Toggle navigation</span>
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="#"><b>Categorías</b></a>
+                          </div>
+
+                          <!-- Collect the nav links, forms, and other content for toggling -->
+                          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                              <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                  
+                                  <li><a href="#" title="<?php echo e($category->description); ?>" style="font-size: 12px"><?php echo e($category->title); ?></a></li>
+                              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                </ul>
+                              </li>
+                            </ul>
+                          </div><!-- /.navbar-collapse -->
+                        </nav>
+                        </div>
+                    </div>
                 <header>
            
-
                     <div class="info-header">
                         <h2 class="satisfic-font">TuFarmaciaLatina.com</h2>
 
                         <p>Enviamos a toda Latinoamerica Incluyendo a VENEZUELA Y CUBA.</p>
 
                         <p class="satisfic-font"><a href="<?php echo e(url('/seguimiento')); ?>">¡Dale Seguimiento a tu pedido!</a></p>
+                        
 
                     </div>
 
