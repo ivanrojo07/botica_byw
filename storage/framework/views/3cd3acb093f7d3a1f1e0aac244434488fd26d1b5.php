@@ -12,15 +12,44 @@
 
             <div class="content">
 
+                    <div style="margin-top: 300px !important;">
+                        <div class="container">
+                            <nav class="navbar navbar-inverse navbar-xs" style="background: #1c1d26;" role="navigation">
+                          <!-- Brand and toggle get grouped for better mobile display -->
+                          <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                              <span class="sr-only">Toggle navigation</span>
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="#"><b>Categorías</b></a>
+                          </div>
+
+                          <!-- Collect the nav links, forms, and other content for toggling -->
+                          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                              <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                  
+                                  <li><a href="#" title="<?php echo e($category->description); ?>" style="font-size: 12px"><?php echo e($category->title); ?></a></li>
+                              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                </ul>
+                              </li>
+                            </ul>
+                          </div><!-- /.navbar-collapse -->
+                        </nav>
+                        </div>
+                    </div>
                 <header>
            
-
                     <div class="info-header">
                         <h2 class="satisfic-font">TuFarmaciaLatina.com</h2>
 
                         <p>Enviamos a toda Latinoamerica Incluyendo a VENEZUELA Y CUBA.</p>
 
                         <p class="satisfic-font"><a href="<?php echo e(url('/seguimiento')); ?>">¡Dale Seguimiento a tu pedido!</a></p>
+                        <p class="statisfic-font"><a href="<?php echo e(url('/Products1')); ?>">¡COMPRAR!</a>
+                        
 
                     </div>
 
@@ -40,7 +69,7 @@
 
     <?php if($product->extension): ?>
 
-        <img class="bt1" src="<?php echo e(url("/img_prod/$product->id.$product->extension")); ?>" class="product_avatar">
+        <img class="bt1" src="<?php echo e(url("/products/images/$product->id.$product->extension")); ?>" class="product_avatar">
 
     <?php else: ?>
 
@@ -94,193 +123,6 @@
         </section>
 
     </div>
-
-    <!-- One -->
-
-    <section id="one" class="spotlight style1 left">
-
-
-
-        <div class="content">
-
-
-            <header>
-
-                <h2>Servicios</h2>
-
-            </header>
-
-            <p>En TuFarmaciaLatina todos los servicios que ofrecemos cuentan con el respaldo sanitario y la seriedad de
-
-                profesionales de alto nivel, que aporta un valor añadido para prevenir la enfermedad, incrementar su
-
-                nivel de salud y aportar información.</p>
-
-            <ul class="actions">
-
-                <li><a href="<?php echo e(url('/servicios')); ?>" class="button">Servicios</a></li>
-
-            </ul>
-
-        </div>
-
-
-
-    </section>
-
-
-
-    <!-- Two -->
-
-    <section id="two" class="spotlight style2 right">
-
-
-
-        <div class="content">
-
-            <header>
-
-                <h2>Servicio de Atención Social</h2>
-
-            </header>
-
-            <p>Parte de nuestro servicio esta destinado a ayudar a las personas que no tengan recursos. Este servicio
-
-                social se trabaja conjuntamente con las Iglesias Cristianas. Algunos productos necesitan la Prescripción
-
-                de su Doctor. No Prescribimos Recetas para Medicinas solo suplimos la venta de la medicina y el envío a
-
-                su familiar en su país.</p>
-
-            <ul class="actions">
-
-                <li><a href="#" class="button">Leer Mas</a></li>
-
-            </ul>
-
-        </div>
-
-
-
-    </section>
-
-
-
-    <!-- Three -->
-
-    <section id="three" class="spotlight style3 left	">
-
-        <div class="content">
-
-            <header>
-
-                <h2>Entregamos en toda América Latina incluyendo VENEZUELA y CUBA.</h2>
-
-
-
-            </header>
-
-            <p> El tiempo de despacho se realizara una vez el pago sea confirmado.En el caso de Cuba usted puede recoger
-
-                su Medicina en Cuba de 5 a 7 días laborables en Provincia Habana en los puntos de recogidas. De 7-10
-
-                días en las provincias del interior. Usted puede optar por ir a recoger su paquete o que se lo entreguen
-
-                en su casa.
-
-            <ul class="actions">
-
-                <li><a href="#" class="button">Envios</a></li>
-
-            </ul>
-
-        </div>
-
-    </section>
-
-    <!--<section class="spotlight style1 top">
-
-    <div class="content">
-
-        <div class="container">
-
-            <div class="">
-
-        <header>
-
-            <h2 class="text-center">Suscríbete para recibir nuestras nuevas ofertas!!</h2>
-
-        </header>
-
-
-
-        <ul class="actions actiones">
-
-        <form action="">
-
-            <li><input type="email" placeholder="Agrega tu email"></li>
-
-            <li><input type="submit" class="button" value="Suscríbete"></li>
-
-            </form>
-
-
-
-        </ul>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>-->
-
-
-
- <!--   <section id="envios" class="spotlight style1 top">
-
-        <div class="content">
-
-            <div class="container ">
-
-                <div class="">
-
-                    <header>
-
-                        <h2 class="text-center">Haz click para envios a: </h2>
-
-                    </header>
-
-                    <ul class="actions">
-
-                        <li class="ven"><a href="https://rxlatinmeds.clickfunnels.com/phone-order-venezuela"
-
-                                           class="button">Venezuela</a>
-
-                        </li>
-
-                        <li class="cuba"><a href="https://rxlatinmeds.clickfunnels.com/phone-order-cuba" class="button">Cuba</a>
-
-                        </li>
-
-                    </ul>
-
-                </div>
-
-            </div>
-
-            <br>
-
-        </div>
-
-    </section>-->
-
-
-
-
-
-
 
     <!-- Four -->
 
@@ -369,6 +211,94 @@
     </section>
 
 
+
+    
+
+    <!--<section class="spotlight style1 top">
+
+    <div class="content">
+
+        <div class="container">
+
+            <div class="">
+
+        <header>
+
+            <h2 class="text-center">Suscríbete para recibir nuestras nuevas ofertas!!</h2>
+
+        </header>
+
+
+
+        <ul class="actions actiones">
+
+        <form action="">
+
+            <li><input type="email" placeholder="Agrega tu email"></li>
+
+            <li><input type="submit" class="button" value="Suscríbete"></li>
+
+            </form>
+
+
+
+        </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>-->
+
+
+
+ <!--   <section id="envios" class="spotlight style1 top">
+
+        <div class="content">
+
+            <div class="container ">
+
+                <div class="">
+
+                    <header>
+
+                        <h2 class="text-center">Haz click para envios a: </h2>
+
+                    </header>
+
+                    <ul class="actions">
+
+                        <li class="ven"><a href="https://rxlatinmeds.clickfunnels.com/phone-order-venezuela"
+
+                                           class="button">Venezuela</a>
+
+                        </li>
+
+                        <li class="cuba"><a href="https://rxlatinmeds.clickfunnels.com/phone-order-cuba" class="button">Cuba</a>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <br>
+
+        </div>
+
+    </section>-->
+
+
+
+
+
+
+
+    
 
 
 

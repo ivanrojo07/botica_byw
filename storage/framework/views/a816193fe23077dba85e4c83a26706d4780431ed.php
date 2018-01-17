@@ -89,7 +89,7 @@
 
                     <div class="form-group">
 
-                        <?php echo Form::text ('title', null, ['class' => 'form-control btn-search', 'placeholder' => 'buscar tu medicamento', 'aria-describedby' => 'search']); ?>
+                        <?php echo Form::text ('title', null, ['class' => 'col-sm-3 form-control btn-search', 'placeholder' => 'buscar tu medicamento', 'aria-describedby' => 'search']); ?>
 
 
                     </div>
@@ -263,6 +263,7 @@
 
 
 
+
     <footer id="footer">
 
          
@@ -316,7 +317,6 @@
 
 
     </footer>
-
 </div>
 
 <!-- Scripts -->

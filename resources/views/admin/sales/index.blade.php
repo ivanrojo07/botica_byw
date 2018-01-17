@@ -168,37 +168,47 @@
 
                                     <td>
 
-                                        {{-- {{ $sale->shoppingcart->id }} --}}
+                                        {{ $sale->shoppingcart->id }}
 
                                     </td>
 
                                     <td>
-{{-- 
+
                                         {{ ($sale->shoppingcart->user_id != null )
 
                                             ? '#'.$sale->shoppingcart->user->id . ' ' . $sale->shoppingcart->user->email
 
                                             : 'Invitado'
 
-                                        }} --}}
+                                        }}
+
+                                    </td>
+
+                                    <td>
+                                        @if (count($sale->product) == 0)
+                                            {{-- true expr --}}
+                                            no existe el producto
+                                        @else
+                                            {{ $sale->product->title }}
+                                            {{-- false expr --}}
+                                        @endif
 
                                     </td>
 
                                     <td>
 
-                                        {{-- {{ $sale->product->title }} --}}
+                                        {{ $sale->qty }}
 
                                     </td>
 
                                     <td>
-
-                                        {{-- {{ $sale->qty }} --}}
-
-                                    </td>
-
-                                    <td>
-
-                                        {{-- {{ $sale->product->codigo_proveedor }} --}}
+                                        @if (count($sale->product) == 0)
+                                            {{-- true expr --}}
+                                            no existe el producto
+                                        @else
+                                            {{ $sale->product->codigo_proveedor }}
+                                            {{-- false expr --}}
+                                        @endif
 
                                     </td>
 

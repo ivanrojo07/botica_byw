@@ -155,7 +155,8 @@ class SalesController extends Controller {
 
 
 
-        return view('admin.sales.index', compact('sales', 'count_products', 'users', 'user_selected'))->with($old_inputs);
+        // return view('admin.sales.index', compact('sales', 'count_products', 'users', 'user_selected'))->with($old_inputs);
+        return view('admin.sales.index', ['sales'=>$sales, 'count_products'=>$count_products, 'users'=>$users, 'user_selected'=>$user_selected])->with($old_inputs);
 
     }
 
