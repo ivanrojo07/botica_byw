@@ -27,7 +27,7 @@
                               <span class="icon-bar"></span>
                               <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="#"><b>Categorías</b></a>
+                            <a class="navbar-brand" href="#productos"><b>Categorías</b></a>
                           </div>
 
                           <!-- Collect the nav links, forms, and other content for toggling -->
@@ -35,7 +35,7 @@
                             <ul class="nav navbar-nav">
                               @foreach ($categories as $category)
                                   {{-- expr --}}
-                                  <li><a href="#" title="{{$category->description}}" style="font-size: 12px">{{$category->title}}</a></li>
+                                  <li><a href="{{ url('/Products1?category=' . $category->slug) }}" title="{{$category->description}}" style="font-size: 12px">{{$category->title}}</a></li>
                               @endforeach
                                 </ul>
                               </li>

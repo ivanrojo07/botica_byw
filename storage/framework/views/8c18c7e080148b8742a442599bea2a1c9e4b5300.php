@@ -23,7 +23,7 @@
                               <span class="icon-bar"></span>
                               <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="#"><b>Categorías</b></a>
+                            <a class="navbar-brand" href="#productos"><b>Categorías</b></a>
                           </div>
 
                           <!-- Collect the nav links, forms, and other content for toggling -->
@@ -31,7 +31,7 @@
                             <ul class="nav navbar-nav">
                               <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                   
-                                  <li><a href="#" title="<?php echo e($category->description); ?>" style="font-size: 12px"><?php echo e($category->title); ?></a></li>
+                                  <li><a href="<?php echo e(url('/Products1?category=' . $category->slug)); ?>" title="<?php echo e($category->description); ?>" style="font-size: 12px"><?php echo e($category->title); ?></a></li>
                               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </ul>
                               </li>
