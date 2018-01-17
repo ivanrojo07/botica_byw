@@ -16,7 +16,7 @@
 
             <div class="content">
 
-                    <div style="margin-top: 300px !important;">
+                    <div style="margin-top: 380px !important;">
                         <div class="container">
                             <nav class="navbar navbar-inverse navbar-xs" style="background: #1c1d26;" role="navigation">
                           <!-- Brand and toggle get grouped for better mobile display -->
