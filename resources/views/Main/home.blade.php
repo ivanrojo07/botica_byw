@@ -33,9 +33,12 @@
                           <!-- Collect the nav links, forms, and other content for toggling -->
                           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav">
+                                <?php $count = 0; ?>
                               @foreach ($categories as $category)
                                   {{-- expr --}}
+                                  <?php if($count == 8) break; ?>
                                   <li><a href="{{ url('/Products1?category=' . $category->slug) }}" title="{{$category->description}}" style="font-size: 12px">{{$category->title}}</a></li>
+                                    <?php $count++; ?>
                               @endforeach
                                 </ul>
                               </li>
@@ -46,7 +49,7 @@
                     </div>
                 <header>
            
-                    <div class="info-header">
+                    <div class="info-header" style="margin-top: -410px !important">
                         <h2 class="satisfic-font">TuFarmaciaLatina.com</h2>
 
                         <p>Enviamos a toda Latinoamerica Incluyendo a VENEZUELA Y CUBA.</p>
@@ -73,7 +76,7 @@
 
     @if($product->extension)
 
-        <img class="bt1" src="{{ url("/products/images/$product->id.$product->extension")}}" class="product_avatar">
+        <img class="bt1" src="{{ url("/img_prod/$product->id.$product->extension")}}" class="product_avatar">
 
     @else
 
@@ -152,9 +155,9 @@
                 <div class="box alt">
 
                     <div class="row uniform category">
-
+                        <?php $count = 0; ?>
                         @foreach($categories as $index => $category)
-
+                            <?php if($count == 6) break; ?>
                             <section
 
                                     class="{{ ((($index+1)%3) == 0) ? '4u$ 6u(medium) 12u$(xsmall)' : '4u 6u(medium) 12u$(xsmall)' }}">
@@ -176,7 +179,7 @@
                                 </a>
 
                             </section>
-
+                            <?php $count++; ?>
                         @endforeach
 
                     </div>

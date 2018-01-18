@@ -11,10 +11,11 @@
 			<div id="productos" class="container">
 
 		<header class="major">
-			<img src="{{ asset('/images/copa-courier-logo.jpg') }}" width="auto" height="144">
-			<img src="{{ asset('/images/sky-conexionlogomodificado.png') }}" width="auto" height="144">
+			<img src="{{ asset('/img/copa.jpg') }}">
+			<img src="{{ asset('/img/sky.png') }}">
 			<br>
 			<br>
+      <br>
 
 			<h2 class="grey satisfic-font font1">Aqui podras darle seguimiento a tu Pedido</h2>
 
@@ -55,7 +56,7 @@
         <div class="col-lg-7 col-md-6">
 			<div class="product col-xs-12">
               <div class="image-container col-lg-3 col-md-4 col-xs-2">
-                <img src="//i2.linio.com/p/4d2d2504dbe3e372a13326fd92010229-product.jpg" height="100" width="auto">
+                <img src="{{ asset('/img/12.jpg') }}" height="100" width="auto">
               </div>
               <div class="detail-container col-lg-9 col-md-8 col-xs-10">
                 <h4 class="col-xs-12" style="color:black;">Receta #234131562</h4>
@@ -92,6 +93,15 @@
       </div>
 
 <br><br><br><br>
+    {{-- <div class="jumbotron">
+      <div class="panel panel-default" >
+        <div class="panel-heading" style="background: #F5F5F5;">Pedido No. 234131562 <br>Comprado el 03/01/18 Total: $93.90 <button class="btn btn-default pull-right">Ver pedido</button></div>
+        <div class="panel-body">
+          Panel content
+        </div>
+      </div>
+    </div> --}}
+
 
 				</section>
 
