@@ -167,30 +167,50 @@
 
                                     <td>
 
-                                        
-
-                                    </td>
-
-                                    <td>
+                                        <?php echo e($sale->shoppingcart->id); ?>
 
 
                                     </td>
 
                                     <td>
 
-                                        
+                                        <?php echo e(($sale->shoppingcart->user_id != null )
+
+                                            ? '#'.$sale->shoppingcart->user->id . ' ' . $sale->shoppingcart->user->email
+
+                                            : 'Invitado'); ?>
+
+
+                                    </td>
+
+                                    <td>
+                                        <?php if(count($sale->product) == 0): ?>
+                                            
+                                            no existe el producto
+                                        <?php else: ?>
+                                            <?php echo e($sale->product->title); ?>
+
+                                            
+                                        <?php endif; ?>
 
                                     </td>
 
                                     <td>
 
-                                        
+                                        <?php echo e($sale->qty); ?>
+
 
                                     </td>
 
                                     <td>
+                                        <?php if(count($sale->product) == 0): ?>
+                                            
+                                            no existe el producto
+                                        <?php else: ?>
+                                            <?php echo e($sale->product->codigo_proveedor); ?>
 
-                                        
+                                            
+                                        <?php endif; ?>
 
                                     </td>
 

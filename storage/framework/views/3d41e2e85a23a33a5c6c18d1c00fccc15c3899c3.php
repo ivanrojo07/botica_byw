@@ -76,7 +76,7 @@
 
         <nav id="nav">
 
-            <ul>
+            <ul style="font-size: 12px;">
 
                 <li>
 
