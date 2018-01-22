@@ -9,10 +9,11 @@
 			<div id="productos" class="container">
 
 		<header class="major">
-			<img src="<?php echo e(asset('/images/copa-courier-logo.jpg')); ?>" width="auto" height="144">
-			<img src="<?php echo e(asset('/images/sky-conexionlogomodificado.png')); ?>" width="auto" height="144">
+			<img src="<?php echo e(asset('/img/copa.jpg')); ?>">
+			<img src="<?php echo e(asset('/img/sky.png')); ?>">
 			<br>
 			<br>
+      <br>
 
 			<h2 class="grey satisfic-font font1">Aqui podras darle seguimiento a tu Pedido</h2>
 
@@ -53,7 +54,7 @@
         <div class="col-lg-7 col-md-6">
 			<div class="product col-xs-12">
               <div class="image-container col-lg-3 col-md-4 col-xs-2">
-                <img src="//i2.linio.com/p/4d2d2504dbe3e372a13326fd92010229-product.jpg" height="100" width="auto">
+                <img src="<?php echo e(asset('/img/12.jpg')); ?>" height="100" width="auto">
               </div>
               <div class="detail-container col-lg-9 col-md-8 col-xs-10">
                 <h4 class="col-xs-12" style="color:black;">Receta #234131562</h4>
@@ -90,6 +91,8 @@
       </div>
 
 <br><br><br><br>
+    
+
 
 				</section>
 

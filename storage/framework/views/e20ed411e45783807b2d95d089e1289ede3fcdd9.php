@@ -58,7 +58,7 @@
 
     <?php if($product->extension): ?>
 
-        <img class="bt1" src="<?php echo e(url("/products/images/$product->id.$product->extension")); ?>" class="product_avatar">
+        <img class="bt1" src="<?php echo e(url("/img_prod/$product->id.$product->extension")); ?>" class="product_avatar">
 
     <?php else: ?>
 

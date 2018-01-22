@@ -1,0 +1,36 @@
+.button {font-size:0; line-height:0;}
+.videoThumb span {overflow:hidden; width:94px; height:68px;}
+
+#mainHeader {height:56px;}
+#mainHeader .right {padding-bottom:0; height:56px;}
+#mainHeader .mainMenu li { width:50px;}
+
+#slider {margin-top:60px;}
+#heading {margin-top:60px;}
+
+#slider .thumbnail img {z-index:-1;}
+#slider .text{z-index:1;}
+#sliderNav { margin-right:0;}
+
+#breadcrumbs {z-index:2; position:relative;}
+
+#center {position:relative;}
+#content { position:relative;}
+#sidebar {position:relative; margin-right:0;}
+
+#tabs li {width:100px;}
+#tabMask {width:230px; overflow:hidden; position:relative;}
+#tabNav {height:30px; position:static;}
+#tabNav .viewAll {position:static; margin-top:-25px;}
+
+#portofolioSlider {overflow:hidden; width:960px; height:275px;}
+#portofolioSlider .carousel .jcarousel-clip { width:920px;}
+#portofolioSlider .controls .navigation {width:90px;}
+#newsletter .signUpButton, #footerWidgets .contactForm .button, #slider .learnMore {font-size: 0px;	display:block; line-height: 0px;}
+
+#footerWidgets .lastComments p:before {content: &#8220;;}
+#footerWidgets .lastComments p:after {content: &#8221;;}
+
+#content #projectBrowser .navigation {width:75px; margin-bottom:-10px;}
+
+#content .postDate {width:75px;}

@@ -29,9 +29,12 @@
                           <!-- Collect the nav links, forms, and other content for toggling -->
                           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav">
+                                <?php $count = 0; ?>
                               <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                   
+                                  <?php if($count == 8) break; ?>
                                   <li><a href="<?php echo e(url('/Products1?category=' . $category->slug)); ?>" title="<?php echo e($category->description); ?>" style="font-size: 12px"><?php echo e($category->title); ?></a></li>
+                                    <?php $count++; ?>
                               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </ul>
                               </li>
@@ -42,7 +45,7 @@
                     </div>
                 <header>
            
-                    <div class="info-header">
+                    <div class="info-header" style="margin-top: -410px !important">
                         <h2 class="satisfic-font">TuFarmaciaLatina.com</h2>
 
                         <p>Enviamos a toda Latinoamerica Incluyendo a VENEZUELA Y CUBA.</p>
@@ -69,7 +72,7 @@
 
     <?php if($product->extension): ?>
 
-        <img class="bt1" src="<?php echo e(url("/products/images/$product->id.$product->extension")); ?>" class="product_avatar">
+        <img class="bt1" src="<?php echo e(url("/img_prod/$product->id.$product->extension")); ?>" class="product_avatar">
 
     <?php else: ?>
 
@@ -149,9 +152,9 @@
                 <div class="box alt">
 
                     <div class="row uniform category">
-
+                        <?php $count = 0; ?>
                         <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-
+                            <?php if($count == 6) break; ?>
                             <section
 
                                     class="<?php echo e(((($index+1)%3) == 0) ? '4u$ 6u(medium) 12u$(xsmall)' : '4u 6u(medium) 12u$(xsmall)'); ?>">
@@ -175,7 +178,7 @@
                                 </a>
 
                             </section>
-
+                            <?php $count++; ?>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                     </div>

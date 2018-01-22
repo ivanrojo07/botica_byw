@@ -6512,7 +6512,7 @@
 
 		.info-header{
 
-			padding-top: 85px !important;
+			padding-top: 450px !important;
 
 		}
 
@@ -6558,7 +6558,7 @@
 
 				vertical-align: middle;
 
-				width: 20em;
+				width: 26em;
 
 			}
 
@@ -6641,14 +6641,6 @@
 		text-align: center;
 
 		height: 200px !important;
-		/*width: -webkit-fill-available !important;*/
-		/*position: sticky;
-		/*margin-top: 150px;  negative value of footer height */
-		/*  height: 150px;
-		  clear:both;
-		  padding-top:20px;
-	    left: 0;
-	    bottom: 0;*/
 
 		
 
@@ -8176,7 +8168,7 @@ a:hover
 
 	padding: 20px;
 
-	margin-right: -500px !important;
+	margin-right: -550px !important;
 
 	border-radius: 10px;
 
@@ -8441,6 +8433,7 @@ height: 260px;
 }
 
 .bt1{
+    margin-bottom: 15px;
 
 	width: 150px !important; height: 150px !important;
 

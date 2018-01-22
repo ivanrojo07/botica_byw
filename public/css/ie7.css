@@ -1,0 +1,31 @@
+.button {font-size:0; line-height:0;}
+.priceMask {position:relative;}
+
+#slider .thumbnail img {z-index:-1;}
+
+#breadcrumbs {z-index:2; position:relative;}
+
+#tabMask {width:230px; overflow:hidden; position:relative;}
+#tabNav {height:30px; position:static;}
+#tabNav .viewAll {position:static; margin-top:-25px;}
+
+#center .projectGallery .controls {padding-top:4px;}
+
+#content .contact hr {margin:15px 0 35px;}
+#content .contact p {clear:both;}
+
+#content .contact .formText {float:left;} 
+
+#content .contact .messageBox {clear:both;}
+#content .contact .textarea .top {margin-bottom:-1px;}
+#content .contact .textarea .bottom {margin-top:-1px;}
+
+#content #comments .grid_10 {margin-left:0;}
+#content #comments .grid_8 {margin-left:0;}
+#content #commentsForm .textarea textarea {padding:5px 10px 20px 30px; width:425px; height:73px; overflow:auto;}
+
+#portofolioSlider .controls .navigation {width:90px;}
+#newsletter .signUpButton, #footerWidgets .contactForm .button, #slider .learnMore {font-size: 0px;	display:block; line-height: 0px;}
+
+#footerWidgets .lastComments p:before {content: &#8220;}
+#footerWidgets .lastComments p:after {content: &#8221;}
