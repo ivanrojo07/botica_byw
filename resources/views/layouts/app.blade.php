@@ -8,7 +8,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 
 
@@ -23,6 +23,12 @@
 
 
     <!-- Styles -->
+
+    <!--Import materialize.css-->
+    {{-- <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/> --}}
+
+    <!--Let browser know website is optimized for mobile-->
+
 
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
 
@@ -302,6 +308,7 @@
         </div>
 
        <ul class="copyright">
+        <a class="btn btn-floating pulse"><i class="material-icons">menu</i></a>
 
                     <li>&copy; Untitled. All rights reserved.</li>
 
@@ -319,6 +326,10 @@
 
 
 <script src="{{ url('/js/jquery.min.js') }}"></script>
+
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
