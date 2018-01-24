@@ -23,6 +23,8 @@
 
 
     <!-- Styles -->
+    <!-- ByW -->
+        <link href="css/byw.min.css" rel="stylesheet">
 
     <!--Import materialize.css-->
     {{-- <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/> --}}
@@ -43,8 +45,14 @@
           href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/responsive.css') }}">
 
     <link rel="stylesheet" href="{{ asset('css/main.css') }}"/>
+    <link href="js/plugins/owl-carousel/owl.carousel.css" rel="stylesheet">
+    <link href="js/plugins/owl-carousel/owl.theme.css" rel="stylesheet">
+    <link href="js/plugins/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
 
     <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css"
 
@@ -308,7 +316,7 @@
         </div>
 
        <ul class="copyright">
-        <a class="btn btn-floating pulse"><i class="material-icons">menu</i></a>
+
 
                     <li>&copy; Untitled. All rights reserved.</li>
 
@@ -338,6 +346,7 @@
 <script src="{{ url('/js/editable.js') }}"></script>
 
 <script src="{{ url('/js/app.js') }}"></script>
+
 
 @yield('scripts')
 

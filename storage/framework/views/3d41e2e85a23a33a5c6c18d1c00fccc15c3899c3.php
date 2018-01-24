@@ -23,6 +23,8 @@
 
 
     <!-- Styles -->
+    <!-- ByW -->
+        <link href="css/byw.min.css" rel="stylesheet">
 
     <!--Import materialize.css-->
     
@@ -43,8 +45,14 @@
           href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('/css/responsive.css')); ?>">
 
     <link rel="stylesheet" href="<?php echo e(asset('css/main.css')); ?>"/>
+    <link href="js/plugins/owl-carousel/owl.carousel.css" rel="stylesheet">
+    <link href="js/plugins/owl-carousel/owl.theme.css" rel="stylesheet">
+    <link href="js/plugins/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
 
     <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css"
 
@@ -313,7 +321,7 @@
         </div>
 
        <ul class="copyright">
-        <a class="btn btn-floating pulse"><i class="material-icons">menu</i></a>
+
 
                     <li>&copy; Untitled. All rights reserved.</li>
 
@@ -343,6 +351,7 @@
 <script src="<?php echo e(url('/js/editable.js')); ?>"></script>
 
 <script src="<?php echo e(url('/js/app.js')); ?>"></script>
+
 
 <?php echo $__env->yieldContent('scripts'); ?>
 

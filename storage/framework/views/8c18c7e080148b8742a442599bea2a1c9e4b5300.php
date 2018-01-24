@@ -132,7 +132,6 @@
     <section id="four" class="wrapper style1 special fade-up">
 
         <div id="productos" class="container">
-
             <header class="major">
 
                 <h2 class="grey">Categorias</h2>
@@ -146,6 +145,39 @@
                 </p>
 
             </header>
+            <div class="main-container container text-center">
+                <!-- Gallery Grid Starts -->
+            <ul class="row list-unstyled" id="gallery-grid">
+                <?php if(count($categories)): ?>
+                <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    
+            <!-- Gallery Item #1 Starts -->
+                <li class="col-md-4 col-sm-6 col-xs-12 gallery-grid-item" >
+                    <div class="hover-content">
+                        <img src="images/gallery/cuadros/category<?php echo e($index); ?>.jpg" alt="Gallery Image 1" class="img-responsive img-center animation-1">
+                        <div class="overlay animation text-lite-color">
+                            <h6 class="text-uppercase animation-1"><?php echo e($category->description); ?></h6>
+                            <p class="animation-1"><?php echo e($category->title); ?></p>                                     
+                        </div>
+                    </div>
+                </li>    
+            <!-- Gallery Item #1 Ends -->
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
+            
+            </ul>
+        <!-- Gallery Grid Ends -->
+            <?php else: ?>
+
+                <div class="alert alert-warning">
+
+                    No hay categorías disponibles.
+
+                </div>
+
+            <?php endif; ?>
+            </div>
+
+            
 
             <?php if(count($categories)): ?>
 
@@ -300,7 +332,6 @@
 
 
 
-
     
 
 
@@ -309,5 +340,17 @@
 
 <?php $__env->stopSection(); ?>
 
+<?php $__env->startSection('scripts'); ?>
+    
+    <script src="<?php echo e(url('js/jquery-1.12.4.min.js')); ?>"></script>
+    <script src="<?php echo e(url('js/jquery-migrate-1.4.1.min.js')); ?>"></script>
+    <script src="<?php echo e(url('js/bootstrap.min.js')); ?>"></script>
+    <script src="<?php echo e(url('js/plugins/backstretch/jquery.backstretch.min.js')); ?>"></script>
+    <script src="<?php echo e(url('js/plugins/shuffle/jquery.shuffle.modernizr.min.js')); ?>"></script>
+    <script src="<?php echo e(url('js/plugins/owl-carousel/owl.carousel.js')); ?>"></script>
+    <script src="<?php echo e(url('js/plugins/magnific-popup/jquery.magnific-popup.min.js')); ?>"></script>
+    <script src="<?php echo e(url('js/custom.js')); ?>"></script>
+
+<?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

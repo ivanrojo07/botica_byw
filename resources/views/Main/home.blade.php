@@ -135,7 +135,6 @@
     <section id="four" class="wrapper style1 special fade-up">
 
         <div id="productos" class="container">
-
             <header class="major">
 
                 <h2 class="grey">Categorias</h2>
@@ -149,6 +148,39 @@
                 </p>
 
             </header>
+            <div class="main-container container text-center">
+                <!-- Gallery Grid Starts -->
+            <ul class="row list-unstyled" id="gallery-grid">
+                @if(count($categories))
+                @foreach ($categories as $index => $category)
+                    {{-- expr --}}
+            <!-- Gallery Item #1 Starts -->
+                <li class="col-md-4 col-sm-6 col-xs-12 gallery-grid-item" >
+                    <div class="hover-content">
+                        <img src="images/gallery/cuadros/category{{$index}}.jpg" alt="Gallery Image 1" class="img-responsive img-center animation-1">
+                        <div class="overlay animation text-lite-color">
+                            <h6 class="text-uppercase animation-1">{{$category->description}}</h6>
+                            <p class="animation-1">{{$category->title}}</p>                                     
+                        </div>
+                    </div>
+                </li>    
+            <!-- Gallery Item #1 Ends -->
+                @endforeach 
+            
+            </ul>
+        <!-- Gallery Grid Ends -->
+            @else
+
+                <div class="alert alert-warning">
+
+                    No hay categorías disponibles.
+
+                </div>
+
+            @endif
+            </div>
+
+            
 
             @if(count($categories))
 
@@ -402,7 +434,6 @@
 
 
 
-
     
 
 
@@ -411,3 +442,15 @@
 
 @endsection
 
+@section('scripts')
+    {{-- expr --}}
+    <script src="{{ url('js/jquery-1.12.4.min.js') }}"></script>
+    <script src="{{ url('js/jquery-migrate-1.4.1.min.js') }}"></script>
+    <script src="{{ url('js/bootstrap.min.js') }}"></script>
+    <script src="{{ url('js/plugins/backstretch/jquery.backstretch.min.js') }}"></script>
+    <script src="{{ url('js/plugins/shuffle/jquery.shuffle.modernizr.min.js') }}"></script>
+    <script src="{{ url('js/plugins/owl-carousel/owl.carousel.js') }}"></script>
+    <script src="{{ url('js/plugins/magnific-popup/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ url('js/custom.js') }}"></script>
+
+@endsection
