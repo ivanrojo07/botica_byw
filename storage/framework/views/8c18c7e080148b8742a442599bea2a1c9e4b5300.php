@@ -12,7 +12,7 @@
 
             <div class="content">
 
-                    <div style="margin-top: 250px !important;">
+                    <div style="margin-top: 260px !important;">
                         <div class="container">
                             <nav class="navbar navbar-inverse navbar-xs" style="background: #1c1d26;" role="navigation">
                           <!-- Brand and toggle get grouped for better mobile display -->
@@ -118,7 +118,7 @@
                 <span class="image"></span>
 
             </div>
-            <header style="margin-top: -125px !important;" class="content">
+            <header style="margin-top: -110px !important;" class="content">
                 
             
             <div id="carousel-example" class="carousel slide hidden-xs" data-ride="carousel">
@@ -131,7 +131,14 @@
                         <div class="col-sm-3">
                             <div class="col-item">
                                 <div class="photo">
-                                    <img src="<?php echo e(url("/img_prod/$product0->id.$product0->extension")); ?>" class="img-responsive" alt="a" />
+                                    <img src=
+                                    <?php if($product0->extension): ?>
+                                        
+                                        "<?php echo e(url("/img_prod/$product0->id.$product0->extension")); ?>"
+                                    <?php else: ?>
+                                        
+                                        "<?php echo e(asset('img/12.jpg')); ?>"
+                                    <?php endif; ?> class="img-responsive" alt="a" />
                                 </div>
                                 <div class="info">
                                     <div class="row">
@@ -181,7 +188,13 @@
                         <div class="col-sm-3">
                             <div class="col-item">
                                 <div class="photo">
-                                    <img src="<?php echo e(url("/img_prod/$product1->id.$product1->extension")); ?>" class="img-responsive" alt="a" />
+                                    <img src=<?php if($product0->extension): ?>
+                                        
+                                        "<?php echo e(url("/img_prod/$product0->id.$product0->extension")); ?>"
+                                    <?php else: ?>
+                                        
+                                        "<?php echo e(asset('img/12.jpg')); ?>"
+                                    <?php endif; ?> class="img-responsive" alt="a" width="350px" height="260px" />
                                 </div>
                                 <div class="info">
                                     <div class="row">
@@ -288,56 +301,6 @@
 
             <?php endif; ?>
             </div>
-
-            
-
-            <?php if(count($categories)): ?>
-
-                <div class="box alt">
-
-                    <div class="row uniform category">
-                        <?php $count = 0; ?>
-                        <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <?php if($count == 6) break; ?>
-                            <section
-
-                                    class="<?php echo e(((($index+1)%3) == 0) ? '4u$ 6u(medium) 12u$(xsmall)' : '4u 6u(medium) 12u$(xsmall)'); ?>">
-
-
-                                    <h3 class="grey">
-                                    <a href="<?php echo e(url('/Products1?category=' . $category->slug)); ?>">
-
-                                        <?php echo e($category->title); ?>
-
-
-                                    </a>
-                                    </h3>
-
-                                    <p class="grey">
-
-                                        <?php echo e($category->description); ?>
-
-
-                                    </p>
-
-
-                            </section>
-                            <?php $count++; ?>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
-                    </div>
-
-                </div>
-
-            <?php else: ?>
-
-                <div class="alert alert-warning">
-
-                    No hay categorías disponibles.
-
-                </div>
-
-            <?php endif; ?>
 
 
 

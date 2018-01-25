@@ -8,7 +8,10 @@
 .col-item .photo img
 {
     margin: 0 auto;
-    width: 100%;
+    height: 300px;
+    width: 260px;
+    max-width: 300px;
+    max-height: 260px;
 }
 
 .col-item .info
@@ -1121,6 +1124,7 @@ ul#gallery-filter {
 		.author-bio-img .img-responsive {
 			margin-left: auto;
 			margin-right: auto;
+		
 		}
 		
 /* Blog Comments Area Styles Starts */
@@ -1953,7 +1957,8 @@ ul#gallery-grid li .img-responsive,
 .testimonial-box-wrap {
 	-webkit-border-radius: 5px;
 	   -moz-border-radius: 5px;
-			border-radius: 5px;	
+			border-radius: 5px;
+
 }
 .pricing-table > div:first-of-type {
 	-webkit-border-radius: 5px 5px 0 0;

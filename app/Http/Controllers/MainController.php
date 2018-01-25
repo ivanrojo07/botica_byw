@@ -47,7 +47,7 @@ class MainController extends Controller {
         #obtenemos todas las categorias
 
         // $categories = Category::take(6)->get();
-        $categories = Category::all();
+        $categories = Category::take(9)->get();
 
 
 

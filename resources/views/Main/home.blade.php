@@ -16,7 +16,7 @@
 
             <div class="content">
 
-                    <div style="margin-top: 250px !important;">
+                    <div style="margin-top: 260px !important;">
                         <div class="container">
                             <nav class="navbar navbar-inverse navbar-xs" style="background: #1c1d26;" role="navigation">
                           <!-- Brand and toggle get grouped for better mobile display -->
@@ -121,7 +121,7 @@
                 <span class="image"></span>
 
             </div>
-            <header style="margin-top: -125px !important;" class="content">
+            <header style="margin-top: -110px !important;" class="content">
                 
             
             <div id="carousel-example" class="carousel slide hidden-xs" data-ride="carousel">
@@ -134,7 +134,14 @@
                         <div class="col-sm-3">
                             <div class="col-item">
                                 <div class="photo">
-                                    <img src="{{ url("/img_prod/$product0->id.$product0->extension")}}" class="img-responsive" alt="a" />
+                                    <img src=
+                                    @if ($product0->extension)
+                                        {{-- true expr --}}
+                                        "{{ url("/img_prod/$product0->id.$product0->extension")}}"
+                                    @else
+                                        {{-- false expr --}}
+                                        "{{ asset('img/12.jpg') }}"
+                                    @endif class="img-responsive" alt="a" />
                                 </div>
                                 <div class="info">
                                     <div class="row">
@@ -182,7 +189,13 @@
                         <div class="col-sm-3">
                             <div class="col-item">
                                 <div class="photo">
-                                    <img src="{{ url("/img_prod/$product1->id.$product1->extension")}}" class="img-responsive" alt="a" />
+                                    <img src=@if ($product0->extension)
+                                        {{-- true expr --}}
+                                        "{{ url("/img_prod/$product0->id.$product0->extension")}}"
+                                    @else
+                                        {{-- false expr --}}
+                                        "{{ asset('img/12.jpg') }}"
+                                    @endif class="img-responsive" alt="a" width="350px" height="260px" />
                                 </div>
                                 <div class="info">
                                     <div class="row">
@@ -287,54 +300,6 @@
 
             @endif
             </div>
-
-            
-
-            @if(count($categories))
-
-                <div class="box alt">
-
-                    <div class="row uniform category">
-                        <?php $count = 0; ?>
-                        @foreach($categories as $index => $category)
-                            <?php if($count == 6) break; ?>
-                            <section
-
-                                    class="{{ ((($index+1)%3) == 0) ? '4u$ 6u(medium) 12u$(xsmall)' : '4u 6u(medium) 12u$(xsmall)' }}">
-
-
-                                    <h3 class="grey">
-                                    <a href="{{ url('/Products1?category=' . $category->slug) }}">
-
-                                        {{ $category->title }}
-
-                                    </a>
-                                    </h3>
-
-                                    <p class="grey">
-
-                                        {{ $category->description }}
-
-                                    </p>
-
-
-                            </section>
-                            <?php $count++; ?>
-                        @endforeach
-
-                    </div>
-
-                </div>
-
-            @else
-
-                <div class="alert alert-warning">
-
-                    No hay categorías disponibles.
-
-                </div>
-
-            @endif
 
 
 
