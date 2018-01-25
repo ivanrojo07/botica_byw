@@ -138,19 +138,35 @@
                                 </div>
                                 <div class="info">
                                     <div class="row">
-                                        <div class="price col-md-6">
+                                        <div class="price ">
                                             <h5 class="price-text-color">
                                                 {{$product0->title}}</h5>
                                             <h5 class="price-text-color">
-                                                ${{$product0->pricing}}</h5>
+                                                @if(isset($promotion) && $promotion)
+
+                                                    $ {{$product0->promotion_pricing}} usd
+
+                                                @else
+
+                                                    $ {{$product0->pricing}} usd
+
+                                                @endif</h5>
                                         </div>
                                         
                                     </div>
-                                    <div class="separator clear-left">
-                                        <p class="btn-add">
-                                            <i class="price-text-color fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to cart</a></p>
-                                        <p class="btn-details">
-                                            <i class="price-text-color fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
+                                    <div class="clearfix">
+                                            {!! Form::open(['url' => '/in_shopping_carts', 'method' => 'POST' ]) !!}
+                                            <input type="hidden" name="product_id" value="{{$product0->id}}">
+                                            <input type="hidden" name="qty" value="1" >
+
+                                        <p class="btn">
+                                                     <i class="price-text-color fa fa-shopping-cart"></i><button type="submit" class="btn btn-link hidden-sm">Agregar al carrito</button>
+                                        </p>
+
+
+
+                                            {!! Form::close() !!}
+                                           
                                     </div>
                                     <div class="clearfix">
                                     </div>
@@ -170,18 +186,34 @@
                                 </div>
                                 <div class="info">
                                     <div class="row">
-                                        <div class="price col-md-6">
+                                        <div class="price">
                                             <h5 class="price-text-color">
                                                 {{$product1->title}}</h5>
                                             <h5 class="price-text-color">
-                                                ${{$product1->pricing}}</h5>
+                                                @if(isset($promotion) && $promotion)
+
+                                                    $ {{$product1->promotion_pricing}} usd
+
+                                                @else
+
+                                                    $ {{$product1->pricing}} usd
+
+                                                @endif</h5>
                                         </div>
                                     </div>
-                                    <div class="separator clear-left">
-                                        <p class="btn-add">
-                                            <i class="price-text-color fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to cart</a></p>
-                                        <p class="btn-details">
-                                            <i class="price-text-color fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
+                                    <div class="clearfix">
+                                            {!! Form::open(['url' => '/in_shopping_carts', 'method' => 'POST' ]) !!}
+                                            <input type="hidden" name="product_id" value="{{$product1->id}}">
+                                            <input type="hidden" name="qty" value="1" >
+
+                                        <p class="btn">
+                                                     <i class="price-text-color fa fa-shopping-cart"></i><button type="submit" class="btn btn-link hidden-sm">Agregar al carrito</button>
+                                        </p>
+
+
+
+                                            {!! Form::close() !!}
+                                           
                                     </div>
                                     <div class="clearfix">
                                     </div>
@@ -270,12 +302,13 @@
 
                                     class="{{ ((($index+1)%3) == 0) ? '4u$ 6u(medium) 12u$(xsmall)' : '4u 6u(medium) 12u$(xsmall)' }}">
 
-                                <a href="{{ url('/Products1?category=' . $category->slug) }}">
 
                                     <h3 class="grey">
+                                    <a href="{{ url('/Products1?category=' . $category->slug) }}">
 
                                         {{ $category->title }}
 
+                                    </a>
                                     </h3>
 
                                     <p class="grey">
@@ -284,7 +317,6 @@
 
                                     </p>
 
-                                </a>
 
                             </section>
                             <?php $count++; ?>
@@ -526,7 +558,7 @@
     <script src="{{ url('js/plugins/backstretch/jquery.backstretch.min.js') }}"></script>
     <script src="{{ url('js/plugins/shuffle/jquery.shuffle.modernizr.min.js') }}"></script>
     <script src="{{ url('js/plugins/owl-carousel/owl.carousel.js') }}"></script>
-    <script src="{{ url('js/plugins/magnific-popup/jquery.magnific-popup.min.js') }}"></script>
+    {{-- <script src="{{ url('js/plugins/magnific-popup/jquery.magnific-popup.min.js') }}"></script> --}}
     <script src="{{ url('js/custom.js') }}"></script>
 
 @endsection

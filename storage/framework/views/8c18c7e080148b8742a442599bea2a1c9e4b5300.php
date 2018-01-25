@@ -12,7 +12,7 @@
 
             <div class="content">
 
-                    <div style="margin-top: 380px !important;">
+                    <div style="margin-top: 250px !important;">
                         <div class="container">
                             <nav class="navbar navbar-inverse navbar-xs" style="background: #1c1d26;" role="navigation">
                           <!-- Brand and toggle get grouped for better mobile display -->
@@ -43,7 +43,7 @@
                         </nav>
                         </div>
                     </div>
-                <header>
+                <header style="height: 410px !important">
            
                     <div class="info-header" style="margin-top: -410px !important">
                         <h2 class="satisfic-font">TuFarmaciaLatina.com</h2>
@@ -118,6 +118,116 @@
                 <span class="image"></span>
 
             </div>
+            <header style="margin-top: -125px !important;" class="content">
+                
+            
+            <div id="carousel-example" class="carousel slide hidden-xs" data-ride="carousel">
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <div class="row">
+                        <?php $__currentLoopData = $products0; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product0): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            
+                        <div class="col-sm-3">
+                            <div class="col-item">
+                                <div class="photo">
+                                    <img src="<?php echo e(url("/img_prod/$product0->id.$product0->extension")); ?>" class="img-responsive" alt="a" />
+                                </div>
+                                <div class="info">
+                                    <div class="row">
+                                        <div class="price ">
+                                            <h5 class="price-text-color">
+                                                <?php echo e($product0->title); ?></h5>
+                                            <h5 class="price-text-color">
+                                                <?php if(isset($promotion) && $promotion): ?>
+
+                                                    $ <?php echo e($product0->promotion_pricing); ?> usd
+
+                                                <?php else: ?>
+
+                                                    $ <?php echo e($product0->pricing); ?> usd
+
+                                                <?php endif; ?></h5>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="clearfix">
+                                            <?php echo Form::open(['url' => '/in_shopping_carts', 'method' => 'POST' ]); ?>
+
+                                            <input type="hidden" name="product_id" value="<?php echo e($product0->id); ?>">
+                                            <input type="hidden" name="qty" value="1" >
+
+                                        <p class="btn">
+                                                     <i class="price-text-color fa fa-shopping-cart"></i><button type="submit" class="btn btn-link hidden-sm">Agregar al carrito</button>
+                                        </p>
+
+
+
+                                            <?php echo Form::close(); ?>
+
+                                           
+                                    </div>
+                                    <div class="clearfix">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </div>
+                </div>
+                <div class="item">
+                    <?php $__currentLoopData = $products1; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product1): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            
+                        <div class="col-sm-3">
+                            <div class="col-item">
+                                <div class="photo">
+                                    <img src="<?php echo e(url("/img_prod/$product1->id.$product1->extension")); ?>" class="img-responsive" alt="a" />
+                                </div>
+                                <div class="info">
+                                    <div class="row">
+                                        <div class="price">
+                                            <h5 class="price-text-color">
+                                                <?php echo e($product1->title); ?></h5>
+                                            <h5 class="price-text-color">
+                                                <?php if(isset($promotion) && $promotion): ?>
+
+                                                    $ <?php echo e($product1->promotion_pricing); ?> usd
+
+                                                <?php else: ?>
+
+                                                    $ <?php echo e($product1->pricing); ?> usd
+
+                                                <?php endif; ?></h5>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix">
+                                            <?php echo Form::open(['url' => '/in_shopping_carts', 'method' => 'POST' ]); ?>
+
+                                            <input type="hidden" name="product_id" value="<?php echo e($product1->id); ?>">
+                                            <input type="hidden" name="qty" value="1" >
+
+                                        <p class="btn">
+                                                     <i class="price-text-color fa fa-shopping-cart"></i><button type="submit" class="btn btn-link hidden-sm">Agregar al carrito</button>
+                                        </p>
+
+
+
+                                            <?php echo Form::close(); ?>
+
+                                           
+                                    </div>
+                                    <div class="clearfix">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                </div>
+            </div>
+        </div>
+        </header>
+
+           
 
 
 
@@ -153,6 +263,7 @@
                     
             <!-- Gallery Item #1 Starts -->
                 <li class="col-md-4 col-sm-6 col-xs-12 gallery-grid-item" >
+                    <a href="<?php echo e(url('/Products1?category=' . $category->slug)); ?>">
                     <div class="hover-content">
                         <img src="images/gallery/cuadros/category<?php echo e($index); ?>.jpg" alt="Gallery Image 1" class="img-responsive img-center animation-1">
                         <div class="overlay animation text-lite-color">
@@ -160,6 +271,7 @@
                             <p class="animation-1"><?php echo e($category->title); ?></p>                                     
                         </div>
                     </div>
+                    </a>
                 </li>    
             <!-- Gallery Item #1 Ends -->
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
@@ -191,13 +303,14 @@
 
                                     class="<?php echo e(((($index+1)%3) == 0) ? '4u$ 6u(medium) 12u$(xsmall)' : '4u 6u(medium) 12u$(xsmall)'); ?>">
 
-                                <a href="<?php echo e(url('/Products1?category=' . $category->slug)); ?>">
 
                                     <h3 class="grey">
+                                    <a href="<?php echo e(url('/Products1?category=' . $category->slug)); ?>">
 
                                         <?php echo e($category->title); ?>
 
 
+                                    </a>
                                     </h3>
 
                                     <p class="grey">
@@ -207,7 +320,6 @@
 
                                     </p>
 
-                                </a>
 
                             </section>
                             <?php $count++; ?>
@@ -348,7 +460,7 @@
     <script src="<?php echo e(url('js/plugins/backstretch/jquery.backstretch.min.js')); ?>"></script>
     <script src="<?php echo e(url('js/plugins/shuffle/jquery.shuffle.modernizr.min.js')); ?>"></script>
     <script src="<?php echo e(url('js/plugins/owl-carousel/owl.carousel.js')); ?>"></script>
-    <script src="<?php echo e(url('js/plugins/magnific-popup/jquery.magnific-popup.min.js')); ?>"></script>
+    
     <script src="<?php echo e(url('js/custom.js')); ?>"></script>
 
 <?php $__env->stopSection(); ?>
