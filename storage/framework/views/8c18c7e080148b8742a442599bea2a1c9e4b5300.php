@@ -417,9 +417,9 @@
 
 <?php $__env->startSection('scripts'); ?>
     
-    <script src="<?php echo e(url('js/jquery-1.12.4.min.js')); ?>"></script>
-    <script src="<?php echo e(url('js/jquery-migrate-1.4.1.min.js')); ?>"></script>
-    <script src="<?php echo e(url('js/bootstrap.min.js')); ?>"></script>
+    
+    
+    
     <script src="<?php echo e(url('js/plugins/backstretch/jquery.backstretch.min.js')); ?>"></script>
     <script src="<?php echo e(url('js/plugins/shuffle/jquery.shuffle.modernizr.min.js')); ?>"></script>
     <script src="<?php echo e(url('js/plugins/owl-carousel/owl.carousel.js')); ?>"></script>
