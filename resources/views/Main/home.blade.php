@@ -230,6 +230,7 @@
                     {{-- expr --}}
             <!-- Gallery Item #1 Starts -->
                 <li class="col-md-4 col-sm-6 col-xs-12 gallery-grid-item" >
+                    <a href="{{ url('/Products1?category=' . $category->slug) }}">
                     <div class="hover-content">
                         <img src="images/gallery/cuadros/category{{$index}}.jpg" alt="Gallery Image 1" class="img-responsive img-center animation-1">
                         <div class="overlay animation text-lite-color">
@@ -237,6 +238,7 @@
                             <p class="animation-1">{{$category->title}}</p>                                     
                         </div>
                     </div>
+                    </a>
                 </li>    
             <!-- Gallery Item #1 Ends -->
                 @endforeach 
