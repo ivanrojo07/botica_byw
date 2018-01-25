@@ -16,7 +16,7 @@
 
             <div class="content">
 
-                    <div style="margin-top: 380px !important;">
+                    <div style="margin-top: 250px !important;">
                         <div class="container">
                             <nav class="navbar navbar-inverse navbar-xs" style="background: #1c1d26;" role="navigation">
                           <!-- Brand and toggle get grouped for better mobile display -->
@@ -47,7 +47,7 @@
                         </nav>
                         </div>
                     </div>
-                <header>
+                <header style="height: 410px !important">
            
                     <div class="info-header" style="margin-top: -410px !important">
                         <h2 class="satisfic-font">TuFarmaciaLatina.com</h2>
@@ -121,6 +121,80 @@
                 <span class="image"></span>
 
             </div>
+            <header style="margin-top: -125px !important;" class="content">
+                
+            
+            <div id="carousel-example" class="carousel slide hidden-xs" data-ride="carousel">
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <div class="row">
+                        @foreach ($products0 as $product0)
+                            {{-- expr --}}
+                        <div class="col-sm-3">
+                            <div class="col-item">
+                                <div class="photo">
+                                    <img src="{{ url("/img_prod/$product0->id.$product0->extension")}}" class="img-responsive" alt="a" />
+                                </div>
+                                <div class="info">
+                                    <div class="row">
+                                        <div class="price col-md-6">
+                                            <h5 class="price-text-color">
+                                                {{$product0->title}}</h5>
+                                            <h5 class="price-text-color">
+                                                ${{$product0->pricing}}</h5>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="separator clear-left">
+                                        <p class="btn-add">
+                                            <i class="price-text-color fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to cart</a></p>
+                                        <p class="btn-details">
+                                            <i class="price-text-color fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
+                                    </div>
+                                    <div class="clearfix">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="item">
+                    @foreach ($products1 as $product1)
+                            {{-- expr --}}
+                        <div class="col-sm-3">
+                            <div class="col-item">
+                                <div class="photo">
+                                    <img src="{{ url("/img_prod/$product1->id.$product1->extension")}}" class="img-responsive" alt="a" />
+                                </div>
+                                <div class="info">
+                                    <div class="row">
+                                        <div class="price col-md-6">
+                                            <h5 class="price-text-color">
+                                                {{$product1->title}}</h5>
+                                            <h5 class="price-text-color">
+                                                ${{$product1->pricing}}</h5>
+                                        </div>
+                                    </div>
+                                    <div class="separator clear-left">
+                                        <p class="btn-add">
+                                            <i class="price-text-color fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to cart</a></p>
+                                        <p class="btn-details">
+                                            <i class="price-text-color fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
+                                    </div>
+                                    <div class="clearfix">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                </div>
+            </div>
+        </div>
+        </header>
+
+           
 
 
 

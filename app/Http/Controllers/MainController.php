@@ -26,7 +26,9 @@ class MainController extends Controller {
 
     {
 
-        $products = Product::all();
+        $products0 = Product::inRandomOrder()->take(4)->get();
+        $products1 = Product::inrandomOrder()->take(4)->get();
+
 
 
 
@@ -49,7 +51,7 @@ class MainController extends Controller {
 
 
 
-        return view('Main.home', compact('categories', 'products', 'products_slider'));
+        return view('Main.home', compact('categories', 'products0', 'products1', 'products_slider'));
 
 
 
