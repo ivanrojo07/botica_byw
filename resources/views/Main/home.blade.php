@@ -524,6 +524,6 @@
     <script src="{{ url('js/plugins/shuffle/jquery.shuffle.modernizr.min.js') }}"></script>
     <script src="{{ url('js/plugins/owl-carousel/owl.carousel.js') }}"></script>
     {{-- <script src="{{ url('js/plugins/magnific-popup/jquery.magnific-popup.min.js') }}"></script> --}}
-    <script src="{{ url('js/custom.js') }}"></script>
+    {{-- <script src="{{ url('js/custom.js') }}"></script> --}}
 
 @endsection

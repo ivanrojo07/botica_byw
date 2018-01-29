@@ -424,7 +424,7 @@
     <script src="<?php echo e(url('js/plugins/shuffle/jquery.shuffle.modernizr.min.js')); ?>"></script>
     <script src="<?php echo e(url('js/plugins/owl-carousel/owl.carousel.js')); ?>"></script>
     
-    <script src="<?php echo e(url('js/custom.js')); ?>"></script>
+    
 
 <?php $__env->stopSection(); ?>
 
