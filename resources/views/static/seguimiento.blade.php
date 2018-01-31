@@ -11,7 +11,6 @@
 			<div id="productos" class="container">
 
 		<header class="major">
-			<img src="{{ asset('/img/copa.jpg') }}">
 			<img src="{{ asset('/img/sky.png') }}">
 			<br>
 			<br>
