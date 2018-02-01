@@ -16,7 +16,7 @@
 
             <div class="content">
 
-                    <div style="margin-top: 260px !important;">
+                    <div>
                         <div class="container">
                             <nav class="navbar navbar-inverse navbar-xs" style="background: #1c1d26;" role="navigation">
                           <!-- Brand and toggle get grouped for better mobile display -->
@@ -49,7 +49,7 @@
                     </div>
                 <header style="height: 410px !important">
            
-                    <div class="info-header" style="margin-top: -410px !important">
+                    <div class="info-header">
                         <h2 class="satisfic-font">TuFarmaciaLatina.com</h2>
 
                         <p>Enviamos a toda Latinoamerica Incluyendo a VENEZUELA Y CUBA.</p>
@@ -121,7 +121,7 @@
                 <span class="image"></span>
 
             </div>
-            <header style="margin-top: -110px !important;" class="content">
+            <header class="content">
                 
             
             <div id="carousel-example" class="carousel slide hidden-xs" data-ride="carousel">
