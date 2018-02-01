@@ -72,11 +72,11 @@
 
     <?php if($product->extension): ?>
 
-        <img class="bt1" src="<?php echo e(url("/img_prod/$product->id.$product->extension")); ?>" class="product_avatar">
+        <img class="bt1 animated flash infinite" src="<?php echo e(url("/img_prod/$product->id.$product->extension")); ?>" class="product_avatar">
 
     <?php else: ?>
 
-        <img class="bt1" src="<?php echo e(asset('img/12.jpg')); ?>" class="product_avatar">
+        <img class="bt1 animated flash infinite" src="<?php echo e(asset('img/12.jpg')); ?>" class="product_avatar">
 
     <?php endif; ?>
 
@@ -87,13 +87,13 @@
 
                                         </h4>
 
-                                         <p class="costo orangep">
+                                         <p class="costo orangep animated flash infinite">
 
                                             <?php echo e($product->pricing); ?> USD
 
                                         </p>
 
-                                        <a class="btn btn-primary" href="<?php echo e(url('/Products1')); ?>">Ver Promociones</a>
+                                        <a class="btn btn-primary" style="position: inherit;" href="<?php echo e(url('/Products1')); ?>">Ver Promociones</a>
 
 
 
@@ -425,6 +425,10 @@
     <script src="<?php echo e(url('js/plugins/owl-carousel/owl.carousel.js')); ?>"></script>
     
     
+   
+    <script type="text/javascript" src="<?php echo e(url('js/popper.min.js')); ?>"></script>
+    <script type="text/javascript" src="<?php echo e(url('js/bootstrap.min.js')); ?>"></script>
+    <script type="text/javascript" src="<?php echo e(url('js/mdb.min.js')); ?>"></script>
 
 <?php $__env->stopSection(); ?>
 

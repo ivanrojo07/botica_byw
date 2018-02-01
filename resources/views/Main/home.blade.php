@@ -76,11 +76,11 @@
 
     @if($product->extension)
 
-        <img class="bt1" src="{{ url("/img_prod/$product->id.$product->extension")}}" class="product_avatar">
+        <img class="bt1 animated flash infinite" src="{{ url("/img_prod/$product->id.$product->extension")}}" class="product_avatar">
 
     @else
 
-        <img class="bt1" src="{{ asset('img/12.jpg') }}" class="product_avatar">
+        <img class="bt1 animated flash infinite" src="{{ asset('img/12.jpg') }}" class="product_avatar">
 
     @endif
 
@@ -90,13 +90,13 @@
 
                                         </h4>
 
-                                         <p class="costo orangep">
+                                         <p class="costo orangep animated flash infinite">
 
                                             {{$product->pricing}} USD
 
                                         </p>
 
-                                        <a class="btn btn-primary" href="{{ url('/Products1')}}">Ver Promociones</a>
+                                        <a class="btn btn-primary" style="position: inherit;" href="{{ url('/Products1')}}">Ver Promociones</a>
 
 
 
@@ -525,5 +525,9 @@
     <script src="{{ url('js/plugins/owl-carousel/owl.carousel.js') }}"></script>
     {{-- <script src="{{ url('js/plugins/magnific-popup/jquery.magnific-popup.min.js') }}"></script> --}}
     {{-- <script src="{{ url('js/custom.js') }}"></script> --}}
+   
+    <script type="text/javascript" src="{{ url('js/popper.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url('js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url('js/mdb.min.js') }}"></script>
 
 @endsection

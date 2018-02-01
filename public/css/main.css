@@ -4708,7 +4708,7 @@
 
 		display: inline-block;
 
-		position: relative;
+		position: initial;
 
 		overflow: hidden;
 
@@ -4722,7 +4722,7 @@
 
 			display: block;
 
-			position: absolute;
+			position: static;
 
 			left: 0;
 
@@ -6550,7 +6550,7 @@
 
 			#banner .content .image {
 
-				display: inline-block;
+				display: -webkit-inline-box;
 
 				height: 20em;
 

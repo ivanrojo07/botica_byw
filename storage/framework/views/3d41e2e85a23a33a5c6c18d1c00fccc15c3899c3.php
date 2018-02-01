@@ -46,13 +46,14 @@
 
     <link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('/css/responsive.css')); ?>">
-
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/bootstrap.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('css/main.css')); ?>"/>
     <link href="js/plugins/owl-carousel/owl.carousel.css" rel="stylesheet">
     <link href="js/plugins/owl-carousel/owl.theme.css" rel="stylesheet">
     <link href="js/plugins/magnific-popup/magnific-popup.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo e(asset('css/mdb.min.css')); ?>">
 
     <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css"
 
@@ -341,8 +342,7 @@
 <script src="<?php echo e(url('/js/jquery.min.js')); ?>"></script>
 
 <!--Import jQuery before materialize.js-->
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="js/materialize.min.js"></script>
+ <script type="text/javascript" src="<?php echo e(url('js/jquery-3.1.1.min.js')); ?>"></script>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 

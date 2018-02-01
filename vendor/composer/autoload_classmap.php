@@ -94,7 +94,7 @@ return array(
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreateProductsTable' => $baseDir . '/database/migrations/migrations/2017_04_25_181913_create_products_table.php',
     'CreateShoppingCartsTable' => $baseDir . '/database/migrations/migrations/2017_05_02_071435_create_shopping_carts_table.php',
-    'CreateTrackingOrdensTable' => $baseDir . '/database/migrations/2018_01_29_220008_create_tracking_ordens_table.php',
+    'CreateTrackingTable' => $baseDir . '/database/migrations/2018_01_30_162917_create_tracking_table.php',
     'CreateUserFavoriteProducts' => $baseDir . '/database/migrations/2017_08_11_061846_create_user_favorite_products.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/migrations/2014_10_12_000000_create_users_table.php',
     'Cron\\AbstractField' => $vendorDir . '/mtdowling/cron-expression/src/Cron/AbstractField.php',

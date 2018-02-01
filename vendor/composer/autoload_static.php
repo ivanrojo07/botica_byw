@@ -377,7 +377,7 @@ class ComposerStaticInitd38d9d698b314519b1e00e3097a63845
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateProductsTable' => __DIR__ . '/../..' . '/database/migrations/migrations/2017_04_25_181913_create_products_table.php',
         'CreateShoppingCartsTable' => __DIR__ . '/../..' . '/database/migrations/migrations/2017_05_02_071435_create_shopping_carts_table.php',
-        'CreateTrackingOrdensTable' => __DIR__ . '/../..' . '/database/migrations/2018_01_29_220008_create_tracking_ordens_table.php',
+        'CreateTrackingTable' => __DIR__ . '/../..' . '/database/migrations/2018_01_30_162917_create_tracking_table.php',
         'CreateUserFavoriteProducts' => __DIR__ . '/../..' . '/database/migrations/2017_08_11_061846_create_user_favorite_products.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/migrations/2014_10_12_000000_create_users_table.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
