@@ -54,13 +54,9 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo e(asset('css/mdb.min.css')); ?>">
-
     <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css"
 
           rel="stylesheet"/>
-
-
-
 
 
     <!-- Scripts -->
@@ -104,7 +100,7 @@
 
                     <div class="form-group">
 
-                        <?php echo Form::text ('title', null, ['class' => 'form-control btn-search', 'placeholder' => 'buscar tu medicamento', 'aria-describedby' => 'search']); ?>
+                        <?php echo Form::text ('title', null, ['id'=> 'title', 'class' => 'form-control btn-search autocomplete', 'placeholder' => 'buscar tu medicamento']); ?>
 
 
                     </div>
@@ -351,6 +347,21 @@
 <script src="<?php echo e(url('/js/editable.js')); ?>"></script>
 
 <script src="<?php echo e(url('/js/app.js')); ?>"></script>
+
+<script>
+   $('#title').on('keyup', function(event){
+        
+        addSearchHelp();
+    });
+   function addSearchHelp() {
+    var availableTags = [ "ActionScript", "AppleScript", "Asp", "BASIC",
+            "C", "C++", "Clojure", "COBOL", "ColdFusion", "Erlang",
+            "Fortran", "Groovy", "Haskell", "Java", "JavaScript", "Lisp",
+            "Perl", "PHP", "Python", "Ruby", "Scala", "Scheme" ];
+    $("input#title").autocomplete({source:availableTags, minLength: 2});
+}
+</script>
+
 
 
 <?php echo $__env->yieldContent('scripts'); ?>

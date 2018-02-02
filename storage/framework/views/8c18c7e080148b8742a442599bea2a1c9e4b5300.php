@@ -429,7 +429,6 @@
     <script type="text/javascript" src="<?php echo e(url('js/popper.min.js')); ?>"></script>
     <script type="text/javascript" src="<?php echo e(url('js/bootstrap.min.js')); ?>"></script>
     <script type="text/javascript" src="<?php echo e(url('js/mdb.min.js')); ?>"></script>
-
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
