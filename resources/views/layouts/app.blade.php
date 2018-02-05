@@ -44,6 +44,7 @@
 
           href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
+     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/responsive.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css') }}">
@@ -70,7 +71,6 @@
         ]) !!};
 
     </script>
-
 
 
 </head>
@@ -331,6 +331,8 @@
 
 
 <script src="{{ url('/js/jquery.min.js') }}"></script>
+<script src="{{ url('/js/jquery-1.12.4.min.js') }}"></script>
+<script src="{{ url('/js/jquery-ui.js') }}"></script>
 
 <!--Import jQuery before materialize.js-->
  <script type="text/javascript" src="{{ url('js/jquery-3.1.1.min.js') }}"></script>
@@ -344,18 +346,36 @@
 <script src="{{ url('/js/app.js') }}"></script>
 
 <script>
-   $('#title').on('keyup', function(event){
-        
-        addSearchHelp();
+    $(document).ready(function() {
+    var availableTags = [
+      "ActionScript",
+      "AppleScript",
+      "Asp",
+      "BASIC",
+      "C",
+      "C++",
+      "Clojure",
+      "COBOL",
+      "ColdFusion",
+      "Erlang",
+      "Fortran",
+      "Groovy",
+      "Haskell",
+      "Java",
+      "JavaScript",
+      "Lisp",
+      "Perl",
+      "PHP",
+      "Python",
+      "Ruby",
+      "Scala",
+      "Scheme"
+    ];
+    $( "#title" ).autocomplete({
+      source: availableTags
     });
-   function addSearchHelp() {
-    var availableTags = [ "ActionScript", "AppleScript", "Asp", "BASIC",
-            "C", "C++", "Clojure", "COBOL", "ColdFusion", "Erlang",
-            "Fortran", "Groovy", "Haskell", "Java", "JavaScript", "Lisp",
-            "Perl", "PHP", "Python", "Ruby", "Scala", "Scheme" ];
-    $("input#title").autocomplete({source:availableTags, minLength: 2});
-}
-</script>
+  } );
+  </script>
 
 
 
