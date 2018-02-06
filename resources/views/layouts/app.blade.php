@@ -346,20 +346,34 @@
 <script src="{{ url('/js/app.js') }}"></script>
 
 <script>
-    $(document).ready(function() {
+
+    $(document).ready(function(){
+     $( "#title" ).autocomplete({
+        // alert(products);
+          source: function(request, response) {
         $.ajax({
-            url: "/productslist",
+            url: "productslist",
             type: "GET",
             dataType:"json",
+            data:{products: this.term},
+            success: function (datos){
+                 response( $.map( datos, function( item ) {
+                return {label: item.title, value: item.title, url: item.id};}));
+            }
 
-        }).done(function(result){
-            var products = $.map(result, function(el) { return el });
-
-            // alert(products);
-            $( "#title" ).autocomplete({
-              source: products
-            });
         });
+        },
+          
+          select: function(event, ui){
+            $("#title").val(ui.item.label);
+            window.location.href = "products/"+ui.item.url;
+            
+            
+          }
+        });
+    });
+
+        
     // var availableTags = [
     //   "ActionScript",
     //   "AppleScript",
@@ -384,7 +398,7 @@
     //   "Scala",
     //   "Scheme"
     // ];
-  } );
+    // console.log(products);
   </script>
 
 

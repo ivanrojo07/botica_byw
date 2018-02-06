@@ -44,6 +44,7 @@
 
           href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
+     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('/css/responsive.css')); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/bootstrap.css')); ?>">
@@ -70,7 +71,6 @@
         ]); ?>;
 
     </script>
-
 
 
 </head>
@@ -336,6 +336,8 @@
 
 
 <script src="<?php echo e(url('/js/jquery.min.js')); ?>"></script>
+<script src="<?php echo e(url('/js/jquery-1.12.4.min.js')); ?>"></script>
+<script src="<?php echo e(url('/js/jquery-ui.js')); ?>"></script>
 
 <!--Import jQuery before materialize.js-->
  <script type="text/javascript" src="<?php echo e(url('js/jquery-3.1.1.min.js')); ?>"></script>
@@ -349,18 +351,60 @@
 <script src="<?php echo e(url('/js/app.js')); ?>"></script>
 
 <script>
-   $('#title').on('keyup', function(event){
-        
-        addSearchHelp();
+
+    $(document).ready(function(){
+     $( "#title" ).autocomplete({
+        // alert(products);
+          source: function(request, response) {
+        $.ajax({
+            url: "productslist",
+            type: "GET",
+            dataType:"json",
+            data:{products: this.term},
+            success: function (datos){
+                 response( $.map( datos, function( item ) {
+                return {label: item.title, value: item.title, url: item.id};}));
+            }
+
+        });
+        },
+          
+          select: function(event, ui){
+            $("#title").val(ui.item.label);
+            window.location.href = "products/"+ui.item.url;
+            
+            
+          }
+        });
     });
-   function addSearchHelp() {
-    var availableTags = [ "ActionScript", "AppleScript", "Asp", "BASIC",
-            "C", "C++", "Clojure", "COBOL", "ColdFusion", "Erlang",
-            "Fortran", "Groovy", "Haskell", "Java", "JavaScript", "Lisp",
-            "Perl", "PHP", "Python", "Ruby", "Scala", "Scheme" ];
-    $("input#title").autocomplete({source:availableTags, minLength: 2});
-}
-</script>
+
+        
+    // var availableTags = [
+    //   "ActionScript",
+    //   "AppleScript",
+    //   "Asp",
+    //   "BASIC",
+    //   "C",
+    //   "C++",
+    //   "Clojure",
+    //   "COBOL",
+    //   "ColdFusion",
+    //   "Erlang",
+    //   "Fortran",
+    //   "Groovy",
+    //   "Haskell",
+    //   "Java",
+    //   "JavaScript",
+    //   "Lisp",
+    //   "Perl",
+    //   "PHP",
+    //   "Python",
+    //   "Ruby",
+    //   "Scala",
+    //   "Scheme"
+    // ];
+    // console.log(products);
+  </script>
 
 
 
