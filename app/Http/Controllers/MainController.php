@@ -64,7 +64,7 @@ class MainController extends Controller {
                 # code...
                 $q->orWhere('title','LIKE',"%$word%");
             }
-        })->get();
+        })->take(5)->get();
         return response()->json($products);
     }
 

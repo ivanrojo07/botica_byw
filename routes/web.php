@@ -71,7 +71,7 @@ Route::get('/promotions', 'PromotionsController@index');
 
 Route::get('/nosotros', function () {
 
-    return view('static/Nosotros');
+    return view('static/nosotros');
 
 });
 

@@ -211,6 +211,7 @@
 
                 </div>
 
+            </div>
 
 
                 <div class="pagination">
@@ -236,7 +237,6 @@
 
 
 
-            </div>
 
     </section>
 

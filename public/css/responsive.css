@@ -730,25 +730,8 @@
 		height: 175px;
 	}	
 	
-/* Pagination Styles Starts */
 
-	.pagination-wrap {
-		margin-top: 10px;
-		padding-top: 20px;
-	}
-		.pagination {
-			margin-top: 15px;
-		}
-			.pagination > li + li {
-				margin-left: 10px;
-			}
-			.pagination > li > a, 
-			.pagination > li > span {
-				width: 30px;
-				height: 30px;
-				line-height: 30px;
-				font-size: 14px;
-			}
+
 		
 /* List Styles Starts */
 
