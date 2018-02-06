@@ -43,6 +43,7 @@ Auth::routes();
 
 
 Route::get('/home', 'HomeController@index');
+Route::get('/productslist','MainController@productlist');
 
 
 

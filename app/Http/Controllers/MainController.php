@@ -25,7 +25,6 @@ class MainController extends Controller {
     public function home()
 
     {
-
         $products0 = Product::inRandomOrder()->take(4)->get();
         $products1 = Product::inrandomOrder()->take(4)->get();
 
@@ -55,6 +54,10 @@ class MainController extends Controller {
 
 
 
+    }
+    public function productlist(){
+        $products = Product::get()->pluck('title');
+        return response()->json(['productos'=>$products]);
     }
 
 }
