@@ -352,7 +352,7 @@
         // alert(products);
           source: function(request, response) {
         $.ajax({
-            url: "productslist",
+            url: "/productslist",
             type: "GET",
             dataType:"json",
             data:{products: this.term},
@@ -366,9 +366,9 @@
           
           select: function(event, ui){
             $("#title").val(ui.item.label);
-            window.location.href = "products/"+ui.item.url;
+            window.location.href = "/products/"+ui.item.url;
             
-            
+
           }
         });
     });
