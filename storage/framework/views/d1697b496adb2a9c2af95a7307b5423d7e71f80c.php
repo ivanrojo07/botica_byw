@@ -216,7 +216,7 @@
 
                 <div class="pagination">
 
-                    <?php echo e($products->links('vendor.pagination.default')); ?>
+                    <?php echo e($products->links('vendor.pagination.simple-default')); ?>
 
 
                 </div>

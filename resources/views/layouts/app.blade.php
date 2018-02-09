@@ -51,7 +51,6 @@
     <link href="js/plugins/owl-carousel/owl.theme.css" rel="stylesheet">
     <link href="js/plugins/magnific-popup/magnific-popup.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <link href="css/responsive.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/mdb.min.css') }}">
     <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
 
