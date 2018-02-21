@@ -31,9 +31,12 @@
     <div class="form-group">
 
         <label for=""><strong>Selecciona el archivo de tu receta en formato (pdf, jpg, png o jpeg):</strong></label>
-
+        <div class="col-lg-offset-3 col-lg-4">
+            <input id="receta" name="receta_file" type="file" class="file">
+        </div>
+        <br>
+            
         {{-- <input class="btn btn-primary" type="file" name="receta_file" value="" placeholder="receta"/> --}}
-        <input id="receta" name="receta_file" type="file" class="file">
 
     </div>
 
@@ -45,7 +48,7 @@
 
     @if($direccion_default)
 
-        <div class="form-group">
+        <div class="form-group col-lg-offset-4">
 
             <input type="hidden" name="direccion_default" value="{{ $direccion_default->id }}"/>
 
