@@ -32,7 +32,8 @@
 
         <label for=""><strong>Selecciona el archivo de tu receta en formato (pdf, jpg, png o jpeg):</strong></label>
 
-        <input class="btn btn-primary" type="file" name="receta_file" value="" placeholder="receta"/>
+        {{-- <input class="btn btn-primary" type="file" name="receta_file" value="" placeholder="receta"/> --}}
+        <input id="receta" name="receta_file" type="file" class="file">
 
     </div>
 

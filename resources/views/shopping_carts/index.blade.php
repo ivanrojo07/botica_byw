@@ -140,4 +140,30 @@
     </div>
 
 @endsection
+@section('scripts')
+    {{-- expr --}}
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="{{ asset('js/plugins/piexif.min.js') }}"></script>
+    <script src="{{ asset('js/plugins/sortable.min.js') }}"></script>
+    <script src="{{ asset('js/plugins/purify.min.js') }}"></script>
+    <script src=""></script>
+    <!-- popper.min.js below is needed if you use bootstrap 4.x. You can also use the bootstrap js 
+   3.3.x versions without popper.min.js. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <!-- bootstrap.min.js below is needed if you wish to zoom and preview file content in a detail modal
+    dialog. bootstrap 4.x is supported. You can also use the bootstrap js 3.3.x versions. -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="{{ asset('js/fileinput.min.js') }}"></script>
+    <script src="{{ asset('js/locales/es.js') }}"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
+    <script>
+        $('#receta').fileinput({
+            theme: 'fa',
+            language: 'es',
+            showUpload: false,
+        });
+    </script>
+@endsection
 

@@ -23,6 +23,10 @@ class ComposerStaticInitd38d9d698b314519b1e00e3097a63845
         array (
             'phpDocumentor\\Reflection\\' => 25,
         ),
+        'k' => 
+        array (
+            'kartik\\plugins\\fileinput\\' => 25,
+        ),
         'X' => 
         array (
             'XdgBaseDir\\' => 11,
@@ -103,6 +107,10 @@ class ComposerStaticInitd38d9d698b314519b1e00e3097a63845
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
             1 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+        ),
+        'kartik\\plugins\\fileinput\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kartik-v/bootstrap-fileinput',
         ),
         'XdgBaseDir\\' => 
         array (
@@ -332,6 +340,7 @@ class ComposerStaticInitd38d9d698b314519b1e00e3097a63845
         'App\\Http\\Controllers\\ProductsController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProductsController.php',
         'App\\Http\\Controllers\\PromotionsController' => __DIR__ . '/../..' . '/app/Http/Controllers/PromotionsController.php',
         'App\\Http\\Controllers\\ShoppingCartsController' => __DIR__ . '/../..' . '/app/Http/Controllers/ShoppingCartsController.php',
+        'App\\Http\\Controllers\\Tracking\\TrackingController' => __DIR__ . '/../..' . '/app/Http/Controllers/Tracking/TrackingController.php',
         'App\\Http\\Controllers\\UserOrdersController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserOrdersController.php',
         'App\\Http\\Controllers\\userprofileController' => __DIR__ . '/../..' . '/app/Http/Controllers/userprofileController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
@@ -358,6 +367,7 @@ class ComposerStaticInitd38d9d698b314519b1e00e3097a63845
         'App\\Providers\\ShoppingCartProvider' => __DIR__ . '/../..' . '/app/Providers/ShoppingCartProvider.php',
         'App\\Services\\FavoriteProduct' => __DIR__ . '/../..' . '/app/Services/FavoriteProduct.php',
         'App\\ShoppingCart' => __DIR__ . '/../..' . '/app/ShoppingCart.php',
+        'App\\Tracking' => __DIR__ . '/../..' . '/app/Tracking.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
