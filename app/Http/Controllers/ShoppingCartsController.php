@@ -169,18 +169,16 @@ class ShoppingCartsController extends Controller {
 
 
         #si el usuario está logueado actualizamos user_id y direccion_id
-
-
-
-        $user_id = null;
-
-        $direccion_id = null;
-
-
-
         if (Auth::check()) {
 
             $user_id = Auth::user()->id;
+
+            $direccion_id = $request->input('direccion_default');
+
+        }
+        else{
+
+            $user_id = null;
 
             $direccion_id = $request->input('direccion_default');
 
