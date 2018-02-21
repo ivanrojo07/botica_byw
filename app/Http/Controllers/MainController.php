@@ -9,10 +9,10 @@ namespace App\Http\Controllers;
 
 
 use App\Category;
-
 use App\Http\Requests;
-
 use App\Product;
+use Illuminate\Http\Request;
+use Illuminate\Support\only;
 
 
 
@@ -55,9 +55,17 @@ class MainController extends Controller {
 
 
     }
-    public function productlist(){
-        $products = Product::get()->pluck('title');
-        return response()->json(['productos'=>$products]);
+    public function productlist(Request $request){
+        $query = $request->input('products');
+        $wordsquery = explode(' ',$query);
+
+        $products = Product::where(function($q) use($wordsquery){
+            foreach ($wordsquery as $word) {
+                # code...
+                $q->orWhere('title','LIKE',"%$word%");
+            }
+        })->take(5)->get();
+        return response()->json($products);
     }
 
 }

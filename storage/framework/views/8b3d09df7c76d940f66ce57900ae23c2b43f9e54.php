@@ -9,7 +9,6 @@
 			<div id="productos" class="container">
 
 		<header class="major">
-			<img src="<?php echo e(asset('/img/copa.jpg')); ?>">
 			<img src="<?php echo e(asset('/img/sky.png')); ?>">
 			<br>
 			<br>

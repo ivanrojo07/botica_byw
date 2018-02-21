@@ -210,11 +210,12 @@
 
                 </div>
 
+            </div>
 
 
                 <div class="pagination">
 
-                    {{ $products->links() }}
+                    {{ $products->links('vendor.pagination.simple-default') }}
 
                 </div>
 
@@ -234,7 +235,6 @@
 
 
 
-            </div>
 
     </section>
 

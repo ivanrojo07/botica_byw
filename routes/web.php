@@ -71,7 +71,7 @@ Route::get('/promotions', 'PromotionsController@index');
 
 Route::get('/nosotros', function () {
 
-    return view('static/Nosotros');
+    return view('static/nosotros');
 
 });
 
@@ -107,6 +107,7 @@ Route::get('user/profile', "userprofileController@profile");
 
 Route::post('user/updateprofile', "userprofileController@updateprofile");
 
+Route::get('/creardireccion', 'Direccions@creardireccioninvitado');
 
 
 Route::get('user/password', 'userprofileController@password');

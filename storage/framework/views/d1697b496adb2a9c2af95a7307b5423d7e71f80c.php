@@ -211,11 +211,12 @@
 
                 </div>
 
+            </div>
 
 
                 <div class="pagination">
 
-                    <?php echo e($products->links()); ?>
+                    <?php echo e($products->links('vendor.pagination.simple-default')); ?>
 
 
                 </div>
@@ -236,7 +237,6 @@
 
 
 
-            </div>
 
     </section>
 

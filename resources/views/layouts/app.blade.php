@@ -40,11 +40,9 @@
 
 
 
-    <link rel="stylesheet" type="text/css"
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/responsive.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css') }}">
@@ -53,11 +51,8 @@
     <link href="js/plugins/owl-carousel/owl.theme.css" rel="stylesheet">
     <link href="js/plugins/magnific-popup/magnific-popup.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <link href="css/responsive.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/mdb.min.css') }}">
-    <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css"
-
-          rel="stylesheet"/>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
 
 
     <!-- Scripts -->
@@ -346,20 +341,35 @@
 <script src="{{ url('/js/app.js') }}"></script>
 
 <script>
-    $(document).ready(function() {
+
+    $(document).ready(function(){
+     $( "#title" ).autocomplete({
+        // alert(products);
+        minLength : 2,
+          source: function(request, response) {
         $.ajax({
             url: "/productslist",
             type: "GET",
             dataType:"json",
+            data:{products: this.term},
+            success: function (datos){
+                 response( $.map( datos, function( item ) {
+                return {label: item.title, value: item.title, url: item.id};}));
+            }
 
-        }).done(function(result){
-            var products = $.map(result, function(el) { return el });
-
-            // alert(products);
-            $( "#title" ).autocomplete({
-              source: products
-            });
         });
+        },
+          
+          select: function(event, ui){
+            $("#title").val(ui.item.label);
+            window.location.href = "/products/"+ui.item.url;
+            
+
+          }
+        });
+    });
+
+        
     // var availableTags = [
     //   "ActionScript",
     //   "AppleScript",
@@ -384,7 +394,7 @@
     //   "Scala",
     //   "Scheme"
     // ];
-  } );
+    // console.log(products);
   </script>
 
 
