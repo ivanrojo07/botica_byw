@@ -32,10 +32,7 @@
     <div class="form-group">
 
         <label for=""><strong>Selecciona el archivo de tu receta en formato (pdf, jpg, png o jpeg):</strong></label>
-        <div class="col-lg-offset-3 col-lg-4">
-            <input id="receta" name="receta_file" type="file" class="file">
-        </div>
-        <br>
+        <input id="receta" name="receta_file" type="file" class="file">
             
         
 
@@ -45,7 +42,7 @@
 
     <?php if($direccion_default): ?>
 
-        <div class="form-group col-lg-offset-4">
+        <div class="form-group">
 
             <input type="hidden" name="direccion_default" value="<?php echo e($direccion_default->id); ?>"/>
 
