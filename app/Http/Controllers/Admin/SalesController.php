@@ -40,8 +40,9 @@ class SalesController extends Controller {
     {
 
 
-
+       
         $filters = $request->all();
+
 
 
 
@@ -59,7 +60,9 @@ class SalesController extends Controller {
 
             'title' => '',
 
-            'qty'   => '',
+            'fecha1'   => '',
+
+            'fecha2'   => ''
 
         ];
 
@@ -123,13 +126,44 @@ class SalesController extends Controller {
 
         }
 
+        
+        
+        if(isset($filters['fecha1']) && $filters['fecha1'] != '' || isset($filters['fecha2']) && $filters['fecha2'] != '' ){
 
+            if(!isset($filters['fecha1']) && isset($filters['fecha2'])){
+            $fecha2 = $filters['fecha2'];
+            $sales = $sales->whereDate('created_at','<=', $fecha2);
+        }
 
-        if(isset($filters['qty']) && $filters['qty'] != '' && $filters['qty'] > 0){
+        if(isset($filters['fecha1']) && !isset($filters['fecha2'])){
+            $fecha1 = $filters['fecha1'];
+            $sales = $sales->whereDate('created_at','<=', $fecha1);
+        }
 
-            $sales = $sales->where('qty', $filters['qty']);
+         if(!isset($filters['fecha1']) && !isset($filters['fecha2'])){
+           
+        }
 
-            $old_inputs['qty'] = $filters['qty'];
+          if(isset($filters['fecha1']) && isset($filters['fecha2'])){
+
+            $fecha1 = $filters['fecha1'];
+            $fecha2 = $filters['fecha2'];
+            
+           
+
+            $sales = $sales->whereDate('created_at','>=', $fecha1);
+            $sales = $sales->whereDate('created_at','<=', $fecha2);
+           
+        }
+
+            
+          
+
+           
+           
+
+            $old_inputs['fecha1'] = $filters['fecha1'];
+            $old_inputs['fecha2'] = $filters['fecha2'];
 
         }
 
@@ -137,7 +171,7 @@ class SalesController extends Controller {
 
         $sales = $sales->with(['shoppingcart', 'product']);
 
-
+        
 
         $count_products = $sales->count();
 
@@ -145,7 +179,7 @@ class SalesController extends Controller {
 
         $sales = $sales->orderBy('created_at', 'desc')->paginate(30);
 
-        // dd($sales);
+        
 
         //return $sales;
 

@@ -34,7 +34,7 @@
 
                 <div class="row uniform">
 
-                    <div class="col-lg-4">
+                    <div class="col-lg-3">
 
                         <h1 class="grey">Usuario</h1>
 
@@ -68,7 +68,7 @@
 
 
 
-                    <div class="col-lg-4">
+                    <div class="col-lg-3">
 
                         <h1 class="grey">
 
@@ -86,15 +86,24 @@
 
                     <div class="col-lg-4">
 
-                        <h1 class="grey">
+                        
+                            <div class="row">
 
-                            Cantidad
+                                <div class="col-sm-6">
+                                    <label> Fecha de Inicio</label>
+                                    <input type="date" name="fecha1" id="fecha1" class="form-control"
 
-                        </h1>
+                               value="{{ $fecha1 }}"/></div>
+                                
 
-                        <input type="number" name="qty" id="qty" class="form-control"
+                               <div class="col-sm-6">
+                                <label>Fecha de Fin</label>
+                                <input type="date" name="fecha2" id="fecha2" class="form-control"
 
-                               value="{{ $qty }}"/>
+                               value="{{ $fecha2 }}"/></div>
+                                
+                            </div>
+                       
 
                     </div>
 
@@ -152,9 +161,13 @@
 
                                 <td>Nombre Producto</td>
 
+                                <td>Precio Unidad</td>
+
                                 <td>Cantidad</td>
 
                                 <td>Código Proveedor</td>
+
+                                <td>Total por Unidades</td>
 
                             </tr>
 
@@ -195,6 +208,17 @@
 
                                     </td>
 
+                                     <td>
+                                        @if (count($sale->product) == 0)
+                                            {{-- true expr --}}
+                                            no existe el producto
+                                        @else
+                                            {{ $sale->product->pricing }}
+                                            {{-- false expr --}}
+                                        @endif
+
+                                    </td>
+
                                     <td>
 
                                         {{ $sale->qty }}
@@ -207,6 +231,17 @@
                                             no existe el producto
                                         @else
                                             {{ $sale->product->codigo_proveedor }}
+                                            {{-- false expr --}}
+                                        @endif
+
+                                    </td>
+
+                                     <td>
+                                        @if (count($sale->product) == 0)
+                                            {{-- true expr --}}
+                                            no existe el producto
+                                        @else
+                                            {{ $sale->product->pricing * count($sale->product)}}
                                             {{-- false expr --}}
                                         @endif
 
