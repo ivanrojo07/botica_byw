@@ -50,6 +50,7 @@
     <link href="js/plugins/owl-carousel/owl.carousel.css" rel="stylesheet">
     <link href="js/plugins/owl-carousel/owl.theme.css" rel="stylesheet">
     <link href="js/plugins/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/fileinput.min.css')); ?>">
     <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo e(asset('css/mdb.min.css')); ?>">
     <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
@@ -333,9 +334,6 @@
 <script src="<?php echo e(url('/js/jquery.min.js')); ?>"></script>
 <script src="<?php echo e(url('/js/jquery-1.12.4.min.js')); ?>"></script>
 <script src="<?php echo e(url('/js/jquery-ui.js')); ?>"></script>
-
-<!--Import jQuery before materialize.js-->
- <script type="text/javascript" src="<?php echo e(url('js/jquery-3.1.1.min.js')); ?>"></script>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 

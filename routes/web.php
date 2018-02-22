@@ -107,6 +107,7 @@ Route::get('user/profile', "userprofileController@profile");
 
 Route::post('user/updateprofile', "userprofileController@updateprofile");
 
+Route::get('/creardireccion', 'Direccions@creardireccioninvitado');
 
 
 Route::get('user/password', 'userprofileController@password');
