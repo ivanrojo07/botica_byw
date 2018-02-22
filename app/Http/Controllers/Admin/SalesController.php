@@ -175,7 +175,7 @@ class SalesController extends Controller {
 
         $count_products = $sales->count();
 
-dd($sales);
+
 
         $sales = $sales->orderBy('created_at', 'desc')->paginate(30);
 
