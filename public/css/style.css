@@ -1439,16 +1439,6 @@ ul#gallery-filter {
 
 /* Copyright Styles Starts */
 
-.copyright {
-	padding-top: 30px;
-	padding-bottom: 30px;
-	background-color: #262e3c;
-}
-	.footer-top a, 
-	.copyright a {
-		color: #fff;
-	}
-	
 /* Box Styles Starts */
 
 .box-1 {
