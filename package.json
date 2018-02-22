@@ -15,7 +15,7 @@
     "lodash": "^4.16.2",
     "vue": "^2.0.1",
     "webpack": "2.2.1",
-       "laravel-mix": "^0.8.1"
+    "laravel-mix": "^0.8.1"
   },
   "dependencies": {
     "webpack": "^2.2.0"
