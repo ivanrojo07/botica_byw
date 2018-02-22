@@ -43,6 +43,7 @@
                         </nav>
                         </div>
                     </div>
+                    <?php echo $__env->make('feedback', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                 <header style="height: 410px !important">
            
                     <div class="info-header">

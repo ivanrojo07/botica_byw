@@ -26,10 +26,6 @@
 
 
 
-            <br/>
-
-
-
             <form action="{{url('Products1') }}" method="GET">
 
                 <div class="row uniform">

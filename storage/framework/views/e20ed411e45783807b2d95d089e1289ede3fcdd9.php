@@ -1,5 +1,7 @@
-<section class="products1 4u 6u$(medium) 12u$(xsmall) curacion">
 
+
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
     <header class="text-center">
 
 
@@ -50,29 +52,22 @@
 
         <br>
 
-        <h1 class="grey"><?php echo e($product->title); ?></h1>
+        <h1 class="grey"><a href="<?php echo e(url('/products/$product->id')); ?>"><?php echo e($product->title); ?></a></h1>
 
     </header>
-
-
-
     <?php if($product->extension): ?>
 
         <img class="bt1" src="<?php echo e(url("/img_prod/$product->id.$product->extension")); ?>" class="product_avatar">
 
     <?php else: ?>
 
-        <img class="bt1" src="<?php echo e(asset('img/12.jpg')); ?>" class="product_avatar">
+        <img class="bt1"  alt="100%x200" src="<?php echo e(asset('img/12.jpg')); ?>" class="product_avatar">
 
     <?php endif; ?>
-
-
-
-    <br>
-
-
-
-    <h5 class="grey">
+        
+      
+      <div class="caption">
+       <h5 class="grey">
 
         <strong>Categoria:</strong>
 
@@ -120,7 +115,7 @@
 
             <?php else: ?>
 
-                $ <?php echo e($product->pricing); ?> usd
+                $ <?php echo e($product->pricing); ?> USD
 
             <?php endif; ?>
 
@@ -131,15 +126,8 @@
 
 
     <?php echo $__env->make("in_shopping_carts.form",["product" => $product], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+      </div>
+    </div>
+  </div>
 
 
-
-    <br/>
-    <br/>
-    <br/>
-
-
-</section>
-<br>
-
- 

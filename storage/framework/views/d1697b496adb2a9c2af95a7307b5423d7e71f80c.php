@@ -25,10 +25,6 @@
 
 
 
-            <br/>
-
-
-
             <form action="<?php echo e(url('Products1')); ?>" method="GET">
 
                 <div class="row uniform">

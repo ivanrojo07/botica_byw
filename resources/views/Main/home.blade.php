@@ -47,6 +47,7 @@
                         </nav>
                         </div>
                     </div>
+                    @include('feedback')
                 <header style="height: 410px !important">
            
                     <div class="info-header">

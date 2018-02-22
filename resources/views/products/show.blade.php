@@ -18,7 +18,7 @@
 
         <div class="container">
 
-            <h3 class="grey">Reseñas</h3>
+            <h3 class="grey">Reseñas:</h3>
 
             <ul>
 
