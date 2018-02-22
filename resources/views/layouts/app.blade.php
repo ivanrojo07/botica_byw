@@ -276,15 +276,15 @@
 
                 <li><a href="{{url('/faq')}}" class=""><span class="label">Preguntas Frecuentes</span></a></li>
 
-                
+                <br>
 
                 <li><a href="{{url('/nosotros')}}" class=""><span class="label">Nosotros</span></a></li>
 
-                
+                <br>
 
                 <li><a href="{{url('/privacidad')}}" class=""><span class="label">Aviso de Privacidad</span></a></li>
 
-           
+                <br>
 
                 <li><a href="{{url('/contact')}}" class=""><span class="label">Contactanos</span></a></li>
 

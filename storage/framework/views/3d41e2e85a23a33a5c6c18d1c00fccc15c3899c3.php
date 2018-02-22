@@ -281,15 +281,15 @@
 
                 <li><a href="<?php echo e(url('/faq')); ?>" class=""><span class="label">Preguntas Frecuentes</span></a></li>
 
-                
+                <br>
 
                 <li><a href="<?php echo e(url('/nosotros')); ?>" class=""><span class="label">Nosotros</span></a></li>
 
-                
+                <br>
 
                 <li><a href="<?php echo e(url('/privacidad')); ?>" class=""><span class="label">Aviso de Privacidad</span></a></li>
 
-           
+                <br>
 
                 <li><a href="<?php echo e(url('/contact')); ?>" class=""><span class="label">Contactanos</span></a></li>
 
