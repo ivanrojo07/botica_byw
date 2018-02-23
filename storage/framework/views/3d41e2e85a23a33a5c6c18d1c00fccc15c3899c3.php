@@ -110,10 +110,10 @@
                     <?php echo Form::close(); ?>
 
 
-                    <a href="<?php echo e(url('/carrito')); ?>"><i class="fa fa-cart-plus blue" aria-hidden="true"></i>
+                    <a id="carrito" onmouseover="productos()" href="<?php echo e(url('/carrito')); ?>"><i class="fa fa-cart-plus blue" aria-hidden="true"></i>
 
                         <?php echo e($productsCount); ?></a></li>
-
+            
                 <li>
 
                  <?php if(Request::is('/')): ?>
@@ -264,9 +264,14 @@
 
             
 
-        </span>
 
+        </span>
+        <div class="container" id="basicModal">
+                <div class="container"><h1>hola</h1></div>
+            </div>
     <?php echo $__env->yieldContent('content'); ?>
+         
+
 
 
 
@@ -340,12 +345,18 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
 
 <script src="<?php echo e(url('/js/editable.js')); ?>"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="<?php echo e(url('/js/app.js')); ?>"></script>
 
 <script>
 
     $(document).ready(function(){
+
+    $("#carrito").hover(function() {
+        $("#basicModal").show();
+    }, function(){
+        $("#basicModal").hide();                            
+    });
      $( "#title" ).autocomplete({
         // alert(products);
         minLength : 2,
@@ -371,6 +382,9 @@
           }
         });
     });
+    // function productos(){
+    //     console.log(<?php echo e($shopping_products); ?>);
+    // }
 
         
     // var availableTags = [

@@ -53,7 +53,7 @@
                     <div class="info-header">
                         <h2 class="satisfic-font">TuFarmaciaLatina.com</h2>
 
-                        <p>Enviamos a toda Latinoamerica Incluyendo a VENEZUELA Y CUBA.</p>
+                        <p>Enviamos a toda Latinoamerica Incluyendo a VENEZUELA Y CUBA.{{-- {{ dd($shopping_products)}} --}}</p>
 
                         <p class="satisfic-font"><a href="{{ url('/seguimiento')}}">¡Dale Seguimiento a tu pedido!</a></p>
                         <p class="statisfic-font"><a href="{{ url('/Products1')}}">¡COMPRAR!</a>

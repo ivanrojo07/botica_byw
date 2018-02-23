@@ -107,10 +107,10 @@
 
                     {!! Form::close() !!}
 
-                    <a href="{{url('/carrito')}}"><i class="fa fa-cart-plus blue" aria-hidden="true"></i>
+                    <a id="carrito" onmouseover="productos()" href="{{url('/carrito')}}"><i class="fa fa-cart-plus blue" aria-hidden="true"></i>
 
                         {{$productsCount}}</a></li>
-
+            
                 <li>
 
                  @if(Request::is('/'))
@@ -259,9 +259,14 @@
 
             
 
-        </span>
 
+        </span>
+        <div class="container" id="basicModal">
+                <div class="container"><h1>hola</h1></div>
+            </div>
     @yield('content')
+         
+
 
 
 
@@ -335,12 +340,18 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
 
 <script src="{{ url('/js/editable.js') }}"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="{{ url('/js/app.js') }}"></script>
 
 <script>
 
     $(document).ready(function(){
+
+    $("#carrito").hover(function() {
+        $("#basicModal").show();
+    }, function(){
+        $("#basicModal").hide();                            
+    });
      $( "#title" ).autocomplete({
         // alert(products);
         minLength : 2,
@@ -366,6 +377,9 @@
           }
         });
     });
+    // function productos(){
+    //     console.log({{$shopping_products}});
+    // }
 
         
     // var availableTags = [

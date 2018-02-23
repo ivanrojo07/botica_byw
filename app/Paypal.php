@@ -103,6 +103,7 @@ class Paypal {
     {
 
         return \PaypalPayment::amount()->setCurrency("USD")->setTotal($this->shopping_cart->total());
+        // return \PaypalPayment::amount()->setCurrency("USD")->setTotal(0.10);
 
     }
 

@@ -296,6 +296,59 @@
 
 
 	}
+	
+	@media only screen and (max-width: 1500px) and (max-height: 800px)  {
+
+
+
+		.container.\31 25\25 {
+
+			width: 100%;
+
+			max-width: 87.5em;
+
+			min-width: 70em;
+
+		}
+
+
+
+		.container.\37 5\25 {
+
+			width: 52.5em;
+
+		}
+
+
+
+		.container.\35 0\25 {
+
+			width: 35em;
+
+		}
+
+
+
+		.container.\32 5\25 {
+
+			width: 17.5em;
+
+		}
+
+
+
+		.container {
+
+			width: 70em;
+
+		}
+
+		#banner .content {
+			top: -98px !important;
+		}
+
+
+	}
 	@media only screen and (max-width: 1500px) and (max-height: 780px)  {
 
 
@@ -401,6 +454,7 @@
 
 
 	}
+
 
 	/*@media only screen and (max-width: 1500px){
 
