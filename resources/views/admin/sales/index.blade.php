@@ -134,7 +134,19 @@
 
 
             </form>
-
+             @if(count($sales))
+             <?php $total_tot=0; $total_prod=0; ?>
+            @foreach($sales as $sale)
+                @if (count($sale->product) != 0)
+            <?php $total_prod=$sale->product->pricing * $sale->qty;
+                 $total_tot+=$total_prod; ?>
+                 @endif
+            @endforeach
+ <div class="form-group" align="center">
+    <label>Total de Ventas (Mostradas)</label>
+     <input type="text" name="total_tot" readonly class="form-control" style="width: 150px; text-align: center; height: 30px;" value="${{$total_tot}}">
+ </div>
+   @endif
 
 
         </div>
@@ -213,7 +225,7 @@
                                             {{-- true expr --}}
                                             no existe el producto
                                         @else
-                                            {{ $sale->product->pricing }}
+                                          $  {{ $sale->product->pricing }}
                                             {{-- false expr --}}
                                         @endif
 
@@ -241,7 +253,8 @@
                                             {{-- true expr --}}
                                             no existe el producto
                                         @else
-                                            {{ $sale->product->pricing * count($sale->product)}}
+                                        
+                                           $ {{ $sale->qty * $sale->product->pricing  }}
                                             {{-- false expr --}}
                                         @endif
 

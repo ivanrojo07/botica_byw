@@ -137,7 +137,7 @@ class SalesController extends Controller {
 
         if(isset($filters['fecha1']) && !isset($filters['fecha2'])){
             $fecha1 = $filters['fecha1'];
-            $sales = $sales->whereDate('created_at','<=', $fecha1);
+            $sales = $sales->whereDate('created_at','>=', $fecha1);
         }
 
          if(!isset($filters['fecha1']) && !isset($filters['fecha2'])){
