@@ -110,7 +110,7 @@
                     <?php echo Form::close(); ?>
 
 
-                    <a id="carrito" onmouseover="productos()" href="<?php echo e(url('/carrito')); ?>"><i class="fa fa-cart-plus blue" aria-hidden="true"></i>
+                    <a id="carrito" href="<?php echo e(url('/carrito')); ?>"><i class="fa fa-cart-plus blue" aria-hidden="true"></i>
 
                         <?php echo e($productsCount); ?></a></li>
             
@@ -258,6 +258,24 @@
         
 
     </header>
+    <div class="compras1" id="compras1">
+        <div style="margin-left: 155px"><strong>EN TU CARRITO:</strong></div>
+        <?php $__currentLoopData = $shopping_products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $element => $producto): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            
+        <div class="container">
+            <h5>
+            <?php if($producto->extension): ?>
+
+                <img class="img-circle" src="<?php echo e(url("/img_prod/$producto->id.$producto->extension")); ?>"  style="display: inline-block;" height="42" width="42">
+            <?php else: ?>
+
+                <img class="img-circle" src="<?php echo e(asset('img/12.jpg')); ?>" style="display: inline-block;" height="42" width="42">
+            <?php endif; ?>
+
+            <?php echo e($element+1); ?>.-  <?php echo e($producto->title); ?> 
+            </h5></div>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+    </div>
                 
 
     <span class="ir-arriba fa fa-arrow-up">
@@ -266,9 +284,7 @@
 
 
         </span>
-        <div class="container" id="basicModal">
-                <div class="container"><h1>hola</h1></div>
-            </div>
+        
     <?php echo $__env->yieldContent('content'); ?>
          
 
@@ -353,9 +369,9 @@
     $(document).ready(function(){
 
     $("#carrito").hover(function() {
-        $("#basicModal").show();
+        $("#compras1").show();
     }, function(){
-        $("#basicModal").hide();                            
+        $("#compras1").hide();                            
     });
      $( "#title" ).autocomplete({
         // alert(products);

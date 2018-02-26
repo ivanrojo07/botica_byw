@@ -8647,6 +8647,21 @@ a:hover
 
 }
 
+div .compras1{
+
+    background: #06b6c7 !important;
+    z-index: 100;
+    /* margin-top: 45px !important; */
+    /* box-shadow: 0 0 black; */
+    display: none;
+    position: fixed;
+    top: 45px;
+    /* bottom: 0 !important; */
+    right: 10px;
+    width: 450px;
+    
+}
+
 
 
 .category section{
