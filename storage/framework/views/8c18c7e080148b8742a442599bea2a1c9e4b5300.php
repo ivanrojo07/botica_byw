@@ -11,7 +11,7 @@
         <section id="banner">
 
             <div class="content">
-
+                
                     <div>
                         <div class="container">
                             <nav class="navbar navbar-inverse navbar-xs" style="background: #1c1d26;" role="navigation">
