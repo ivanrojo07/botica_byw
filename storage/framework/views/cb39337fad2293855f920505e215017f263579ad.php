@@ -163,10 +163,10 @@
         <?php else: ?>
 
         <div class="form-group">
-
-        <label for="">Si no has establecido tu direccion favor de ingresar al siguiente link</label>
-
-        <a class="btn btn-success" href="<?php echo e(url('/user/direccion')); ?>">Direcciones</a>
+        <div class="alert alert-danger">
+          <strong>¡Importante!</strong> Antes de continuar por favor ingrese sus datos de envio.</a>.
+        </div>
+        <label for="">Si no has establecido tu direccion favor de ingresar al siguiente <a class="btn btn-sm btn-success" href="<?php echo e(url('/creardireccion')); ?>">link</a></label>
 
     </div>
 

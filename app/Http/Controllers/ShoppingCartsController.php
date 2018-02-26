@@ -77,7 +77,7 @@ class ShoppingCartsController extends Controller {
         }
         else{
             if(Session('direccion_default') == null){
-                return redirect('/creardireccion');
+                $direccion_default = '';
             }
             else{
 
@@ -94,7 +94,8 @@ class ShoppingCartsController extends Controller {
 
 
 
-        $total = $shopping_cart->total();
+        // $total = $shopping_cart->total();
+        $total = number_format($shopping_cart->total(), 2);
 
 
 
@@ -118,7 +119,8 @@ class ShoppingCartsController extends Controller {
 
             'receta_file.mimes'          => 'El archivo de la receta debe tener alguna de las extenciones (jpeg, jpg, jpe, png o pdf).',
 
-            'direccion_default.required' => 'La dirección de envío es requerida, por favor ingresa a tus direcciones para colocar tu direccion de envio','url(/user/direccion)'
+            'direccion_default.required' => 'La dirección de envío es requerida, por favor ingresa a tus direcciones para colocar tu direccion de envio',
+
 
         ];
 
@@ -183,8 +185,9 @@ class ShoppingCartsController extends Controller {
             $direccion_id = $request->input('direccion_default');
 
         }
-
-
+        // $totalstr = $shopping_cart->total();
+        // $total = number_format((float)$totalstr, 2, '.', '');
+        // dd($total);
 
         $shopping_cart->update([
 
