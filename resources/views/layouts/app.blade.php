@@ -129,7 +129,7 @@
 
                 <li>
 
-                    <a class="product1" href="{{url('/promotions')}}">Promociones</a>
+                    <a class="product1" href="{{url('/promotion')}}">Promociones</a>
 
                 </li>
 

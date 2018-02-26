@@ -65,7 +65,7 @@ Route::resource('shopping_carts', 'ShoppingCartsController', [
 
 Route::get('/Products1', "ProductsController@statics");
 
-Route::get('/promotions', 'PromotionsController@index');
+//Route::get('/promotions', 'PromotionsController@index');
 
 
 
@@ -243,7 +243,14 @@ Route::group(['middleware' => ['isAdmin']], function () {
 
     Route::resource('tracking','Tracking\TrackingController');
 
+    Route::get('/promotions', 'PromotionsController@index');
+
 });
 
+Route::get('/promovisita', 'PromotionsController@visita');
+
+Route::get('/promotion', function () {
+   
+})->middleware(PromoChk::class);
 
 

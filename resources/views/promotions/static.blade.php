@@ -180,6 +180,7 @@
                      <td>{{$product->category}}</td>
                      <td>{{$product->description}}</td>
                      <td>{{$product->pricing}}</td>
+                     <td>{{$product->promotion_pricing}}</td>
                      <td>{{$product->codigo_proveedor}}</td>
                  </tr>
                 @endforeach
