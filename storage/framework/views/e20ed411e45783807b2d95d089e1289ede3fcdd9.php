@@ -52,7 +52,7 @@
 
         <br>
 
-        <h1 class="grey"><a href="<?php echo e(url('/products/$product->id')); ?>"><?php echo e($product->title); ?></a></h1>
+        <h1 class="grey"><a href="<?php echo e(url('/products/'.$product->id)); ?>"><?php echo e($product->title); ?></a></h1>
 
     </header>
     <?php if($product->extension): ?>

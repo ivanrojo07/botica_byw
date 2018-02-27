@@ -52,7 +52,7 @@
 
         <br>
 
-        <h1 class="grey"><a href="{{ url('/products/$product->id') }}">{{$product->title}}</a></h1>
+        <h1 class="grey"><a href="{{ url('/products/'.$product->id) }}">{{$product->title}}</a></h1>
 
     </header>
     @if($product->extension)

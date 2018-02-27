@@ -8494,10 +8494,13 @@ i {
   text-align: center !important;
   font-style: bold !important;
 }
-
-.dropdown1 a {
-  padding: 0 !important;
+.dropdown1 li {
+    display: list-item;
+    text-align: -webkit-match-parent;
 }
+/*.dropdown1 a {
+  padding: 0 !important;
+}*/
 
 #slider h4 {
   color: #3498DB !important;

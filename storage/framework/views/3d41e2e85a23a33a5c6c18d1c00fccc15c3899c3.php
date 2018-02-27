@@ -205,7 +205,7 @@
 
                             <ul class="dropdown-menu dropdown1">
 
-                                <li>
+                                <li role="presentation">
 
                                     <a href="<?php echo e(route('logout')); ?>"
 
@@ -219,19 +219,9 @@
 
 
 
-                                    <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST"
 
-                                          style="display: none;">
-
-                                        <?php echo e(csrf_field()); ?>
-
-
-                                    </form>
-
+                                   
                                 </li>
-
-                                <br>
-
                                 <li>
 
                                     <a href="<?php echo e(url('user')); ?>">Mi perfil</a>
@@ -256,7 +246,14 @@
 
         </nav>
         
+    <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST"
 
+          style="display: none;">
+
+        <?php echo e(csrf_field()); ?>
+
+
+    </form>
     </header>
     <div class="compras1" id="compras1">
         <?php if($productsCount != 0): ?>

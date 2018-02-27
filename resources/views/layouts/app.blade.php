@@ -201,7 +201,7 @@
 
                             <ul class="dropdown-menu dropdown1">
 
-                                <li>
+                                <li role="presentation">
 
                                     <a href="{{ route('logout') }}"
 
@@ -215,18 +215,9 @@
 
 
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
 
-                                          style="display: none;">
-
-                                        {{ csrf_field() }}
-
-                                    </form>
-
+                                   
                                 </li>
-
-                                <br>
-
                                 <li>
 
                                     <a href="{{url('user')}}">Mi perfil</a>
@@ -251,7 +242,13 @@
 
         </nav>
         
+    <form id="logout-form" action="{{ route('logout') }}" method="POST"
 
+          style="display: none;">
+
+        {{ csrf_field() }}
+
+    </form>
     </header>
     <div class="compras1" id="compras1">
         @if ($productsCount != 0)
