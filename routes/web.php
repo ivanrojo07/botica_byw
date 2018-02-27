@@ -90,7 +90,6 @@ Route::get('/seguimiento', function () {
 Route::get('/servicios', function () {
 
     return view('static/servicios');
-
 });
 
 Route::get('/faq', function () {
@@ -227,7 +226,7 @@ Route::group(['middleware' => ['isAdmin']], function () {
 
     Route::get('/admin/sales', 'Admin\SalesController@getIndex');
 
-    Route::get('/admin/sales/excel', 'Admin\SalesController@excel');
+    // Route::get('/admin/sales/excel', 'Admin\SalesController@excel');
 
     Route::resource('/orders', 'OrdersController', [
 
