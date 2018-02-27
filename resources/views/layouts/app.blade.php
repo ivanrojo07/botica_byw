@@ -353,46 +353,48 @@
 <script src="{{ url('/js/jquery-1.12.4.min.js') }}"></script>
 <script src="{{ url('/js/jquery-ui.js') }}"></script>
 
+<!--Import jQuery before materialize.js-->
+ <script type="text/javascript" src="{{ url('js/jquery-3.1.1.min.js') }}"></script>
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
 
 <script src="{{ url('/js/editable.js') }}"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 <script src="{{ url('/js/app.js') }}"></script>
 
 <script>
 
-    $(document).ready(function(){
-
-    $("#carrito").hover(function() {
-        $("#compras1").show();
-        }, function(){
-        $("#compras1").hide();                            
-    });
-        $( "#title" ).autocomplete({
-            // alert(products);
-            minLength : 2,
-            source: function(request, response) {
-            $.ajax({
-                url: "/productslist",
-                type: "GET",
-                dataType:"json",
-                data:{products: this.term},
-                success: function (datos){
-                     response( $.map( datos, function( item ) {
-                    return {label: item.title, value: item.title, url: item.id};}));
-                }
-
-            });
-            },
-              
-            select: function(event, ui){
-                $("#title").val(ui.item.label);
-                window.location.href = "/products/"+ui.item.url;
-            
-
+   $(document).ready(function(){
+     $( "#title" ).autocomplete({
+        // alert(products);
+          source: function(request, response) {
+        $.ajax({
+            url: "/productslist",
+            type: "GET",
+            dataType:"json",
+            data:{products: this.term},
+            success: function (datos){
+                 response( $.map( datos, function( item ) {
+                return {label: item.title, value: item.title, url: item.id};}));
             }
+        });
+        },
+          
+          select: function(event, ui){
+            $("#title").val(ui.item.label);
+            window.location.href = "products/"+ui.item.url;
+            
+            
+          }
+        });
+    });
+    $(document).ready(function(){
+        $("#carrito").hover(function() {
+            $("#compras1").show();
+            }, function(){
+            $("#compras1").hide();                            
         });
     });
     // function productos(){
