@@ -27,19 +27,7 @@
     <?php echo e(csrf_field()); ?>
 
 
-   
-
-    <div class="form-group">
-
-        <label for=""><strong>Selecciona el archivo de tu receta en formato (pdf, jpg, png o jpeg):</strong></label>
-        <input id="receta" name="receta_file" type="file" class="file">
-            
-        
-
-    </div>
-
- 
-
+    
     <?php if($direccion_default): ?>
 
         <div class="form-group">
@@ -160,19 +148,33 @@
 
         
 
-        <?php else: ?>
+    <?php else: ?>
 
         <div class="form-group">
         <div class="alert alert-danger">
           <strong>¡Importante!</strong> Antes de continuar por favor ingrese sus datos de envio.</a>.
         </div>
-        <label for="">Si no has establecido tu direccion favor de ingresar al siguiente <a class="btn btn-sm btn-success" href="<?php echo e(url('/creardireccion')); ?>">link</a></label>
+        <label for="">Si no has establecido tus datos de envio favor de ingresar al siguiente <a class="btn btn-sm btn-success" href="<?php echo e(url('/creardireccion')); ?>">link</a></label>
 
     </div>
 
     
 
     <?php endif; ?>
+    
+
+    <div class="form-group">
+
+        <label for=""><strong>Selecciona el archivo de tu receta en formato (pdf, jpg, png o jpeg):</strong></label>
+        <input id="receta" name="receta_file" type="file" class="file">
+            
+        
+
+    </div>
+
+ 
+
+    
 
  
 

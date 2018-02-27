@@ -132,7 +132,7 @@
 
                 <li>
 
-                    <a class="product1" href="<?php echo e(url('/promotions')); ?>">Promociones</a>
+                    <a class="product1" href="<?php echo e(url('/promotion')); ?>">Promociones</a>
 
                 </li>
 
@@ -259,7 +259,12 @@
 
     </header>
     <div class="compras1" id="compras1">
+        <?php if($productsCount != 0): ?>
+            
         <div style="margin-left: 155px"><strong>EN TU CARRITO:</strong></div>
+        <?php else: ?>
+            
+        <?php endif; ?>
         <?php $__currentLoopData = $shopping_products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $element => $producto): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             
         <div class="container">
@@ -370,32 +375,32 @@
 
     $("#carrito").hover(function() {
         $("#compras1").show();
-    }, function(){
+        }, function(){
         $("#compras1").hide();                            
     });
-     $( "#title" ).autocomplete({
-        // alert(products);
-        minLength : 2,
-          source: function(request, response) {
-        $.ajax({
-            url: "/productslist",
-            type: "GET",
-            dataType:"json",
-            data:{products: this.term},
-            success: function (datos){
-                 response( $.map( datos, function( item ) {
-                return {label: item.title, value: item.title, url: item.id};}));
-            }
+        $( "#title" ).autocomplete({
+            // alert(products);
+            minLength : 2,
+            source: function(request, response) {
+            $.ajax({
+                url: "/productslist",
+                type: "GET",
+                dataType:"json",
+                data:{products: this.term},
+                success: function (datos){
+                     response( $.map( datos, function( item ) {
+                    return {label: item.title, value: item.title, url: item.id};}));
+                }
 
-        });
-        },
-          
-          select: function(event, ui){
-            $("#title").val(ui.item.label);
-            window.location.href = "/products/"+ui.item.url;
+            });
+            },
+              
+            select: function(event, ui){
+                $("#title").val(ui.item.label);
+                window.location.href = "/products/"+ui.item.url;
             
 
-          }
+            }
         });
     });
     // function productos(){

@@ -163,6 +163,8 @@
             theme: 'fa',
             language: 'es',
             showUpload: false,
+            required: true,
+            allowedFileExtensions: ["pdf", "jpg", "jpeg", "png"],
         });
     </script>
 @endsection

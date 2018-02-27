@@ -254,7 +254,12 @@
 
     </header>
     <div class="compras1" id="compras1">
+        @if ($productsCount != 0)
+            {{-- true expr --}}
         <div style="margin-left: 155px"><strong>EN TU CARRITO:</strong></div>
+        @else
+            {{-- false expr --}}
+        @endif
         @foreach ($shopping_products as $element => $producto)
             {{-- expr --}}
         <div class="container">
@@ -365,32 +370,32 @@
 
     $("#carrito").hover(function() {
         $("#compras1").show();
-    }, function(){
+        }, function(){
         $("#compras1").hide();                            
     });
-     $( "#title" ).autocomplete({
-        // alert(products);
-        minLength : 2,
-          source: function(request, response) {
-        $.ajax({
-            url: "/productslist",
-            type: "GET",
-            dataType:"json",
-            data:{products: this.term},
-            success: function (datos){
-                 response( $.map( datos, function( item ) {
-                return {label: item.title, value: item.title, url: item.id};}));
-            }
+        $( "#title" ).autocomplete({
+            // alert(products);
+            minLength : 2,
+            source: function(request, response) {
+            $.ajax({
+                url: "/productslist",
+                type: "GET",
+                dataType:"json",
+                data:{products: this.term},
+                success: function (datos){
+                     response( $.map( datos, function( item ) {
+                    return {label: item.title, value: item.title, url: item.id};}));
+                }
 
-        });
-        },
-          
-          select: function(event, ui){
-            $("#title").val(ui.item.label);
-            window.location.href = "/products/"+ui.item.url;
+            });
+            },
+              
+            select: function(event, ui){
+                $("#title").val(ui.item.label);
+                window.location.href = "/products/"+ui.item.url;
             
 
-          }
+            }
         });
     });
     // function productos(){

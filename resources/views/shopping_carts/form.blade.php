@@ -26,23 +26,7 @@
 
     {{ csrf_field() }}
 
-   
-
-    <div class="form-group">
-
-        <label for=""><strong>Selecciona el archivo de tu receta en formato (pdf, jpg, png o jpeg):</strong></label>
-        <input id="receta" name="receta_file" type="file" class="file">
-            
-        {{-- <input class="btn btn-primary" type="file" name="receta_file" value="" placeholder="receta"/> --}}
-
-    </div>
-
- {{-- @if (Auth::guest())
-        if
-                   <label class=""> <strong>Inicia session para administrar tus direcciones.</strong></label>
-
- @else --}}
-
+    
     @if($direccion_default)
 
         <div class="form-group">
@@ -155,7 +139,7 @@
 
         
 
-        @else
+    @else
 
         <div class="form-group">
         <div class="alert alert-danger">
@@ -168,6 +152,24 @@
     
 
     @endif
+    
+
+    <div class="form-group">
+
+        <label for=""><strong>Selecciona el archivo de tu receta en formato (pdf, jpg, png o jpeg):</strong></label>
+        <input id="receta" name="receta_file" type="file" class="file">
+            
+        {{-- <input class="btn btn-primary" type="file" name="receta_file" value="" placeholder="receta"/> --}}
+
+    </div>
+
+ {{-- @if (Auth::guest())
+        if
+                   <label class=""> <strong>Inicia session para administrar tus direcciones.</strong></label>
+
+ @else --}}
+
+    
 
  {{--    @endif --}}
 

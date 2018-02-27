@@ -166,6 +166,8 @@
             theme: 'fa',
             language: 'es',
             showUpload: false,
+            required: true,
+            allowedFileExtensions: ["pdf", "jpg", "jpeg", "png"],
         });
     </script>
 <?php $__env->stopSection(); ?>
