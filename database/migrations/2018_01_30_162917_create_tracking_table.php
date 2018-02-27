@@ -15,6 +15,7 @@ class CreateTrackingTable extends Migration
     {
         Schema::create('tracking', function (Blueprint $table) {
             $table->increments('id');
+            
             $table->timestamps();
         });
     }

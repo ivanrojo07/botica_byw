@@ -171,25 +171,41 @@
                     <td>Precio</td>
                     <td>Precio de Promoción</td>
                     <td>Código de Proveedor</td>
+                    <td>Cantidad Vendida</td>
+                    <td>Total de Producto</td>
                 </tr>
             </thead>
             <tbody>
+               
                  @foreach ($products as $product)
+                 
                  <tr>
                      <td>{{$product->title}}</td>
                      <td>{{$product->category}}</td>
                      <td>{{$product->description}}</td>
-                     <td>{{$product->pricing}}</td>
-                     <td>{{$product->promotion_pricing}}</td>
+                     <td>${{$product->pricing}}</td>
+                     <td>${{$product->promotion_pricing}}</td>
                      <td>{{$product->codigo_proveedor}}</td>
+                      @foreach ($inter as $int)
+                       @if($product->id==$int[0])
+                     <td>{{$int[1]}}</td>
+                     <td>${{$int[1]*$product->promotion_pricing}}</td>
+                       @endif
+                      @endforeach
+
+
                  </tr>
+                 
                 @endforeach
+             
             </tbody>
         </table>    
 
  </div>                  
 
                        
+
+
 
                     
 

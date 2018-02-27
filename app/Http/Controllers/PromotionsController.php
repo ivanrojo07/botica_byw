@@ -9,11 +9,13 @@ use App\Category;
 
 use App\Product;
 
+use App\InShoppingCart;
+
 use App\Services\FavoriteProduct;
 
 use Illuminate\Http\Request;
-
-
+ 
+use Illuminate\Support\Collection;
 
 class PromotionsController extends Controller {
 
@@ -101,10 +103,40 @@ class PromotionsController extends Controller {
         $products = $products->where('category_id', $promotions_category->id)->orderBy('title','desc')->Paginate(9)->appends($filters);
 
 
+        $pluck=$products->pluck('id');
+
+        $inCarts=InShoppingCart::orderBy('qty','DESC')->get();
+
+        $inter = array();
 
 
+        foreach ($products as $product) {
+            
+            $product_total=0;
 
-        return view('promotions.static', compact('products', 'category_selected', 'categories', 'favoriteProduct'))->with($old_inputs);
+            foreach ($inCarts as $cart) {
+                
+                if($product->id==$cart->product_id){
+
+                    $product_total+=$cart->qty;
+
+
+                }
+            }
+             
+            array_push($inter,array($product->id,$product_total));
+        }
+
+      
+
+        //$inter=$inter->orderBy($inter[1]);
+       
+
+
+    
+       
+
+        return view('promotions.static', compact('products', 'category_selected', 'categories', 'favoriteProduct','inter'))->with($old_inputs);
 
     }
 
@@ -117,7 +149,7 @@ class PromotionsController extends Controller {
         $products = new Product();
        
 
-
+                
 
         $filters = $request->all();
 
@@ -195,7 +227,7 @@ class PromotionsController extends Controller {
         $products = $products->where('category_id', $promotions_category->id)->orderBy('title','desc')->Paginate(9)->appends($filters);
 
        
-
+        
 
         return view('promotions.visita', compact('products', 'category_selected', 'categories', 'favoriteProduct'))->with($old_inputs);
 
