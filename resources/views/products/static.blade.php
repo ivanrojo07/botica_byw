@@ -211,7 +211,7 @@
 
                 <div class="pagination">
 
-                    {{ $products->links('vendor.pagination.simple-default') }}
+                    {{ $products->links() }}
 
                 </div>
 

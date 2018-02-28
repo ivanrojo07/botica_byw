@@ -66,22 +66,27 @@
     <?php endif; ?>
         
       
-      <div class="caption">
-       <h5 class="grey">
+    <div class="caption">
+        <h5 class="grey">
 
-        <strong>Categoria:</strong>
+            <strong>Categoria:</strong>
 
-
-
-        <?php echo e($product->cat->title); ?>
+        </h5>
 
 
-    </h5>
 
 
 
     <p class="grey">
 
+        <?php if(isset($product->cat)): ?>
+            
+            <?php echo e($product->cat->title); ?>
+
+        <?php else: ?>
+            Sin categoría
+            
+        <?php endif; ?>
 
 
     </p>
