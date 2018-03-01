@@ -26,7 +26,7 @@
 
                                         <section>
 
-                                            <h3 class="color-grey font-ch">Crea tu Cuenta</h3>
+                                            <h3 class="color-grey font-ch"><a href="{{ url('/register') }}">Crea tu Cuenta</a></h3>
 
                                             <p>Si no tienes cuenta de usuario en MiBoticaLatina, utiliza esta opción para acceder al formulario de registro. La información que te solicitaremos es imprescindible para agilizar el proceso de compra. </p>
 

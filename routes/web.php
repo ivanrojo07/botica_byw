@@ -245,6 +245,8 @@ Route::group(['middleware' => ['isAdmin']], function () {
     Route::get('/promotions', 'PromotionsController@index');
 
 });
+Route::get('excel','FileController@importarExcel')->name('excel.import');
+Route::post('import-csv-excel', 'FileController@importFileIntoDB')->name('import-csv-excel');
 
 Route::get('/promovisita', 'PromotionsController@visita');
 

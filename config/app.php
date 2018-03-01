@@ -341,6 +341,7 @@ return [
         App\Providers\ShoppingCartProvider::class,
 
         Anouar\Paypalpayment\PaypalpaymentServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
 
 
@@ -361,6 +362,10 @@ return [
         App\Providers\EventServiceProvider::class,
 
         App\Providers\RouteServiceProvider::class,
+
+
+
+
 
 
 
@@ -466,7 +471,9 @@ return [
 
         'Html' => Collective\Html\HtmlFacade::class,
 
-        'PaypalPayment' => Anouar\Paypalpayment\Facades\PaypalPayment::class
+        'PaypalPayment' => Anouar\Paypalpayment\Facades\PaypalPayment::class,
+        
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
 
 
 
