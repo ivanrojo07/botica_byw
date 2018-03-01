@@ -3,8 +3,13 @@
 namespace App\Http\Controllers\Tracking;
 
 use App\Tracking;
+use App\StatusTracking;
+use App\Order;
+use App\ShoppingCart;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Maatwebsite\Excel\Facades\Excel;
 
 class TrackingController extends Controller
 {
@@ -19,7 +24,14 @@ class TrackingController extends Controller
      */
     public function index()
     {
-        //
+
+        $trackings=Tracking::orderBy('created_at', 'desc')->paginate(30);
+        $orders=Order::get();
+        $carts=ShoppingCart::get();
+
+        return view('tracking.index',['trackings'=>$trackings,
+                                       'orders'  =>$orders,
+                                       'carts'   =>$carts]);
     }
 
     /**
@@ -42,7 +54,11 @@ class TrackingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+       // dd($request);
+        $tracking=Tracking::create($request->all());
+
+        return redirect('tracking');
     }
 
     /**
