@@ -6,5 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tracking extends Model
 {
-    //
+     protected $table = 'tracking';
+     protected $fillable=['shopping_cart_id',
+ 						  'orden_id',
+ 						  'hawb',
+ 						  'destino',
+ 						  'bultos',
+ 						  'peso'];
+
+     public function status(){
+
+     	return $this->hasMany('App\StatusTracking', 'status_tracking_id', 'id');
+     }
 }

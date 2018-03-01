@@ -171,6 +171,18 @@
 
                     <li>
 
+                        <a class="product1" href="{{url('/tracking')}}">Rastreo</a>
+
+                    </li>
+
+                @endif
+
+
+
+                @if(Auth::check() && Auth::user()->rol == 'admin')
+
+                    <li>
+
                         <a class="product1" href="{{url('/admin/recetas')}}">Recetas</a>
 
                     </li>
