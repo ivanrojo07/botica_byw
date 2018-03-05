@@ -15,6 +15,6 @@ class StatusTracking extends Model
 
      public function tracking(){
 
-     	return $this->belongsTo('App\Tracking', 'status_tracking_id');
+     	return $this->belongsTo('App\Tracking','tracking_id');
      }
 }

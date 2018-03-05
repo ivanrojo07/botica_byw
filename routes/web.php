@@ -241,6 +241,7 @@ Route::group(['middleware' => ['isAdmin']], function () {
     Route::get('/admin/recetas', 'Admin\RecetasController@getIndex');
 
     Route::resource('tracking','Tracking\TrackingController');
+    Route::resource('status','Tracking\StatusTrackingController');
 
     Route::get('/promotions', 'PromotionsController@index');
 

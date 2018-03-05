@@ -16,6 +16,6 @@ class Tracking extends Model
 
      public function status(){
 
-     	return $this->hasMany('App\StatusTracking', 'status_tracking_id', 'id');
+     	return $this->hasMany('App\StatusTracking', 'tracking_id');
      }
 }
