@@ -52,7 +52,7 @@
 
         <br>
 
-        <h1 class="grey"><a href="{{ url('/products/'.$product->id) }}">{{$product->title}}</a></h1>
+        <h1 class="grey"><a href="{{ url('/products/'.$product->id) }}">{{$product["descripcion"]}}</a></h1>
 
     </header>
     @if($product->extension)
@@ -79,9 +79,9 @@
 
     <p class="grey">
 
-        @if (isset($product->cat))
+        @if (isset($product->tipo_de_producto))
             {{-- true expr --}}
-            {{$product->cat->title}}
+            {{$product->tipo_de_producto}}
         @else
             Sin categoría
             {{-- false expr --}}
@@ -89,6 +89,14 @@
 
 
     </p>
+    @if (isset($product["sustancia_activa"]) && $product["sustancia_activa"] != "")
+        {{-- expr --}}
+        <h5 class="grey">
+
+            <strong>Sustancia Activa:</strong>
+            <p class="grey">{{$product["sustancia_activa"]}}</p>
+        </h5>
+    @endif
 
 
 
@@ -102,7 +110,7 @@
 
     <p class="grey">
 
-        {{$product->description}}
+        {{$product["descripcion_terapeutica"]}}
 
     </p>
 
@@ -118,7 +126,7 @@
 
             @else
 
-                $ {{$product->pricing}} USD
+                $  {{number_format(($product["precio_publico"]+($product["precio_publico"]*($product["iva"]/100))+($product["precio_publico"]*($product["ieps"]/100))+($product["precio_publico"]*($product["impuesto_3"]/100))),2)}}  MXN
 
             @endif
 

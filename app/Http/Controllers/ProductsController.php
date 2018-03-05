@@ -8,12 +8,14 @@ namespace App\Http\Controllers;
 
 
 
+use App\Catalogo;
 use App\Category;
 use App\Product;
 use App\ProductComment;
 use App\Services\FavoriteProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -46,7 +48,8 @@ class ProductsController extends Controller {
 
     {
 
-        $products = Product::orderBy('id')->Paginate(35);
+        // $products = Product::orderBy('id')->Paginate(35);
+        $products = Catalogo::orderBy('id')->Paginate(35);
 
 
 
@@ -194,13 +197,13 @@ class ProductsController extends Controller {
 
     {
 
-        $product = Product::find($id);
+        $product = Catalogo::find($id);
 
 
 
         #obtenemos las reseñas del producto
 
-        $product_comments = ProductComment::where('product_id', $id)->get();
+        $product_comments = ProductComment::where('catalogo_id', $id)->get();
 
 
 
@@ -216,7 +219,7 @@ class ProductsController extends Controller {
 
 
 
-        $products = new Product();
+        $products = new Catalogo();
 
 
 
@@ -228,7 +231,8 @@ class ProductsController extends Controller {
 
 
 
-        $categories = Category::where('slug', '!=', 'Promociones')->get();
+        $categories = DB::select("select distinct tipo_de_producto from catalogo");
+        // dd($categories);
 
 
 
@@ -252,17 +256,19 @@ class ProductsController extends Controller {
 
 
 
-            $category_selected = Category::whereSlug($filters['category'])->first();
+            $category_selected = $filters['category'];
+            
 
 
 
             if ($category_selected) {
 
-                $products = $products->whereCategoryId($category_selected->id);
+                $products = $products->where("tipo_de_producto", $category_selected);
 
             } else {
 
                 $products->all();
+                // dd($products);
 
             }
 
@@ -272,7 +278,7 @@ class ProductsController extends Controller {
 
         if (isset($filters['max_price']) && $filters['max_price'] != '' && is_numeric($filters['max_price']) && $filters['max_price'] > 0) {
 
-            $products = $products->where('pricing', '<=', $filters['max_price']);
+            $products = $products->where('precio_publico', '<=', $filters['max_price']);
 
             $old_inputs['max_price'] = $filters['max_price'];
 
@@ -281,7 +287,7 @@ class ProductsController extends Controller {
 
         if (isset($filters['title']) && $filters['title'] != '') {
 
-            $products = $products->Search($request->title);
+            $products = $products->where('descripcion',$request->title);
 
             $old_inputs['title'] = $filters['title'];
 
@@ -309,8 +315,8 @@ class ProductsController extends Controller {
 
 
 
-        $products = $products->orderBy('title')->Paginate(9)->appends($filters);
-
+        $products = $products->orderBy('descripcion')->Paginate(9)->appends($filters);
+        // dd($favoriteProduct);
 
 
 

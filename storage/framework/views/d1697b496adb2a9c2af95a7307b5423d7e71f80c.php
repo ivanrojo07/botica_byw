@@ -14,7 +14,7 @@
 
                     <h2 class="grey satisfic-font font1">
 
-                        <?php echo e($category_selected->title); ?>
+                        <?php echo e($category_selected); ?>
 
 
                     </h2>
@@ -39,11 +39,11 @@
 
                             <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
-                                <option value="<?php echo e($category->slug); ?>"
+                                <option value="<?php echo e($category->tipo_de_producto); ?>"
 
-                                        <?php echo e(($category_selected && $category_selected->slug ==  $category->slug) ? 'selected' : ''); ?>>
+                                        <?php echo e(($category_selected && $category_selected ==  $category->tipo_de_producto) ? 'selected' : ''); ?>>
 
-                                    <?php echo e($category->title); ?>
+                                    <?php echo e($category->tipo_de_producto); ?>
 
 
                                 </option>
@@ -51,7 +51,7 @@
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                         </select>
-
+                    
                     </div>
 
 

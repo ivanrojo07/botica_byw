@@ -174,6 +174,18 @@
 
                     <li>
 
+                        <a class="product1" href="<?php echo e(url('/tracking')); ?>">Rastreo</a>
+
+                    </li>
+
+                <?php endif; ?>
+
+
+
+                <?php if(Auth::check() && Auth::user()->rol == 'admin'): ?>
+
+                    <li>
+
                         <a class="product1" href="<?php echo e(url('/admin/recetas')); ?>">Recetas</a>
 
                     </li>

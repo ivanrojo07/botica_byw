@@ -52,7 +52,7 @@
 
         <br>
 
-        <h1 class="grey"><a href="<?php echo e(url('/products/'.$product->id)); ?>"><?php echo e($product->title); ?></a></h1>
+        <h1 class="grey"><a href="<?php echo e(url('/products/'.$product->id)); ?>"><?php echo e($product["descripcion"]); ?></a></h1>
 
     </header>
     <?php if($product->extension): ?>
@@ -79,9 +79,9 @@
 
     <p class="grey">
 
-        <?php if(isset($product->cat)): ?>
+        <?php if(isset($product->tipo_de_producto)): ?>
             
-            <?php echo e($product->cat->title); ?>
+            <?php echo e($product->tipo_de_producto); ?>
 
         <?php else: ?>
             Sin categoría
@@ -90,6 +90,14 @@
 
 
     </p>
+    <?php if(isset($product["sustancia_activa"]) && $product["sustancia_activa"] != ""): ?>
+        
+        <h5 class="grey">
+
+            <strong>Sustancia Activa:</strong>
+            <p class="grey"><?php echo e($product["sustancia_activa"]); ?></p>
+        </h5>
+    <?php endif; ?>
 
 
 
@@ -103,7 +111,7 @@
 
     <p class="grey">
 
-        <?php echo e($product->description); ?>
+        <?php echo e($product["descripcion_terapeutica"]); ?>
 
 
     </p>
@@ -120,7 +128,7 @@
 
             <?php else: ?>
 
-                $ <?php echo e($product->pricing); ?> USD
+                $  <?php echo e(number_format(($product["precio_publico"]+($product["precio_publico"]*($product["iva"]/100))+($product["precio_publico"]*($product["ieps"]/100))+($product["precio_publico"]*($product["impuesto_3"]/100))),2)); ?>  MXN
 
             <?php endif; ?>
 

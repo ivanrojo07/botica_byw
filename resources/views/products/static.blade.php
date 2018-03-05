@@ -16,7 +16,7 @@
 
                     <h2 class="grey satisfic-font font1">
 
-                        {{ $category_selected->title }}
+                        {{ $category_selected }}
 
                     </h2>
 
@@ -40,18 +40,18 @@
 
                             @foreach($categories as $category)
 
-                                <option value="{{ $category->slug }}"
+                                <option value="{{ $category->tipo_de_producto }}"
 
-                                        {{ ($category_selected && $category_selected->slug ==  $category->slug) ? 'selected' : ''}}>
+                                        {{ ($category_selected && $category_selected ==  $category->tipo_de_producto) ? 'selected' : ''}}>
 
-                                    {{ $category->title }}
+                                    {{ $category->tipo_de_producto }}
 
                                 </option>
 
                             @endforeach
 
                         </select>
-
+                    
                     </div>
 
 
