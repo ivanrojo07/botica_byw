@@ -22,7 +22,7 @@ class CreateStatusTrackingTable extends Migration
             ->on('tracking');
 
             $table->date('fecha');
-            $table->dateTimeTz('hora');
+            $table->string('hora');
 
             $table->string('status');
            
