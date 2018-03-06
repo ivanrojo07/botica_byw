@@ -14,9 +14,31 @@
 
                     <h2 class="grey satisfic-font font1">
 
-                        <?php echo e($category_selected); ?>
-
-
+                        
+                       <?php if($category_selected == "ET"): ?>
+                           
+                           ÉTICO
+                       <?php endif; ?>
+                       <?php if($category_selected == "VA"): ?>
+                           
+                           VARIOS
+                       <?php endif; ?>
+                       <?php if($category_selected == "PF"): ?>
+                           
+                           PERFUMERÍA
+                       <?php endif; ?>
+                       <?php if($category_selected == "MC"): ?>
+                           
+                           MATERIAL DE CURACIÓN
+                       <?php endif; ?>
+                       <?php if($category_selected == "OT"): ?>
+                           
+                           OTC
+                       <?php endif; ?>
+                       <?php if($category_selected == "CO"): ?>
+                           
+                           CONTROLADO
+                       <?php endif; ?>
                     </h2>
 
                 </header>
@@ -43,7 +65,7 @@
 
                                         <?php echo e(($category_selected && $category_selected ==  $category->tipo_de_producto) ? 'selected' : ''); ?>>
 
-                                    <?php echo e($category->tipo_de_producto); ?>
+                                    <?php echo e($category->nombre); ?>
 
 
                                 </option>

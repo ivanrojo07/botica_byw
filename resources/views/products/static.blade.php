@@ -16,8 +16,31 @@
 
                     <h2 class="grey satisfic-font font1">
 
-                        {{ $category_selected }}
-
+                        {{-- {{ $category_selected }} --}}
+                       @if ($category_selected == "ET")
+                           {{-- expr --}}
+                           ÉTICO
+                       @endif
+                       @if ($category_selected == "VA")
+                           {{-- expr --}}
+                           VARIOS
+                       @endif
+                       @if ($category_selected == "PF")
+                           {{-- expr --}}
+                           PERFUMERÍA
+                       @endif
+                       @if ($category_selected == "MC")
+                           {{-- expr --}}
+                           MATERIAL DE CURACIÓN
+                       @endif
+                       @if ($category_selected == "OT")
+                           {{-- expr --}}
+                           OTC
+                       @endif
+                       @if ($category_selected == "CO")
+                           {{-- expr --}}
+                           CONTROLADO
+                       @endif
                     </h2>
 
                 </header>
@@ -44,7 +67,7 @@
 
                                         {{ ($category_selected && $category_selected ==  $category->tipo_de_producto) ? 'selected' : ''}}>
 
-                                    {{ $category->tipo_de_producto }}
+                                    {{ $category->nombre}}
 
                                 </option>
 
