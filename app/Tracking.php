@@ -14,7 +14,7 @@ class Tracking extends Model
  						  'bultos',
  						  'peso'];
 
-     public function status(){
+     public function hito(){
 
      	return $this->hasMany('App\StatusTracking', 'tracking_id');
      }
