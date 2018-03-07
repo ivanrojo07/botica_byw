@@ -104,12 +104,18 @@
 				</tr>
 			</thead>
 			<tbody>
-			{{dd($tracking)}}
+				@foreach($tracking->hito as $hito)
+				<tr>
+			<td>{{$hito->status}}</td>
+			<td>{{$hito->hora}}</td>
+			<td>{{$hito->fecha}}</td>
+			   <tr>
+			 @endforeach
+ 
 			</tbody>
 		  
 		</table>
 	
- 
 
 
 

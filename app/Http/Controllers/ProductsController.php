@@ -233,6 +233,44 @@ class ProductsController extends Controller {
 
         $categories = DB::select("select distinct tipo_de_producto from catalogo");
         // dd($categories);
+        // $value=array_count_values($categories);
+        // $categories[0][1]->test = "test";
+        foreach ($categories as $category) {
+            # code...
+            // $category->test = "test";
+            // dd($category);
+
+            if ($category->tipo_de_producto == "ET") {
+                # code...
+                $category->nombre = "Ético";
+            }
+
+            if ($category->tipo_de_producto == "VA") {
+                # code...
+                $category->nombre = "Varios";
+            }
+
+            if ($category->tipo_de_producto == "PF") {
+                # code...
+                $category->nombre = "Perfumería";
+            }
+
+            if ($category->tipo_de_producto == "MC") {
+                # code...
+                $category->nombre = "Material de Curación";
+            }
+
+            if ($category->tipo_de_producto == "OT") {
+                # code...
+                $category->nombre = "OTC";
+            }
+
+            if ($category->tipo_de_producto == "CO") {
+                # code...
+                $category->nombre = "Controlado";
+            }
+        }
+        // dd($categories);
 
 
 

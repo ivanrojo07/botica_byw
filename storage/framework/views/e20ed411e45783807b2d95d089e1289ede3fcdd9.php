@@ -81,8 +81,30 @@
 
         <?php if(isset($product->tipo_de_producto)): ?>
             
-            <?php echo e($product->tipo_de_producto); ?>
-
+            <?php if($product->tipo_de_producto == "ET"): ?>
+               
+               ÉTICO
+            <?php endif; ?>
+            <?php if($product->tipo_de_producto == "VA"): ?>
+               
+               VARIOS
+            <?php endif; ?>
+            <?php if($product->tipo_de_producto == "PF"): ?>
+               
+               PERFUMERÍA
+            <?php endif; ?>
+            <?php if($product->tipo_de_producto == "MC"): ?>
+               
+               MATERIAL DE CURACIÓN
+            <?php endif; ?>
+            <?php if($product->tipo_de_producto == "OT"): ?>
+               
+               OTC
+            <?php endif; ?>
+            <?php if($product->tipo_de_producto == "CO"): ?>
+               
+               CONTROLADO
+            <?php endif; ?>
         <?php else: ?>
             Sin categoría
             

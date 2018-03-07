@@ -81,7 +81,30 @@
 
         @if (isset($product->tipo_de_producto))
             {{-- true expr --}}
-            {{$product->tipo_de_producto}}
+            @if ($product->tipo_de_producto == "ET")
+               {{-- expr --}}
+               ÉTICO
+            @endif
+            @if ($product->tipo_de_producto == "VA")
+               {{-- expr --}}
+               VARIOS
+            @endif
+            @if ($product->tipo_de_producto == "PF")
+               {{-- expr --}}
+               PERFUMERÍA
+            @endif
+            @if ($product->tipo_de_producto == "MC")
+               {{-- expr --}}
+               MATERIAL DE CURACIÓN
+            @endif
+            @if ($product->tipo_de_producto == "OT")
+               {{-- expr --}}
+               OTC
+            @endif
+            @if ($product->tipo_de_producto == "CO")
+               {{-- expr --}}
+               CONTROLADO
+            @endif
         @else
             Sin categoría
             {{-- false expr --}}
