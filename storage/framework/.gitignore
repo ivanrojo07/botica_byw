@@ -14,4 +14,8 @@ routes.scanned.php
 
 down
 !/sessions
+!/cache
+!/sessions
+!/testing
+!/views
 

@@ -33,6 +33,7 @@ class FileController extends Controller
     				// dd($value);
     				// $descripcion = iconv('ASCII//TRANSLIT', 'UTF-8',  $value["descripcion_terapeutica"]);
     				// dd($descripcion);
+                    set_time_limit(0); 
     				$catalogo = Catalogo::updateOrCreate(
     					[
     						"codigo_marzam"=>$value["codigo_marzam"], 
