@@ -101,6 +101,7 @@ return array(
     'CreateOrderssTable' => $baseDir . '/database/migrations/1-3-18/2017_08_11_171845_create_orderss_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreateProductsTable' => $baseDir . '/database/migrations/migrations/2017_04_25_181913_create_products_table.php',
+    'CreatePromotionsTable' => $baseDir . '/database/migrations/2018_03_07_172420_create_promotions_table.php',
     'CreateShoppingCartsTable' => $baseDir . '/database/migrations/migrations/2017_05_02_071435_create_shopping_carts_table.php',
     'CreateStatusTrackingTable' => $baseDir . '/database/migrations/2018_02_28_171647_create_status_tracking_table.php',
     'CreateTrackingTable' => $baseDir . '/database/migrations/2018_01_30_162917_create_tracking_table.php',

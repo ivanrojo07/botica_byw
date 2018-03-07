@@ -35,6 +35,7 @@ Route::get('/carrito', 'ShoppingCartsController@index');
 Route::post('/carrito', 'ShoppingCartsController@checkout');
 
 Route::get('/payments/store', 'PaymentsController@store');
+Route::get('downloadFile','DownloadController@downloadFile');    
 
 
 

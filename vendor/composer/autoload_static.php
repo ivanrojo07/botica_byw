@@ -416,6 +416,7 @@ class ComposerStaticInitd38d9d698b314519b1e00e3097a63845
         'CreateOrderssTable' => __DIR__ . '/../..' . '/database/migrations/1-3-18/2017_08_11_171845_create_orderss_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateProductsTable' => __DIR__ . '/../..' . '/database/migrations/migrations/2017_04_25_181913_create_products_table.php',
+        'CreatePromotionsTable' => __DIR__ . '/../..' . '/database/migrations/2018_03_07_172420_create_promotions_table.php',
         'CreateShoppingCartsTable' => __DIR__ . '/../..' . '/database/migrations/migrations/2017_05_02_071435_create_shopping_carts_table.php',
         'CreateStatusTrackingTable' => __DIR__ . '/../..' . '/database/migrations/2018_02_28_171647_create_status_tracking_table.php',
         'CreateTrackingTable' => __DIR__ . '/../..' . '/database/migrations/2018_01_30_162917_create_tracking_table.php',
