@@ -114,5 +114,6 @@ class CatalogoFTP extends Command
                 }
             }
         );
+        \Log::info('Catalogo terminado de subir a la base de datos a las '.\Carbon\Carbon::now());
     }
 }

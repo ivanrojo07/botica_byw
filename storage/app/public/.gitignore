@@ -1,2 +1,5 @@
-*
-!.gitignore
+*
+CAMBIOS.csv
+CATALOGO.csv
+!.gitignore
+

@@ -72,5 +72,6 @@ class CambiosFTP extends Command
                 }
             }
         );
+        \Log::info('Cambios terminado de subir a la base de datos a las '.\Carbon\Carbon::now());
     }
 }
