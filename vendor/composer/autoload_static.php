@@ -397,6 +397,7 @@ class ComposerStaticInitd38d9d698b314519b1e00e3097a63845
         'Collective\\Html\\HtmlBuilder' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlBuilder.php',
         'Collective\\Html\\HtmlFacade' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlFacade.php',
         'Collective\\Html\\HtmlServiceProvider' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlServiceProvider.php',
+        'CreateCambioMonedaTable' => __DIR__ . '/../..' . '/database/migrations/2018_03_08_214120_create_cambio_moneda_table.php',
         'CreateCatalogoTable' => __DIR__ . '/../..' . '/database/migrations/2017_03_01_184212_create_catalogo_table.php',
         'CreateCategoriesTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_24_004840_create_categories_table.php',
         'CreateDireccionsTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_01_065723_create_direccions_table.php',

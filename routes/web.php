@@ -170,7 +170,7 @@ Route::resource('compras', 'ShoppingCartsController', [
 ]);
 
 
-Route::group(['middleware' => ['isUser','isAdmin']], function () {
+Route::group(['middleware' => 'auth'], function () {
 
     Route::get('user', "userprofileController@user");
 
@@ -256,55 +256,55 @@ Route::group(['middleware' => ['isAdmin']], function () {
 
     Route::get('/promotions', 'PromotionsController@index');
 
-    Route::get('user', "userprofileController@user");
+    // Route::get('user', "userprofileController@user");
 
-    Route::get('user/profile', "userprofileController@profile");
+    // Route::get('user/profile', "userprofileController@profile");
 
-    Route::post('user/updateprofile', "userprofileController@updateprofile");
+    // Route::post('user/updateprofile', "userprofileController@updateprofile");
 
-    Route::get('user/password', 'userprofileController@password');
+    // Route::get('user/password', 'userprofileController@password');
 
-    Route::post('user/updatepassword', 'userprofileController@updatePassword');
-
-
-
-    //Route::resource('user/direccion', 'Direccions');
-
-    Route::get('/user/direccion', 'Direccions@index');
-
-    Route::get('/user/direccion/create', 'Direccions@create');
-
-    Route::post('/user/direccion/set_default', 'Direccions@setDefault');
+    // Route::post('user/updatepassword', 'userprofileController@updatePassword');
 
 
 
-    #rutas para los productos favoritos
+    // //Route::resource('user/direccion', 'Direccions');
 
-    Route::get('/user/my-favorite-products', 'FavoriteProductsController@index');
+    // Route::get('/user/direccion', 'Direccions@index');
 
-    Route::get('/user/product/{product_id}/favorite/remove', 'FavoriteProductsController@addremove');
+    // Route::get('/user/direccion/create', 'Direccions@create');
 
-    Route::get('/user/product/{product_id}/favorite/add', 'FavoriteProductsController@addremove');
-
-
-
-    #rutas para ver las ordenes de un usuario
-
-    Route::get('/user/my-orders', 'UserOrdersController@index');
+    // Route::post('/user/direccion/set_default', 'Direccions@setDefault');
 
 
 
-    #ruta para obtener la imagen de una receta
+    // #rutas para los productos favoritos
 
-    Route::post('/user/order/get-receta', 'UserOrdersController@getReceta');
+    // Route::get('/user/my-favorite-products', 'FavoriteProductsController@index');
+
+    // Route::get('/user/product/{product_id}/favorite/remove', 'FavoriteProductsController@addremove');
+
+    // Route::get('/user/product/{product_id}/favorite/add', 'FavoriteProductsController@addremove');
 
 
 
-    #rutas para comentar un producto
+    // #rutas para ver las ordenes de un usuario
 
-    Route::get('/user/product/{product_id}/comment', 'ProductCommentController@getIndex');
+    // Route::get('/user/my-orders', 'UserOrdersController@index');
 
-    Route::post('/user/product/comment', 'ProductCommentController@storeComment');
+
+
+    // #ruta para obtener la imagen de una receta
+
+    // Route::post('/user/order/get-receta', 'UserOrdersController@getReceta');
+
+
+
+    // #rutas para comentar un producto
+
+    // Route::get('/user/product/{product_id}/comment', 'ProductCommentController@getIndex');
+
+    // Route::post('/user/product/comment', 'ProductCommentController@storeComment');
 
 });
 // Route::get('excel','FileController@importarExcel')->name('excel.import');

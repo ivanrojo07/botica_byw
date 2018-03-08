@@ -269,6 +269,17 @@ class ProductsController extends Controller {
                 # code...
                 $category->nombre = "Controlado";
             }
+            Category::updateOrCreate(
+                [
+                    'title' => $category->tipo_de_producto
+                ],
+                [
+                    'title' => $category->tipo_de_producto,
+                    'slug' => $category->tipo_de_producto,
+                    'description' =>$category->nombre,
+                ]
+
+            );
         }
         // dd($categories);
 

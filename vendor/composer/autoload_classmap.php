@@ -82,6 +82,7 @@ return array(
     'Collective\\Html\\HtmlBuilder' => $vendorDir . '/laravelcollective/html/src/HtmlBuilder.php',
     'Collective\\Html\\HtmlFacade' => $vendorDir . '/laravelcollective/html/src/HtmlFacade.php',
     'Collective\\Html\\HtmlServiceProvider' => $vendorDir . '/laravelcollective/html/src/HtmlServiceProvider.php',
+    'CreateCambioMonedaTable' => $baseDir . '/database/migrations/2018_03_08_214120_create_cambio_moneda_table.php',
     'CreateCatalogoTable' => $baseDir . '/database/migrations/2017_03_01_184212_create_catalogo_table.php',
     'CreateCategoriesTable' => $baseDir . '/database/migrations/2017_04_24_004840_create_categories_table.php',
     'CreateDireccionsTable' => $baseDir . '/database/migrations/2017_04_01_065723_create_direccions_table.php',

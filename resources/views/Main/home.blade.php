@@ -37,7 +37,7 @@
                               @foreach ($categories as $category)
                                   {{-- expr --}}
                                   <?php if($count == 8) break; ?>
-                                  <li><a href="{{ url('/Products1?category=' . $category->slug) }}" title="{{$category->description}}" style="font-size: 12px">{{$category->title}}</a></li>
+                                  <li><a href="{{ url('/Products1?category=' . $category->slug) }}" title="{{$category->description}}" style="font-size: 12px">{{$category->description}}</a></li>
                                     <?php $count++; ?>
                               @endforeach
                                 </ul>
@@ -282,7 +282,7 @@
                         <img src="images/gallery/cuadros/category{{$index}}.jpg" alt="Gallery Image 1" class="img-responsive img-center animation-1">
                         <div class="overlay animation text-lite-color">
                             <h6 class="text-uppercase animation-1">{{$category->description}}</h6>
-                            <p class="animation-1">{{$category->title}}</p>                                     
+                            <p class="animation-1">{{$category->description}}</p>                                     
                         </div>
                     </div>
                     </a>

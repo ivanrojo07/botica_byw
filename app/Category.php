@@ -14,7 +14,12 @@ class Category extends Model {
 
     protected $table = 'categories';
 
+    protected $fillable = ['title', 'slug', 'description', 'background_image'];
+    protected $hidden =[
+    	'created_at',
+    	'updated_at'
 
+    ];
 
     public function products()
 
