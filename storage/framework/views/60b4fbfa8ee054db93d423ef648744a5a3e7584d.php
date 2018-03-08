@@ -170,25 +170,41 @@
                     <td>Precio</td>
                     <td>Precio de Promoción</td>
                     <td>Código de Proveedor</td>
+                    <td>Cantidad Vendida</td>
+                    <td>Total de Producto</td>
                 </tr>
             </thead>
             <tbody>
+               
                  <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                 
                  <tr>
                      <td><?php echo e($product->title); ?></td>
                      <td><?php echo e($product->category); ?></td>
                      <td><?php echo e($product->description); ?></td>
-                     <td><?php echo e($product->pricing); ?></td>
-                     <td><?php echo e($product->promotion_pricing); ?></td>
+                     <td>$<?php echo e($product->pricing); ?></td>
+                     <td>$<?php echo e($product->promotion_pricing); ?></td>
                      <td><?php echo e($product->codigo_proveedor); ?></td>
+                      <?php $__currentLoopData = $inter; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $int): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                       <?php if($product->id==$int[0]): ?>
+                     <td><?php echo e($int[1]); ?></td>
+                     <td>$<?php echo e($int[1]*$product->promotion_pricing); ?></td>
+                       <?php endif; ?>
+                      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+
                  </tr>
+                 
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+             
             </tbody>
         </table>    
 
  </div>                  
 
                        
+
+
 
                     
 

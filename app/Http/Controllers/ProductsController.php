@@ -262,7 +262,7 @@ class ProductsController extends Controller {
 
             if ($category->tipo_de_producto == "OT") {
                 # code...
-                $category->nombre = "OTC";
+                $category->nombre = "Medicamentos de Venta Libre";
             }
 
             if ($category->tipo_de_producto == "CO") {

@@ -33,7 +33,8 @@
                        <?php endif; ?>
                        <?php if($category_selected == "OT"): ?>
                            
-                           OTC
+                            MEDICAMENTOS DE VENTA LIBRE
+
                        <?php endif; ?>
                        <?php if($category_selected == "CO"): ?>
                            

@@ -40,6 +40,7 @@ class CambiosFTP extends Command
      public function handle()
     {
         //
+        \Log::info('Iniciando subida de cambios a la base de datos '.\Carbon\Carbon::now());
         Excel::filter('chunk')->load(storage_path("app\public\CAMBIOS.csv"),null,null,true,null)->chunk(250, function($results) {
                 // dd($results);
                 foreach ($results as $key => $value) {
@@ -48,13 +49,13 @@ class CambiosFTP extends Command
                     // $descripcion = iconv('ASCII//TRANSLIT', 'UTF-8',  $value["descripcion_terapeutica"]);
                     // dd($descripcion);
                     set_time_limit(0); 
-         //            if ($value["descipcion"]) {
-         //             # code...
-                     $catalogo = Catalogo::updateOrCreate(
+                    
+                     $catalogo = Catalogo::where("codigo_marzam", $value["codigo_marzam"])->update(
+                         // [
+                         //     "codigo_marzam"=>$value["codigo_marzam"]
+                         // ]
+                         // ,
                          [
-                             "codigo_marzam"=>$value["codigo_marzam"]
-                         ]
-                         ,[
                              "fecha_actual"=>$value["fecha_actual"],
                              "codigo_marzam"=>$value["codigo_marzam"],
                              "descripcion"=>preg_replace('/\s\s+/', '', $value["descipcion"]),
@@ -69,6 +70,7 @@ class CambiosFTP extends Command
                              "contador"=>$value["contador"]
                          ]
                         );
+                    
                 }
             }
         );

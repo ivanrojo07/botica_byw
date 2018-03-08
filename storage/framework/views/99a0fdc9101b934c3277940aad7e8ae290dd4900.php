@@ -32,7 +32,7 @@
 
                 <div class="row uniform">
 
-                    <div class="col-lg-4">
+                    <div class="col-lg-3">
 
                         <h1 class="grey">Usuario</h1>
 
@@ -67,7 +67,7 @@
 
 
 
-                    <div class="col-lg-4">
+                    <div class="col-lg-3">
 
                         <h1 class="grey">
 
@@ -85,15 +85,24 @@
 
                     <div class="col-lg-4">
 
-                        <h1 class="grey">
+                        
+                            <div class="row">
 
-                            Cantidad
+                                <div class="col-sm-6">
+                                    <label> Fecha de Inicio</label>
+                                    <input type="date" name="fecha1" id="fecha1" class="form-control"
 
-                        </h1>
+                               value="<?php echo e($fecha1); ?>"/></div>
+                                
 
-                        <input type="number" name="qty" id="qty" class="form-control"
+                               <div class="col-sm-6">
+                                <label>Fecha de Fin</label>
+                                <input type="date" name="fecha2" id="fecha2" class="form-control"
 
-                               value="<?php echo e($qty); ?>"/>
+                               value="<?php echo e($fecha2); ?>"/></div>
+                                
+                            </div>
+                       
 
                     </div>
 
@@ -124,7 +133,19 @@
 
 
             </form>
-
+             <?php if(count($sales)): ?>
+             <?php $total_tot=0; $total_prod=0; ?>
+            <?php $__currentLoopData = $sales; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sale): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <?php if(count($sale->product) != 0): ?>
+            <?php $total_prod=$sale->product->pricing * $sale->qty;
+                 $total_tot+=$total_prod; ?>
+                 <?php endif; ?>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+ <div class="form-group" align="center">
+    <label>Total de Ventas (Mostradas)</label>
+     <input type="text" name="total_tot" readonly class="form-control" style="width: 150px; text-align: center; height: 30px;" value="$<?php echo e($total_tot); ?>">
+ </div>
+   <?php endif; ?>
 
 
         </div>
@@ -151,9 +172,13 @@
 
                                 <td>Nombre Producto</td>
 
+                                <td>Precio Unidad</td>
+
                                 <td>Cantidad</td>
 
                                 <td>Código Proveedor</td>
+
+                                <td>Total por Unidades</td>
 
                             </tr>
 
@@ -195,6 +220,18 @@
 
                                     </td>
 
+                                     <td>
+                                        <?php if(count($sale->product) == 0): ?>
+                                            
+                                            no existe el producto
+                                        <?php else: ?>
+                                          $  <?php echo e($sale->product->pricing); ?>
+
+                                            
+                                        <?php endif; ?>
+
+                                    </td>
+
                                     <td>
 
                                         <?php echo e($sale->qty); ?>
@@ -208,6 +245,19 @@
                                             no existe el producto
                                         <?php else: ?>
                                             <?php echo e($sale->product->codigo_proveedor); ?>
+
+                                            
+                                        <?php endif; ?>
+
+                                    </td>
+
+                                     <td>
+                                        <?php if(count($sale->product) == 0): ?>
+                                            
+                                            no existe el producto
+                                        <?php else: ?>
+                                        
+                                           $ <?php echo e($sale->qty * $sale->product->pricing); ?>
 
                                             
                                         <?php endif; ?>

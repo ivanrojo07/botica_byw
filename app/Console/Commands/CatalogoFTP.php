@@ -40,6 +40,7 @@ class CatalogoFTP extends Command
     public function handle()
     {
         //
+        \Log::info('Iniciando la subide del catalogo a la base de datos a las '.\Carbon\Carbon::now());
         Excel::filter('chunk')->load(storage_path("app\public\CATALOGO.csv"),null,null,true,null)->chunk(250, function($results) {
                 // dd($results);
                 foreach ($results as $key => $value) {
@@ -71,6 +72,8 @@ class CatalogoFTP extends Command
                         // );
          //            }
          //            elseif ($value["descripcion"]) {
+                    if ($value["tipo_de_producto"]  != "CO") {
+         //             # code...
          //             # code...
                         $catalogo = Catalogo::updateOrCreate(
                             [
@@ -105,7 +108,7 @@ class CatalogoFTP extends Command
                                 "contador"=>$value["contador"]
                             ]
                         );
-                    // }
+                    }
                     // else{
 
                         

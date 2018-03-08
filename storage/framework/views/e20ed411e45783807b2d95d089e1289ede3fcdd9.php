@@ -99,7 +99,8 @@
             <?php endif; ?>
             <?php if($product->tipo_de_producto == "OT"): ?>
                
-               OTC
+               MEDICAMENTOS DE VENTA LIBRE
+
             <?php endif; ?>
             <?php if($product->tipo_de_producto == "CO"): ?>
                
@@ -118,6 +119,12 @@
 
             <strong>Sustancia Activa:</strong>
             <p class="grey"><?php echo e($product["sustancia_activa"]); ?></p>
+        </h5>
+    <?php else: ?>
+        <h5 class="grey">
+
+            <strong><br></strong>
+            <p class="grey"><br></p>
         </h5>
     <?php endif; ?>
 

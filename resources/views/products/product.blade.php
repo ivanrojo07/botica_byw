@@ -99,7 +99,8 @@
             @endif
             @if ($product->tipo_de_producto == "OT")
                {{-- expr --}}
-               OTC
+               MEDICAMENTOS DE VENTA LIBRE
+
             @endif
             @if ($product->tipo_de_producto == "CO")
                {{-- expr --}}
@@ -118,6 +119,12 @@
 
             <strong>Sustancia Activa:</strong>
             <p class="grey">{{$product["sustancia_activa"]}}</p>
+        </h5>
+    @else
+        <h5 class="grey">
+
+            <strong><br></strong>
+            <p class="grey"><br></p>
         </h5>
     @endif
 
