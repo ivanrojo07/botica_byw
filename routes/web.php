@@ -101,60 +101,18 @@ Route::get('/faq', function () {
 
 Route::resource('/products', 'ProductsController');
 
-Route::get('user', "userprofileController@user");
 
-Route::get('user/profile', "userprofileController@profile");
 
-Route::post('user/updateprofile', "userprofileController@updateprofile");
+
+
+
 
 Route::get('/creardireccion', 'Direccions@creardireccioninvitado');
 
 
-Route::get('user/password', 'userprofileController@password');
-
-Route::post('user/updatepassword', 'userprofileController@updatePassword');
-
-
-
-//Route::resource('user/direccion', 'Direccions');
-
-Route::get('/user/direccion', 'Direccions@index');
-
-Route::get('/user/direccion/create', 'Direccions@create');
 
 Route::post('/user/direccion/create', 'Direccions@store');
 
-Route::post('/user/direccion/set_default', 'Direccions@setDefault');
-
-
-
-#rutas para los productos favoritos
-
-Route::get('/user/my-favorite-products', 'FavoriteProductsController@index');
-
-Route::get('/user/product/{product_id}/favorite/remove', 'FavoriteProductsController@addremove');
-
-Route::get('/user/product/{product_id}/favorite/add', 'FavoriteProductsController@addremove');
-
-
-
-#rutas para ver las ordenes de un usuario
-
-Route::get('/user/my-orders', 'UserOrdersController@index');
-
-
-
-#ruta para obtener la imagen de una receta
-
-Route::post('/user/order/get-receta', 'UserOrdersController@getReceta');
-
-
-
-#rutas para comentar un producto
-
-Route::get('/user/product/{product_id}/comment', 'ProductCommentController@getIndex');
-
-Route::post('/user/product/comment', 'ProductCommentController@storeComment');
 
 
 
@@ -212,7 +170,59 @@ Route::resource('compras', 'ShoppingCartsController', [
 ]);
 
 
+Route::group(['middleware' => ['isUser','isAdmin']], function () {
 
+    Route::get('user', "userprofileController@user");
+
+    Route::get('user/profile', "userprofileController@profile");
+
+    Route::post('user/updateprofile', "userprofileController@updateprofile");
+
+    Route::get('user/password', 'userprofileController@password');
+
+    Route::post('user/updatepassword', 'userprofileController@updatePassword');
+
+
+
+    //Route::resource('user/direccion', 'Direccions');
+
+    Route::get('/user/direccion', 'Direccions@index');
+
+    Route::get('/user/direccion/create', 'Direccions@create');
+
+    Route::post('/user/direccion/set_default', 'Direccions@setDefault');
+
+
+
+    #rutas para los productos favoritos
+
+    Route::get('/user/my-favorite-products', 'FavoriteProductsController@index');
+
+    Route::get('/user/product/{product_id}/favorite/remove', 'FavoriteProductsController@addremove');
+
+    Route::get('/user/product/{product_id}/favorite/add', 'FavoriteProductsController@addremove');
+
+
+
+    #rutas para ver las ordenes de un usuario
+
+    Route::get('/user/my-orders', 'UserOrdersController@index');
+
+
+
+    #ruta para obtener la imagen de una receta
+
+    Route::post('/user/order/get-receta', 'UserOrdersController@getReceta');
+
+
+
+    #rutas para comentar un producto
+
+    Route::get('/user/product/{product_id}/comment', 'ProductCommentController@getIndex');
+
+    Route::post('/user/product/comment', 'ProductCommentController@storeComment');
+
+});
 
 
 /*
@@ -246,9 +256,59 @@ Route::group(['middleware' => ['isAdmin']], function () {
 
     Route::get('/promotions', 'PromotionsController@index');
 
+    Route::get('user', "userprofileController@user");
+
+    Route::get('user/profile', "userprofileController@profile");
+
+    Route::post('user/updateprofile', "userprofileController@updateprofile");
+
+    Route::get('user/password', 'userprofileController@password');
+
+    Route::post('user/updatepassword', 'userprofileController@updatePassword');
+
+
+
+    //Route::resource('user/direccion', 'Direccions');
+
+    Route::get('/user/direccion', 'Direccions@index');
+
+    Route::get('/user/direccion/create', 'Direccions@create');
+
+    Route::post('/user/direccion/set_default', 'Direccions@setDefault');
+
+
+
+    #rutas para los productos favoritos
+
+    Route::get('/user/my-favorite-products', 'FavoriteProductsController@index');
+
+    Route::get('/user/product/{product_id}/favorite/remove', 'FavoriteProductsController@addremove');
+
+    Route::get('/user/product/{product_id}/favorite/add', 'FavoriteProductsController@addremove');
+
+
+
+    #rutas para ver las ordenes de un usuario
+
+    Route::get('/user/my-orders', 'UserOrdersController@index');
+
+
+
+    #ruta para obtener la imagen de una receta
+
+    Route::post('/user/order/get-receta', 'UserOrdersController@getReceta');
+
+
+
+    #rutas para comentar un producto
+
+    Route::get('/user/product/{product_id}/comment', 'ProductCommentController@getIndex');
+
+    Route::post('/user/product/comment', 'ProductCommentController@storeComment');
+
 });
-Route::get('excel','FileController@importarExcel')->name('excel.import');
-Route::post('import-csv-excel', 'FileController@importFileIntoDB')->name('import-csv-excel');
+// Route::get('excel','FileController@importarExcel')->name('excel.import');
+// Route::post('import-csv-excel', 'FileController@importFileIntoDB')->name('import-csv-excel');
 
 Route::get('/promovisita', 'PromotionsController@visita');
 

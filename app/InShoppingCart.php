@@ -34,7 +34,7 @@ class InShoppingCart extends Model {
 
     {
 
-        return $this->belongsTo('App\Product', 'product_id');
+        return $this->belongsTo('App\Catalogo', 'catalogo_id');
 
     }
 

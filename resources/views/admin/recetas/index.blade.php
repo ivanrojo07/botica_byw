@@ -68,14 +68,21 @@
                                     </td>
 
                                     <td>
-
+                                        @if ($receta->shoppingcart->user_id != null )
+                                            {{-- true expr --}}
+                                            {{ '#'.$receta->shoppingcart->user->id . ' ' . $receta->shoppingcart->user->email }}
+                                        @else
+                                            {{-- false expr --}}
+                                            Invitado
+                                        @endif
+{{-- 
                                         {{ ($receta->shoppingcart->user_id != null )
 
                                             ? '#'.$receta->shoppingcart->user->id . ' ' . $receta->shoppingcart->user->email
 
                                             : 'Invitado'
 
-                                        }}
+                                        }} --}}
 
                                     </td>
 

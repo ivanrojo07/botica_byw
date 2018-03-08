@@ -39,10 +39,15 @@ class CreateProductsTable extends Migration
             $tabla ->string('title');
 
             $tabla ->string('category');
+            $tabla->integer('category_id')->unsigned();
+            $tabla->foreign('category_id')->references('id')->on('categories');
 
             $tabla ->text('description');
 
             $tabla ->decimal('pricing',9,2);
+
+            $tabla->string('extension')->nullable();
+            $tabla->string('codigo_proveedor')->nullable();
 
             $tabla ->timestamps();
 
