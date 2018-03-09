@@ -156,7 +156,7 @@
 
             @else
 
-                $  {{number_format(($product["precio_publico"]+($product["precio_publico"]*($product["iva"]/100))+($product["precio_publico"]*($product["ieps"]/100))+($product["precio_publico"]*($product["impuesto_3"]/100))),2)}}  MXN
+                $  {{number_format((($product["precio_publico"]+($product["precio_publico"]*($product["iva"]/100))+($product["precio_publico"]*($product["ieps"]/100))+($product["precio_publico"]*($product["impuesto_3"]/100))/),2)}}  MXN
 
             @endif
 

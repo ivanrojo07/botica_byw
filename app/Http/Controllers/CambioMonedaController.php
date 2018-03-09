@@ -8,26 +8,7 @@ use App\Http\Controllers\Controller;
 
 class CambioMonedaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-        
-    }
+    
 
     /**
      * Store a newly created resource in storage.
@@ -38,50 +19,11 @@ class CambioMonedaController extends Controller
     public function store(Request $request)
     {
         //
+        // dd($request->all());
+
+        $moneda = CambioMoneda::updateOrCreate(['id'=>1],['pesos'=>$request->moneda]);
+        return redirect()->back()->with('status', 'Cambio de la moneda actualizado con éxito');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\CambioMoneda  $cambioMoneda
-     * @return \Illuminate\Http\Response
-     */
-    public function show(CambioMoneda $cambioMoneda)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\CambioMoneda  $cambioMoneda
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(CambioMoneda $cambioMoneda)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\CambioMoneda  $cambioMoneda
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, CambioMoneda $cambioMoneda)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\CambioMoneda  $cambioMoneda
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(CambioMoneda $cambioMoneda)
-    {
-        //
-    }
+    
 }

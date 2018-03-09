@@ -74,17 +74,35 @@
 
                 </div>
 
-            </div>
-            <div class="col-md-4">
-                <div class="container">
+            </div>    
+                <div class="col-md-8">
+                    <h1 class="grey satisfic-font font1">
+                        Tipo de cambio del dolar a ${{$cambio->pesos}} MXN
+                    </h1>
+                    <br>
+                    <form method="POST" action="{{ url('/moneda') }}">
+                        {{ csrf_field() }}
+                        <div class="col-md-offset-4 col-md-4">
+                        <div class="form-group">
+                            <label for="moneda">Dolar</label>
+                            <div class="input-group">
+                              <span class="input-group-addon">$</span>
+                              <input class="form-control col-md-4" id="moneda" type="number" name="moneda" value="{{$cambio->pesos}}" step="0.01">
+                              <span class="input-group-addon">MXN</span>
+                            </div>
+                            <br>
+                            <button type="submit" class="btn btn-success">Cambiar</button>
+                            
+                        </div>
+                        </div>
+                    </form>
                     
-                <h2 class="grey satisfic-font font1">
 
-                    tipo de cambio
 
-                </h2>
+                    
                 </div>
-            </div>
+            
+
 
         </div>
 
