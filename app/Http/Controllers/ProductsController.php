@@ -8,6 +8,7 @@ namespace App\Http\Controllers;
 
 
 
+use App\CambioMoneda;
 use App\Catalogo;
 use App\Category;
 use App\Product;
@@ -218,6 +219,8 @@ class ProductsController extends Controller {
     {
 
 
+        $cambio = CambioMoneda::first()->get()->pluck('pesos');
+        // dd($cambio[0]);
 
         $products = new Catalogo();
 
@@ -370,7 +373,7 @@ class ProductsController extends Controller {
 
 
 
-        return view('products.static', compact('products', 'category_selected', 'categories', 'favoriteProduct'))->with($old_inputs);
+        return view('products.static', compact('products', 'category_selected', 'categories', 'favoriteProduct','cambio'))->with($old_inputs);
 
 
 
@@ -406,7 +409,7 @@ class ProductsController extends Controller {
 
 
 
-        return view("products.edit", ["product" => $product, "categories" => $categories]);
+        return view("products.edit", ["product" => $product, "categories" => $categories, 'cambio'=>$cambio]);
 
     }
 
