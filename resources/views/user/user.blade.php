@@ -75,6 +75,8 @@
                 </div>
 
             </div>    
+                @if (Auth::user()->rol == 'admin')
+                    {{-- expr --}}
                 <div class="col-md-8">
                     <h1 class="grey satisfic-font font1">
                         Tipo de cambio del dolar a ${{$cambio->pesos}} MXN
@@ -101,6 +103,7 @@
 
                     
                 </div>
+                @endif
             
 
 

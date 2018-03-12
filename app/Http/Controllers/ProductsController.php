@@ -403,15 +403,15 @@ class ProductsController extends Controller {
 
 
 
-        $product = Product::find($id);
+        $product = Catalogo::find($id);
 
 
 
         $categories = Category::all();
 
+        // dd($product);
 
-
-        return view("products.edit", ["product" => $product, "categories" => $categories, 'cambio'=>$cambio]);
+        return view("products.edit", ["product" => $product, "categories" => $categories]);
 
     }
 
@@ -439,35 +439,22 @@ class ProductsController extends Controller {
 
         $hasFile = $request->hasFile('cover') && $request->cover->isValid();
 
-        $product = Product::find($id);
+        $product = Catalogo::find($id);
 
-        $product->title = $request->title;
+        $product->descripcion = $request->title;
 
-        $product->category = '';
+        // $product->category = '';
 
-        $product->category_id = $request->category_id;
+        // $product->category_id = $request->category_id;
 
-        $product->description = $request->description;
+        $product->descripcion_terapeutica = $request->description;
 
 
 
         $category = Category::where('id', $request->category_id)->first();
 
 
-
-        if($category->slug == 'Promociones'){
-
-            $product->pricing = '0.0';
-
-            $product->promotion_pricing = $request->pricing;
-
-        }else{
-
-            $product->pricing = $request->pricing;
-
-            $product->promotion_pricing = '0.0';
-
-        }
+        $product->precio_publico = $request->pricing;
 
 
 

@@ -44,11 +44,11 @@
 
                     <td>{{ $product->id }}</td>
 
-                    <td>{{ $product->title }}</td>
+                    <td>{{ $product->descripcion }}</td>
 
-                    <td>{{ (is_object($product->cat)) ? $product->cat->title : 'N/A' }}</td>
+                    <td>{{ (is_object($product->tipo_de_producto)) ? $product->tipo_de_producto : 'N/A' }}</td>
 
-                    <td>{{ $product->description }}</td>
+                    <td>{{ $product->descripcion_terapeutica }}</td>
 
                     <td>{{ (is_object($product->cat) && $product->cat->title == 'Promociones') ? $product->promotion_pricing :$product->pricing }}</td>
 

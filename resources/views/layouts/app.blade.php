@@ -213,6 +213,12 @@
 
                             <ul class="dropdown-menu dropdown1">
 
+                                <li>
+
+                                    <a href="{{url('user')}}">Mi perfil</a>
+
+                                </li>
+
                                 <li role="presentation">
 
                                     <a href="{{ route('logout') }}"
@@ -230,12 +236,6 @@
 
                                    
                                 </li>
-                                <li>
-
-                                    <a href="{{url('user')}}">Mi perfil</a>
-
-                                </li>
-
 
 
                             </ul>
