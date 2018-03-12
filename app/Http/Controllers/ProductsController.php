@@ -199,6 +199,8 @@ class ProductsController extends Controller {
     {
 
         $product = Catalogo::find($id);
+        $cambio = CambioMoneda::first()->get()->pluck('pesos');
+
 
 
 
@@ -208,7 +210,7 @@ class ProductsController extends Controller {
 
 
 
-        return view('products.show', compact('product', 'favoriteProduct', 'product_comments'));
+        return view('products.show', compact('product', 'favoriteProduct', 'product_comments','cambio'));
 
     }
 

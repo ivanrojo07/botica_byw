@@ -30,7 +30,7 @@ class CreateCatalogoTable extends Migration
             $table->string('sustancia_activa')->nullable();
             $table->string('refrigerado')->nullable();
             $table->string('controlado')->nullable();
-            $table->bigInteger('codigo_de_barras');
+            $table->bigInteger('codigo_de_barras')->nullable();
             $table->string('unidad_de_venta');
             $table->integer('fecha_de_caducidad');
             $table->integer('grupo_ssa');

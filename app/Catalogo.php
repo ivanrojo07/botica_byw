@@ -29,19 +29,19 @@ class Catalogo extends Model
 
     {
 
-        $price = (is_object($this->cat) && $this->cat->slug == 'Promociones') ? $this["precio_publico"] :  $this["precio_publico"];
+        $price = (is_object($this->cat) && $this->cat->slug == 'Promociones') ? $this->promotion_pricing :  $this->pivot->preciounit;
 
 
 
-        return \PaypalPayment::item()->setName($this["descripcion"])
+        return \PaypalPayment::item()->setName($this->descripcion)
 
-            ->setDescription($this["descripcion_terapeutica"])
+            ->setDescription($this->descripcion)
 
             ->setCurrency('USD')
 
             ->setQuantity($this->pivot->qty)
 
-            ->setPrice($price);
+            ->setPrice($this->pivot->preciounit);
 
     }
 

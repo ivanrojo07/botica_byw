@@ -281,7 +281,7 @@
                 <img class="img-circle" src="{{ asset('img/12.jpg') }}" style="display: inline-block;" height="42" width="42">
             @endif
 
-            {{ $element+1}}.-  {{ $producto->title}} 
+            {{ $element+1}}.-  {{ $producto->descripcion}} 
             </h5></div>
         @endforeach
     </div>
@@ -389,7 +389,7 @@
             data:{products: this.term},
             success: function (datos){
                  response( $.map( datos, function( item ) {
-                return {label: item.title, value: item.title, url: item.id};}));
+                return {label: item.descripcion, value: item.descripcion, url: item.id};}));
             }
         });
         },

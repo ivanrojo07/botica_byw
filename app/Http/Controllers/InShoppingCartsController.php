@@ -8,11 +8,11 @@ namespace App\Http\Controllers;
 
 
 
-use Illuminate\Http\Request;
-
-use App\ShoppingCart;
-
+use App\CambioMoneda;
+use App\Catalogo;
 use App\InShoppingCart;
+use App\ShoppingCart;
+use Illuminate\Http\Request;
 
 
 
@@ -85,6 +85,11 @@ class InShoppingCartsController extends Controller {
 
 
         $qty = 1;
+        $product = Catalogo::where('id',$request->product_id)->get()->first();
+        // dd($product->id);
+        $cambio = CambioMoneda::first()->get()->pluck('pesos');
+        $product_precio = number_format((($product->precio_publico+($product->precio_publico*($product->iva/100))+($product->precio_publico*($product->ieps/100))+($product->precio_publico*($product->impuesto_3/100))+($product->precio_publico*(0.40)))/$cambio[0]),2);
+        // dd($product_precio);
 
 
 
@@ -96,11 +101,12 @@ class InShoppingCartsController extends Controller {
 
 
 
-        $product_in_cart = InShoppingCart::where('product_id', $request->product_id)
+        $product_in_cart = InShoppingCart::where('catalogo_id', $request->product_id)
 
             ->where('shopping_cart_id', $shopping_cart_id)
 
             ->first();
+
 
 
 
@@ -109,6 +115,8 @@ class InShoppingCartsController extends Controller {
         if ($product_in_cart) {
 
             $response = $product_in_cart->update([
+
+                'preciounit' => $product_precio,
 
                 'qty' => $product_in_cart->qty + $qty
 
@@ -119,10 +127,11 @@ class InShoppingCartsController extends Controller {
             $response = InShoppingCart::create(
 
                 [
+                    'preciounit' => $product_precio,
 
                     "shopping_cart_id" => $shopping_cart->id,
 
-                    "product_id"       => $request->product_id,
+                    "catalogo_id"       => $request->product_id,
 
                     "qty"              => $qty
 

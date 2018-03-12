@@ -62,7 +62,7 @@ class ShoppingCartsController extends Controller {
 
         $shopping_cart = ShoppingCart::findOrCreateBySessionID($shopping_cart_id);
 
-
+        // dd($shopping_cart);
 
         // $direccion_default = '';
 
@@ -229,7 +229,7 @@ class ShoppingCartsController extends Controller {
 
 
 
-        InShoppingCart::where('product_id', $id)->where('shopping_cart_id', $shopping_cart->id)->delete();
+        InShoppingCart::where('catalogo_id', $id)->where('shopping_cart_id', $shopping_cart->id)->delete();
 
 
 
