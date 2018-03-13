@@ -51,10 +51,11 @@ class ProductsController extends Controller {
 
         // $products = Product::orderBy('id')->Paginate(35);
         $products = Catalogo::orderBy('id')->Paginate(35);
+        $cambio = CambioMoneda::first()->get()->pluck('pesos');
 
 
 
-        return view("products.index", ["products" => $products]);
+        return view("products.index", ["products" => $products, 'cambio'=>$cambio]);
 
     }
 
@@ -451,7 +452,7 @@ class ProductsController extends Controller {
 
 
 
-        $category = Category::where('id', $request->category_id)->first();
+        // $category = Category::where('id', $request->category_id)->first();
 
 
         $product->precio_publico = $request->pricing;

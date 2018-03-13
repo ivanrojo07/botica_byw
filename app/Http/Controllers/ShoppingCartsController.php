@@ -64,15 +64,23 @@ class ShoppingCartsController extends Controller {
 
         // dd($shopping_cart);
 
-        // $direccion_default = '';
+        $direccion_default = '';
+        $direcctions = '';
 
 
 
         if (Auth::check()) {
 
-            $direccion_default = Direccion::where('id_user', Auth::user()->id)
+            $direcctions = Direccion::where('id_user', Auth::user()->id)->get();
+            if ($direcctions->isEmpty() == true) {
+                # code...
+                $direcctions = "";
+            }
+            // dd($direcctions);
 
-                ->where('default', 1)->first();
+            // $direccion_default = Direccion::where('id_user', Auth::user()->id)
+
+            //     ->where('default', 1)->first();
 
         }
         else{
@@ -80,7 +88,6 @@ class ShoppingCartsController extends Controller {
                 $direccion_default = '';
             }
             else{
-
                 $direccion_default = Session('direccion_default');
             }
 
@@ -96,10 +103,11 @@ class ShoppingCartsController extends Controller {
 
         // $total = $shopping_cart->total();
         $total = number_format($shopping_cart->total(), 2);
+        // dd($direcctions);
 
 
 
-        return view("shopping_carts.index", compact('products', 'total', 'direccion_default'));
+        return view("shopping_carts.index", compact('products', 'total', 'direccion_default','direcctions'));
 
 
 
@@ -110,6 +118,7 @@ class ShoppingCartsController extends Controller {
     public function checkout(Request $request)
 
     {
+        // dd($request->all());
 
         $messages = [
 

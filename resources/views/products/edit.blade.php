@@ -4,9 +4,9 @@
 
 @section('content')
 
-<div class="container white margin-top ">
+<div class="container white margin-top " style="margin-top: 100px !important;">
 
-	<h1 class="color-grey font-ch">Editar Producto</h1>
+	
 	{{-- {{ $product}} --}}
 	@include('products.form', ['product' => $product, 'url' => '/products/'.$product->id, 'method' => 'PATCH'])
 

@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <div class="big-padding blue-grey white-text ">
+    <div class="big-padding blue-grey white-text " style="margin-top: 80px;">
 
         <h1>Productos</h1>
 
@@ -50,7 +50,7 @@
 
                     <td>{{ $product->descripcion_terapeutica }}</td>
 
-                    <td>{{ (is_object($product->cat) && $product->cat->title == 'Promociones') ? $product->promotion_pricing :$product->pricing }}</td>
+                    <td>$ {{ (is_object($product->cat) && $product->cat->title == 'Promociones') ? $product->promotion_pricing :number_format((($product["precio_publico"]+($product["precio_publico"]*($product["iva"]/100))+($product["precio_publico"]*($product["ieps"]/100))+($product["precio_publico"]*($product["impuesto_3"]/100))+($product['precio_publico']*(0.40)))/$cambio[0]),2) }} USD</td>
 
                     <td>
 
@@ -86,7 +86,7 @@
 
     </div>
 
-    <div class="floating">
+   {{--  <div class="floating">
 
         <a href="{{url('/products/create')}}" class="btn btn-default btn-fab">
 
@@ -94,7 +94,7 @@
 
         </a>
 
-    </div>
+    </div> --}}
 
 
 
