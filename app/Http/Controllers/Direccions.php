@@ -92,11 +92,14 @@ class Direccions extends Controller {
             'email.email'        => 'El Email proporcionado no es válido',
 
             'email.max'          => 'El Email debe contener máximo 255 caracteres',
-            'telefono.required'     =>  'El telefono es requerido',
 
-            'telefono.min'                => 'El telefono debe de contener minimo 10 caracteres',
+            'telefono.required'  =>  'El telefono es requerido',
 
-            'contacto.min'            => 'El telefono del contacto debera contener minimo 10 caracteres',
+            'telefono.min'       => 'El telefono debe de contener minimo 10 caracteres',
+
+            'contacto.required'  => 'El telefono del destinatario es requerido',
+
+            'contacto.min'            => 'El telefono del destinatario debera contener minimo 10 caracteres',
 
             'pais.required'      => 'El País es requerido',
 
@@ -152,7 +155,7 @@ class Direccions extends Controller {
 
             'telefono'   => 'required|min:10',
 
-            'contacto'   => 'nullable|min:10',
+            'contacto'   => 'required|min:10',
 
             'pais'       => 'required|max:255',
 

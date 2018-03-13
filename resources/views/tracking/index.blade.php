@@ -1,10 +1,14 @@
 @extends('layouts.app')
 @section('content')
 	{{-- expr --}}
+
 	<section id="four" class="wrapper style1 special fade-up">
 		
 	<div class="container">
-	<div class="panel panel-default">
+	<div class="panel panel-default" @if ($trackings->isEmpty())
+		{{-- expr --}}
+		style="height: 506px;" 
+	@endif>
 		<div class="page-header">
 
 			<button class="btn btn-warning" 
@@ -93,33 +97,33 @@
  
  
   	
-  <table class="table table-striped table-bordered table-hover" style="border-collapse: collapse; margin-bottom: 0px;">
-			<thead>
-				<tr class="info">
-					<th style="color:black;text-align: center"><strong>STATUS</strong></th>
-					<th style="color:black;text-align: center"><strong>HORA</strong></th>
-					<th style="color:black;text-align: center"><strong>FECHA</strong></th>
-					
-					
-				</tr>
-			</thead>
-			<tbody>
-				@foreach($tracking->hito as $hito)
-				<tr>
-			<td>{{$hito->status}}</td>
-			<td>{{$hito->hora}}</td>
-			<td>{{$hito->fecha}}</td>
-			   <tr>
-			 @endforeach
- 
-			</tbody>
-		  
-		</table>
-	
+  	<table class="table table-striped table-bordered table-hover" style="border-collapse: collapse; margin-bottom: 0px;">
+		<thead>
+			<tr class="info">
+				<th style="color:black;text-align: center"><strong>STATUS</strong></th>
+				<th style="color:black;text-align: center"><strong>HORA</strong></th>
+				<th style="color:black;text-align: center"><strong>FECHA</strong></th>
+				
+				
+			</tr>
+		</thead>
+		<tbody>
+			@foreach($tracking->hito as $hito)
+			<tr>
+		<td>{{$hito->status}}</td>
+		<td>{{$hito->hora}}</td>
+		<td>{{$hito->fecha}}</td>
+		   <tr>
+		 @endforeach
+
+		</tbody>
+	  
+	</table>
 
 
 
-		</div>
+
+	</div>
 
 		
 
