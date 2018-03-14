@@ -56,7 +56,7 @@ class CreateOrdersTable extends Migration
 
             $table->string('guide_numer')->nullable(); 
 
-            $table->integer("total"); 
+            $table->decimal("total",8,2); 
 
             $table->timestamps();
         }); 

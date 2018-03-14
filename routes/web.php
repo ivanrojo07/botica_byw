@@ -334,6 +334,7 @@ Route::group(['middleware' => ['isAdmin']], function () {
     Route::get('/promotions', 'PromotionsController@index');
 
     Route::post('moneda', 'CambioMonedaController@store');
+    Route::get('/ordens', 'OrdersController@getOrden');
 
     // Route::get('user', "userprofileController@user");
 

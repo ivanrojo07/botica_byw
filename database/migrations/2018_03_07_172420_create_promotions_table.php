@@ -15,6 +15,24 @@ class CreatePromotionsTable extends Migration
     {
         Schema::create('promotions', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('fecha');
+            $table->integer('codigo_marzam');
+            $table->string('nombre');
+            $table->decimal('precio_farmacia',8,2);
+            $table->decimal('precio_publico',8,2);
+            $table->decimal('iva',5,2);
+            $table->decimal('ieps',5,2);
+            $table->decimal('impuesto_3',5,2);
+            $table->integer('cantidad_base');
+            $table->integer('cantidad_oferta');
+            $table->decimal('porcentaje_oferta',5,2);
+            $table->integer('fecha_inicio');
+            $table->integer('fecha_fin');
+            $table->integer('codigo_barras')->nullable();
+            $table->string('tipo_oferta');
+            $table->string('bolsa_oferta');
+            $table->decimal('descuento_comercial',5,2);
+            $table->integer('numero_registro');
             $table->timestamps();
         });
     }

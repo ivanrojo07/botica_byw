@@ -361,11 +361,11 @@
 
 
 
-<script src="{{ url('/js/jquery.min.js') }}"></script>
-<script src="{{ url('/js/jquery-1.12.4.min.js') }}"></script>
-<script src="{{ url('/js/jquery-ui.js') }}"></script>
+<script src="{{ url('js/jquery.min.js') }}"></script>
+<script src="{{ url('js/jquery-1.12.4.min.js') }}"></script>
+<script src="{{ url('js/jquery-ui.js') }}"></script>
 
-<!--Import jQuery before materialize.js-->
+{{-- Import jQuery before materialize.js --}}
  <script type="text/javascript" src="{{ url('js/jquery-3.1.1.min.js') }}"></script>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

@@ -152,15 +152,15 @@
 			{{ csrf_field() }}
 			<div class="modal-body">
 				<div class="row">
-								        	<div class="col-sm-5">   
+								        	<div class="col-sm-offset-1 col-sm-5">   
 								        		<label for="hawb"> HAWB:</label>
 							<input type="text" class="form-control" name="hawb" id="hawb" placeholder="Clave HAWB" required style="size: 170px; height: 35px;">
 											</div>
-											<div class="col-sm-5">   
+											<div class=" col-sm-5">   
 								        		<label for="orden_id"> Orden de Compra:</label>
-							<select class="form-control" id="orden_id" name="orden_id" required>
+							<select class="form-control" id="orden_id" name="orden_id" onchange="orden(this.value)" required>
 								@foreach($orders as $order)
-        						<option value="{{$order->id}}">{{$order->recipient_name}}</option>
+        						<option value="{{$order->id}}">{{$order->shoppingCart->customid}}</option>
         						@endforeach
      					    </select>
 											</div>
@@ -169,7 +169,7 @@
                 </div>
                 <br>
                 <div class="row">
-                	<div class="col-sm-5">   
+                	<div class="col-sm-offset-1  col-sm-5">   
 								        		<label for="shopping_cart_id">Carrito de Compra:</label>
 							<select class="form-control" id="shopping_cart_id" name="shopping_cart_id" required>
         						@foreach($carts as $cart)
@@ -178,14 +178,14 @@
         						
      					    </select>
 											</div>
-											<div class="col-sm-5">   
+											<div class=" col-sm-5">   
 								        		<label for="destino"> Destino:</label>
-							<input type="text" class="form-control" name="destino" id="destino" placeholder="Destino" required style="size: 200px; height: 35px;">
+							<input type="text" class="form-control" name="destino" id="destino" placeholder="Destino" required style="size: 200px; height: 35px;" value="{{ $order->shopp }}">
 											</div>
                 </div>	
                 <br>
                  <div class="row">
-                	<div class="col-sm-5">   
+                	<div class="col-sm-offset-1  col-sm-5">   
 								        		<label for="bultos">Número de Bultos:</label>
 							<select class="form-control" id="bultos" name="bultos" required>
         						<option value="1">1</option>
@@ -201,7 +201,14 @@
 								        		<label for="peso"> Peso:</label>
 							<input type="text" class="form-control" name="peso" id="peso" placeholder="-Kg-" required style="size: 170px; height: 35px;">
 											</div>
-                </div>	
+                </div>
+                <br>
+                <div class="row">
+                	<div class="col-sm-offset-1  col-sm-10">
+                		<label for="direccion">Dirección:</label>
+                		<textarea class="form-control" readonly="readonly" id="direccion" rows="8"></textarea>
+                	</div>
+                </div>
 			</div>
 
 
@@ -231,4 +238,30 @@
 
 
 </section>
+
+@endsection
+
+@section('scripts')
+	{{-- expr --}}
+<script>
+	// alert('hola');
+	function orden (kw) {
+
+		$.ajax({
+			url: "{{ url('/ordens') }}",
+			type: "GET",
+			dataType: "json",
+			data:{orden: kw},
+			success: function(datos){
+				$("#destino").val(datos.municipio+', '+datos.estado+', '+datos.pais);
+				$("#direccion").val('Calle '+datos.calle+', #'+datos.num_ext+" Int."+datos.num_int+', Colonia '+datos.colonia+', Municipio '+datos.municipio+', Estado '+datos.estado+', Ciudad '+datos.ciudad+', Pais '+datos.pais);
+			}
+		});
+
+	 	
+	}
+	// $("#orden_id").on('change',function(){
+	// 	alert('Hola');
+	// });
+</script>
 @endsection

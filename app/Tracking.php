@@ -18,4 +18,8 @@ class Tracking extends Model
 
      	return $this->hasMany('App\StatusTracking', 'tracking_id');
      }
+
+     public function shoppingCart(){
+     	return $this->belongsTo('App\ShoppingCart');
+     }
 }

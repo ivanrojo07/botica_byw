@@ -98,7 +98,9 @@ class ShoppingCart extends Model {
 
     }
 
-    
+    public function shoping_direccion(){
+        return $this->belongsTo('App\Direccion', 'direccion_id', 'id');
+    }
 
     public function user()
 
