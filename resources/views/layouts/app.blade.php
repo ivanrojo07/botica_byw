@@ -54,6 +54,10 @@
     <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/mdb.min.css') }}">
     <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
+    <!--load everything-->
+    <script defer src="{{ asset('js/fontawesome-all.js') }}"></script>
+
+
 
 
     <!-- Scripts -->

@@ -40,7 +40,7 @@ class Order extends Model {
 
     {
 
-        return $this->belongsTo('App\ShoppingCart', 'shopping_cart_id');
+        return $this->belongsTo('App\ShoppingCart', 'shopping_cart_id','id');
 
     }
 
@@ -136,6 +136,11 @@ class Order extends Model {
 
 
 
+    }
+
+    public function tracking(){
+
+        return $this->hasOne('App\Tracking','orden_id','id');
     }
 
    

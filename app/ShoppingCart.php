@@ -54,7 +54,7 @@ class ShoppingCart extends Model {
 
     {
 
-        return $this->hasOne("App\Order")->first();
+        return $this->hasOne("App\Order");
 
     }
 

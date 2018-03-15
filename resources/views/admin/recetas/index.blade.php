@@ -58,8 +58,47 @@
                             <tbody>
 
                             @foreach($recetas as $receta)
-                                {{ var_dump($receta->shoppingCart)}}
-                                
+                                <tr>
+
+                                    <td>
+
+                                        {{ $receta->id }}
+
+                                    </td>
+
+                                    <td>
+                                        @if ($receta->shoppingCart->user_id != null )
+                                            {{-- true expr --}}
+                                            {{ '#'.$receta->shoppingCart->user->id . ' ' . $receta->shoppingCart->user->email }}
+                                        @else
+                                            {{-- false expr --}}
+                                            Invitado
+                                        @endif
+{{-- 
+                                        {{ ($receta->shoppingCart->user_id != null )
+                                            ? '#'.$receta->shoppingCart->user->id . ' ' . $receta->shoppingCart->user->email
+                                            : 'Invitado'
+                                        }} --}}
+
+                                    </td>
+
+                                    <td>
+
+                                        <form action=" {{ url('/user/order/get-receta') }}" method="POST">
+
+                                            {{ csrf_field() }}
+
+                                            <input type="hidden" name="url_receta_path"
+
+                                                   value="{{ $receta->shoppingCart->receta_path }}"/>
+
+                                            <button class="btn btn-success">Descargar Receta</button>
+
+                                        </form>
+
+                                    </td>
+
+                                </tr>
 
                             @endforeach
 

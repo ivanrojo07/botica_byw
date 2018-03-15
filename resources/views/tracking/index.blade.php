@@ -4,7 +4,21 @@
 
 	<section id="four" class="wrapper style1 special fade-up">
 		
-	<div class="container">
+	<div class="container-fluid">
+		<div class="panel-body">
+			<div class="col-lg-6">
+				<form id="buscartraking" action="busqueda"
+				o onKeypress="if(event.keyCode == 13) event.returnValue = false;">
+				<!-- {{ csrf_field() }} -->
+				<div class="input-group" id="datos1">
+					<input type="text" id="query" name="query" list="browsers" class="form-control" placeholder="Buscar..." autofocus>
+					<span class="input-group-addon" id="basic-addon2"><i class="fas fa-search"></i></span>
+				</div>
+				</form>
+			</div>
+			
+		</div>
+			
 	<div class="panel panel-default" @if ($trackings->isEmpty())
 		{{-- expr --}}
 		style="height: 506px;" 
@@ -15,12 +29,12 @@
 			        data-toggle="modal" 
 					data-target="#modal">
 				    Nuevo Tracking</button> <br><br>
+		<div id="datos" name="datos">
 			<table class="table table-striped table-bordered table-hover" style="border-collapse: collapse; margin-bottom: 0px;">
 			<thead>
 				<tr class="info">
 					<th style="color:black;text-align: center"><strong>HAWB</strong></th>
 					<th style="color:black;text-align: center"><strong>Orden</strong></th>
-					<th style="color:black;text-align: center"><strong>Carrito</strong></th>
 					<th style="color:black;text-align: center"><strong>Destino</strong></th>
 					<th style="color:black;text-align: center"><strong>Bultos</strong></th>
 					<th style="color:black;text-align: center"><strong>Peso</strong></th>
@@ -38,15 +52,16 @@
 					
 					
 					<td >{{$tracking->hawb}}</td>
-					<td>{{$tracking->orden_id}}</td>
-					<td>{{$tracking->shopping_cart_id}}</td>
+					<td>{{$tracking->orden->shoppingCart->customid}}</td>
 					<td>{{$tracking->destino}}</td>
 					<td>{{$tracking->bultos}}</td>
 					<td>{{$tracking->peso}}Kg</td>
 					<td>{{$tracking->created_at}}</td>
 				</tr>
 			@endforeach
-		</table>
+			</table>
+		</div>
+			
 
 		</div>
 
@@ -169,20 +184,14 @@
                 </div>
                 <br>
                 <div class="row">
-                	<div class="col-sm-offset-1  col-sm-5">   
-								        		<label for="shopping_cart_id">Carrito de Compra:</label>
-							<select class="form-control" id="shopping_cart_id" name="shopping_cart_id" required>
-        						@foreach($carts as $cart)
-        						<option value="{{$cart->id}}">{{$cart->id}}</option>
-        						@endforeach
-        						
-     					    </select>
-											</div>
-											<div class=" col-sm-5">   
-								        		<label for="destino"> Destino:</label>
-							<input type="text" class="form-control" name="destino" id="destino" placeholder="Destino" required style="size: 200px; height: 35px;" value="{{ $order->shopp }}">
-											</div>
-                </div>	
+                	<div class="col-sm-offset-1  col-sm-10">   
+							
+						
+			        		<label for="destino"> Destino:</label>
+								<input type="text" class="form-control" name="destino" id="destino" placeholder="Destino" required style="size: 200px; height: 35px;" value="{{ $order->shopp }}">
+						
+                	</div>
+                </div>
                 <br>
                  <div class="row">
                 	<div class="col-sm-offset-1  col-sm-5">   
@@ -260,8 +269,40 @@
 
 	 	
 	}
+
+	function obtener_registros(busqueda,etiqueta){
+		if (etiqueta == 'query'){
+
+			$.ajax({
+				url: "buscartraking",
+				type: "GET",
+				dataType: "html",
+				data : {busqueda:busqueda},
+			}).done(function(results){
+				$("#datos").html(results);
+			});
+		}
+	}
 	// $("#orden_id").on('change',function(){
 	// 	alert('Hola');
 	// });
+	$(document).on('keyup','#query',function(){
+		$.ajaxSetup({
+			headers: {
+				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+			}
+		});
+		var valor = $(this).val();
+		var etiqueta = $(this).attr('id');
+
+		if(valor!= ""){
+
+			obtener_registros(valor,etiqueta);
+		}
+		else{
+
+			obtener_registros(' ',etiqueta);
+		}
+	})
 </script>
 @endsection
