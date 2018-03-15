@@ -121,28 +121,23 @@ class TrackingController extends Controller
                 $q->orWhere('customid',"$word");
             }
         })->first();
-        $trackings = $customid->order;
-        $trackings = $trackings->tracking;
-        // $trackings = Tracking::with(['orden.shoppingcart'=>function($q) use($wordsquery){
-        //     foreach ($wordsquery as $word) {
-        //         $q->where('customid','LIKE',"%$word%");
-        //     }
-        // }])->first();
-        // $trackings = Tracking::with(['orden.shoppingCart'=>function($q) use ($wordsquery){
-        //     foreach ($wordsquery as $word) {
-        //         # code...
-        //         $q->orWhere('customid', 'LIKE',"%$word%");
-        //     }
-        // }])->get();
+        if ($customid) {
+            # code...
+            $trackings = $customid->order;
+            $trackings = $trackings->tracking;
+        }
+        else{
+            // $trackings="";
+            $trackings = Tracking::where(function ($quer) use ($wordsquery){
+            foreach ($wordsquery as $word) {
+                # code...
+                $quer->orWhere('hawb',"$word");
+            }
+            })->first();
+        }
 
-        // ->orWhere(function ($quer) use ($wordsquery){
-        //     foreach ($wordsquery as $word) {
-        //         # code...
-        //         $quer->orWhere('hawb', 'LIKE',"%$word%");
-        //     }
-        // })->get();
 
-        dd($trackings);
+        // dd($trackings);
 
         return view('tracking.busqueda',['trackings'=>$trackings]);
     }
