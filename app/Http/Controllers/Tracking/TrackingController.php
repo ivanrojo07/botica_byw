@@ -108,33 +108,41 @@ class TrackingController extends Controller
 
     public function search(Request $request){
         $query = $request->input('busqueda');
-        if ($query == " ") {
-            # code...
-            $trakings = Tracking::get();
-        }
+        // dd($query);
         $wordsquery = explode(' ',$query);
+        $wordquery = $wordsquery[0];
 
-        $customid = ShoppingCart::where(function($q) use ($wordsquery){
-            foreach ($wordsquery as $word) {
-                # code...
-                // $q->orWhere('customid', 'LIKE',"%$word%");
-                $q->orWhere('customid',"$word");
-            }
-        })->first();
-        if ($customid) {
-            # code...
-            $trackings = $customid->order;
-            $trackings = $trackings->tracking;
-        }
-        else{
-            // $trackings="";
-            $trackings = Tracking::where(function ($quer) use ($wordsquery){
-            foreach ($wordsquery as $word) {
-                # code...
-                $quer->orWhere('hawb',"$word");
-            }
-            })->first();
-        }
+        $trackings = Tracking::whereHas('orden.shoppingcart',function($qy) use ($wordquery){
+            $qy->where('customid',$wordquery);
+        })->orWhere(function ($q) use ($wordquery){
+            $q->orWhere('hawb','LIKE', "%$wordquery%");
+        })->get();
+
+        // if ($query == null) {
+        //     # code...
+        //     $trakings = Tracking::get()->all();
+        // }
+        // $customid = ShoppingCart::where(function($q) use ($wordsquery){
+        //     foreach ($wordsquery as $word) {
+        //         # code...
+        //         // $q->orWhere('customid', 'LIKE',"%$word%");
+        //         $q->orWhere('customid',"$word");
+        //     }
+        // })->first();
+        // if ($customid) {
+        //     # code...
+        //     $trackings = $customid->order;
+        //     $trackings = $trackings->tracking;
+        // }
+        // else{
+        //     // $trackings="";
+        //     $trackings = Tracking::where(function ($quer) use ($wordsquery){
+        //     foreach ($wordsquery as $word) {
+        //         # code...
+        //         $quer->orWhere('hawb',"$word");
+        //     }
+        //     })->first();
+        // }
 
 
         // dd($trackings);
