@@ -19,11 +19,11 @@
 
 		</header>
 
-	</div>				
-
+	</div>			
 			
-
-			<div class="10u$ 12u$(medium) important(medium) faq">
+@foreach ($trackings as $tracking)
+	{{-- expr --}}
+				<div class="10u$ 12u$(medium) important(medium) faq">
 
 	<section id="content">
 <div class="row jumbotron">
@@ -86,6 +86,8 @@
 
 
 
+
+@endforeach
 			</div>
 
 						

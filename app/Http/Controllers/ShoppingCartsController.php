@@ -56,10 +56,10 @@ class ShoppingCartsController extends Controller {
 
         $order = $shopping_cart->order;
         
-        $tracking = $order->tracking;
+        $trackings = $order->trackings;
         // dd($tracking);
 
-        return view("shopping_carts.status", ["shopping_cart" => $shopping_cart, "order" => $order, 'tracking'=>$tracking]);
+        return view("shopping_carts.status", ["shopping_cart" => $shopping_cart, "order" => $order, 'trackings'=>$trackings]);
     }
 
 

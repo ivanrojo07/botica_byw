@@ -138,9 +138,9 @@ class Order extends Model {
 
     }
 
-    public function tracking(){
+    public function trackings(){
 
-        return $this->hasOne('App\Tracking','orden_id','id');
+        return $this->hasMany('App\Tracking','orden_id','id');
     }
 
    

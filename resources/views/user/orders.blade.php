@@ -112,7 +112,7 @@
 
                                     <td>
 
-                                        <a href="{{ url('/pedido/' . $order->customid)  }}">Ver Pedido</a>
+                                        <a href="{{ url('/pedido/' . $order->customid)  }}">Ver Tracking</a>
 
                                     </td>
 
