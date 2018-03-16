@@ -51,7 +51,7 @@
       </h4>
     </div>
 
-          <div class="item row">
+          <div class="item-row">
         <div class="col-lg-7 col-md-6">
 			<div class="product col-xs-12">
               <div class="image-container col-lg-3 col-md-4 col-xs-2">
@@ -119,7 +119,4 @@
 					</div>
 
 				</section>
-
-
-
 @endsection

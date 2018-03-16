@@ -42,14 +42,25 @@ class ShoppingCartsController extends Controller {
 
         $shopping_cart = ShoppingCart::where('customid', $id)->first();
 
-        $order = $shopping_cart->order();
+        $order = $shopping_cart->order;
+        $tracking = $order->tracking;
 
+        // dd($tracking);
 
-
-        return view("shopping_carts.completed", ["shopping_cart" => $shopping_cart, "order" => $order]);
+        return view("shopping_carts.completed", ["shopping_cart" => $shopping_cart, "order" => $order, 'tracking'=>$tracking]);
 
     }
+    public function pedido($id){
 
+        $shopping_cart = ShoppingCart::where('customid', $id)->first();
+
+        $order = $shopping_cart->order;
+        
+        $tracking = $order->tracking;
+        // dd($tracking);
+
+        return view("shopping_carts.status", ["shopping_cart" => $shopping_cart, "order" => $order, 'tracking'=>$tracking]);
+    }
 
 
     public function index()

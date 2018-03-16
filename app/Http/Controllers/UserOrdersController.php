@@ -31,11 +31,9 @@ class UserOrdersController extends Controller {
 
     {
 
-        $orders = ShoppingCart::where('user_id', Auth::user()->id)
+        $orders = ShoppingCart::where('user_id', Auth::user()->id)->where('status','aproved')->get();
 
-            ->where('status', 'approve')->get();
-
-
+            // dd($orders);
 
         return view('user.orders', compact('orders'));
 

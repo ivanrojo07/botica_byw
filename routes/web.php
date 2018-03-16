@@ -168,6 +168,7 @@ Route::resource('compras', 'ShoppingCartsController', [
     'only' => ['show']
 
 ]);
+Route::get('pedido/{id}','ShoppingCartsController@pedido');
 
 
 Route::group(['middleware' => 'auth'], function () {
