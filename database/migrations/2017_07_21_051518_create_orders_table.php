@@ -34,7 +34,9 @@ class CreateOrdersTable extends Migration
 
             $table->integer("shopping_cart_id")->unsigned();
 
-            $table->foreign("shopping_cart_id")->references("id")->on("shopping_carts"); 
+            $table->foreign("shopping_cart_id")->references("id")->on("shopping_carts");
+            $table->integer("direccion_id")->unsigned();
+            $table->foreign("direccion_id")->references("id")->on("direccions");
 
             $table->string('line1'); 
 
