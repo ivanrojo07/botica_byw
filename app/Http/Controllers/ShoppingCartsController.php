@@ -61,6 +61,26 @@ class ShoppingCartsController extends Controller {
 
         return view("shopping_carts.status", ["shopping_cart" => $shopping_cart, "order" => $order, 'trackings'=>$trackings]);
     }
+    public function buscar(Request $request)
+    {
+        # code...
+        $shopping_cart_id = $request->tracking;
+        $shopping_cart = ShoppingCart::where('customid',$shopping_cart_id)->first();
+        if ($shopping_cart != null) {
+            # code...
+            $order = $shopping_cart->order;
+            $trackings = $order->trackings;
+            // dd($trackings->count());
+            return view("static.seguimiento", ["shopping_cart" =>$shopping_cart, "order"=>$order, "trackings"=>$trackings]);
+        }
+        else {
+
+            $order = null;
+            $trackings = null;
+            return view("static.seguimiento", ["shopping_cart" =>$shopping_cart, "order"=>$order, "trackings"=>$trackings]);
+
+        }
+    }
 
 
     public function index()

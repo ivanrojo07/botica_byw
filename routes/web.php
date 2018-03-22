@@ -113,6 +113,8 @@ Route::get('/creardireccion', 'Direccions@creardireccioninvitado');
 
 Route::post('/user/direccion/create', 'Direccions@store');
 
+Route::get('buscartracking', 'ShoppingCartsController@buscar');
+
 
 
 

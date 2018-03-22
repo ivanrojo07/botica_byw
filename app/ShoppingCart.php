@@ -64,7 +64,7 @@ class ShoppingCart extends Model {
 
     {
 
-        return $this->hasOne("App\Direccion");
+        return $this->belongsTo("App\Direccion", 'direccion_id', 'id');
 
     }
 
