@@ -41,8 +41,8 @@ class ShoppingCartsController extends Controller {
     {
 
         $shopping_cart = ShoppingCart::where('customid', $id)->first();
-
         $order = $shopping_cart->order;
+        // dd($order);
         $tracking = $order->tracking;
 
         // dd($tracking);
