@@ -138,7 +138,7 @@
              <?php $total_tot=0; $total_prod=0; ?>
             @foreach($sales as $sale)
                 @if (count($sale->product) != 0)
-            <?php $total_prod=$sale->product->pricing * $sale->qty;
+            <?php $total_prod=$sale->preciounit * $sale->qty;
                  $total_tot+=$total_prod; ?>
                  @endif
             @endforeach
@@ -214,7 +214,7 @@
                                             {{-- true expr --}}
                                             no existe el producto
                                         @else
-                                            {{ $sale->product->title }}
+                                            {{ $sale->product->descripcion }}
                                             {{-- false expr --}}
                                         @endif
 
@@ -225,7 +225,7 @@
                                             {{-- true expr --}}
                                             no existe el producto
                                         @else
-                                          $  {{ $sale->product->pricing }}
+                                          $  {{ $sale->preciounit }}
                                             {{-- false expr --}}
                                         @endif
 
@@ -242,7 +242,7 @@
                                             {{-- true expr --}}
                                             no existe el producto
                                         @else
-                                            {{ $sale->product->codigo_proveedor }}
+                                            {{ $sale->product->codigo_marzam }}
                                             {{-- false expr --}}
                                         @endif
 
@@ -254,7 +254,7 @@
                                             no existe el producto
                                         @else
                                         
-                                           $ {{ $sale->qty * $sale->product->pricing  }}
+                                           $ {{ $sale->qty * $sale->preciounit  }}
                                             {{-- false expr --}}
                                         @endif
 
