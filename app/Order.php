@@ -40,7 +40,7 @@ class Order extends Model {
 
     {
 
-        return $this->belongsTo('App\ShoppingCart', 'shopping_cart_id','id');
+        return $this->belongsTo('App\ShoppingCart', 'shopping_cart_id');
 
     }
 
