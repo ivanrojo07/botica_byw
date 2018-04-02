@@ -46,13 +46,13 @@ class Order extends Model {
 
 
 
-    public function scopeLatest($query)
+    // public function scopeLatest($query)
 
-    {
+    // {
 
-        return $query->orderID()->monthly();
+    //     return $query->orderID()->monthly();
 
-    }
+    // }
 
 
 
@@ -75,6 +75,13 @@ class Order extends Model {
     }
 
 
+    public static function total()
+
+    {
+
+        return Order::sum("total");
+
+    }
 
     public static function totalMonth()
 
@@ -84,7 +91,13 @@ class Order extends Model {
 
     }
 
+    public static function totalCount()
 
+    {
+
+        return Order::count();
+
+    }
 
     public static function totalMonthCount()
 

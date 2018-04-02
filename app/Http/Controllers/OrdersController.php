@@ -49,10 +49,10 @@ class OrdersController extends Controller {
     {
 
         $orders = Order::latest()->get();
+        $totalMonth = Order::total();
+        
 
-        $totalMonth = Order::totalMonth();
-
-        $totalMonthCount = Order::totalMonthCount();
+        $totalMonthCount = Order::totalCount();
 
 
 
@@ -170,6 +170,18 @@ class OrdersController extends Controller {
 
         return 'No se encontró la dirección de envío';
 
+    }
+
+    public function shoppingInfo($shoppingcart){
+        $shopping_cart = ShoppingCart::where('id', $shoppingcart)->first();
+        if ($shopping_cart) {
+            # code...
+            $productos = $shopping_cart->products;
+            return view('orders.shopping_info', compact('productos'));
+        }
+        else{
+            return 'No se encontró esta compra: favor de hablar con el comprador';
+        }
     }
 
     public function getOrden(Request $request){

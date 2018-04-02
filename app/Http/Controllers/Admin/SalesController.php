@@ -82,11 +82,11 @@ class SalesController extends Controller {
 
                 if ($filters['user'] == 0) {
 
-                    $query->where('status', 'approved')->where('user_id', null);
+                    $query->where('status', 'approve')->where('user_id', null);
 
                 } else {
 
-                    $query->where('status', 'approved')->where('user_id', $filters['user']);
+                    $query->where('status', 'approve')->where('user_id', $filters['user']);
 
                 }
 
@@ -104,7 +104,7 @@ class SalesController extends Controller {
 
             $sales = InShoppingCart::whereHas('shoppingcart', function ($query) {
 
-                $query->where('status', 'approved');
+                $query->where('status', 'approve');
 
             });
 
