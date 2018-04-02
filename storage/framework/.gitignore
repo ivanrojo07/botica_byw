@@ -13,8 +13,9 @@ events.scanned.php
 routes.scanned.php
 
 down
-!/sessions
-!/cache
-!/sessions
-!/testing
-!/views
+
+/sessions
+/cache
+/sessions
+/testing
+/views

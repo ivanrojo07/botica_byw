@@ -105,4 +105,23 @@ class TrackingController extends Controller
     {
         //
     }
+
+    public function search(Request $request){
+        $query = $request->input('busqueda');
+        // dd($query);
+        $wordsquery = explode(' ',$query);
+        $wordquery = $wordsquery[0];
+
+        $trackings = Tracking::whereHas('orden.shoppingcart',function($qy) use ($wordquery){
+            // BUSQUEDA POR LA RELACION TRACKING-ORDEN-SHOPPINGCART POR CUSTOMID
+            $qy->where('customid',$wordquery);
+        })->orWhere(function ($q) use ($wordquery){
+            // BUSQUEDA POR EL HAWB DEL TRACKING
+            $q->orWhere('hawb','LIKE', "%$wordquery%");
+        })->get();
+
+        
+
+        return view('tracking.busqueda',['trackings'=>$trackings]);
+    }
 }

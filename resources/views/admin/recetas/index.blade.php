@@ -58,7 +58,6 @@
                             <tbody>
 
                             @foreach($recetas as $receta)
-
                                 <tr>
 
                                     <td>
@@ -68,14 +67,18 @@
                                     </td>
 
                                     <td>
-
-                                        {{ ($receta->shoppingcart->user_id != null )
-
-                                            ? '#'.$receta->shoppingcart->user->id . ' ' . $receta->shoppingcart->user->email
-
+                                        @if ($receta->shoppingCart->user_id != null )
+                                            {{-- true expr --}}
+                                            {{ '#'.$receta->shoppingCart->user->id . ' ' . $receta->shoppingCart->user->email }}
+                                        @else
+                                            {{-- false expr --}}
+                                            Invitado
+                                        @endif
+{{-- 
+                                        {{ ($receta->shoppingCart->user_id != null )
+                                            ? '#'.$receta->shoppingCart->user->id . ' ' . $receta->shoppingCart->user->email
                                             : 'Invitado'
-
-                                        }}
+                                        }} --}}
 
                                     </td>
 
@@ -87,7 +90,7 @@
 
                                             <input type="hidden" name="url_receta_path"
 
-                                                   value="{{ $receta->shoppingcart->receta_path }}"/>
+                                                   value="{{ $receta->shoppingCart->receta_path }}"/>
 
                                             <button class="btn btn-success">Descargar Receta</button>
 

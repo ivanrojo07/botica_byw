@@ -59,7 +59,7 @@
 
                     <td>
 
-                        {{$product->title}}
+                        {{$product->descripcion}}
 
                         @if(is_object($product->cat) && $product->cat->slug == 'Promociones')
 
@@ -77,7 +77,7 @@
 
                         @else
 
-                            $ {{$product->pricing}}
+                            $ {{$product->pivot->preciounit}}
 
                         @endif
 
@@ -93,7 +93,7 @@
 
                     <td>
 
-                        $ {{ number_format($product->pivot->qty * ((is_object($product->cat) && $product->cat->slug == 'Promociones') ? $product->promotion_pricing : $product->pricing), 2) }}
+                        $ {{ number_format($product->pivot->qty * ((is_object($product->cat) && $product->cat->slug == 'Promociones') ? $product->promotion_pricing : $product->pivot->preciounit), 2) }}
 
                     </td>
 
@@ -142,7 +142,7 @@
 @endsection
 @section('scripts')
     {{-- expr --}}
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> --}}
     <script src="{{ asset('js/plugins/piexif.min.js') }}"></script>
     <script src="{{ asset('js/plugins/sortable.min.js') }}"></script>
     <script src="{{ asset('js/plugins/purify.min.js') }}"></script>

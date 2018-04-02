@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Catalogo;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-use App\Catalogo;
 
 class FileController extends Controller
 {
@@ -26,47 +27,77 @@ class FileController extends Controller
     		# code...
             // dd($request->file('sample_file')->getPathName());
     		$path = $request->file('sample_file')->getPathName();
-            // dd($path);
-            Excel::filter('chunk')->load($path,null,null,true,null)->chunk(250, function($results) {
+            // dd(storage_path('public/CATALOGO.csv'));
+            Excel::filter('chunk')->load(storage_path("app\public\CATALOGO.csv"),null,null,true,null)->chunk(250, function($results) {
+            	// dd($results);
             	foreach ($results as $key => $value) {
                 	# code...
     				// dd($value);
     				// $descripcion = iconv('ASCII//TRANSLIT', 'UTF-8',  $value["descripcion_terapeutica"]);
     				// dd($descripcion);
                     set_time_limit(0); 
-    				$catalogo = Catalogo::updateOrCreate(
-    					[
-    						"codigo_marzam"=>$value["codigo_marzam"], 
-    						"contador"=>$value["contador"]
-    					]
-    					,[
-	    					"fecha_actual"=>$value["fecha_actual"],
-	    					"codigo_marzam"=>$value["codigo_marzam"],
-	    					"descripcion"=>preg_replace('/\s\s+/', '', $value["descripcion"]),
-	    					"precio_farmacia"=>$value["precio_farmacia"],
-	    					"precio_publico"=>$value["precio_publico"],
-	    					"iva"=>$value["iva"],
-	    					"ieps"=>$value["ieps"],
-	    					"impuesto_3"=>$value["impuesto_3"],
-	    					"tipo_de_producto"=>$value["tipo_de_producto"],
-	    					"laboratorio"=>preg_replace('/\s\s+/', '',$value["laboratorio"]),
-	    					"clasificacion_fiscal"=>$value["clasificacion_fiscal"],
-	    					"descripcion_terapeutica"=>preg_replace('/\s\s+/', '', $value["descripcion_terapeutica"]),
-	    					"sustancia_activa"=>preg_replace('/\s\s+/', '', $value["sustancia_activa"]),
-	    					"refrigerado"=>$value["refrigerado"],
-	    					"controlado"=>$value["controlado"],
-	    					"codigo_de_barras"=>$value["codigo_de_barras"],
-	    					"unidad_de_venta"=>$value["unidad_de_venta"],
-	    					"fecha_de_caducidad"=>$value["fecha_de_caducidad"],
-	    					"grupo_ssa"=>$value["grupo_ssa"],
-	    					"accion_sobre_articulo"=>$value["accion_sobre_articulo"],
-	    					"pzas_empaque_original"=>$value["pzas._empaque_original"],
-	    					"descuento_comercial"=>$value["descuento_comercial"],
-	    					"codigo_sat"=>$value["codigo_sat"],
-	    					"unidad_sat"=>$value["unidad_sat"],
-	    					"contador"=>$value["contador"]
-	    				]
-	    			);
+         //            if ($value["descipcion"]) {
+         //            	# code...
+         //            	$catalogo = Catalogo::updateOrCreate(
+	    				// 	[
+	    				// 		"codigo_marzam"=>$value["codigo_marzam"]
+	    				// 	]
+	    				// 	,[
+		    			// 		"fecha_actual"=>$value["fecha_actual"],
+		    			// 		"codigo_marzam"=>$value["codigo_marzam"],
+		    			// 		"descripcion"=>preg_replace('/\s\s+/', '', $value["descipcion"]),
+		    			// 		// "descripcion"=>preg_replace('/\s\s+/', '', $value["descipcion"]),
+		    			// 		"precio_farmacia"=>$value["precio_farmacia"],
+		    			// 		"precio_publico"=>$value["precio_publico"],
+		    			// 		"iva"=>$value["iva"],
+		    			// 		"ieps"=>$value["ieps"],
+		    			// 		"impuesto_3"=>$value["impuesto_3"],
+		    			// 		"clasificacion_fiscal"=>$value["clasificacion_fiscal"],
+		    			// 		"codigo_de_barras"=>$value["codigo_de_barras"],
+		    			// 		"contador"=>$value["contador"]
+		    			// 	]
+		    			// );
+         //            }
+         //            elseif ($value["descripcion"]) {
+         //            	# code...
+                    	$catalogo = Catalogo::updateOrCreate(
+	    					[
+	    						"codigo_marzam"=>$value["codigo_marzam"],
+	    					]
+	    					,[
+		    					"fecha_actual"=>$value["fecha_actual"],
+		    					"codigo_marzam"=>$value["codigo_marzam"],
+		    					"descripcion"=>preg_replace('/\s\s+/', '', $value["descripcion"]),
+		    					// "descripcion"=>preg_replace('/\s\s+/', '', $value["descipcion"]),
+		    					"precio_farmacia"=>$value["precio_farmacia"],
+		    					"precio_publico"=>$value["precio_publico"],
+		    					"iva"=>$value["iva"],
+		    					"ieps"=>$value["ieps"],
+		    					"impuesto_3"=>$value["impuesto_3"],
+		    					"tipo_de_producto"=>$value["tipo_de_producto"],
+		    					"laboratorio"=>preg_replace('/\s\s+/', '',$value["laboratorio"]),
+		    					"clasificacion_fiscal"=>$value["clasificacion_fiscal"],
+		    					"descripcion_terapeutica"=>preg_replace('/\s\s+/', '', $value["descripcion_terapeutica"]),
+		    					"sustancia_activa"=>preg_replace('/\s\s+/', '', $value["sustancia_activa"]),
+		    					"refrigerado"=>$value["refrigerado"],
+		    					"controlado"=>$value["controlado"],
+		    					"codigo_de_barras"=>$value["codigo_de_barras"],
+		    					"unidad_de_venta"=>$value["unidad_de_venta"],
+		    					"fecha_de_caducidad"=>$value["fecha_de_caducidad"],
+		    					"grupo_ssa"=>$value["grupo_ssa"],
+		    					"accion_sobre_articulo"=>$value["accion_sobre_articulo"],
+		    					"pzas_empaque_original"=>$value["pzas._empaque_original"],
+		    					"descuento_comercial"=>$value["descuento_comercial"],
+		    					"codigo_sat"=>$value["codigo_sat"],
+		    					"unidad_sat"=>$value["unidad_sat"],
+		    					"contador"=>$value["contador"]
+		    				]
+		    			);
+                    // }
+                    // else{
+
+	    				
+                    // }
     				
                 }
                 return redirect()->back()->with('success', 'Archivo subido correctamente.');

@@ -1,22 +1,40 @@
 @extends('layouts.app')
 @section('content')
 	{{-- expr --}}
+
 	<section id="four" class="wrapper style1 special fade-up">
 		
-	<div class="container">
-	<div class="panel panel-default">
+	<div class="container-fluid">
+		<div class="panel-body">
+			<div class="col-lg-6">
+				<form id="buscartraking" action="busqueda"
+				o onKeypress="if(event.keyCode == 13) event.returnValue = false;">
+				<!-- {{ csrf_field() }} -->
+				<div class="input-group" id="datos1">
+					<input type="text" id="query" name="query" list="browsers" class="form-control" placeholder="Buscar..." autofocus>
+					<span class="input-group-addon" id="basic-addon2"><i class="fas fa-search"></i></span>
+				</div>
+				</form>
+			</div>
+			
+		</div>
+			
+	<div class="panel panel-default" @if ($trackings->isEmpty())
+		{{-- expr --}}
+		style="height: 506px;" 
+	@endif>
 		<div class="page-header">
 
 			<button class="btn btn-warning" 
 			        data-toggle="modal" 
 					data-target="#modal">
 				    Nuevo Tracking</button> <br><br>
+		<div id="datos" name="datos">
 			<table class="table table-striped table-bordered table-hover" style="border-collapse: collapse; margin-bottom: 0px;">
 			<thead>
 				<tr class="info">
 					<th style="color:black;text-align: center"><strong>HAWB</strong></th>
 					<th style="color:black;text-align: center"><strong>Orden</strong></th>
-					<th style="color:black;text-align: center"><strong>Carrito</strong></th>
 					<th style="color:black;text-align: center"><strong>Destino</strong></th>
 					<th style="color:black;text-align: center"><strong>Bultos</strong></th>
 					<th style="color:black;text-align: center"><strong>Peso</strong></th>
@@ -34,15 +52,16 @@
 					
 					
 					<td >{{$tracking->hawb}}</td>
-					<td>{{$tracking->orden_id}}</td>
-					<td>{{$tracking->shopping_cart_id}}</td>
+					<td>{{$tracking->orden->shoppingCart->customid}}</td>
 					<td>{{$tracking->destino}}</td>
 					<td>{{$tracking->bultos}}</td>
 					<td>{{$tracking->peso}}Kg</td>
 					<td>{{$tracking->created_at}}</td>
 				</tr>
 			@endforeach
-		</table>
+			</table>
+		</div>
+			
 
 		</div>
 
@@ -93,33 +112,33 @@
  
  
   	
-  <table class="table table-striped table-bordered table-hover" style="border-collapse: collapse; margin-bottom: 0px;">
-			<thead>
-				<tr class="info">
-					<th style="color:black;text-align: center"><strong>STATUS</strong></th>
-					<th style="color:black;text-align: center"><strong>HORA</strong></th>
-					<th style="color:black;text-align: center"><strong>FECHA</strong></th>
-					
-					
-				</tr>
-			</thead>
-			<tbody>
-				@foreach($tracking->hito as $hito)
-				<tr>
-			<td>{{$hito->status}}</td>
-			<td>{{$hito->hora}}</td>
-			<td>{{$hito->fecha}}</td>
-			   <tr>
-			 @endforeach
- 
-			</tbody>
-		  
-		</table>
-	
+  	<table class="table table-striped table-bordered table-hover" style="border-collapse: collapse; margin-bottom: 0px;">
+		<thead>
+			<tr class="info">
+				<th style="color:black;text-align: center"><strong>STATUS</strong></th>
+				<th style="color:black;text-align: center"><strong>HORA</strong></th>
+				<th style="color:black;text-align: center"><strong>FECHA</strong></th>
+				
+				
+			</tr>
+		</thead>
+		<tbody>
+			@foreach($tracking->hito as $hito)
+			<tr>
+		<td>{{$hito->status}}</td>
+		<td>{{$hito->hora}}</td>
+		<td>{{$hito->fecha}}</td>
+		   <tr>
+		 @endforeach
+
+		</tbody>
+	  
+	</table>
 
 
 
-		</div>
+
+	</div>
 
 		
 
@@ -148,15 +167,15 @@
 			{{ csrf_field() }}
 			<div class="modal-body">
 				<div class="row">
-								        	<div class="col-sm-5">   
+								        	<div class="col-sm-offset-1 col-sm-5">   
 								        		<label for="hawb"> HAWB:</label>
 							<input type="text" class="form-control" name="hawb" id="hawb" placeholder="Clave HAWB" required style="size: 170px; height: 35px;">
 											</div>
-											<div class="col-sm-5">   
+											<div class=" col-sm-5">   
 								        		<label for="orden_id"> Orden de Compra:</label>
-							<select class="form-control" id="orden_id" name="orden_id" required>
+							<select class="form-control" id="orden_id" name="orden_id" onchange="orden(this.value)" required>
 								@foreach($orders as $order)
-        						<option value="{{$order->id}}">{{$order->recipient_name}}</option>
+        						<option value="{{$order->id}}">{{$order->shoppingCart->customid}}</option>
         						@endforeach
      					    </select>
 											</div>
@@ -165,23 +184,17 @@
                 </div>
                 <br>
                 <div class="row">
-                	<div class="col-sm-5">   
-								        		<label for="shopping_cart_id">Carrito de Compra:</label>
-							<select class="form-control" id="shopping_cart_id" name="shopping_cart_id" required>
-        						@foreach($carts as $cart)
-        						<option value="{{$cart->id}}">{{$cart->id}}</option>
-        						@endforeach
-        						
-     					    </select>
-											</div>
-											<div class="col-sm-5">   
-								        		<label for="destino"> Destino:</label>
-							<input type="text" class="form-control" name="destino" id="destino" placeholder="Destino" required style="size: 200px; height: 35px;">
-											</div>
-                </div>	
+                	<div class="col-sm-offset-1  col-sm-10">   
+							
+						
+			        		<label for="destino"> Destino:</label>
+								<input type="text" class="form-control" name="destino" id="destino" placeholder="Destino" required style="size: 200px; height: 35px;" value="{{ $order->shopp }}">
+						
+                	</div>
+                </div>
                 <br>
                  <div class="row">
-                	<div class="col-sm-5">   
+                	<div class="col-sm-offset-1  col-sm-5">   
 								        		<label for="bultos">Número de Bultos:</label>
 							<select class="form-control" id="bultos" name="bultos" required>
         						<option value="1">1</option>
@@ -197,7 +210,14 @@
 								        		<label for="peso"> Peso:</label>
 							<input type="text" class="form-control" name="peso" id="peso" placeholder="-Kg-" required style="size: 170px; height: 35px;">
 											</div>
-                </div>	
+                </div>
+                <br>
+                <div class="row">
+                	<div class="col-sm-offset-1  col-sm-10">
+                		<label for="direccion">Dirección:</label>
+                		<textarea class="form-control" readonly="readonly" id="direccion" rows="8"></textarea>
+                	</div>
+                </div>
 			</div>
 
 
@@ -227,4 +247,62 @@
 
 
 </section>
+
+@endsection
+
+@section('scripts')
+	{{-- expr --}}
+<script>
+	// alert('hola');
+	function orden (kw) {
+
+		$.ajax({
+			url: "{{ url('/ordens') }}",
+			type: "GET",
+			dataType: "json",
+			data:{orden: kw},
+			success: function(datos){
+				$("#destino").val(datos.municipio+', '+datos.estado+', '+datos.pais);
+				$("#direccion").val('Calle '+datos.calle+', #'+datos.num_ext+" Int."+datos.num_int+', Colonia '+datos.colonia+', Municipio '+datos.municipio+', Estado '+datos.estado+', Ciudad '+datos.ciudad+', Pais '+datos.pais);
+			}
+		});
+
+	 	
+	}
+
+	function obtener_registros(busqueda,etiqueta){
+		if (etiqueta == 'query'){
+
+			$.ajax({
+				url: "buscartraking",
+				type: "GET",
+				dataType: "html",
+				data : {busqueda:busqueda},
+			}).done(function(results){
+				$("#datos").html(results);
+			});
+		}
+	}
+	// $("#orden_id").on('change',function(){
+	// 	alert('Hola');
+	// });
+	$(document).on('keyup','#query',function(){
+		$.ajaxSetup({
+			headers: {
+				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+			}
+		});
+		var valor = $(this).val();
+		var etiqueta = $(this).attr('id');
+
+		if(valor!= ""){
+
+			obtener_registros(valor,etiqueta);
+		}
+		else{
+
+			obtener_registros(' ',etiqueta);
+		}
+	})
+</script>
 @endsection

@@ -16,7 +16,7 @@ class InShoppingCart extends Model {
 
 
 
-    protected $fillable = ["product_id", "shopping_cart_id", "qty"];
+    protected $fillable = ["catalogo_id", "preciounit", "shopping_cart_id", "qty"];
 
 
 
@@ -34,7 +34,7 @@ class InShoppingCart extends Model {
 
     {
 
-        return $this->belongsTo('App\Product', 'product_id');
+        return $this->belongsTo('App\Catalogo', 'catalogo_id');
 
     }
 

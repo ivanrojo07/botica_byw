@@ -175,7 +175,8 @@
 	.container {
 
 		width: 70em;
-
+		/*margin-top: 60px !important;
+*/
 	}
 
 	@media screen and (max-width: 2800px) {
@@ -6943,6 +6944,12 @@
 		text-align: center;
 
 		height: 200px !important;
+	  	/*position: absolute;*/
+	  	right: 0;
+	  	bottom: 0;
+	  	left: 0;
+	  	/*padding: 1rem;*/
+	  	
 
 		
 

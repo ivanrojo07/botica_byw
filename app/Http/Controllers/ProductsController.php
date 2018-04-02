@@ -8,6 +8,7 @@ namespace App\Http\Controllers;
 
 
 
+use App\CambioMoneda;
 use App\Catalogo;
 use App\Category;
 use App\Product;
@@ -50,10 +51,11 @@ class ProductsController extends Controller {
 
         // $products = Product::orderBy('id')->Paginate(35);
         $products = Catalogo::orderBy('id')->Paginate(35);
+        $cambio = CambioMoneda::first()->get()->pluck('pesos');
 
 
 
-        return view("products.index", ["products" => $products]);
+        return view("products.index", ["products" => $products, 'cambio'=>$cambio]);
 
     }
 
@@ -198,6 +200,8 @@ class ProductsController extends Controller {
     {
 
         $product = Catalogo::find($id);
+        $cambio = CambioMoneda::first()->get()->pluck('pesos');
+
 
 
 
@@ -207,7 +211,7 @@ class ProductsController extends Controller {
 
 
 
-        return view('products.show', compact('product', 'favoriteProduct', 'product_comments'));
+        return view('products.show', compact('product', 'favoriteProduct', 'product_comments','cambio'));
 
     }
 
@@ -218,6 +222,8 @@ class ProductsController extends Controller {
     {
 
 
+        $cambio = CambioMoneda::first()->get()->pluck('pesos');
+        // dd($cambio[0]);
 
         $products = new Catalogo();
 
@@ -262,13 +268,24 @@ class ProductsController extends Controller {
 
             if ($category->tipo_de_producto == "OT") {
                 # code...
-                $category->nombre = "OTC";
+                $category->nombre = "Medicamentos de Venta Libre";
             }
 
             if ($category->tipo_de_producto == "CO") {
                 # code...
                 $category->nombre = "Controlado";
             }
+            Category::updateOrCreate(
+                [
+                    'title' => $category->tipo_de_producto
+                ],
+                [
+                    'title' => $category->tipo_de_producto,
+                    'slug' => $category->tipo_de_producto,
+                    'description' =>$category->nombre,
+                ]
+
+            );
         }
         // dd($categories);
 
@@ -359,7 +376,7 @@ class ProductsController extends Controller {
 
 
 
-        return view('products.static', compact('products', 'category_selected', 'categories', 'favoriteProduct'))->with($old_inputs);
+        return view('products.static', compact('products', 'category_selected', 'categories', 'favoriteProduct','cambio'))->with($old_inputs);
 
 
 
@@ -387,13 +404,13 @@ class ProductsController extends Controller {
 
 
 
-        $product = Product::find($id);
+        $product = Catalogo::find($id);
 
 
 
         $categories = Category::all();
 
-
+        // dd($product);
 
         return view("products.edit", ["product" => $product, "categories" => $categories]);
 
@@ -423,35 +440,22 @@ class ProductsController extends Controller {
 
         $hasFile = $request->hasFile('cover') && $request->cover->isValid();
 
-        $product = Product::find($id);
+        $product = Catalogo::find($id);
 
-        $product->title = $request->title;
+        $product->descripcion = $request->title;
 
-        $product->category = '';
+        // $product->category = '';
 
-        $product->category_id = $request->category_id;
+        // $product->category_id = $request->category_id;
 
-        $product->description = $request->description;
-
-
-
-        $category = Category::where('id', $request->category_id)->first();
+        $product->descripcion_terapeutica = $request->description;
 
 
 
-        if($category->slug == 'Promociones'){
+        // $category = Category::where('id', $request->category_id)->first();
 
-            $product->pricing = '0.0';
 
-            $product->promotion_pricing = $request->pricing;
-
-        }else{
-
-            $product->pricing = $request->pricing;
-
-            $product->promotion_pricing = '0.0';
-
-        }
+        $product->precio_publico = $request->pricing;
 
 
 

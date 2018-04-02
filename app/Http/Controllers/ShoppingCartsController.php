@@ -42,14 +42,45 @@ class ShoppingCartsController extends Controller {
 
         $shopping_cart = ShoppingCart::where('customid', $id)->first();
 
-        $order = $shopping_cart->order();
+        $order = $shopping_cart->order;
+        $tracking = $order->tracking;
 
+        // dd($tracking);
 
-
-        return view("shopping_carts.completed", ["shopping_cart" => $shopping_cart, "order" => $order]);
+        return view("shopping_carts.completed", ["shopping_cart" => $shopping_cart, "order" => $order, 'tracking'=>$tracking]);
 
     }
+    public function pedido($id){
 
+        $shopping_cart = ShoppingCart::where('customid', $id)->first();
+
+        $order = $shopping_cart->order;
+        
+        $trackings = $order->trackings;
+        // dd($tracking);
+
+        return view("shopping_carts.status", ["shopping_cart" => $shopping_cart, "order" => $order, 'trackings'=>$trackings]);
+    }
+    public function buscar(Request $request)
+    {
+        # code...
+        $shopping_cart_id = $request->tracking;
+        $shopping_cart = ShoppingCart::where('customid',$shopping_cart_id)->first();
+        if ($shopping_cart != null) {
+            # code...
+            $order = $shopping_cart->order;
+            $trackings = $order->trackings;
+            // dd($trackings->count());
+            return view("static.seguimiento", ["shopping_cart" =>$shopping_cart, "order"=>$order, "trackings"=>$trackings]);
+        }
+        else {
+
+            $order = null;
+            $trackings = null;
+            return view("static.seguimiento", ["shopping_cart" =>$shopping_cart, "order"=>$order, "trackings"=>$trackings]);
+
+        }
+    }
 
 
     public function index()
@@ -62,17 +93,25 @@ class ShoppingCartsController extends Controller {
 
         $shopping_cart = ShoppingCart::findOrCreateBySessionID($shopping_cart_id);
 
+        // dd($shopping_cart);
 
-
-        // $direccion_default = '';
+        $direccion_default = '';
+        $direcctions = '';
 
 
 
         if (Auth::check()) {
 
-            $direccion_default = Direccion::where('id_user', Auth::user()->id)
+            $direcctions = Direccion::where('id_user', Auth::user()->id)->get();
+            if ($direcctions->isEmpty() == true) {
+                # code...
+                $direcctions = "";
+            }
+            // dd($direcctions);
 
-                ->where('default', 1)->first();
+            // $direccion_default = Direccion::where('id_user', Auth::user()->id)
+
+            //     ->where('default', 1)->first();
 
         }
         else{
@@ -80,7 +119,6 @@ class ShoppingCartsController extends Controller {
                 $direccion_default = '';
             }
             else{
-
                 $direccion_default = Session('direccion_default');
             }
 
@@ -96,10 +134,11 @@ class ShoppingCartsController extends Controller {
 
         // $total = $shopping_cart->total();
         $total = number_format($shopping_cart->total(), 2);
+        // dd($direcctions);
 
 
 
-        return view("shopping_carts.index", compact('products', 'total', 'direccion_default'));
+        return view("shopping_carts.index", compact('products', 'total', 'direccion_default','direcctions'));
 
 
 
@@ -110,6 +149,7 @@ class ShoppingCartsController extends Controller {
     public function checkout(Request $request)
 
     {
+        // dd($request->all());
 
         $messages = [
 
@@ -229,7 +269,7 @@ class ShoppingCartsController extends Controller {
 
 
 
-        InShoppingCart::where('product_id', $id)->where('shopping_cart_id', $shopping_cart->id)->delete();
+        InShoppingCart::where('catalogo_id', $id)->where('shopping_cart_id', $shopping_cart->id)->delete();
 
 
 

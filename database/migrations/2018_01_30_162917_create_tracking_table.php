@@ -15,18 +15,11 @@ class CreateTrackingTable extends Migration
     {
         Schema::create('tracking', function (Blueprint $table) {
             $table->increments('id');
-            
-            $table->integer('shopping_cart_id')
-            ->unsigned()
-            ->references('id')
-            ->on('shopping_carts');
-
-            $table->integer('orden_id')
-            ->unsigned()
-            ->references('id')
-            ->on('orders');
 
             $table->string('hawb')->unique();
+            $table->integer('orden_id')->unsigned();
+            $table->foreign('orden_id')->references('id')->on('orders');
+
             $table->string('destino');
             $table->tinyInteger('bultos')->unsigned()->nullable();
             $table->unsignedDecimal('peso', 8, 2)->nullable();

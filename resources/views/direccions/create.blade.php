@@ -109,7 +109,7 @@
 
 
                 <div class="form-group col-lg-4">
-                    <label for="contaco">Telefono del destinatario:</label>
+                    <label for="contaco"><strong>*</strong>Telefono del destinatario:</label>
 
                     <input type="text" class="form-control" name="contacto" id="contacto" placeholder="Telefono"
 

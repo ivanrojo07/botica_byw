@@ -54,7 +54,7 @@ class ShoppingCart extends Model {
 
     {
 
-        return $this->hasOne("App\Order")->first();
+        return $this->hasOne("App\Order");
 
     }
 
@@ -64,7 +64,7 @@ class ShoppingCart extends Model {
 
     {
 
-        return $this->hasOne("App\Direccion");
+        return $this->belongsTo("App\Direccion", 'direccion_id', 'id');
 
     }
 
@@ -94,11 +94,13 @@ class ShoppingCart extends Model {
 
     {
 
-        return $this->belongsToMany('App\Product', 'in_shopping_carts')->withPivot('qty');
+        return $this->belongsToMany('App\Catalogo', 'in_shopping_carts')->withPivot('qty','preciounit');
 
     }
 
-    
+    public function shoping_direccion(){
+        return $this->belongsTo('App\Direccion', 'direccion_id', 'id');
+    }
 
     public function user()
 
@@ -128,7 +130,9 @@ class ShoppingCart extends Model {
 
         //return $this->products()->sum("pricing");
 
-        $products = $this->products()->get();
+        // $products = $this->products()->get();
+        $products = $this->inShoppingCarts()->get();
+        // dd($products);
 
 
 
@@ -136,19 +140,25 @@ class ShoppingCart extends Model {
 
 
 
-        foreach ($products as $product) {
 
-            $precio = $product->pricing;
-
-            if(is_object($product->cat) && $product->cat->slug == 'Promociones'){
-
-                $precio = $product->promotion_pricing;
-
-            }
-
-            $total = $total + ($product->pivot->qty * $precio);
-
+        foreach ($products as $key => $product) {
+            # code...
+            // $total = $total + $product_
+            $total = $total +($product->preciounit * $product->qty);
         }
+        // foreach ($products as $product) {
+
+        //     // $precio = $this->inShoppingCarts->preciounit;
+
+        //     if(is_object($product->cat) && $product->cat->slug == 'Promociones'){
+
+        //         $precio = $product->promotion_pricing;
+
+        //     }
+
+        //     $total = $total + ($product->pivot->qty * $precio);
+
+        // }
 
 
 

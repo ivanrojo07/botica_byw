@@ -37,7 +37,7 @@
                               @foreach ($categories as $category)
                                   {{-- expr --}}
                                   <?php if($count == 8) break; ?>
-                                  <li><a href="{{ url('/Products1?category=' . $category->slug) }}" title="{{$category->description}}" style="font-size: 12px">{{$category->title}}</a></li>
+                                  <li><a href="{{ url('/Products1?category=' . $category->slug) }}" title="{{$category->description}}" style="font-size: 12px">{{$category->description}}</a></li>
                                     <?php $count++; ?>
                               @endforeach
                                 </ul>
@@ -87,13 +87,13 @@
 
     
 
-        <h4> {{ $product->title }}
+        <h4> {{ $product->descripcion }}
 
                                         </h4>
 
                                          <p class="costo orangep animated flash infinite">
 
-                                            {{$product->pricing}} USD
+                                            $  {{number_format((($product["precio_publico"]{{-- Precio al publico --}}+($product["precio_publico"]*($product["iva"]/100){{-- Agregando IVA --}})+($product["precio_publico"]*($product["ieps"]/100){{-- Agregando IEPS --}})+($product["precio_publico"]*($product["impuesto_3"]/100) {{-- Agregando otros impuestos --}})+($product['precio_publico']*(0.40)){{-- Agregando Porcentaje ganancia --}})/$cambio[0]{{-- Agregando Cambio de moneda(Dolares) --}}),2)}}  USD
 
                                         </p>
 
@@ -148,7 +148,7 @@
                                     <div class="row">
                                         <div class="price ">
                                             <h5 class="price-text-color">
-                                                {{$product0->title}}</h5>
+                                                {{$product0->descripcion}}</h5>
                                             <h5 class="price-text-color">
                                                 @if(isset($promotion) && $promotion)
 
@@ -156,7 +156,7 @@
 
                                                 @else
 
-                                                    $ {{$product0->pricing}} usd
+                                                    $  {{number_format((($product0["precio_publico"]{{-- Precio al publico --}}+($product0["precio_publico"]*($product0["iva"]/100){{-- Agregando IVA --}})+($product0["precio_publico"]*($product0["ieps"]/100){{-- Agregando IEPS --}})+($product0["precio_publico"]*($product0["impuesto_3"]/100) {{-- Agregando otros impuestos --}})+($product0['precio_publico']*(0.40)){{-- Agregando Porcentaje ganancia --}})/$cambio[0]{{-- Agregando Cambio de moneda(Dolares) --}}),2)}}  USD
 
                                                 @endif</h5>
                                         </div>
@@ -190,7 +190,7 @@
                         <div class="col-sm-3">
                             <div class="col-item">
                                 <div class="photo">
-                                    <img src=@if ($product0->extension)
+                                    <img src=@if ($product1->extension)
                                         {{-- true expr --}}
                                         "{{ url("/img_prod/$product0->id.$product0->extension")}}"
                                     @else
@@ -202,7 +202,7 @@
                                     <div class="row">
                                         <div class="price">
                                             <h5 class="price-text-color">
-                                                {{$product1->title}}</h5>
+                                                {{$product1->descripcion}}</h5>
                                             <h5 class="price-text-color">
                                                 @if(isset($promotion) && $promotion)
 
@@ -210,7 +210,7 @@
 
                                                 @else
 
-                                                    $ {{$product1->pricing}} usd
+                                                    $  {{number_format((($product1["precio_publico"]{{-- Precio al publico --}}+($product1["precio_publico"]*($product1["iva"]/100){{-- Agregando IVA --}})+($product1["precio_publico"]*($product1["ieps"]/100){{-- Agregando IEPS --}})+($product1["precio_publico"]*($product1["impuesto_3"]/100) {{-- Agregando otros impuestos --}})+($product1['precio_publico']*(0.40)){{-- Agregando Porcentaje ganancia --}})/$cambio[0]{{-- Agregando Cambio de moneda(Dolares) --}}),2)}}  USD
 
                                                 @endif</h5>
                                         </div>
@@ -282,7 +282,7 @@
                         <img src="images/gallery/cuadros/category{{$index}}.jpg" alt="Gallery Image 1" class="img-responsive img-center animation-1">
                         <div class="overlay animation text-lite-color">
                             <h6 class="text-uppercase animation-1">{{$category->description}}</h6>
-                            <p class="animation-1">{{$category->title}}</p>                                     
+                            <p class="animation-1">{{$category->description}}</p>                                     
                         </div>
                     </div>
                     </a>

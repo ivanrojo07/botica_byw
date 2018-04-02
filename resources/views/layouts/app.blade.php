@@ -54,6 +54,10 @@
     <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/mdb.min.css') }}">
     <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
+    <!--load everything-->
+    <script defer src="{{ asset('js/fontawesome-all.js') }}"></script>
+
+
 
 
     <!-- Scripts -->
@@ -213,6 +217,12 @@
 
                             <ul class="dropdown-menu dropdown1">
 
+                                <li>
+
+                                    <a href="{{url('user')}}">Mi perfil</a>
+
+                                </li>
+
                                 <li role="presentation">
 
                                     <a href="{{ route('logout') }}"
@@ -230,12 +240,6 @@
 
                                    
                                 </li>
-                                <li>
-
-                                    <a href="{{url('user')}}">Mi perfil</a>
-
-                                </li>
-
 
 
                             </ul>
@@ -281,7 +285,7 @@
                 <img class="img-circle" src="{{ asset('img/12.jpg') }}" style="display: inline-block;" height="42" width="42">
             @endif
 
-            {{ $element+1}}.-  {{ $producto->title}} 
+            {{ $element+1}}.-  {{ $producto->descripcion}} 
             </h5></div>
         @endforeach
     </div>
@@ -361,11 +365,11 @@
 
 
 
-<script src="{{ url('/js/jquery.min.js') }}"></script>
-<script src="{{ url('/js/jquery-1.12.4.min.js') }}"></script>
-<script src="{{ url('/js/jquery-ui.js') }}"></script>
+<script src="{{ url('js/jquery.min.js') }}"></script>
+<script src="{{ url('js/jquery-1.12.4.min.js') }}"></script>
+<script src="{{ url('js/jquery-ui.js') }}"></script>
 
-<!--Import jQuery before materialize.js-->
+{{-- Import jQuery before materialize.js --}}
  <script type="text/javascript" src="{{ url('js/jquery-3.1.1.min.js') }}"></script>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -389,7 +393,7 @@
             data:{products: this.term},
             success: function (datos){
                  response( $.map( datos, function( item ) {
-                return {label: item.title, value: item.title, url: item.id};}));
+                return {label: item.descripcion, value: item.descripcion, url: item.id};}));
             }
         });
         },

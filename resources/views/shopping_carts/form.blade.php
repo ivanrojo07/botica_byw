@@ -27,10 +27,65 @@
     {{ csrf_field() }}
 
     
-    @if($direccion_default)
-
+    @if($direcctions != "")
         <div class="form-group">
+            <label><strong>Dirección de envio:</strong></label>
+            @foreach ($direcctions as $direccion)
+                {{-- expr --}}
+                <div class="radio">
+                    <label><input type="radio" name="direccion_default" value="{{$direccion->id}}" @if ($direccion->default == 1)
+                        {{-- expr --}}
+                        checked
+                    @endif><strong>Nombre:</strong> {{$direccion->name}}, <strong>País:</strong> {{$direccion->pais}}, <strong>Estado y Municipio:</strong> {{$direccion->estado}}, {{$direccion->municipio}} ,<strong>Calle y Número:</strong> {{$direccion->calle}}, #Exterior. {{$direccion->num_ext}}, #Interior. @if ($direccion->num_int == null)
+                        {{-- true expr --}}
+                        S/N
+                    @else
+                        {{-- false expr --}}
+                        {{$direccion->num_int}}
+                    @endif , <strong>Colonia:</strong> {{$direccion->colonia}}, <strong>C.P.:</strong> @if ($direccion->codigop == null)
+                        {{-- expr --}}
+                        S/C
+                    @else
+                        {{$direccion->codigop}}
+                    @endif , <strong>Entre calles:</strong> @if ($direccion->entre1 == null)
+                        {{-- true expr --}}
+                        Información no agregada
+                    @else
+                        {{-- false expr --}}
+                        {{$direccion->entre1}} 
+                    @endif y @if ($direccion->entre2 == null)
+                        {{-- true expr --}}
+                        Información no agregada
+                    @else
+                        {{-- false expr --}}
+                        {{$direccion->entre2}} 
+                    @endif, <strong>Referencia adicional:</strong> @if ($direccion->references == null)
+                        {{-- true expr --}}
+                        Sin Referencia adicional
+                    @else
+                        {{-- false expr --}}
+                        {{$direccion->references}}
+                    @endif</label>
+                    <br>
+                </div>
+            @endforeach
+        </div>
 
+        
+        <br/>
+    @elseif(Auth::check() && $direcctions == "")
+        <div class="form-group">
+            <div class="alert alert-danger">
+              <strong>¡Importante!</strong> Antes de continuar por favor ingrese sus datos de envio.</a>.
+            </div>
+            <label for="">Si no has establecido tus datos de envio favor de ingresar al siguiente <a class="btn btn-sm btn-success" href="{{ url('/user/direccion') }}">link</a></label>
+        </div>
+
+        
+
+    @elseif($direccion_default != "")
+
+            <div class="form-group">
             <input type="hidden" name="direccion_default" value="{{ $direccion_default->id }}"/>
 
             <label for="">
@@ -133,21 +188,16 @@
 
 
 
-        </div>
-
-        <br/>
-
         
-
+        </div>
     @else
-
+            {{-- false expr --}}
         <div class="form-group">
         <div class="alert alert-danger">
           <strong>¡Importante!</strong> Antes de continuar por favor ingrese sus datos de envio.</a>.
         </div>
         <label for="">Si no has establecido tus datos de envio favor de ingresar al siguiente <a class="btn btn-sm btn-success" href="{{ url('/creardireccion') }}">link</a></label>
-
-    </div>
+        </div>
 
     
 

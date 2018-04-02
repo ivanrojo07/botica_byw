@@ -132,8 +132,8 @@ class Paypal {
         $products = $this->shopping_cart->products()->get();
 
 
-
         foreach ($products as $product) {
+            // dd($product->paypalItem());
 
             array_push($items, $product->paypalItem());
 

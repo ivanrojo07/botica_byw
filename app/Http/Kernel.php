@@ -8,9 +8,9 @@ namespace App\Http;
 
 
 
-use App\Http\Middleware\isAdmin;
 use App\Http\Middleware\PromoChk;
-
+use App\Http\Middleware\isAdmin;
+use App\Http\Middleware\isUser;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 
@@ -120,6 +120,8 @@ class Kernel extends HttpKernel {
         'throttle'   => \Illuminate\Routing\Middleware\ThrottleRequests::class,
 
         'isAdmin'    => isAdmin::class,
+        
+        'isUser'     => isUser::class,
 
         'PromoChk'   => PromoChk::class
 

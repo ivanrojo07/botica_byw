@@ -35,7 +35,8 @@
                        @endif
                        @if ($category_selected == "OT")
                            {{-- expr --}}
-                           OTC
+                            MEDICAMENTOS DE VENTA LIBRE
+
                        @endif
                        @if ($category_selected == "CO")
                            {{-- expr --}}

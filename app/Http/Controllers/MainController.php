@@ -8,6 +8,8 @@ namespace App\Http\Controllers;
 
 
 
+use App\CambioMoneda;
+use App\Catalogo;
 use App\Category;
 use App\Http\Requests;
 use App\Product;
@@ -25,8 +27,9 @@ class MainController extends Controller {
     public function home()
 
     {
-        $products0 = Product::inRandomOrder()->take(4)->get();
-        $products1 = Product::inrandomOrder()->take(4)->get();
+        $cambio = CambioMoneda::first()->get()->pluck('pesos');
+        $products0 = Catalogo::inRandomOrder()->take(4)->get();
+        $products1 = Catalogo::inrandomOrder()->take(4)->get();
 
 
 
@@ -36,7 +39,7 @@ class MainController extends Controller {
         #10 productos.
 
         // $products_slider = Product::where('category_id', 41)->inRandomOrder()->take(10)->get();
-        $products_slider = Product::inRandomOrder()->take(10)->get();
+        $products_slider = Catalogo::inRandomOrder()->take(10)->get();
         // dd($products_slider);
 
 
@@ -50,7 +53,7 @@ class MainController extends Controller {
 
 
 
-        return view('Main.home', compact('categories', 'products0', 'products1', 'products_slider'));
+        return view('Main.home', compact('categories', 'products0', 'products1', 'products_slider','cambio'));
 
 
 
@@ -59,10 +62,10 @@ class MainController extends Controller {
         $query = $request->input('products');
         $wordsquery = explode(' ',$query);
 
-        $products = Product::where(function($q) use($wordsquery){
+        $products = Catalogo::where(function($q) use($wordsquery){
             foreach ($wordsquery as $word) {
                 # code...
-                $q->orWhere('title','LIKE',"%$word%");
+                $q->orWhere('descripcion','LIKE',"%$word%");
             }
         })->take(5)->get();
         return response()->json($products);
