@@ -31,7 +31,7 @@ class UserOrdersController extends Controller {
 
     {
 
-        $orders = ShoppingCart::where('user_id', Auth::user()->id)->where('status','approved')->get();
+        $orders = ShoppingCart::where('user_id', Auth::user()->id)->where('status','approve')->get();
 
             // dd($orders);
 
