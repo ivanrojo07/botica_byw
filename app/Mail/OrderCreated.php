@@ -46,7 +46,8 @@ class OrderCreated extends Mailable
 
         $this->order = $order;
 
-        $this->products = $order->shopping_cart->product()->get();
+        $this->products = $order->shoppingcart->products;
+        // dd($this->order->shoppingcart);
 
     }
 

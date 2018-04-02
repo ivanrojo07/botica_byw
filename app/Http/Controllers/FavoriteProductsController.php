@@ -4,10 +4,9 @@
 
 
 
+use App\CambioMoneda;
 use App\Product;
-
 use App\Services\FavoriteProduct;
-
 use Illuminate\Support\Facades\Auth;
 
 
@@ -33,8 +32,8 @@ class FavoriteProductsController extends Controller {
         $products = Auth::user()->favorite_products()->simplePaginate(9);
 
 
-
-        return view('user.favorite_products', compact('products', 'favoriteProduct'));
+        $cambio = CambioMoneda::first()->get()->pluck('pesos');
+        return view('user.favorite_products', compact('products', 'favoriteProduct','cambio'));
 
     }
 

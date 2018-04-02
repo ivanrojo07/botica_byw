@@ -174,6 +174,7 @@
 											<div class=" col-sm-5">   
 								        		<label for="orden_id"> Orden de Compra:</label>
 							<select class="form-control" id="orden_id" name="orden_id" onchange="orden(this.value)" required>
+								<option>Seleccione una opcion</option>
 								@foreach($orders as $order)
         						<option value="{{$order->id}}">{{$order->shoppingCart->customid}}</option>
         						@endforeach

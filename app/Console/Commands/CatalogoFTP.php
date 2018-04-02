@@ -96,7 +96,7 @@ class CatalogoFTP extends Command
                                 "sustancia_activa"=>preg_replace('/\s\s+/', '', $value["sustancia_activa"]),
                                 "refrigerado"=>$value["refrigerado"],
                                 "controlado"=>$value["controlado"],
-                                "codigo_de_barras"=>$value["codigo_de_barras"],
+                                "codigo_de_barras"=> ($value["codigo_de_barras"] == " " ? "0000": $value["codigo_de_barras"]),
                                 "unidad_de_venta"=>$value["unidad_de_venta"],
                                 "fecha_de_caducidad"=>$value["fecha_de_caducidad"],
                                 "grupo_ssa"=>$value["grupo_ssa"],

@@ -67,7 +67,7 @@
 
                         <span>{{ $totalMonth}} USD</span>
 
-                        Ingresos del Mes
+                        Ingresos
 
                     </div>
 
@@ -78,8 +78,36 @@
                         Numero de Ventas
 
                     </div>
-
+                    <div class="col-xs-4">
+                        <span>MES</span>
+                        <select style="box-sizing: border-box !important;align-items: center !important;white-space: pre;
+    -webkit-rtl-ordering: logical;
+    color: black;
+    background-color: white;
+    cursor: default;
+    border-width: 1px;
+    border-style: solid;
+    border-color: initial;
+    border-image: initial;">
+                          <option value="1">Enero</option>
+                          <option value="2">Febrero</option>
+                          <option value="3">Marzo</option>
+                          <option value="4">Abril</option>
+                          <option value="5">Mayo</option>
+                          <option value="6">Junio</option>
+                          <option value="7">Julio</option>
+                          <option value="8">Agosto</option>
+                          <option value="9">Septiembre</option>
+                          <option value="10">Octubre</option>
+                          <option value="11">Noviembre</option>
+                          <option value="12">Diciembre</option>
+                        </select>
+                        
+                    </div>
                 </div>
+                   
+                        
+                
 
                 <h4>Ventas</h4>
 
@@ -100,6 +128,8 @@
                         <td>Estatus</td>
 
                         <td>Fecha de Venta</td>
+
+                        <td>Carrito de compra</td>
 
                         <td>Acciones</td>
 
@@ -168,8 +198,20 @@
                                    class="select-status"
 
                                    data-name="status "></a></td>
-
                             <td>{{ $order->created_at }}</td>
+
+                            <td>@foreach ($order->shoppingcart->products as $product)
+                                {{-- expr --}}
+                                Producto: {{$product->descripcion}}
+                                <br>
+                                Codigo Marzam: {{$product->codigo_marzam}}
+                                <br>
+                                Cantidad: {{ $product->pivot->qty}}
+                                <br>
+                                $ {{$product->precio_farmacia}} MXN
+                                <br>
+
+                            @endforeach</td>
 
                             <td>
 

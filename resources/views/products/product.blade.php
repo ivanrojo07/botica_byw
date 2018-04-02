@@ -18,7 +18,7 @@
 
                        title="remover de favoritos">
 
-                        <i class="fa fa-star"></i>
+                        <i class="fas fa-star"></i>
 
 
 
@@ -28,7 +28,7 @@
 
                     <a href="{{ url('/user/product/' . $product->id . '/favorite/add') }}" title="agregar a favoritos">
 
-                        <i class="fa fa-star-o"></i>
+                        <i class="far fa-star"></i>
 
                     </a>
 
