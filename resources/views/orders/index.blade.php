@@ -16,11 +16,7 @@
 
                             aria-hidden="true">&times;</span></button>
 
-                <h4 class="modal-title grey" id="myModalLabel">
 
-                    Dirección de Envío
-
-                </h4>
 
             </div>
 
@@ -78,7 +74,7 @@
                         Numero de Ventas
 
                     </div>
-                    <div class="col-xs-4">
+                    {{-- <div class="col-xs-4">
                         <span>MES</span>
                         <select style="box-sizing: border-box !important;align-items: center !important;white-space: pre;
     -webkit-rtl-ordering: logical;
@@ -103,7 +99,7 @@
                           <option value="12">Diciembre</option>
                         </select>
                         
-                    </div>
+                    </div> --}}
                 </div>
                    
                         
@@ -202,14 +198,18 @@
 
                             <td>@foreach ($order->shoppingcart->products as $product)
                                 {{-- expr --}}
-                                Producto: {{$product->descripcion}}
-                                <br>
-                                Codigo Marzam: {{$product->codigo_marzam}}
-                                <br>
-                                Cantidad: {{ $product->pivot->qty}}
-                                <br>
-                                $ {{$product->precio_farmacia}} MXN
-                                <br>
+                                <a href="#" class="infoshopping"  data-shoppingcart="{{ $order->shopping_cart_id }}">
+                                    
+                                    Producto: {{$product->descripcion}}
+                                    <br>
+                                    Codigo Marzam: {{$product->codigo_marzam}}
+                                    <br>
+                                    Cantidad: {{ $product->pivot->qty}}
+                                    <br>
+                                    $ {{$product->precio_farmacia}} MXN
+                                    <br>
+
+                                </a>
 
                             @endforeach</td>
 
@@ -283,6 +283,23 @@
 
             });
 
+        });
+
+        $(function (){
+            $(".infoshopping").on('click', function(e){
+                e.preventDefault();
+                var shoppingcart = $(this).data('shoppingcart');
+
+                $.ajax({
+                    url: '{{ url('/order/info_shopping') }}/'+shoppingcart,
+                    type: 'GET',
+
+                    success: function(data){
+                        $('#modal-body-address').html(data);
+                        $('#myModal').modal('show');
+                    }
+                });
+            });
         });
 
     </script>

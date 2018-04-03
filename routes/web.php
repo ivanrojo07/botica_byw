@@ -200,6 +200,7 @@ Route::group(['middleware' => 'auth'], function () {
 
         Route::get('/promotions', 'PromotionsController@index');
 
+
         // Route::get('user', "userprofileController@user");
 
         // Route::get('user/profile', "userprofileController@profile");
@@ -326,6 +327,7 @@ Route::group(['middleware' => ['isAdmin']], function () {
     ]);
 
     Route::get('/order/info_address/{shoppingcart}', 'OrdersController@getAddressInfo');
+    Route::get('/order/info_shopping/{shoppingcart}', 'OrdersController@shoppingInfo');
 
 
 
