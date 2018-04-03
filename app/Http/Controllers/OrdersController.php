@@ -177,7 +177,7 @@ class OrdersController extends Controller {
         if ($shopping_cart) {
             # code...
             $productos = $shopping_cart->products;
-            return view('orders.shopping_info', compact('productos'));
+            return view('orders.shopping_info', compact('productos','shopping_cart'));
         }
         else{
             return 'No se encontró esta compra: favor de hablar con el comprador';

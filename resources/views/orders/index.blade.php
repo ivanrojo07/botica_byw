@@ -196,22 +196,12 @@
                                    data-name="status "></a></td>
                             <td>{{ $order->created_at }}</td>
 
-                            <td>@foreach ($order->shoppingcart->products as $product)
-                                {{-- expr --}}
-                                <a href="#" class="infoshopping"  data-shoppingcart="{{ $order->shopping_cart_id }}">
-                                    
-                                    Producto: {{$product->descripcion}}
-                                    <br>
-                                    Codigo Marzam: {{$product->codigo_marzam}}
-                                    <br>
-                                    Cantidad: {{ $product->pivot->qty}}
-                                    <br>
-                                    $ {{$product->precio_farmacia}} MXN
-                                    <br>
+                            <td><button type="button" class="btn btn-warning infoshopping" data-shoppingcart="{{ $order->shopping_cart_id }}">
 
-                                </a>
+                                    <i class="fa fa-eye"></i>Ver Productos
 
-                            @endforeach</td>
+                                </button>
+                                </td>
 
                             <td>
 
