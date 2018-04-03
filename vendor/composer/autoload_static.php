@@ -403,7 +403,7 @@ class ComposerStaticInitd38d9d698b314519b1e00e3097a63845
         'CreateCategoriesTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_24_004840_create_categories_table.php',
         'CreateDireccionsTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_01_065723_create_direccions_table.php',
         'CreateInShoppingCartsTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_03_054935_create_in_shopping_carts_table.php',
-        'CreateOrdersTable' => __DIR__ . '/../..' . '/database/migrations/2017_07_21_051518_create_orders_table.php',
+        'CreateOrdersTable' => __DIR__ . '/../..' . '/database/migrations/migrations/2017_07_21_051518_create_orders_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateProductsTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_25_181913_create_products_table.php',
         'CreatePromotionsTable' => __DIR__ . '/../..' . '/database/migrations/2018_03_07_172420_create_promotions_table.php',
