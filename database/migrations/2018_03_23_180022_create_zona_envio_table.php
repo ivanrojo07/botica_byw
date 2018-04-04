@@ -13,7 +13,7 @@ class CreateZonaEnvioTable extends Migration
      */
     public function up()
     {
-        Schema::table('zona_envios', function (Blueprint $table) {
+        Schema::create('zona_envios', function (Blueprint $table) {
             //
             $table->increments('id');
             $table->decimal('peso',4,2)->unique();
@@ -37,9 +37,8 @@ class CreateZonaEnvioTable extends Migration
      */
     public function down()
     {
-        Schema::table('zona_envios', function (Blueprint $table) {
-            //
-            Schema::dropIfExists('zona_envios');
-        });
+        
+        Schema::dropIfExists('zona_envios');
+        
     }
 }
