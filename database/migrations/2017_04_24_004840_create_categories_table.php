@@ -34,9 +34,9 @@ class CreateCategoriesTable extends Migration {
 
                 $table->string('title')->unique()->index();
                 $table->string('slug')->index();
-                $table->text('description');
+                $table->text('description')->nullable();
 
-                $table->string('background_image');
+                $table->string('background_image')->nullable();
 
                 $table->timestamps();
 

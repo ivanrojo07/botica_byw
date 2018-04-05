@@ -116,8 +116,8 @@ class ShoppingCartsController extends Controller {
 
 
 
-        $peso = 0.00;
         $products = $shopping_cart->products()->get();
+        $peso = 0.00;
 
         foreach ($products as $product) {
             # code...
@@ -144,7 +144,7 @@ class ShoppingCartsController extends Controller {
         }
         
         $envio = ZonaEnvio::where('peso', '>=', "$peso")->first();
-        dd($envio);
+        // dd($envio);
 
 
 
@@ -212,6 +212,8 @@ class ShoppingCartsController extends Controller {
 
 
 
+
+
         #procedemos a subir el archivo de la receta y borramos el anterior si es que existia
 
         if ($shopping_cart->receta_path != '') {
@@ -241,9 +243,39 @@ class ShoppingCartsController extends Controller {
             $direccion_id = $request->input('direccion_default');
 
         }
+
+        $direccion = Direccion::find($direccion_id);
+        dd($direccion);
         // $totalstr = $shopping_cart->total();
         // $total = number_format((float)$totalstr, 2, '.', '');
         // dd($total);
+
+        $peso = 0.00;
+
+        foreach ($products as $product) {
+            # code...
+            if ($product->tipo_de_producto == "ET" ) {
+                # code...
+                $peso += 0.01*$product->pivot->qty;
+
+            }
+            if ($product->tipo_de_producto == "MC") {
+                 # code...
+                $peso += 0.10*$product->pivot->qty;
+             } 
+            if ($product->tipo_de_producto == "VA") {
+                # code...
+                $peso += 10.00*$product->pivot->qty;
+            }
+            if ($product->tipo_de_producto == "PF") {
+                # code...
+                $peso += 1.00*$product->pivot->qty;
+            }
+            if($product->tipo_de_producto == "OT"){
+                $peso += 0.01*$product->pivot->qty; 
+            }
+        }
+        $envio = ZonaEnvio::where('peso', '>=', "$peso")->first();
 
         $shopping_cart->update([
 

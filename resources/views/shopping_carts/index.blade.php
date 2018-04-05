@@ -109,7 +109,12 @@
 
             @endforeach
 
-
+            <tr>
+                <td>Envio</td>
+                <td></td>
+                <td></td>
+                <td>$ 100.00</td>
+            </tr>
 
             <tr class="background-blueth">
 

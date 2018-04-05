@@ -42,7 +42,7 @@ class CreateUsersTable extends Migration
 
             $table->rememberToken();
 
-            $table->string('imgprofile');
+            $table->string('imgprofile')->default('img/imgprofile/perfil.png');
 
             $table->timestamps();
 
