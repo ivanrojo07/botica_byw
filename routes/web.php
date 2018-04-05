@@ -104,10 +104,12 @@ Route::resource('/products', 'ProductsController');
 
 
 
+Route::post('/envioshopping','ZonaEnvio\ZonaEnvioController@envios');
 
 
 
 Route::get('/creardireccion', 'Direccions@creardireccioninvitado');
+
 
 
 

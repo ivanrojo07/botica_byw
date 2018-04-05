@@ -108,25 +108,9 @@
                 </tr>
 
             @endforeach
-
-            <tr>
-                <td>Envio</td>
-                <td></td>
-                <td></td>
-                <td>$ 100.00</td>
-            </tr>
-
-            <tr class="background-blueth">
-
-                <td></td>
-
-                <td></td>
-
-                <td class="t-r f-b">Total</td>
-
-                <td>$ {{$total}} </td>
-
-            </tr>
+            <tbody id="envios">
+                
+            </tbody>
 
 
 
@@ -170,6 +154,49 @@
             showUpload: false,
             required: true,
             allowedFileExtensions: ["pdf", "jpg", "jpeg", "png"],
+        });
+
+        
+        $(document).ready(function(){
+            
+            direccion = $('input[name=direccion_default]:checked').val();
+            console.log(direccion);
+            $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: "{{ url('/envioshopping') }}",
+                type: "POST",
+                // dataType: "html",
+                data: {
+                    direccion_id: $('input[name=direccion_default]:checked').val(),
+                    envio_id: {{$envio->id}},
+                    total: {{$total}},
+                },
+                success: function(data){
+                    $('#envios').html(data);
+                }
+            });
+            $('input[name=direccion_default]').change(function(){
+                direccion = $('input[name=direccion_default]:checked').val();
+                $.ajax({
+                    url: "{{ url('/envioshopping') }}",
+                    type: "POST",
+                    // dataType: "html",
+                    data: {
+                        direccion_id: $('input[name=direccion_default]:checked').val(),
+                        envio_id: {{$envio->id}},
+                        total: {{$total}},
+                    },
+                    success: function(data){
+                        $('#envios').html(data);
+                    }
+                });
+                console.log();
+            });
+
         });
     </script>
 @endsection

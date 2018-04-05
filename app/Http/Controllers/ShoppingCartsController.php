@@ -154,7 +154,7 @@ class ShoppingCartsController extends Controller {
 
 
 
-        return view("shopping_carts.index", compact('products', 'total', 'direccion_default','direcctions'));
+        return view("shopping_carts.index", compact('products', 'total', 'direccion_default','direcctions','envio'));
 
 
 
@@ -245,11 +245,10 @@ class ShoppingCartsController extends Controller {
         }
 
         $direccion = Direccion::find($direccion_id);
-        dd($direccion);
         // $totalstr = $shopping_cart->total();
         // $total = number_format((float)$totalstr, 2, '.', '');
         // dd($total);
-
+        $products = $shopping_cart->products()->get();
         $peso = 0.00;
 
         foreach ($products as $product) {
@@ -276,6 +275,7 @@ class ShoppingCartsController extends Controller {
             }
         }
         $envio = ZonaEnvio::where('peso', '>=', "$peso")->first();
+        dd($envio);
 
         $shopping_cart->update([
 
@@ -324,6 +324,9 @@ class ShoppingCartsController extends Controller {
         return redirect('/carrito');
 
     }
+
+
+    
 
 }
 
