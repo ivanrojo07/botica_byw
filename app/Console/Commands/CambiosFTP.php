@@ -41,7 +41,7 @@ class CambiosFTP extends Command
     {
         //
         \Log::info('Iniciando subida de cambios a la base de datos '.\Carbon\Carbon::now());
-        Excel::filter('chunk')->load(storage_path("app\public\CAMBIOS.csv"),null,null,true,null)->chunk(250, function($results) {
+        Excel::filter('chunk')->load(storage_path("/app/public/CAMBIOS.csv"),null,null,true,null)->chunk(250, function($results) {
                 // dd($results);
                 foreach ($results as $key => $value) {
                     # code...

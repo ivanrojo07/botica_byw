@@ -169,6 +169,13 @@
                     </li>
 
                 @endif
+                
+                @if(Auth::check() && Auth::user()->rol == 'admin')
+
+                <li>
+                    <a class="product1" href="{{url('/envios')}}">Tarifas de envios</a>
+                </li>
+                @endif
 
 
 

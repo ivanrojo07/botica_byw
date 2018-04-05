@@ -6,29 +6,18 @@ namespace App\Http\Controllers;
 
 
 
-use App\Order;
-
 use App\Direccion;
-
-use Illuminate\Http\Request;
-
-use App\ShoppingCart;
-
-use App\Paypal;
-
-
-
-use App\InShoppingCart;
-
 use App\Http\Controllers\InShoppingCartsController;
-
-use Illuminate\Support\Facades\Auth;
-
-use Illuminate\Support\Facades\Storage;
-
-use Illuminate\Support\Facades\Mail;
-
+use App\InShoppingCart;
 use App\Mail\OrderCreated;
+use App\Order;
+use App\Paypal;
+use App\ShoppingCart;
+use App\ZonaEnvio;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 
 
 
@@ -127,8 +116,35 @@ class ShoppingCartsController extends Controller {
 
 
 
-
+        $peso = 0.00;
         $products = $shopping_cart->products()->get();
+
+        foreach ($products as $product) {
+            # code...
+            if ($product->tipo_de_producto == "ET" ) {
+                # code...
+                $peso += 0.01*$product->pivot->qty;
+
+            }
+            if ($product->tipo_de_producto == "MC") {
+                 # code...
+                $peso += 0.10*$product->pivot->qty;
+             } 
+            if ($product->tipo_de_producto == "VA") {
+                # code...
+                $peso += 10.00*$product->pivot->qty;
+            }
+            if ($product->tipo_de_producto == "PF") {
+                # code...
+                $peso += 1.00*$product->pivot->qty;
+            }
+            if($product->tipo_de_producto == "OT"){
+                $peso += 0.01*$product->pivot->qty; 
+            }
+        }
+        
+        $envio = ZonaEnvio::where('peso', '>=', "$peso")->first();
+        dd($envio);
 
 
 

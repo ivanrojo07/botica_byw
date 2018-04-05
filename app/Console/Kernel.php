@@ -57,7 +57,13 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')
 
         //          ->hourly();
-        $schedule->command('excel:get')->hourly();
+        $schedule->command('excel:get')->timezone('America/Mexico_City')->dailyAt('05:00');
+        $schedule->command('excel:upload')->timezone('America/Mexico_City')->dailyAt('06:00');
+        $schedule->command('cambios:upload')->timezone('America/Mexico_City')->dailyAt('07:00');
+        $schedule->command('log:demo');
+        // $schedule->command('excel:get')->hourly();
+        // $schedule->command('excel:upload')->hourly();
+        // $schedule->command('cambios:upload')->hourly();
 
     }
 

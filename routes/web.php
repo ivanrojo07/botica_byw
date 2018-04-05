@@ -341,6 +341,7 @@ Route::group(['middleware' => ['isAdmin']], function () {
 
     Route::post('moneda', 'CambioMonedaController@store');
     Route::get('/ordens', 'OrdersController@getOrden');
+    Route::resource('envios','ZonaEnvio\ZonaEnvioController');
 
     // Route::get('user', "userprofileController@user");
 

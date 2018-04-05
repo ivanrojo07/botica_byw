@@ -41,7 +41,7 @@ class CatalogoFTP extends Command
     {
         //
         \Log::info('Iniciando la subide del catalogo a la base de datos a las '.\Carbon\Carbon::now());
-        Excel::filter('chunk')->load(storage_path("app\public\CATALOGO.csv"),null,null,true,null)->chunk(250, function($results) {
+        Excel::filter('chunk')->load(storage_path("/app/public/CATALOGO.csv"),null,null,true,null)->chunk(250, function($results) {
                 // dd($results);
                 foreach ($results as $key => $value) {
                     # code...
