@@ -9,12 +9,10 @@ namespace App\Http\Controllers;
 
 
 use App\Direccion;
-
-use App\ShoppingCart;
-
-use Illuminate\Http\Request;
-
 use App\Order;
+use App\ShoppingCart;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 
 
@@ -189,6 +187,15 @@ class OrdersController extends Controller {
         $orden = Order::find($num_orden);
         $direccion = $orden->shoppingCart->shoping_direccion;
         return response($direccion);
+    }
+
+    public function generarOrden(Request $request){
+
+
+        $orden = Order::find($request->input('orden'));
+        dd($orden->shoppingcart->products);
+
+        $archivo = Storage::disk('local')->put('FFA73800000', 'Contents');
     }
 
 

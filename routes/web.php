@@ -345,6 +345,8 @@ Route::group(['middleware' => ['isAdmin']], function () {
     Route::get('/ordens', 'OrdersController@getOrden');
     Route::resource('envios','ZonaEnvio\ZonaEnvioController');
 
+    Route::post('generar_orden','OrdersController@generarOrden')->name('generar_orden');
+
     // Route::get('user', "userprofileController@user");
 
     // Route::get('user/profile', "userprofileController@profile");

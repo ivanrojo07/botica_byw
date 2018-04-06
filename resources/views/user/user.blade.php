@@ -53,24 +53,26 @@
                         Cambiar mi contraseña
 
                     </a>
+                    @if (Auth::user()->rol == "normal")
+                        {{-- expr --}}
+                        <a href="{{url('user/direccion')}}" class="list-group-item">
 
-                    <a href="{{url('user/direccion')}}" class="list-group-item">
+                            Gestiona tus Direcciones
 
-                        Gestiona tus Direcciones
+                        </a>
 
-                    </a>
+                        <a href="{{url('user/my-favorite-products')}}" class="list-group-item">
 
-                    <a href="{{url('user/my-favorite-products')}}" class="list-group-item">
+                            Mis Productos Favoritos
 
-                        Mis Productos Favoritos
+                        </a>
 
-                    </a>
+                        <a href="{{ url('user/my-orders') }}" class="list-group-item">
 
-                    <a href="{{ url('user/my-orders') }}" class="list-group-item">
+                            Mis Ordenes
 
-                        Mis Ordenes
-
-                    </a>
+                        </a>
+                    @endif
 
                 </div>
 

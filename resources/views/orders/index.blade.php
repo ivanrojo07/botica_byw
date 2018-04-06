@@ -107,7 +107,7 @@
 
                 <h4>Ventas</h4>
 
-                <table class="table table-bordered tabla-status">
+                <table class="table table-bordered tabla-status table-striped">
 
                     <thead>
 
@@ -117,9 +117,12 @@
 
                         <td>Comprador</td>
 
+                        <td>Destinatario</td>
+
                         <td>Dirección</td>
 
-                        <td>No. Guía</td>
+                        {{-- <td>No. Guía</td> --}}
+
 
                         <td>Estatus</td>
 
@@ -143,6 +146,14 @@
 
                             <td>{{ $order->id }}</td>
 
+                            <td>@if ($order->shoppingcart->user)
+                                {{-- expr --}}
+                                {{$order->shoppingcart->user->name}} | {{$order->shoppingcart->user->email}}
+                                @else
+
+                                INVITADO
+                            @endif</td>
+
                             <td>{{ $order->recipient_name }}</td>
 
                             {{--<td>{{ $order->address() }}</td>--}}
@@ -151,7 +162,7 @@
 
                                 <!-- Button trigger modal -->
 
-                                <button type="button" class="btn btn-primary shopping_cart_address"
+                                <button type="button" class="btn btn-success shopping_cart_address"
 
                                         data-shoppingcart="{{ $order->shopping_cart_id }}">
 
@@ -161,7 +172,7 @@
 
                             </td>
 
-                            <td>
+                           {{--  <td>
 
                                 <a href="#" data-type="text"
 
@@ -180,8 +191,8 @@
 
 
                             </td>
-
-                            <td><a href="#" data-type="select"
+ --}}
+                            {{-- <td><a href="#" data-type="select"
 
                                    data-pk="{{$order->id}}"
 
@@ -193,7 +204,10 @@
 
                                    class="select-status"
 
-                                   data-name="status "></a></td>
+                                   data-name="status "></a></td> --}}
+                                   <td>{{$order->status}}</td>
+
+
                             <td>{{ $order->created_at }}</td>
 
                             <td><button type="button" class="btn btn-warning infoshopping" data-shoppingcart="{{ $order->shopping_cart_id }}">
@@ -205,7 +219,7 @@
 
                             <td>
 
-                                <form action="{{ url('/user/order/get-receta') }}" method="POST">
+                                <form action="{{ url('/user/order/get-receta') }}" method="POST" style="margin: 0px 0 1em 0;">
 
                                     {{ csrf_field() }}
 
@@ -213,7 +227,19 @@
 
                                            value="{{ $order->shoppingcart->receta_path }}"/>
 
-                                    <button class="btn btn-success">Descargar Receta</button>
+                                    <button class="btn btn-sm btn-info">Descargar Receta</button>
+
+                                </form>
+                                <form action="{{ route('generar_orden') }}" method="POST" style="margin: 0px 0 1em 0;">
+
+                                    {{ csrf_field() }}
+
+                                    <input type="hidden" name="orden"
+
+                                           value="{{ $order->id }}"/>
+
+                                    <button class="btn btn-sm btn-primary">Generar Orden
+                                     de <br> Compra</button>
 
                                 </form>
 
