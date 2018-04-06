@@ -84,12 +84,19 @@
 
     <header id="header" style="position: fixed !important">
 
-        <h1 id="logo"><a href="{{ url('/') }}">Inicio</a></h1>
+        @if(Auth::check() && Auth::user()->rol == 'admin')
+        @else
+
+            <h1 id="logo"><a href="{{ url('/') }}">Inicio</a></h1>
+        
+        @endif
 
         <nav id="nav">
 
             <ul style="font-size: 12px;">
 
+                @if(Auth::check() && Auth::user()->rol == 'admin')
+                @else
                 <li>
 
 
@@ -114,29 +121,53 @@
 
                     <a id="carrito" href="{{url('/carrito')}}"><i class="fa fa-cart-plus blue" aria-hidden="true"></i>
 
-                        {{$productsCount}}</a></li>
+                        {{$productsCount}}</a>
+                </li>
             
-                <li>
+                @endif
 
+                <li>
                  @if(Request::is('/'))
 
-                 <a class="product1" href="#productos">Productos</a>
+                    @if(Auth::check() && Auth::user()->rol == 'admin')
+
+
+                        <a class="product1" href="{{url('/products')}}">Productos</a>
+                    @else
+
+
+                        <a class="product1" href="#productos">Productos</a>
+
+                    @endif
+
 
                  @else
 
-                 <a class="product1" href="{{url('/Products1')}}">Productos</a>
+                    @if(Auth::check() && Auth::user()->rol == 'admin')
+
+
+                        <a class="product1" href="{{url('/products')}}">Productos</a>
+
+                    @else
+
+                        <a class="product1" href="{{url('/Products1')}}">Productos</a>
+                    
+
+                    @endif
+
 
                  @endif                        
 
                 </li>
 
 
-
+                @if(Auth::check() && Auth::user()->rol == 'normal')
                 <li>
 
                     <a class="product1" href="{{url('/promotion')}}">Promociones</a>
 
                 </li>
+                @endif
 
 
 

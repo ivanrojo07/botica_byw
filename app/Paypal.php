@@ -16,12 +16,14 @@ class Paypal {
 
     private $shopping_cart;
 
+    private $envio;
+
     
     private $_ClientId;
     private $_ClientSecret;
 
 
-    public function __construct($shopping_cart)
+    public function __construct($shopping_cart,$envio)
 
     {
         $this->_ClientId  = env('CLIENT_ID');
@@ -43,6 +45,7 @@ class Paypal {
 
 
         $this->shopping_cart = $shopping_cart;
+        $this->envio = $envio;
 
     }
 
@@ -102,7 +105,7 @@ class Paypal {
 
     {
 
-        return \PaypalPayment::amount()->setCurrency("USD")->setTotal($this->shopping_cart->total());
+        return \PaypalPayment::amount()->setCurrency("USD")->setTotal($this->shopping_cart->total);
         // return \PaypalPayment::amount()->setCurrency("USD")->setTotal(0.10);
 
     }
@@ -114,6 +117,7 @@ class Paypal {
     {
 
         // Returns transaction's info
+        // dd($this->amount());
 
         return \PaypalPayment::transaction()->setAmount($this->amount())->setItemList($this->items())->setDescription("Tu compra en TuFarmaciaLatina")->setInvoiceNumber(uniqid());
 
@@ -128,6 +132,7 @@ class Paypal {
         $items = [];
 
 
+        $precio_envio = $this->envio;
 
         $products = $this->shopping_cart->products()->get();
 
@@ -138,6 +143,16 @@ class Paypal {
             array_push($items, $product->paypalItem());
 
         }
+
+        array_push($items, \PaypalPayment::item()->setName("ENVIO")
+
+            ->setDescription("Envio por SkyConexion")
+
+            ->setCurrency('USD')
+
+            ->setQuantity(1)
+
+            ->setPrice($precio_envio));
 
 
 
@@ -153,7 +168,7 @@ class Paypal {
 
 
 
-        //dd($items);
+        // dd($items);
 
         return \PaypalPayment::itemList()->setItems($items);
 
