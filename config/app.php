@@ -363,6 +363,8 @@ return [
 
         App\Providers\RouteServiceProvider::class,
 
+        UxWeb\SweetAlert\SweetAlertServiceProvider::class,
+
 
 
 
@@ -474,6 +476,8 @@ return [
         'PaypalPayment' => Anouar\Paypalpayment\Facades\PaypalPayment::class,
         
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        
+        'Alert' => UxWeb\SweetAlert\SweetAlert::class,
 
 
 

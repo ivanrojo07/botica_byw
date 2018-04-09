@@ -17,6 +17,7 @@ class ComposerStaticInitd38d9d698b314519b1e00e3097a63845
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
         'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
+        'a806c12c6e24e7e4e900847766218dba' => __DIR__ . '/..' . '/uxweb/sweet-alert/src/SweetAlert/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -35,6 +36,10 @@ class ComposerStaticInitd38d9d698b314519b1e00e3097a63845
         'W' => 
         array (
             'Webmozart\\Assert\\' => 17,
+        ),
+        'U' => 
+        array (
+            'UxWeb\\SweetAlert\\' => 17,
         ),
         'T' => 
         array (
@@ -123,6 +128,10 @@ class ComposerStaticInitd38d9d698b314519b1e00e3097a63845
         'Webmozart\\Assert\\' => 
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
+        ),
+        'UxWeb\\SweetAlert\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/uxweb/sweet-alert/src/SweetAlert',
         ),
         'TijsVerkoyen\\CssToInlineStyles\\' => 
         array (
@@ -358,6 +367,7 @@ class ComposerStaticInitd38d9d698b314519b1e00e3097a63845
         'App\\Http\\Controllers\\Tracking\\StatusTrackingController' => __DIR__ . '/../..' . '/app/Http/Controllers/Tracking/StatusTrackingController.php',
         'App\\Http\\Controllers\\Tracking\\TrackingController' => __DIR__ . '/../..' . '/app/Http/Controllers/Tracking/TrackingController.php',
         'App\\Http\\Controllers\\UserOrdersController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserOrdersController.php',
+        'App\\Http\\Controllers\\ZonaEnvio\\ZonaEnvioController' => __DIR__ . '/../..' . '/app/Http/Controllers/ZonaEnvio/ZonaEnvioController.php',
         'App\\Http\\Controllers\\userprofileController' => __DIR__ . '/../..' . '/app/Http/Controllers/userprofileController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\BuildShoppingCart' => __DIR__ . '/../..' . '/app/Http/Middleware/BuildShoppingCart.php',
@@ -388,6 +398,7 @@ class ComposerStaticInitd38d9d698b314519b1e00e3097a63845
         'App\\StatusTracking' => __DIR__ . '/../..' . '/app/StatusTracking.php',
         'App\\Tracking' => __DIR__ . '/../..' . '/app/Tracking.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
+        'App\\ZonaEnvio' => __DIR__ . '/../..' . '/app/ZonaEnvio.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
         'Carbon\\Exceptions\\InvalidDateException' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
@@ -403,14 +414,14 @@ class ComposerStaticInitd38d9d698b314519b1e00e3097a63845
         'CreateCategoriesTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_24_004840_create_categories_table.php',
         'CreateDireccionsTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_01_065723_create_direccions_table.php',
         'CreateInShoppingCartsTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_03_054935_create_in_shopping_carts_table.php',
-        'CreateOrdersTable' => __DIR__ . '/../..' . '/database/migrations/migrations/2017_07_21_051518_create_orders_table.php',
+        'CreateOrdersTable' => __DIR__ . '/../..' . '/database/migrations/2017_07_21_051518_create_orders_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateProductsTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_25_181913_create_products_table.php',
         'CreatePromotionsTable' => __DIR__ . '/../..' . '/database/migrations/2018_03_07_172420_create_promotions_table.php',
         'CreateShoppingCartsTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_02_071435_create_shopping_carts_table.php',
         'CreateStatusTrackingTable' => __DIR__ . '/../..' . '/database/migrations/2018_02_28_171647_create_status_tracking_table.php',
         'CreateTrackingTable' => __DIR__ . '/../..' . '/database/migrations/2018_01_30_162917_create_tracking_table.php',
-        'CreateUserFavoriteProducts' => __DIR__ . '/../..' . '/database/migrations/2017_08_11_061846_create_user_favorite_products.php',
+        'CreateUserFavoriteProducts' => __DIR__ . '/../..' . '/database/migrations/2018_03_08_061846_create_user_favorite_products.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'CreateZonaEnvioTable' => __DIR__ . '/../..' . '/database/migrations/2018_03_23_180022_create_zona_envio_table.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
@@ -3811,6 +3822,12 @@ class ComposerStaticInitd38d9d698b314519b1e00e3097a63845
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Property\\Property' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Property/Property.php',
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Processor' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Processor.php',
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Rule' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Rule.php',
+        'UxWeb\\SweetAlert\\ConvertMessagesIntoSweetAlert' => __DIR__ . '/..' . '/uxweb/sweet-alert/src/SweetAlert/ConvertMessagesIntoSweetAlert.php',
+        'UxWeb\\SweetAlert\\LaravelSessionStore' => __DIR__ . '/..' . '/uxweb/sweet-alert/src/SweetAlert/LaravelSessionStore.php',
+        'UxWeb\\SweetAlert\\SessionStore' => __DIR__ . '/..' . '/uxweb/sweet-alert/src/SweetAlert/SessionStore.php',
+        'UxWeb\\SweetAlert\\SweetAlert' => __DIR__ . '/..' . '/uxweb/sweet-alert/src/SweetAlert/SweetAlert.php',
+        'UxWeb\\SweetAlert\\SweetAlertNotifier' => __DIR__ . '/..' . '/uxweb/sweet-alert/src/SweetAlert/SweetAlertNotifier.php',
+        'UxWeb\\SweetAlert\\SweetAlertServiceProvider' => __DIR__ . '/..' . '/uxweb/sweet-alert/src/SweetAlert/SweetAlertServiceProvider.php',
         'Webmozart\\Assert\\Assert' => __DIR__ . '/..' . '/webmozart/assert/src/Assert.php',
         'XdgBaseDir\\Xdg' => __DIR__ . '/..' . '/dnoegel/php-xdg-base-dir/src/Xdg.php',
         'phpDocumentor\\Reflection\\DocBlock' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock.php',

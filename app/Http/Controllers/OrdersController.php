@@ -19,13 +19,11 @@ use Illuminate\Support\Facades\Storage;
 class OrdersController extends Controller {
 
 
-
     public function __construct()
 
     {
 
         $this->middleware("auth");
-
     }
 
 
@@ -189,13 +187,105 @@ class OrdersController extends Controller {
         return response($direccion);
     }
 
+
     public function generarOrden(Request $request){
+        
+        $arrayArch = array();
+
+        $dir = Storage::disk('local')->files();
+        // dd($dir);
+        foreach ($dir as $key => $value) {
+            # code...
+            if (strpos($value, '.DAT')) {
+                # code...
+                array_push($arrayArch, $value);
+            }
+        }
+        // dd(count($arrayArch));
+        if (count($arrayArch) == 1000){
 
 
+        }
+        else{
+
+            $contador = count($arrayArch);
+
+        }
         $orden = Order::find($request->input('orden'));
-        dd($orden->shoppingcart->products);
+       
+        $products = $orden->shoppingcart->products;
+        $contenido = "";
+        foreach ($products as $key => $product) {
+            # code...
+            $codigo = str_pad($product->codigo_de_barras, 13,'0',STR_PAD_LEFT);
+            $cantidad = str_pad($product->pivot->qty, 3,'0',STR_PAD_LEFT);
+            $contenido .= "0173800"."$codigo"."$cantidad"."000000000000000000000000000000000000000000000000\n";
+            // $contenido .= "00000000000000000000000000000000000000000000000000000000000000000000000000000\n";
 
-        $archivo = Storage::disk('local')->put('FFA73800000', 'Contents');
+        }
+        if ($orden->pedido_file) {
+            # code...
+            // dd('ya se creo pedido a la orden');
+            return redirect()->back()->with(
+
+                [
+
+                    'feedback'   => 'Pedido realizado correctamente!',
+
+                    'alert_type' => 'alert-success'
+
+                ]
+
+            );
+        }
+        else{
+
+            $orden->pedido_file = 'FF7380'.str_pad($contador, 4,'0',STR_PAD_LEFT).'.DAT';
+            $orden->status = "orden de compra";
+            $orden->save();
+            
+
+            $archivo = Storage::disk('local')->put('FF7380'.str_pad($contador, 4,'0',STR_PAD_LEFT).'.DAT', $contenido);
+            Storage::disk('ftp')->put('/in/FF7380'.str_pad($contador, 4,'0',STR_PAD_LEFT).'.DAT', $contenido);
+            return redirect()->back()->with(
+
+                [
+
+                    'feedback'   => 'Pedido realizado correctamente!',
+
+                    'alert_type' => 'alert-success'
+
+                ]
+
+            );
+            
+        }
+
+
+
+
+    }
+
+
+    public function pedidos(){
+        $ordenes = Order::where("status", "orden de compra")->get();
+
+        return view('orders.marzam',['ordenes' => $ordenes]);
+
+        // dd($ordenes);
+    }
+
+    public function verificado(Request $request){
+        // dd($request->all());
+        $verificar = $request->input('verificar');
+
+        if ($verificar) {
+            # code...
+            $orden = Order::find($verificar);
+            $orden->verificado = 1;
+            $orden->save();
+            return redirect()->back();
+        }
     }
 
 

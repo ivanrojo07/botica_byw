@@ -54,6 +54,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/fileinput.min.css') }}">
     <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/mdb.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/sweetalert.css') }}">
    {{--  <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/> --}}
     <!--load everything-->
     <script src="{{ asset('js/fontawesome-all.js') }}"></script>

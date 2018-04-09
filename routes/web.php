@@ -331,6 +331,9 @@ Route::group(['middleware' => ['isAdmin']], function () {
     Route::get('/order/info_address/{shoppingcart}', 'OrdersController@getAddressInfo');
     Route::get('/order/info_shopping/{shoppingcart}', 'OrdersController@shoppingInfo');
 
+    Route::get('/marzam_orders', 'OrdersController@pedidos');
+    Route::post('/marzam_verificado','OrdersController@verificado');
+
 
 
     Route::get('/admin/recetas', 'Admin\RecetasController@getIndex');

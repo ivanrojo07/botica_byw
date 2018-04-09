@@ -144,7 +144,7 @@
 
                         <tr>
 
-                            <td>{{ $order->id }}</td>
+                            <td>{{$order->shoppingcart->customid}}</td>
 
                             <td>@if ($order->shoppingcart->user)
                                 {{-- expr --}}
@@ -166,7 +166,7 @@
 
                                         data-shoppingcart="{{ $order->shopping_cart_id }}">
 
-                                    <i class="fa fa-eye"></i>Ver Dirección
+                                    <i class="fa fa-eye"></i>Dirección
 
                                 </button>
 
@@ -212,7 +212,7 @@
 
                             <td><button type="button" class="btn btn-warning infoshopping" data-shoppingcart="{{ $order->shopping_cart_id }}">
 
-                                    <i class="fa fa-eye"></i>Ver Productos
+                                    <i class="fa fa-eye"></i>Productos
 
                                 </button>
                                 </td>
@@ -230,7 +230,7 @@
                                     <button class="btn btn-sm btn-info">Descargar Receta</button>
 
                                 </form>
-                                <form action="{{ route('generar_orden') }}" method="POST" style="margin: 0px 0 1em 0;">
+                                <form id="orden {{ $order->id }}" action="{{ route('generar_orden') }}" method="POST" style="margin: 0px 0 1em 0;">
 
                                     {{ csrf_field() }}
 
@@ -238,8 +238,8 @@
 
                                            value="{{ $order->id }}"/>
 
-                                    <button class="btn btn-sm btn-primary">Generar Orden
-                                     de <br> Compra</button>
+                                    <a type="submit" onclick="deleteFunction('orden {{ $order->id }}')" class="btn btn-sm btn-primary">Generar Orden
+                                     de <br> Compra</a>
 
                                 </form>
 
@@ -264,8 +264,23 @@
 
 
 @section('scripts')
+    <script src="{{ asset('js/sweetalert.js') }}"></script>
+    @include('sweet::alert')
 
     <script>
+        function deleteFunction(etiqueta) {
+            event.preventDefault(); // prevent form submit
+            if (confirm("deseas crear el pedido a marzam")){
+                document.getElementById(etiqueta).submit();          // submitting the form when user press yes
+
+
+            }
+
+            else {
+                alert("cancelado");
+              }
+            
+        }
 
         $(function () {
 
