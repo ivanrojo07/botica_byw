@@ -266,6 +266,27 @@ class OrdersController extends Controller {
 
     }
 
+    public function reenviarOrden(Request $request){
+        $orden_id= $request->input('orden');
+        $orden = Order::find($orden_id);
+        $filepath = $orden->pedido_file;
+        // dd($filepath);
+        $archivo = Storage::disk('local')->get($filepath);
+        Storage::disk('ftp')->put('/in/'.$filepath, $archivo);
+        // dd($archivo);
+        return redirect()->back()->with(
+
+                [
+
+                    'feedback'   => 'Pedido realizado correctamente!',
+
+                    'alert_type' => 'alert-success'
+
+                ]
+
+            );
+    }
+
 
     public function pedidos(){
         $ordenes = Order::where("status", "orden de compra")->get();

@@ -116,7 +116,7 @@
 	                                    {{-- <button class="btn btn-sm btn-info">Verificado</button> --}}
 
 	                                </form>
-	                                <form {{$orden->verificado ? 'disabled' : ''}} id="orden {{ $orden->id }}" action="{{ route('generar_orden') }}" method="POST" style="margin: 0px 0 1em 0;">
+	                                <form {{$orden->verificado ? 'disabled' : ''}} id="orden {{ $orden->id }}" action="{{ route('reenviar_orden') }}" method="POST" style="margin: 0px 0 1em 0;">
 
 	                                    {{ csrf_field() }}
 
@@ -148,20 +148,13 @@
 	<script>
 		function deleteFunction(etiqueta) {
             event.preventDefault(); // prevent form submit
-            if (confirm("deseas crear el pedido a marzam")){
+            if (confirm("¿Deseas reenviar tu pedido a marzam?")){
                 document.getElementById(etiqueta).submit();          // submitting the form when user press yes
-
-
             }
-
-            else {
-                alert("cancelado");
-              }
-            
         }
 
 		function verificar(etiqueta){
-			if(confirm("desea confirmar el pedido a marzam")){
+			if(confirm("¿Desea confirmar el pedido a marzam?")){
 				document.getElementById("form-verificar-orden "+etiqueta).submit();
 			}
 
