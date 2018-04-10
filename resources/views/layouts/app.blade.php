@@ -201,14 +201,16 @@
                     </li>
 
                 @endif
-                
+
                 @if(Auth::check() && Auth::user()->rol == 'admin')
 
-                <li>
-                    <a class="product1" href="{{url('/envios')}}">Tarifas de envios</a>
-                </li>
-                @endif
+                    <li>
 
+                        <a class="product1" href="{{url('/marzam_orders')}}">Pedidos a Marzam</a>
+
+                    </li>
+
+                @endif
 
 
                 @if(Auth::check() && Auth::user()->rol == 'admin')
@@ -220,6 +222,8 @@
                     </li>
 
                 @endif
+
+                
 
 
 
@@ -234,6 +238,13 @@
                 @endif
 
 
+
+                {{-- @if(Auth::check() && Auth::user()->rol == 'admin')
+                <li>
+                    <a class="product1" href="{{url('/envios')}}">Tarifas de envios</a>
+                </li>
+                @endif
+ --}}
 
                 @if (Auth::guest())
 

@@ -39,6 +39,7 @@ class CreateInShoppingCartsTable extends Migration
             $table->integer('shopping_cart_id')->unsigned();
             $table->integer('qty');
             $table->decimal('preciounit', 9,2);
+            $table->boolean('empaquetado')->default('0');
 
 
             $table->foreign('catalogo_id')->references("id")->on("catalogo")->onDelete('cascade');

@@ -278,7 +278,7 @@ class OrdersController extends Controller {
 
                 [
 
-                    'feedback'   => 'Pedido realizado correctamente!',
+                    'feedback'   => 'Pedido reenviado correctamente!',
 
                     'alert_type' => 'alert-success'
 
@@ -305,7 +305,17 @@ class OrdersController extends Controller {
             $orden = Order::find($verificar);
             $orden->verificado = 1;
             $orden->save();
-            return redirect()->back();
+            return redirect()->back()->with(
+
+                [
+
+                    'feedback'   => 'Pedido verificado correctamente!',
+
+                    'alert_type' => 'alert-success'
+
+                ]
+
+            );
         }
     }
 

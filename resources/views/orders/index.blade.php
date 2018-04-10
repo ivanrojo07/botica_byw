@@ -45,7 +45,9 @@
         style="height: 595px !important;" 
     @endif>
 
+
         <div class="panel panel-default dashadmin ">
+     @include('feedback')
 
             <div class="panel-heading">
 

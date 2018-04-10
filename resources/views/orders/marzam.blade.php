@@ -41,6 +41,7 @@
 	{{-- expr --}}
 	<div class="container m-top">
 		<div class="panel panel-default dashadmin">
+			 @include('feedback')
 			<div class="panel-heading">
 				<h2>Pedidos a Marzam</h2>
 				<form name="buscar_tracking" id="buscar_tracking" method="GET" action="{{ url('/buscartracking') }}">
@@ -124,7 +125,10 @@
 
 	                                           value="{{ $orden->id }}"/>
 
-	                                    <a type="submit" {{$orden->verificado ? 'disabled' : ''}} onclick="deleteFunction('orden {{ $orden->id }}')" class="btn btn-sm btn-primary">Reenviar Orden
+	                                    <a type="submit" {{$orden->verificado ? 'disabled' : ''}} @if ($orden->verificado == 0)
+	                                    	{{-- expr --}}
+	                                    	onclick="deleteFunction('orden {{ $orden->id }}')"
+	                                    @endif  class="btn btn-sm btn-primary">Reenviar Orden
 	                                     de <br> Compra</a>
 
 	                                </form>
