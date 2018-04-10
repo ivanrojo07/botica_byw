@@ -105,7 +105,7 @@
 
 	                                    {{ csrf_field() }}
 	                                    <div class="checkbox">
-	                                    	<label><input type="checkbox" value="{{$orden->id}}" {{$orden->verificado ? 'checked' : ''}} name="verificar" id="verificar" onChange="this.form.submit()">Verificado</label>
+	                                    	<label><input type="checkbox" value="{{$orden->id}}" {{$orden->verificado ? 'checked disabled' : ''}} name="verificar" id="verificar" onChange="if(confirm('desea confirmar el pedido a marzam')){this.form.submit();}else{this.checked = false}">Verificado</label>
 	                                    </div>
 
 	                                    {{-- <input type="radio" name="url_receta_path"
@@ -116,7 +116,7 @@
 	                                    {{-- <button class="btn btn-sm btn-info">Verificado</button> --}}
 
 	                                </form>
-	                                <form id="orden {{ $orden->id }}" action="{{ route('generar_orden') }}" method="POST" style="margin: 0px 0 1em 0;">
+	                                <form {{$orden->verificado ? 'disabled' : ''}} id="orden {{ $orden->id }}" action="{{ route('generar_orden') }}" method="POST" style="margin: 0px 0 1em 0;">
 
 	                                    {{ csrf_field() }}
 
@@ -124,7 +124,7 @@
 
 	                                           value="{{ $orden->id }}"/>
 
-	                                    <a type="submit" onclick="deleteFunction('orden {{ $orden->id }}')" class="btn btn-sm btn-primary">Reenviar Orden
+	                                    <a type="submit" {{$orden->verificado ? 'disabled' : ''}} onclick="deleteFunction('orden {{ $orden->id }}')" class="btn btn-sm btn-primary">Reenviar Orden
 	                                     de <br> Compra</a>
 
 	                                </form>
@@ -146,8 +146,26 @@
 	{{-- expr --}}
 
 	<script>
+		function deleteFunction(etiqueta) {
+            event.preventDefault(); // prevent form submit
+            if (confirm("deseas crear el pedido a marzam")){
+                document.getElementById(etiqueta).submit();          // submitting the form when user press yes
 
 
+            }
+
+            else {
+                alert("cancelado");
+              }
+            
+        }
+
+		function verificar(etiqueta){
+			if(confirm("desea confirmar el pedido a marzam")){
+				document.getElementById("form-verificar-orden "+etiqueta).submit();
+			}
+
+		}
 		
 		$(function () {
 
