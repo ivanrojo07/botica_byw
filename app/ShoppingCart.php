@@ -94,7 +94,7 @@ class ShoppingCart extends Model {
 
     {
 
-        return $this->belongsToMany('App\Catalogo', 'in_shopping_carts')->withPivot('qty','preciounit');
+        return $this->belongsToMany('App\Catalogo', 'in_shopping_carts')->withPivot('qty','preciounit','empaquetado','id');
 
     }
 

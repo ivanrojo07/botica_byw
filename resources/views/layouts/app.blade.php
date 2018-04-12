@@ -88,7 +88,7 @@
         @if(Auth::check() && Auth::user()->rol == 'admin')
         @else
 
-            <h1 id="logo"><a href="{{ url('/') }}">Inicio</a></h1>
+            <h1 id="logo"><a href="{{ url('/') }}"><img src="{{ asset('img/logo_rxlatinmed.jpg') }}" height="60px"></a></h1>
         
         @endif
 
@@ -217,6 +217,17 @@
 
                     <li>
 
+                        <a class="product1" href="{{url('/empaquetado')}}">Empaquetado</a>
+
+                    </li>
+
+                @endif
+
+
+                @if(Auth::check() && Auth::user()->rol == 'admin')
+
+                    <li>
+
                         <a class="product1" href="{{url('/tracking')}}">Rastreo</a>
 
                     </li>
@@ -239,12 +250,12 @@
 
 
 
-                {{-- @if(Auth::check() && Auth::user()->rol == 'admin')
+                @if(Auth::check() && Auth::user()->rol == 'admin')
                 <li>
                     <a class="product1" href="{{url('/envios')}}">Tarifas de envios</a>
                 </li>
                 @endif
- --}}
+
 
                 @if (Auth::guest())
 

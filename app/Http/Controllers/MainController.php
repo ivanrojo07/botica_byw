@@ -71,6 +71,8 @@ class MainController extends Controller {
         return response()->json($products);
     }
 
+    
+
 }
 
 

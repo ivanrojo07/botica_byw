@@ -9,6 +9,7 @@ namespace App\Http\Controllers;
 
 
 use App\Direccion;
+use App\InShoppingCart;
 use App\Order;
 use App\ShoppingCart;
 use Illuminate\Http\Request;
@@ -319,6 +320,102 @@ class OrdersController extends Controller {
         }
     }
 
+    public function empaquetadoIndex(){
+        $ordenes = Order::where('verificado', 1)->where(function ($query){
+            $query->where('status','orden de compra')->orWhere('status','empaquetado');
+        })->get();
+        // $ordenes = Order::where('status','orden de compra')->orWhere('status','empaquetado')->where('verificado', 1)->get();
+        return view('orders.empaquetado',['ordenes'=>$ordenes]);
+    }
+
+    public function checkingProduct($shoppingcart){
+        $shopping_cart = ShoppingCart::where('id', $shoppingcart)->first();
+        if ($shopping_cart) {
+            # code...
+            $productos = $shopping_cart->products;
+
+            return view('orders.productscheck', compact('productos','shopping_cart'));
+        }
+        else{
+            return 'No se encontró esta compra: favor de hablar con el comprador';
+        }
+    }
+
+    public function productoCheck(Request $request){
+
+        $inshopId = $request->input('checked');
+        $producto = InShoppingCart::find($inshopId);
+        if ($producto->empaquetado == 0) {
+            # code...
+            $producto->empaquetado = 1;
+            $producto->save();
+            return "true";
+        } else {
+            # code...
+            $producto->empaquetado = 0;
+            $producto->save();
+            return "false";
+        }
+        
+    }
+
+    public function empaquetarCompra(Request $request){
+        // dd($request->all());
+        $orden_id = $request->input('verificar');
+
+        $orden = Order::findOrFail($orden_id);
+        // dd($orden);
+        $productos = $orden->shoppingcart->products;
+        foreach ($productos as $key => $value) {
+            # code...
+            if ($value->pivot->empaquetado == 1) {
+                # code...
+                $verificado = true;
+                
+            }
+            else{
+                $verificado = false;
+                return redirect()->back()->with(
+
+                [
+
+                    'feedback'   => 'No puedes empaquetar este pedido, verifica que todos los productos esten recibidos en el boton productos.',
+
+                    'alert_type' => 'alert-danger'
+
+                ]);
+            }
+            // dd($value->pivot);
+        }
+        if ($verificado == true) {
+            # code...
+            $orden->empaquetado_at = \Carbon\Carbon::now('America/Mexico_City');
+            $orden->status = "empaquetado";
+            $orden->save();
+            return redirect()->back()->with(
+
+                [
+
+                    'feedback'   => "Paquete empaquetado a las $orden->empaquetado_at",
+
+                    'alert_type' => 'alert-success'
+
+                ]);
+
+        }
+    }
+
+
+    public function createTracking($orden_id){
+        // dd($orden_id);
+        $orden = Order::findOrFail($orden_id);
+        $shopping_cart = $orden->ShoppingCart;
+        $direccion = $shopping_cart->direccion;
+        // dd($direccion);
+
+
+        return view('orders.tracking',['orden'=>$orden,'shopping_cart'=>$shopping_cart,'direccion'=>$direccion]);
+    }
 
 
 }

@@ -331,8 +331,6 @@ Route::group(['middleware' => ['isAdmin']], function () {
     Route::get('/order/info_address/{shoppingcart}', 'OrdersController@getAddressInfo');
     Route::get('/order/info_shopping/{shoppingcart}', 'OrdersController@shoppingInfo');
 
-    Route::get('/marzam_orders', 'OrdersController@pedidos');
-    Route::post('/marzam_verificado','OrdersController@verificado');
 
 
 
@@ -350,6 +348,13 @@ Route::group(['middleware' => ['isAdmin']], function () {
 
     Route::post('generar_orden','OrdersController@generarOrden')->name('generar_orden');
     Route::post('reenviar_orden', 'OrdersController@reenviarOrden')->name('reenviar_orden');
+    Route::get('/marzam_orders', 'OrdersController@pedidos');
+    Route::post('/marzam_verificado','OrdersController@verificado');
+    Route::get('/empaquetado','OrdersController@empaquetadoIndex')->name('empaquetado_index');
+    Route::post('/empaquetar','OrdersController@empaquetarCompra')->name('empaquetado');
+    Route::get('/tracking/create/{order}', 'OrdersController@createTracking');
+    Route::get('/order/checkproduct/{shoppingcart}', 'OrdersController@checkingProduct');
+    Route::post('/producto_check','OrdersController@productoCheck');
 
     // Route::get('user', "userprofileController@user");
 

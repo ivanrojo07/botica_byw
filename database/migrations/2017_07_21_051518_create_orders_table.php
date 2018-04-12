@@ -63,6 +63,7 @@ class CreateOrdersTable extends Migration
             $table->string('pedido_file')->nullable();
 
             $table->boolean('verificado')->default('0');
+            $table->timestamp('empaquetado')->nullable();
 
             $table->timestamps();
         }); 

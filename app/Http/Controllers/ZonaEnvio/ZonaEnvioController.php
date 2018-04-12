@@ -159,7 +159,7 @@ class ZonaEnvioController extends Controller
                 # code...
                 if ($direccion->ciudad == 'miami'|| $direccion->ciudad == 'Miami') {
                     # code...
-                    $precio_envio = number_format((($envio->precio_a+0.10+($envio->precio_a*(0.40)))/$cambio[0]),2);
+                    $precio_envio = number_format((($envio->precio_a+($envio->precio_a*(0.40)))),2);
                     // dd('precio a');
                 }
                 
@@ -169,38 +169,38 @@ class ZonaEnvioController extends Controller
        
         elseif (mb_strtolower($direccion->pais) == "costa rica" || mb_strtolower($direccion->pais) == "el salvador" || mb_strtolower($direccion->pais) == "guatemala" || mb_strtolower($direccion->pais) == "honduras" || mb_strtolower($direccion->pais) == "nicaragua" || mb_strtolower($direccion->pais) == "panama" ) {
             # code...
-            $precio_envio = number_format((($envio->precio_b+0.10+($envio->precio_b*(0.40)))/$cambio[0]),2);
+            $precio_envio = number_format((($envio->precio_b+($envio->precio_b*(0.40)))),2);
             // dd('precio b');
             }
         elseif (mb_strtolower($direccion->pais) == "colombia" || mb_strtolower($direccion->pais) == "r. dominicana") {
             # code...
-            $precio_envio = number_format((($envio->precio_c+0.10+($envio->precio_c*(0.40)))/$cambio[0]),2);;
+            $precio_envio = number_format((($envio->precio_c+($envio->precio_c*(0.40)))),2);;
             // dd('precio c');
             }
 
         elseif ( mb_strtolower($direccion->pais) == "argentina" || mb_strtolower($direccion->pais) == "bolivia"  || mb_strtolower($direccion->pais) == "chile" || mb_strtolower($direccion->pais) == "ecuador" || mb_strtolower($direccion->pais) == "méxico" || mb_strtolower($direccion->pais) == "paraguay" || mb_strtolower($direccion->pais) == "peru" || mb_strtolower($direccion->pais) == "trinidad y tobago" || mb_strtolower($direccion->pais) == "uruguay"|| mb_strtolower($direccion->pais) == "venezuela") {
                 # code...
-                $precio_envio = number_format((($envio->precio_d+0.10+($envio->precio_d*(0.40)))/$cambio[0]),2);
+                $precio_envio = number_format((($envio->precio_d+($envio->precio_d*(0.40)))),2);
                 // dd('precio d');
             }
 
         elseif (mb_strtolower($direccion->pais) == "aruba" || mb_strtolower($direccion->pais) == "brasil" || mb_strtolower($direccion->pais) == "coracao" || mb_strtolower($direccion->pais) == "haiti" || mb_strtolower($direccion->pais) == "jamaica" || mb_strtolower($direccion->pais) == "sint maarten") {
                 # code...
-                $precio_envio = number_format((($envio->precio_e+0.10+($envio->precio_e*(0.40)))/$cambio[0]),2);
+                $precio_envio = number_format((($envio->precio_e+($envio->precio_e*(0.40)))),2);
                 // dd('precio e');
             }
         elseif (mb_strtolower($direccion->pais) == "anguila" || mb_strtolower($direccion->pais) == "antigua y barbuda" || mb_strtolower($direccion->pais) == "antillas holandesas" || mb_strtolower($direccion->pais) == "bahamas" || mb_strtolower($direccion->pais) == "barbados" || mb_strtolower($direccion->pais) == "belice" || mb_strtolower($direccion->pais) == "bermudas" || mb_strtolower($direccion->pais) == "bonaire" || mb_strtolower($direccion->pais) == "canada" || mb_strtolower($direccion->pais) == "cuba" || mb_strtolower($direccion->pais) == "dominica" || mb_strtolower($direccion->pais) == "granada" || mb_strtolower($direccion->pais) == "guadalupe" || mb_strtolower($direccion->pais) == "islas caiman" || mb_strtolower($direccion->pais) == "islas marianas" || mb_strtolower($direccion->pais) == "islas minor" || mb_strtolower($direccion->pais) == "islas virg britanicas" || mb_strtolower($direccion->pais) == "islas virginias am" || mb_strtolower($direccion->pais) == "martinica" || mb_strtolower($direccion->pais) == "montserrat" || mb_strtolower($direccion->pais) == "puerto rico" || mb_strtolower($direccion->pais) == "road town arpt" || mb_strtolower($direccion->pais) == "roosevelt field" || mb_strtolower($direccion->pais) == "santa lucia" || mb_strtolower($direccion->pais) == "st jean arpt" || mb_strtolower($direccion->pais) == "st thomas" || mb_strtolower($direccion->pais) == "st bartolome" || mb_strtolower($direccion->pais) == "st kitts" || mb_strtolower($direccion->pais) == "st vincent" || mb_strtolower($direccion->pais) == "turcas y caicos" || mb_strtolower($direccion->pais) == "wallis fortuna") {
             # code...
-            $precio_envio = number_format((($envio->precio_f+0.10+($envio->precio_f*(0.40)))/$cambio[0]),2);
+            $precio_envio = number_format((($envio->precio_f+($envio->precio_f*(0.40)))),2);
 
         }
         elseif (mb_strtolower($direccion->pais) == "alemania" || mb_strtolower($direccion->pais) == "andorra" || mb_strtolower($direccion->pais) == "armenia" || mb_strtolower($direccion->pais) == "austria" || mb_strtolower($direccion->pais) == "azerbayan" || mb_strtolower($direccion->pais) == "banja luka arpt" || mb_strtolower($direccion->pais) == "" || mb_strtolower($direccion->pais) == "belgica" || mb_strtolower($direccion->pais) == "bielorrusia" || mb_strtolower($direccion->pais) == "bosnia herzegovina" || mb_strtolower($direccion->pais) == "bulgaria" || mb_strtolower($direccion->pais) == "c. vaticano" || mb_strtolower($direccion->pais) == "croacia" || mb_strtolower($direccion->pais) == "dinamarca" || mb_strtolower($direccion->pais) == "eslovaquia" || mb_strtolower($direccion->pais) == "eslovenia" || mb_strtolower($direccion->pais) == "españa" || mb_strtolower($direccion->pais) == "estonia" || mb_strtolower($direccion->pais) == "finlandia" || mb_strtolower($direccion->pais) == "francia" || mb_strtolower($direccion->pais) == "georgia" || mb_strtolower($direccion->pais) == "gibraltar" || mb_strtolower($direccion->pais) == "grecia" || mb_strtolower($direccion->pais) == "heathrow" || mb_strtolower($direccion->pais) == "holanda" || mb_strtolower($direccion->pais) == "hungria" || mb_strtolower($direccion->pais) == "irlanda" || mb_strtolower($direccion->pais) == "islandia" || mb_strtolower($direccion->pais) == "islas faroe" || mb_strtolower($direccion->pais) == "italia" || mb_strtolower($direccion->pais) == "kazajstan" || mb_strtolower($direccion->pais) == "kyrgyzstan" || mb_strtolower($direccion->pais) == "letonia" || mb_strtolower($direccion->pais) == "lienchestein" || mb_strtolower($direccion->pais) == "lituania" || mb_strtolower($direccion->pais) == "reino unido" || mb_strtolower($direccion->pais) == "luxemburgo" || mb_strtolower($direccion->pais) == "malta" || mb_strtolower($direccion->pais) == "moldavia" || mb_strtolower($direccion->pais) == "montenegro" || mb_strtolower($direccion->pais) == "north front arpt" || mb_strtolower($direccion->pais) == "noruega" || mb_strtolower($direccion->pais) == "polonia" || mb_strtolower($direccion->pais) == "portugal" || mb_strtolower($direccion->pais) == "monaco" || mb_strtolower($direccion->pais) == "inglaterra" || mb_strtolower($direccion->pais) == "republica checa" || mb_strtolower($direccion->pais) == "rumania" || mb_strtolower($direccion->pais) == "san marino" || mb_strtolower($direccion->pais) == "serbia" || mb_strtolower($direccion->pais) == "serbia montenegro" || mb_strtolower($direccion->pais) == "suecia" || mb_strtolower($direccion->pais) == "suiza" || mb_strtolower($direccion->pais) == "tayikistan" || mb_strtolower($direccion->pais) == "ucrania" || mb_strtolower($direccion->pais) == "uzbekistan") {
             # code...
-            $precio_envio = number_format((($envio->precio_g+0.10+($envio->precio_g*(0.40)))/$cambio[0]),2);
+            $precio_envio = number_format((($envio->precio_g+($envio->precio_g*(0.40)))),2);
         }
         elseif (mb_strtolower($direccion->pais) == "australia" || mb_strtolower($direccion->pais) == "bangladesh" || mb_strtolower($direccion->pais) == "bhutan" || mb_strtolower($direccion->pais) == "birmania" || mb_strtolower($direccion->pais) == "brunei" || mb_strtolower($direccion->pais) == "camboya" || mb_strtolower($direccion->pais) == "china" || mb_strtolower($direccion->pais) == "corea del norte" || mb_strtolower($direccion->pais) == "corea del sur" || mb_strtolower($direccion->pais) == "filipinas" || mb_strtolower($direccion->pais) == "guam" || mb_strtolower($direccion->pais) == "guayana" || mb_strtolower($direccion->pais) == "guayana francesa" || mb_strtolower($direccion->pais) == "guinea ecuatorial" || mb_strtolower($direccion->pais) == "hong kong" || mb_strtolower($direccion->pais) == "indonesia" || mb_strtolower($direccion->pais) == "isa nauru" || mb_strtolower($direccion->pais) == "islas cook" || mb_strtolower($direccion->pais) == "islas salomon" || mb_strtolower($direccion->pais) == "japon" || mb_strtolower($direccion->pais) == "kiribati" || mb_strtolower($direccion->pais) == "laos" || mb_strtolower($direccion->pais) == "macao" || mb_strtolower($direccion->pais) == "malasia" || mb_strtolower($direccion->pais) == "maldivas" || mb_strtolower($direccion->pais) == "myanmar" || mb_strtolower($direccion->pais) == "nepal" || mb_strtolower($direccion->pais) == "nueva caledonia" || mb_strtolower($direccion->pais) == "nueva zelanda" || mb_strtolower($direccion->pais) == "papua nueva guinea" || mb_strtolower($direccion->pais) == "singapur" || mb_strtolower($direccion->pais) == "sri lanka" || mb_strtolower($direccion->pais) == "vanuatu" || mb_strtolower($direccion->pais) == "taiwan" || mb_strtolower($direccion->pais) == "thailandia" || mb_strtolower($direccion->pais) == "vietnam") {
             # code...
-            $precio_envio = number_format((($envio->precio_h+0.10+($envio->precio_h*(0.40)))/$cambio[0]),2);
+            $precio_envio = number_format((($envio->precio_h+($envio->precio_h*(0.40)))),2);
         }
         else{
             $precio_envio = "tu dirección esta erronea o tu compra no puede ser enviada a"+$direccion->pais;
