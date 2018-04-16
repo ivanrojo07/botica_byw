@@ -243,6 +243,7 @@ class OrdersController extends Controller {
 
             $orden->pedido_file = 'FF7380'.str_pad($contador, 4,'0',STR_PAD_LEFT).'.DAT';
             $orden->status = "orden de compra";
+            $orden->pedido_at =  \Carbon\Carbon::now('America/Mexico_City');
             $orden->save();
             
 
@@ -305,6 +306,7 @@ class OrdersController extends Controller {
             # code...
             $orden = Order::find($verificar);
             $orden->verificado = 1;
+            $orden->orden_compra_at =  \Carbon\Carbon::now('America/Mexico_City');
             $orden->save();
             return redirect()->back()->with(
 
@@ -322,7 +324,7 @@ class OrdersController extends Controller {
 
     public function empaquetadoIndex(){
         $ordenes = Order::where('verificado', 1)->where(function ($query){
-            $query->where('status','orden de compra')->orWhere('status','empaquetado');
+            $query->where('status','orden de compra')->orWhere('status','empaquetado')->orWhere('status','en tramite');
         })->get();
         // $ordenes = Order::where('status','orden de compra')->orWhere('status','empaquetado')->where('verificado', 1)->get();
         return view('orders.empaquetado',['ordenes'=>$ordenes]);

@@ -40,7 +40,7 @@
 
 @section("content")
 
-    <div class="container m-top" @if (count($orders) == 0 )
+    <div class="row-8" @if (count($orders) == 0 )
         {{-- expr --}}
         style="height: 595px !important;" 
     @endif>

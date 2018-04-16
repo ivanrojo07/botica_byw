@@ -20,9 +20,29 @@ class Order extends Model {
 
 
 
-    protected $fillable = ['recipient_name', 'line1', 'line2', 'city', 'country_code', 'state', 'postal_code',
+    protected $fillable = [
+        'recipient_name', 
+        'line1', 
+        'line2', 
+        'city', 
+        'country_code', 
+        'state', 
+        'postal_code',
+        'email', 
+        'shopping_cart_id', 
+        'status', 
+        'total', 
+        'guide_numer', 
+        'direccion_id', 
+        'pedido_file', 
+        'verificado',
+        'pedido_at',
+        'orden_compra_at',
+        'empaquetado_at',
+        'tracking_at',
+        'entregado_at'
 
-        'email', 'shopping_cart_id', 'status', 'total', 'guide_number', 'direccion_id', 'pedido_file', 'verificado','empaquetado_at'];
+    ];
 
 
 
