@@ -55,10 +55,25 @@ class TrackingController extends Controller
     public function store(Request $request)
     {
 
-       // dd($request);
+        $guide_numer = $request->input('hawb');
         $tracking=Tracking::create($request->all());
+        $orden = Order::find($request->input('orden_id'));
+        $orden->guide_numer .= "$guide_numer ";
+        $orden->status = "en tramite";
+        $orden->save();
+        // dd($orden);
 
-        return redirect('tracking');
+        return redirect('tracking')->with(
+
+                [
+
+                    'feedback'   => "Se creo el tracking #$tracking->hawb correctamente!",
+
+                    'alert_type' => 'alert-success'
+
+                ]
+
+            );
     }
 
     /**

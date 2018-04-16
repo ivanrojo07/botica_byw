@@ -353,12 +353,9 @@
     </div>
                 
 
-    <span class="ir-arriba fa fa-arrow-up">
-
-            
-
-
-        </span>
+    <span class="ir-arriba">
+        <i class="fas fa-arrow-up"></i>
+    </span>
         
     @yield('content')
          

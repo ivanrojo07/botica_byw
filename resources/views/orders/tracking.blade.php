@@ -35,12 +35,13 @@
 					</div>
 					<div class="col-sm-6">
 						<label for="peso">Peso:</label>
-						<input type="text" name="peso" class="form-control" placeholder="-Kg-" required>
+						<input class="form-control" type="number" name="peso" id="peso" step="0.50" min="0.50" max="30" placeholder="-Kg-" required>
 					</div>
 					<div class="col-sm-offset-1 col-sm-10">
 						<textarea class="form-control" readonly="readonly" id="direccion" rows="8">Calle {{ $direccion->calle }}, #{{$direccion->num_ext}} {{$direccion->num_int ? "Int $direccion->num_int," : ","}} Colonia {{$direccion->colonia}}, Municipio {{$direccion->municipio}}, Estado {{$direccion->estado}}, Ciudad {{$direccion->ciudad}}, País {{$direccion->pais}} </textarea>
 					</div>
 				</div>
 			</div>
+			<input type="submit" class="btn btn-success pull-right" value="Guardar">
 		</form>
 	</div>

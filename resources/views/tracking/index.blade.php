@@ -6,6 +6,7 @@
 		
 	<div class="container-fluid">
 		<div class="panel-body">
+			@include('feedback')
 			<div class="col-lg-6">
 				<form id="buscartraking" action="busqueda"
 				o onKeypress="if(event.keyCode == 13) event.returnValue = false;">
