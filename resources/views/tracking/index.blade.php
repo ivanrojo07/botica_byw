@@ -176,9 +176,15 @@
 								        		<label for="orden_id"> Orden de Compra:</label>
 							<select class="form-control" id="orden_id" name="orden_id" onchange="orden(this.value)" required>
 								<option>Seleccione una opcion</option>
-								@foreach($orders as $order)
-        						<option value="{{$order->id}}">{{$order->shoppingCart->customid}}</option>
-        						@endforeach
+								@if ($orders->isEmpty())
+									{{-- true expr --}}
+									
+								@else
+									{{-- false expr --}}
+									@foreach($orders as $order)
+	        						<option value="{{$order->id}}">{{$order->shoppingCart->customid}}</option>
+	        						@endforeach
+								@endif
      					    </select>
 											</div>
 											
@@ -190,7 +196,7 @@
 							
 						
 			        		<label for="destino"> Destino:</label>
-								<input type="text" class="form-control" name="destino" id="destino" placeholder="Destino" required style="size: 200px; height: 35px;" value="{{ $order->shopp }}">
+								<input type="text" class="form-control" name="destino" id="destino" placeholder="Destino" required style="size: 200px; height: 35px;" value="">
 						
                 	</div>
                 </div>
