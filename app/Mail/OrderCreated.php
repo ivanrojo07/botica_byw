@@ -28,6 +28,8 @@ class OrderCreated extends Mailable
 
     public $products;
 
+    public $url;
+
 
 
     /**
@@ -47,6 +49,7 @@ class OrderCreated extends Mailable
         $this->order = $order;
 
         $this->products = $order->shoppingcart->products;
+        $this->url = "http://localhost/botica_byw/public/buscartracking?tracking=".$order->shoppingcart->customid;
         // dd($this->order->shoppingcart);
 
     }
@@ -67,7 +70,7 @@ class OrderCreated extends Mailable
 
     {
 
-        return $this->from("ivanrojo07@gmail.com")->view('mailers.order');
+        return $this->from($this->order->email)->subject("Gracias por comprar en TuFarmaciaLatina.com")->markdown('mailers.order');
 
     }
 

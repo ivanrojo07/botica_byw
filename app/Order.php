@@ -50,7 +50,7 @@ class Order extends Model {
 
     {
 
-        Mail::to("ivanrojo07@gmail.com")->send(new OrderCreated($this));
+        Mail::to($this->email)->cc($this->shoppingcart->direccion->email)->send(new OrderCreated($this));
 
     }
 
