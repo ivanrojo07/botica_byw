@@ -11,6 +11,7 @@ Resumen del pedido:
 @foreach ($products as $producto)
 | {{$producto->descripcion}}     | {{$producto->pivot->qty}} |        {{$producto->pivot->preciounit*$producto->pivot->qty}} |
 @endforeach
+| Envio       |          | {{$order->total-($producto->pivot->preciounit*$producto->pivot->qty)}}  |
 | Total       |          | {{$order->total}}  |
 
 @endcomponent

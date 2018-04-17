@@ -29,6 +29,7 @@ class OrderCreated extends Mailable
     public $products;
 
     public $url;
+    public $envio;
 
 
 
