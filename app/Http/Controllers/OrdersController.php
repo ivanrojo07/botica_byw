@@ -141,7 +141,7 @@ class OrdersController extends Controller {
 
                 #obtenemos la direccion
 
-                $address = Direccion::find($address_id);
+                $address = Direccion::withTrashed()->find($address_id);
 
 
 

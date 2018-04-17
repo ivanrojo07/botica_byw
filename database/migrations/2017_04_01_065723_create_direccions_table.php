@@ -74,6 +74,8 @@ class CreateDireccionsTable extends Migration
 
             $table->boolean('default')->default('0');
 
+            $table->softDeletes();
+
             $table->timestamps(); 
 
         });

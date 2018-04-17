@@ -304,6 +304,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/user/product/{product_id}/comment', 'ProductCommentController@getIndex');
 
     Route::post('/user/product/comment', 'ProductCommentController@storeComment');
+    Route::post('/direccion/delete','Direccions@delete')->name('direccion_delete');
 
 });
 
