@@ -73,8 +73,11 @@
                                     </td>
 
                                     <td>
-
-                                        {{ $order->status }}
+                                        @if ($order->status == "approve")
+                                            {{-- expr --}}
+                                            Aprobada
+                                        @endif
+                                        {{-- {{ $order->status }} --}}
 
                                     </td>
 

@@ -44,6 +44,8 @@ class ExcelFTP extends Command
         Storage::put('public/CATALOGO.csv', $contenidoCAT);
         $contenidoCAM = Storage::disk('ftp')->get('/out/CAMBIOS.CSV');
         Storage::put('public/CAMBIOS.csv', $contenidoCAM);
+        $contenidoOFE = Storage::disk('ftp')->get('/out/OFERTAS.CSV');
+        storage::put('public/OFERTAS.csv',$contenidoOFE);
         \Log::info('Archivos descargados a las '.\Carbon\Carbon::now());
     }
 }
