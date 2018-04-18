@@ -162,119 +162,14 @@
 
  <div class="container">
 
-      <div id="carousel-example" class="carousel slide hidden-xs" data-ride="carousel">
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner">
-                <div class="item active">
-                    <div class="row">
-                        @foreach ($products as $product)
-                            {{-- expr --}}
-                        <div class="col-sm-3">
-                            <div class="col-item">
-                                <div class="photo">
-                                    <img src=
-                                    @if ($product->extension)
-                                        {{-- true expr --}}
-                                        "{{ url("/img_prod/$product->id.$product->extension")}}"
-                                    @else
-                                        {{-- false expr --}}
-                                        "{{ asset('img/12.jpg') }}"
-                                    @endif class="img-responsive" alt="a" />
-                                </div>
-                                <div class="info">
-                                    <div class="row">
-                                        <div class="price ">
-                                            <h5 class="price-text-color">
-                                                {{$product->title}}</h5>
-                                            <h5 class="price-text-color">
-                                                @if(isset($promotion) && $promotion)
-
-                                                    $ {{$product->promotion_pricing}} usd
-
-                                                @else
-
-                                                    $ {{$product->promotion_pricing}} usd
-
-                                                @endif</h5>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="clearfix">
-                                            {!! Form::open(['url' => '/in_shopping_carts', 'method' => 'POST' ]) !!}
-                                            <input type="hidden" name="product_id" value="{{$product->id}}">
-                                            <input type="hidden" name="qty" value="1" >
-
-                                        <p class="btn">
-                                                     <i class="price-text-color fa fa-shopping-cart"></i><button type="submit" class="btn btn-link hidden-sm">Agregar al carrito</button>
-                                        </p>
-
-
-
-                                            {!! Form::close() !!}
-                                           
-                                    </div>
-                                    <div class="clearfix">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
-                    </div>
-                </div>
-                <div class="item">
-                    @foreach ($products as $product)
-                            {{-- expr --}}
-                        <div class="col-sm-3">
-                            <div class="col-item">
-                                <div class="photo">
-                                    <img src=@if ($product->extension)
-                                        {{-- true expr --}}
-                                        "{{ url("/img_prod/$product->id.$product->extension")}}"
-                                    @else
-                                        {{-- false expr --}}
-                                        "{{ asset('img/12.jpg') }}"
-                                    @endif class="img-responsive" alt="a" width="350px" height="260px" />
-                                </div>
-                                <div class="info">
-                                    <div class="row">
-                                        <div class="price">
-                                            <h5 class="price-text-color">
-                                                {{$product->title}}</h5>
-                                            <h5 class="price-text-color">
-                                                @if(isset($promotion) && $promotion)
-
-                                                    $ {{$product->promotion_pricing}} usd
-
-                                                @else
-
-                                                    $ {{$product->promotion_pricing}} usd
-
-                                                @endif</h5>
-                                        </div>
-                                    </div>
-                                    <div class="clearfix">
-                                            {!! Form::open(['url' => '/in_shopping_carts', 'method' => 'POST' ]) !!}
-                                            <input type="hidden" name="product_id" value="{{$product->id}}">
-                                            <input type="hidden" name="qty" value="1" >
-
-                                        <p class="btn">
-                                                     <i class="price-text-color fa fa-shopping-cart"></i><button type="submit" class="btn btn-link hidden-sm">Agregar al carrito</button>
-                                        </p>
-
-
-
-                                            {!! Form::close() !!}
-                                           
-                                    </div>
-                                    <div class="clearfix">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
-                </div>
-            </div>
-        </div>
+     <div class="box alt">
+         <div class="row uniform">
+             @foreach ($products as $product)
+                 {{-- expr --}}
+                 @include("promotions.product",["product"=>$product])
+             @endforeach
+         </div>
+     </div>
 
  </div>                  
 
