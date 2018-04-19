@@ -27,6 +27,7 @@ class OrderCreated extends Mailable
     public $order;
 
     public $products;
+    public $promotions;
 
     public $url;
     public $envio;
@@ -50,6 +51,7 @@ class OrderCreated extends Mailable
         $this->order = $order;
 
         $this->products = $order->shoppingcart->products;
+        $this->promotions = $order->shoppingcart->promotions;
         $this->url = "http://localhost/botica_byw/public/buscartracking?tracking=".$order->shoppingcart->customid;
         // dd($this->order->shoppingcart);
 

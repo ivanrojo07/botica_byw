@@ -174,7 +174,8 @@ class OrdersController extends Controller {
         if ($shopping_cart) {
             # code...
             $productos = $shopping_cart->products;
-            return view('orders.shopping_info', compact('productos','shopping_cart'));
+            $promotions = $shopping_cart->promotions;
+            return view('orders.shopping_info', compact('productos','promotions','shopping_cart'));
         }
         else{
             return 'No se encontró esta compra: favor de hablar con el comprador';
@@ -215,6 +216,7 @@ class OrdersController extends Controller {
         $orden = Order::find($request->input('orden'));
        
         $products = $orden->shoppingcart->products;
+        $promotions = $orden->shoppingcart->promotions;
         $contenido = "";
         foreach ($products as $key => $product) {
             # code...
@@ -223,6 +225,13 @@ class OrdersController extends Controller {
             $contenido .= "0173800"."$codigo"."$cantidad"."000000000000000000000000000000000000000000000000\n";
             // $contenido .= "00000000000000000000000000000000000000000000000000000000000000000000000000000\n";
 
+        }
+        foreach ($promotions as $key => $promotion) {
+            # code...
+            $codigo = str_pad($promotion->codigo_barras, 13,'0',STR_PAD_LEFT);
+            $cantidad = str_pad($promotion->pivot->qty, 3,'0',STR_PAD_LEFT);
+            $contenido .= "0173800"."$codigo"."$cantidad"."000000000000000000000000000000000000000000000000\n";
+            // $contenido .= "00000000000000000000000000000000000000000000000000000000000000000000000000000\n";
         }
         if ($orden->pedido_file) {
             # code...
@@ -335,8 +344,9 @@ class OrdersController extends Controller {
         if ($shopping_cart) {
             # code...
             $productos = $shopping_cart->products;
+            $promotions = $shopping_cart->promotions;
 
-            return view('orders.productscheck', compact('productos','shopping_cart'));
+            return view('orders.productscheck', compact('productos','promotions','shopping_cart'));
         }
         else{
             return 'No se encontró esta compra: favor de hablar con el comprador';
@@ -360,6 +370,26 @@ class OrdersController extends Controller {
         }
         
     }
+    public function promotionCheck(Request $request){
+
+        // dd($request->all());
+
+        $inshopId = $request->input('checked');
+        $producto = InShoppingCart::find($inshopId);
+        if ($producto->empaquetado == 0) {
+            # code...
+            $producto->empaquetado = 1;
+            $producto->save();
+            return "true";
+        } else {
+            # code...
+            $producto->empaquetado = 0;
+            $producto->save();
+            return "false";
+        }
+        
+    }
+
 
     public function empaquetarCompra(Request $request){
         // dd($request->all());
@@ -368,7 +398,29 @@ class OrdersController extends Controller {
         $orden = Order::findOrFail($orden_id);
         // dd($orden);
         $productos = $orden->shoppingcart->products;
+        $promotions = $orden->shoppingcart->promotions;
         foreach ($productos as $key => $value) {
+            # code...
+            if ($value->pivot->empaquetado == 1) {
+                # code...
+                $verificado = true;
+                
+            }
+            else{
+                $verificado = false;
+                return redirect()->back()->with(
+
+                [
+
+                    'feedback'   => 'No puedes empaquetar este pedido, verifica que todos los productos esten recibidos en el boton productos.',
+
+                    'alert_type' => 'alert-danger'
+
+                ]);
+            }
+            // dd($value->pivot);
+        }
+        foreach ($promotions as $key => $value) {
             # code...
             if ($value->pivot->empaquetado == 1) {
                 # code...

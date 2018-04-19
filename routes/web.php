@@ -61,6 +61,7 @@ Route::resource('shopping_carts', 'ShoppingCartsController', [
     'only' => ['show', 'destroy']
 
 ]);
+Route::delete('promotion/{id}','ShoppingCartsController@destroypromo')->name("eliminar_promocion");
 
 
 
@@ -356,6 +357,7 @@ Route::group(['middleware' => ['isAdmin']], function () {
     Route::get('/tracking/create/{order}', 'OrdersController@createTracking');
     Route::get('/order/checkproduct/{shoppingcart}', 'OrdersController@checkingProduct');
     Route::post('/producto_check','OrdersController@productoCheck');
+    Route::post('/promotion_check', 'OrdersController@promotionCheck');
 
     // Route::get('user', "userprofileController@user");
 

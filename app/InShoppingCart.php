@@ -16,7 +16,7 @@ class InShoppingCart extends Model {
 
 
 
-    protected $fillable = ["catalogo_id", "preciounit", "shopping_cart_id", "qty"];
+    protected $fillable = ["catalogo_id", "promotion_id", "preciounit", "shopping_cart_id", "qty"];
 
 
 
@@ -36,6 +36,10 @@ class InShoppingCart extends Model {
 
         return $this->belongsTo('App\Catalogo', 'catalogo_id');
 
+    }
+
+    public function promotion(){
+    	return $this->belongsTo('App\Promotion','promotion_id');
     }
 
     

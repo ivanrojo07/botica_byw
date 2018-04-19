@@ -11,6 +11,7 @@ namespace App\Http\Controllers;
 use App\CambioMoneda;
 use App\Catalogo;
 use App\InShoppingCart;
+use App\Promotion;
 use App\ShoppingCart;
 use Illuminate\Http\Request;
 
@@ -75,93 +76,191 @@ class InShoppingCartsController extends Controller {
     public function store(Request $request)
 
     {
+        // dd($request->all());
 
-        $shopping_cart_id = \Session::get('shopping_cart_id');
-
-        $shopping_cart = ShoppingCart::findOrCreateBySessionID($shopping_cart_id);
-
-
-
-
-
-        $qty = 1;
-        $product = Catalogo::where('id',$request->product_id)->get()->first();
-        // dd($product->id);
         $cambio = CambioMoneda::first()->get()->pluck('pesos');
-        $product_precio = number_format((($product->precio_publico+($product->precio_publico*($product->iva/100))+($product->precio_publico*($product->ieps/100))+($product->precio_publico*($product->impuesto_3/100))+($product->precio_publico*(0.40)))/$cambio[0]),2);
-        // dd($product_precio);
 
+        if ($request->input("promotion_id")) {
+            # code...
+            // dd($request->promotion_id);
+            $shopping_cart_id = \Session::get('shopping_cart_id');
 
-
-        if ($request->has('qty') && is_numeric($request->input('qty')) && $request->input('qty') > 0) {
-
-            $qty = $request->input('qty');
-
-        }
-
-
-
-        $product_in_cart = InShoppingCart::where('catalogo_id', $request->product_id)
-
-            ->where('shopping_cart_id', $shopping_cart_id)
-
-            ->first();
+            $shopping_cart = ShoppingCart::findOrCreateBySessionID($shopping_cart_id);
 
 
 
 
-        
 
-        if ($product_in_cart) {
+            $qty = 1;
+            $product = Promotion::where('id',$request->promotion_id)->get()->first();
+            // dd($product);
+            $product_precio = number_format((($product->precio_publico+($product->precio_publico*($product->iva/100))+($product->precio_publico*($product->ieps/100))+($product->precio_publico*($product->impuesto_3/100))+($product->precio_publico*(0.40)))/$cambio[0]),2);
+            // dd($product_precio);
 
-            $response = $product_in_cart->update([
 
-                'preciounit' => $product_precio,
 
-                'qty' => $product_in_cart->qty + $qty
+            if ($request->has('qty') && is_numeric($request->input('qty')) && $request->input('qty') > 0) {
 
-            ]);
+                $qty = $request->input('qty');
 
-        } else {
+            }
 
-            $response = InShoppingCart::create(
 
-                [
+
+            $product_in_cart = InShoppingCart::where('promotion_id', $request->promotion_id)
+
+                ->where('shopping_cart_id', $shopping_cart_id)
+
+                ->first();
+
+
+
+
+            
+
+            if ($product_in_cart) {
+
+                $response = $product_in_cart->update([
+
                     'preciounit' => $product_precio,
 
-                    "shopping_cart_id" => $shopping_cart->id,
-
-                    "catalogo_id"       => $request->product_id,
-
-                    "qty"              => $qty
-
-                ]
-
-            );
-
-        }
-
-
-
-
-
-        if ($response) {
-
-            // return redirect('/carrito');
-            return redirect()->back()->with([
-
-                    'feedback'   => '¡Producto agregado a tu carrito de compra!',
-
-                    'alert_type' => 'alert-success'
+                    'qty' => $product_in_cart->qty + $qty
 
                 ]);
 
-        } else {
+            } else {
 
-            return back();
+                $response = InShoppingCart::create(
+
+                    [
+                        'preciounit' => $product_precio,
+
+                        "shopping_cart_id" => $shopping_cart->id,
+
+                        "promotion_id"       => $product->id,
+
+                        "qty"              => $qty
+
+                    ]
+
+                );
+                // dd($response);
+
+            }
+
+
+
+
+
+            if ($response) {
+
+                // return redirect('/carrito');
+                return redirect()->back()->with([
+
+                        'feedback'   => '¡Producto agregado a tu carrito de compra!',
+
+                        'alert_type' => 'alert-success'
+
+                    ]);
+
+            } else {
+
+                return back();
+
+            }
 
         }
+        elseif ($request->input("product_id")) {
+            # code...
+            // dd("formulario producto");
+            $shopping_cart_id = \Session::get('shopping_cart_id');
 
+            $shopping_cart = ShoppingCart::findOrCreateBySessionID($shopping_cart_id);
+
+
+
+
+
+            $qty = 1;
+            $product = Catalogo::where('id',$request->product_id)->get()->first();
+            // dd($product->id);
+            // $cambio = CambioMoneda::first()->get()->pluck('pesos');
+            $product_precio = number_format((($product->precio_publico+($product->precio_publico*($product->iva/100))+($product->precio_publico*($product->ieps/100))+($product->precio_publico*($product->impuesto_3/100))+($product->precio_publico*(0.40)))/$cambio[0]),2);
+            // dd($product_precio);
+
+
+
+            if ($request->has('qty') && is_numeric($request->input('qty')) && $request->input('qty') > 0) {
+
+                $qty = $request->input('qty');
+
+            }
+
+
+
+            $product_in_cart = InShoppingCart::where('catalogo_id', $request->product_id)
+
+                ->where('shopping_cart_id', $shopping_cart_id)
+
+                ->first();
+
+
+
+
+            
+
+            if ($product_in_cart) {
+
+                $response = $product_in_cart->update([
+
+                    'preciounit' => $product_precio,
+
+                    'qty' => $product_in_cart->qty + $qty
+
+                ]);
+
+            } else {
+
+                $response = InShoppingCart::create(
+
+                    [
+                        'preciounit' => $product_precio,
+
+                        "shopping_cart_id" => $shopping_cart->id,
+
+                        "catalogo_id"       => $request->product_id,
+
+                        "qty"              => $qty
+
+                    ]
+
+                );
+
+            }
+
+
+
+
+
+            if ($response) {
+
+                // return redirect('/carrito');
+                return redirect()->back()->with([
+
+                        'feedback'   => '¡Producto agregado a tu carrito de compra!',
+
+                        'alert_type' => 'alert-success'
+
+                    ]);
+
+            } else {
+
+                return back();
+
+            }
+
+        }
+        
     }
 
 

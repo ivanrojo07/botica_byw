@@ -135,12 +135,19 @@ class Paypal {
         $precio_envio = $this->envio;
 
         $products = $this->shopping_cart->products()->get();
+        $promotions = $this->shopping_cart->promotions()->get();
 
 
         foreach ($products as $product) {
             // dd($product->paypalItem());
 
             array_push($items, $product->paypalItem());
+
+        }
+        foreach ($promotions as $promotion) {
+            // dd($product->paypalItem());
+
+            array_push($items, $promotion->paypalItem());
 
         }
 

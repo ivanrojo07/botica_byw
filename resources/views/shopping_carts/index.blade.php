@@ -52,7 +52,7 @@
             </thead>
 
             <tbody>
-
+                {{-- {{$products}} --}}
             @foreach($products as $product)
 
                 <tr>
@@ -100,6 +100,60 @@
                     <td>
 
                         @include("shopping_carts.delete")
+
+                    </td>
+
+
+
+                </tr>
+
+            @endforeach
+            @foreach($promotions as $product)
+
+                <tr>
+
+                    <td>
+
+                        {{$product->nombre}}
+                        
+
+
+                            <label class="text-info">(Producto en Promoción)</label>
+
+
+                    </td>
+
+                    <td>
+
+                        @if(is_object($product->cat) && $product->cat->slug == 'Promociones')
+
+                            $ {{$product->promotion_pricing}}
+
+                        @else
+
+                            $ {{$product->pivot->preciounit}}
+
+                        @endif
+
+
+
+                    </td>
+
+                    <td>
+
+                        {{ $product->pivot->qty }}
+
+                    </td>
+
+                    <td>
+
+                        $ {{ number_format($product->pivot->qty * ((is_object($product->cat) && $product->cat->slug == 'Promociones') ? $product->promotion_pricing : $product->pivot->preciounit), 2) }}
+
+                    </td>
+
+                    <td>
+
+                        @include("shopping_carts.delete_promotion")
 
                     </td>
 

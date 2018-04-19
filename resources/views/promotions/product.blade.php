@@ -29,6 +29,6 @@
         </p>
 
     </strong>
-    @include('in_shopping_carts.form', ['product' => $product])
+    @include('in_shopping_carts.formpromotion', ['product' => $product])
 	</div>
 </div>

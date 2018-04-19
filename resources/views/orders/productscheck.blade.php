@@ -26,8 +26,8 @@
                             {{-- <form action="{{ url('/producto_check') }}" method="POST" style="margin: -8px 0 1em 0;">
  --}}
                                 {{-- {{ csrf_field() }} --}}
-                                <div class="checkbox" style="margin: 0px 0 1em 0;">
-                                    <label><input type="checkbox" class="check" value="{{$producto->pivot->id}}" {{$producto->pivot->empaquetado ? 'checked' : ''}}  {{$shopping_cart->order->empaquetado_at ? 'checked disabled' : ''}}  name="checked" id="checked" data-product="{{ $producto->id }}">Recibido</label>
+                                <div class="checkbox producto" style="margin: 0px 0 1em 0;">
+                                    <label><input type="checkbox" class="check" value="{{$producto->pivot->id}}" {{$producto->pivot->empaquetado ? 'checked' : ''}}  {{$shopping_cart->order->empaquetado_at ? 'checked disabled' : ''}}  name="checked" id="checked_prod {{$producto->id}}" onclick="checkingProducto({{$producto->id}})" data-product="{{ $producto->id }}">Recibido</label>
                                 </div>
                             {{-- </form> --}}
 
@@ -39,33 +39,120 @@
                         <td>{{$producto->pivot->qty}}</td>
                     </tr>
                 @endforeach
+                @foreach ($promotions as $promotion)
+                    {{-- expr --}}
+                    <tr>
+                        <td>
+                            {{-- <form action="{{ url('/producto_check') }}" method="POST" style="margin: -8px 0 1em 0;">
+ --}}
+                                {{-- {{ csrf_field() }} --}}
+                                <div class="checkbox promotion" style="margin: 0px 0 1em 0;">
+                                    <label><input type="checkbox" class="check" value="{{$promotion->pivot->id}}" {{$promotion->pivot->empaquetado ? 'checked' : ''}}  {{$shopping_cart->order->empaquetado_at ? 'checked disabled' : ''}}  name="checked" onclick="checkingPromotion({{$promotion->id}})" id="checked_prom {{$promotion->id}}" data-promotion="{{ $promotion->id }}">Recibido</label>
+                                </div>
+                            {{-- </form> --}}
+
+                        </td>
+                        <td>{{$promotion->nombre}}</td>
+                        <td>{{$promotion->codigo_marzam}}</td>
+                        <td>{{$promotion->codigo_barras}}</td>
+                        <td>PROMOCIÓN</td>
+                        <td>{{$promotion->pivot->qty}}</td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
 </div>
 
 <script>
-    $( document ).ready(function() {
-        $('#checked').click(function(e) {
-            var producto = $(this).val();
-            console.log(producto);
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
+    // $( document ).ready(function() {
+    //     $('#producto').click(function(e) {
+    //         var producto = $(this).val();
+    //         console.log(producto);
+    //         $.ajaxSetup({
+    //             headers: {
+    //                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    //             }
+    //         });
 
-            $.ajax({
-                url: '{{ url('/producto_check') }}',
-                type: 'POST',
-                data: {
-                    checked: producto
-                },
+    //         $.ajax({
+    //             url: '{{ url('/producto_check') }}',
+    //             type: 'POST',
+    //             data: {
+    //                 checked: producto
+    //             },
 
-                success: function(data){
-                    // $(this).attr("disabled", data);
-                }
-            })
+    //             success: function(data){
+    //                 // $(this).attr("disabled", data);
+    //             }
+    //         })
+    //     });
+    // });
+    // $( document ).ready(function() {
+    //     $('#promotion').click(function(e) {
+    //         var promotion = $(this).val();
+    //         console.log(promotion);
+    //         $.ajaxSetup({
+    //             headers: {
+    //                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    //             }
+    //         });
+
+    //         $.ajax({
+    //             url: '{{ url('/promotion_check') }}',
+    //             type: 'POST',
+    //             data: {
+    //                 checked: promotion
+    //             },
+
+    //             success: function(data){
+    //                 // $(this).attr("disabled", data);
+    //             }
+    //         })
+    //     });
+    // });
+    function checkingProducto(id){
+        var producto = document.getElementById("checked_prod "+id).value;
+        console.log(id);
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
         });
-    });
+
+        $.ajax({
+            url: '{{ url('/producto_check') }}',
+            type: 'POST',
+            data: {
+                checked: producto
+            },
+
+            success: function(data){
+                // $(this).attr("disabled", data);
+            }
+        });
+    }
+    function checkingPromotion(id) {
+        // body...
+        var promotion = document.getElementById("checked_prom "+id).value;
+        console.log(promotion);
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            url: '{{ url('/promotion_check') }}',
+            type: 'POST',
+            data: {
+                checked: promotion
+            },
+
+            success: function(data){
+                // $(this).attr("disabled", data);
+            }
+        });
+    }
+</script>
 </script>

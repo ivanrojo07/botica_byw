@@ -22,7 +22,7 @@ class ShoppingCart extends Model {
 
     // Mass assignment
 
-    protected $fillable = ['status', 'user_id', 'direccion_id', 'total', 'receta_path'];
+    protected $fillable = ['status', 'user_id', 'direccion_id', 'total', 'totalenvio', 'receta_path'];
 
 
 
@@ -97,6 +97,9 @@ class ShoppingCart extends Model {
         return $this->belongsToMany('App\Catalogo', 'in_shopping_carts')->withPivot('qty','preciounit','empaquetado','id');
 
     }
+    public function promotions(){
+        return $this->belongsToMany('App\Promotion','in_shopping_carts')->withPivot('qty','preciounit','empaquetado','id');
+    }
 
     public function shoping_direccion(){
         return $this->belongsTo('App\Direccion', 'direccion_id', 'id');
@@ -116,7 +119,7 @@ class ShoppingCart extends Model {
 
     {
 
-        return $this->products()->count();
+        return $this->products()->count()+$this->promotions()->count();
 
     }
 

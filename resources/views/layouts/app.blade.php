@@ -347,7 +347,22 @@
                 <img class="img-circle" src="{{ asset('img/12.jpg') }}" style="display: inline-block;" height="42" width="42">
             @endif
 
-            {{ $element+1}}.-  {{ $producto->descripcion}} 
+             {{ $producto->descripcion}} 
+            </h5></div>
+        @endforeach
+        @foreach ($shopping_promotions as $element => $producto)
+            {{-- expr --}}
+        <div class="container">
+            <h5>
+            @if($producto->extension)
+
+                <img class="img-circle" src="{{ url("/img_prod/$producto->id.$producto->extension")}}"  style="display: inline-block;" height="42" width="42">
+            @else
+
+                <img class="img-circle" src="{{ asset('img/12.jpg') }}" style="display: inline-block;" height="42" width="42">
+            @endif
+
+            OFERTA: {{ $producto->nombre}} 
             </h5></div>
         @endforeach
     </div>
