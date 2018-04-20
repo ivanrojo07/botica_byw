@@ -75,7 +75,10 @@
 
                                     <div class="slider-container">
 
-    @if($product->extension)
+
+                                        <img class="bt1 animated flash infinite" src="{{ url("/img_marzam/".str_pad($product->codigo_marzam,7,'0',STR_PAD_LEFT).".jpg")}}" onerror="this.src='{{ asset('img/12.jpg') }}'" class="product_avatar">
+
+    {{-- @if($product->extension)
 
         <img class="bt1 animated flash infinite" src="{{ url("/img_prod/$product->id.$product->extension")}}" class="product_avatar">
 
@@ -83,7 +86,7 @@
 
         <img class="bt1 animated flash infinite" src="{{ asset('img/12.jpg') }}" class="product_avatar">
 
-    @endif
+    @endif --}}
 
     
 
@@ -135,14 +138,9 @@
                         <div class="col-sm-3">
                             <div class="col-item">
                                 <div class="photo">
-                                    <img src=
-                                    @if ($product0->extension)
-                                        {{-- true expr --}}
-                                        "{{ url("/img_prod/$product0->id.$product0->extension")}}"
-                                    @else
-                                        {{-- false expr --}}
-                                        "{{ asset('img/12.jpg') }}"
-                                    @endif class="img-responsive" alt="a" />
+
+                                    <img class="img-responsive" src="{{ url("/img_marzam/".str_pad($product0->codigo_marzam,7,'0',STR_PAD_LEFT).".jpg")}}" onerror="this.src='{{ asset('img/12.jpg') }}'"  alt="a" width="350px" height="260px">
+                                    
                                 </div>
                                 <div class="info">
                                     <div class="row">
@@ -190,13 +188,8 @@
                         <div class="col-sm-3">
                             <div class="col-item">
                                 <div class="photo">
-                                    <img src=@if ($product1->extension)
-                                        {{-- true expr --}}
-                                        "{{ url("/img_prod/$product0->id.$product0->extension")}}"
-                                    @else
-                                        {{-- false expr --}}
-                                        "{{ asset('img/12.jpg') }}"
-                                    @endif class="img-responsive" alt="a" width="350px" height="260px" />
+                                     <img class="img-responsive" src="{{ url("/img_marzam/".str_pad($product1->codigo_marzam,7,'0',STR_PAD_LEFT).".jpg")}}" onerror="this.src='{{ asset('img/12.jpg') }}'"  alt="a" width="350px" height="260px">
+                                    
                                 </div>
                                 <div class="info">
                                     <div class="row">

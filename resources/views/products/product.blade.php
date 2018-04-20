@@ -57,7 +57,7 @@
     </header>
     {{-- @if($product->extension) --}}
 
-        <img class="bt1" src="{{ asset("/img_marzam/".str_pad($product->codigo_marzam,7,'0',STR_PAD_LEFT).".jpg")}}" class="product_avatar">
+        <img class="bt1" src="{{ url("/img_marzam/".str_pad($product->codigo_marzam,7,'0',STR_PAD_LEFT).".jpg")}}" class="product_avatar" onerror="this.src='{{ asset('img/12.jpg') }}'">
 
     {{-- @else --}}
 

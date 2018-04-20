@@ -339,14 +339,7 @@
             {{-- expr --}}
         <div class="container">
             <h5>
-            @if($producto->extension)
-
-                <img class="img-circle" src="{{ url("/img_prod/$producto->id.$producto->extension")}}"  style="display: inline-block;" height="42" width="42">
-            @else
-
-                <img class="img-circle" src="{{ asset('img/12.jpg') }}" style="display: inline-block;" height="42" width="42">
-            @endif
-
+                <img class="img-circle" src="{{ url("/img_marzam/".str_pad($producto->codigo_marzam,7,'0',STR_PAD_LEFT).".jpg")}}" onerror="this.src='{{ asset('img/12.jpg') }}'" style="display: inline-block;" height="42" width="42">
              {{ $producto->descripcion}} 
             </h5></div>
         @endforeach

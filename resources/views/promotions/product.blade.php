@@ -7,11 +7,8 @@
 			<br>
 			<h1 class="grey"><a href="#">{{$product->nombre}}</a></h1>
 		</header>
-		@if ($product->extension)
-			{{-- expr --}}
-		@else
-		<img class="bt1 product_avatar" src="{{ asset('img/12.jpg') }}">
-		@endif
+		
+		<img class="bt1" src="{{ url("/img_marzam/".str_pad($product->codigo_marzam,7,'0',STR_PAD_LEFT).".jpg")}}" class="product_avatar" onerror="this.src='{{ asset('img/12.jpg') }}'">
 		<strong>
 
         <p class="costo orangep text-center">

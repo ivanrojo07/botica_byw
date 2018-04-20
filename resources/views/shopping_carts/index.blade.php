@@ -52,7 +52,7 @@
             </thead>
 
             <tbody>
-                {{-- {{$products}} --}}
+                {{-- {{dd($envio)}} --}}
             @foreach($products as $product)
 
                 <tr>
