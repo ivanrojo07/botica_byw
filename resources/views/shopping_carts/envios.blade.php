@@ -2,7 +2,7 @@
 	<td>Envio por Sky Conexion</td>
 	<td></td>
 	<td></td>
-	<td>$ {{$precio_envio}}</td>
+	<td>$ {{$precio_envio}} US</td>
 </tr>
 
 <tr class="background-blueth" id="total">
@@ -13,6 +13,6 @@
 
     <td class="t-r f-b">Total</td>
 
-    <td>$ {{$total+$precio_envio}} </td>
+    <td>$ {{$total+$precio_envio}} US</td>
 
 </tr>

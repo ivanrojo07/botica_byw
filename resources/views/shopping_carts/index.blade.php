@@ -213,7 +213,7 @@
         
         $(document).ready(function(){
             
-            direccion = $('input[name=direccion_default]:checked').val();
+            direccion = {{ isset($direccion_default->id) ? "$direccion_default->id" : "$('input[name=direccion_default]:checked').val()"}};
             console.log(direccion);
             $.ajaxSetup({
             headers: {
@@ -225,7 +225,7 @@
                 type: "POST",
                 // dataType: "html",
                 data: {
-                    direccion_id: $('input[name=direccion_default]:checked').val(),
+                    direccion_id: direccion,
                     envio_id: {{$envio->id}},
                     total: {{$total}},
                 },
@@ -248,7 +248,6 @@
                         $('#envios').html(data);
                     }
                 });
-                console.log();
             });
 
         });

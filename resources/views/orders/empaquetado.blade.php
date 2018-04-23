@@ -144,7 +144,7 @@
 	<script>
 
 		function verificar(etiqueta){
-			if(confirm("¿Desea confirmar el pedido a marzam?")){
+			if(confirm("¿Desea confirmar el empaquetado?")){
 				document.getElementById("form-verificar-orden "+etiqueta).submit();
 			}
 

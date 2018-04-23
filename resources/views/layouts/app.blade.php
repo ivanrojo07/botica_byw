@@ -163,11 +163,6 @@
 
 
                 @if(Auth::check() && Auth::user()->rol == 'normal')
-                <li>
-
-                    <a class="product1" href="{{url('/promotion')}}">Promociones</a>
-
-                </li>
                 @endif
 
 
@@ -182,12 +177,17 @@
 
                 @else
 
-                     <li>
+                    <li>
+
+                        <a class="product1" href="{{url('/promotion')}}">Promociones</a>
+
+                    </li>
+
+                    <li>
 
                             <a class="product1" href="{{url('/nosotros')}}">Nosotros</a>
 
                         </li>
-
                 @endif
 
 

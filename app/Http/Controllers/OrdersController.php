@@ -463,8 +463,9 @@ class OrdersController extends Controller {
     public function createTracking($orden_id){
         // dd($orden_id);
         $orden = Order::findOrFail($orden_id);
+        $direccion_id = $orden->direccion_id;
         $shopping_cart = $orden->ShoppingCart;
-        $direccion = $shopping_cart->direccion;
+        $direccion = Direccion::withTrashed()->findOrFail($direccion_id);
         // dd($direccion);
 
 

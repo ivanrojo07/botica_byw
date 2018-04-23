@@ -29,15 +29,15 @@
 						{{-- expr --}}
 						<tr>
 							<td>{{$envio->peso}} Kg.</td>
-							<td>${{$envio->precio_a}} MXN</td>
-							<td>${{$envio->precio_b}} MXN</td>
-							<td>${{$envio->precio_c}} MXN</td>
-							<td>${{$envio->precio_d}} MXN</td>
-							<td>${{$envio->precio_e}} MXN</td>
-							<td>${{$envio->precio_f}} MXN</td>
-							<td>${{$envio->precio_g}} MXN</td>
-							<td>${{$envio->precio_h}} MXN</td>
-							<td>${{$envio->precio_i}} MXN</td>
+							<td>${{$envio->precio_a}} US</td>
+							<td>${{$envio->precio_b}} US</td>
+							<td>${{$envio->precio_c}} US</td>
+							<td>${{$envio->precio_d}} US</td>
+							<td>${{$envio->precio_e}} US</td>
+							<td>${{$envio->precio_f}} US</td>
+							<td>${{$envio->precio_g}} US</td>
+							<td>${{$envio->precio_h}} US</td>
+							<td>${{$envio->precio_i}} US</td>
 							<td><a href="{{ route('envios.edit',['envio'=>$envio]) }}" class="btn btn-info">Editar Tarifa</a></td>
 
 						</tr>

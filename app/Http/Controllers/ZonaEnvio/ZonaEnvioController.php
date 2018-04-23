@@ -205,10 +205,10 @@ class ZonaEnvioController extends Controller
         else{
             $precio_envio = "tu dirección esta erronea o tu compra no puede ser enviada a"+$direccion->pais;
         }
+        // dd($request->input('total'));
 
         return  view('shopping_carts.envios',['precio_envio'=>$precio_envio,'total'=>$request->input('total')]);
         
-        // dd($precio_envio);
 
         
     }

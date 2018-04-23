@@ -125,9 +125,68 @@
 
                     <label for="pais"><strong>*</strong>País:</label>
 
-                    <input type="text" class="form-control" name="pais" id="pais" placeholder="País"
+                    {{-- <input type="text" class="form-control" name="pais" id="pais" placeholder="País"
 
-                           value="{{ old('pais') }}"/>
+                           value="{{ old('pais') }}"/> --}}
+                    <select class="form-control" id="pais" name="pais">
+                        <option value="VENEZUELA">VENEZUELA</option>
+                        <option value="CUBA">CUBA</option>
+                        <option value="COSTA RICA">COSTA RICA</option>
+                        <option value="EL SALVADOR">EL SALVADOR</option>
+                        <option value="GUATEMALA">GUATEMALA</option>
+                        <option value="HONDURAS">HONDURAS</option>
+                        <option value="NICARAGUA">NICARAGUA</option>
+                        <option value="PANAMA">PANAMA</option>
+                        <option value="COLOMBIA">COLOMBIA</option>
+                        <option value="R. DOMINICANA">R. DOMINICANA</option>
+                        <option value="ARGENTINA">ARGENTINA</option>
+                        <option value="BOLIVIA">BOLIVIA</option>
+                        <option value="CHILE">CHILE</option>
+                        <option value="ECUADOR">ECUADOR</option>
+                        <option value="MÉXICO">MÉXICO</option>
+                        <option value="PARAGUAY">PARAGUAY</option>
+                        <option value="PERU">PERU</option>
+                        <option value="TRINIDAD Y TOBAGO">TRINIDAD Y TOBAGO</option>
+                        <option value="URUGUAY">URUGUAY</option>
+                        <option value="ARUBA">ARUBA</option>
+                        <option value="BRASIL">BRASIL</option>
+                        <option value="CURACAO">CURACAO</option>
+                        <option value="HAITI">HAITI</option>
+                        <option value="JAMAICA">JAMAICA</option>
+                        <option value="SINT MAARTEN">SINT MAARTEN</option>
+                        <option value="ANGUILA">ANGUILA</option>
+                        <option value="ANTIGUA Y BARBUDA">ANTIGUA Y BARBUDA</option>
+                        <option value="ANTILLAS HOLANDESAS">ANTILLAS HOLANDESAS</option>
+                        <option value="BAHAMAS">BAHAMAS</option>
+                        <option value="BARBADOS">BARBADOS</option>
+                        <option value="BELICE">BELICE</option>
+                        <option value="BERMUDAS">BERMUDAS</option>
+                        <option value="BONAIRE">BONAIRE</option>
+                        <option value="CANADA">CANADA</option>
+                        <option value="DOMINICA">DOMINICA</option>
+                        <option value="GRANADA">GRANADA</option>
+                        <option value="GUADALUPE">GUADALUPE</option>
+                        <option value="ISLAS CAIMAN">ISLAS CAIMAN</option>
+                        <option value="ISLAS MARIANAS">ISLAS MARIANAS</option>
+                        <option value="ISLAS MINOR">ISLAS MINOR</option>
+                        <option value="ISLAS VIRG BRITANICAS">ISLAS VIRG BRITANICAS</option>
+                        <option value="ISLAS VIRGINIAS AM">ISLAS VIRGINIAS AM</option>
+                        <option value="MARTINICA">MARTINICA</option>
+                        <option value="MONTSERRAT">MONTSERRAT</option>
+                        <option value="PUERTO RICO">PUERTO RICO</option>
+                        <option value="ROAD TOWN ARPT">ROAD TOWN ARPT</option>
+                        <option value="ROOSEVELT FIELD">ROOSEVELT FIELD</option>
+                        <option value="SANTA LUCIA">SANTA LUCIA</option>
+                        <option value="SANTA LUCIA">SANTA LUCIA</option>
+                        <option value="ST JEAN ARPT">ST JEAN ARPT</option>
+                        <option value="ST THOMAS">ST THOMAS</option>
+                        <option value="ST BARTOLOME">ST BARTOLOME</option>
+                        <option value="ST KITTS">ST KITTS</option>
+                        <option value="ST VINCENT">ST VINCENT</option>
+                        <option value="TURCAS Y CAICOS">TURCAS Y CAICOS</option>
+                        <option value="WALLIS FORTUNA">WALLIS FORTUNA</option>
+
+                    </select>
 
                 </div>
 

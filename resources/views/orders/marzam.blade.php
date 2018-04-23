@@ -158,7 +158,7 @@
         }
 
 		function verificar(etiqueta){
-			if(confirm("¿Desea confirmar el pedido a marzam?")){
+			if(confirm("¿Desea confirmar la verificación de este pedido a marzam?")){
 				document.getElementById("form-verificar-orden "+etiqueta).submit();
 			}
 
