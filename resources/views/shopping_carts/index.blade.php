@@ -201,6 +201,96 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
+    @if (Auth::check())
+        <script>
+            
+            $(document).ready(function(){
+            
+                direccion = $('input[name=direccion_default]:checked').val();
+                console.log(direccion);
+                $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $.ajax({
+                    url: "{{ url('/envioshopping') }}",
+                    type: "POST",
+                    // dataType: "html",
+                    data: {
+                        direccion_id: direccion,
+                        envio_id: {{$envio->id}},
+                        total: {{$total}},
+                    },
+                    success: function(data){
+                        $('#envios').html(data);
+                    }
+                });
+                $('input[name=direccion_default]').change(function(){
+                    direccion = $('input[name=direccion_default]:checked').val();
+                    $.ajax({
+                        url: "{{ url('/envioshopping') }}",
+                        type: "POST",
+                        // dataType: "html",
+                        data: {
+                            direccion_id: $('input[name=direccion_default]:checked').val(),
+                            envio_id: {{$envio->id}},
+                            total: {{$total}},
+                        },
+                        success: function(data){
+                            $('#envios').html(data);
+                        }
+                    });
+                });
+
+            });
+        </script>
+        {{-- expr --}}
+
+    @else
+        <script>
+            $(document).ready(function(){
+            
+                direccion = {{ isset($direccion_default->id) ? "$direccion_default->id" : "$('input[name=direccion_default]:checked').val()"}};
+                console.log(direccion);
+                $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $.ajax({
+                    url: "{{ url('/envioshopping') }}",
+                    type: "POST",
+                    // dataType: "html",
+                    data: {
+                        direccion_id: direccion,
+                        envio_id: {{$envio->id}},
+                        total: {{$total}},
+                    },
+                    success: function(data){
+                        $('#envios').html(data);
+                    }
+                });
+                $('input[name=direccion_default]').change(function(){
+                    direccion = $('input[name=direccion_default]:checked').val();
+                    $.ajax({
+                        url: "{{ url('/envioshopping') }}",
+                        type: "POST",
+                        // dataType: "html",
+                        data: {
+                            direccion_id: $('input[name=direccion_default]:checked').val(),
+                            envio_id: {{$envio->id}},
+                            total: {{$total}},
+                        },
+                        success: function(data){
+                            $('#envios').html(data);
+                        }
+                    });
+                });
+
+            });
+        </script>
+    @endif
     <script>
         $('#receta').fileinput({
             theme: 'fa',
@@ -211,46 +301,7 @@
         });
 
         
-        $(document).ready(function(){
-            
-            direccion = {{ isset($direccion_default->id) ? "$direccion_default->id" : "$('input[name=direccion_default]:checked').val()"}};
-            console.log(direccion);
-            $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            $.ajax({
-                url: "{{ url('/envioshopping') }}",
-                type: "POST",
-                // dataType: "html",
-                data: {
-                    direccion_id: direccion,
-                    envio_id: {{$envio->id}},
-                    total: {{$total}},
-                },
-                success: function(data){
-                    $('#envios').html(data);
-                }
-            });
-            $('input[name=direccion_default]').change(function(){
-                direccion = $('input[name=direccion_default]:checked').val();
-                $.ajax({
-                    url: "{{ url('/envioshopping') }}",
-                    type: "POST",
-                    // dataType: "html",
-                    data: {
-                        direccion_id: $('input[name=direccion_default]:checked').val(),
-                        envio_id: {{$envio->id}},
-                        total: {{$total}},
-                    },
-                    success: function(data){
-                        $('#envios').html(data);
-                    }
-                });
-            });
-
-        });
+        
     </script>
 @endsection
 

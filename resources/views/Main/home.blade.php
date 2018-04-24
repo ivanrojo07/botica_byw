@@ -90,7 +90,7 @@
 
     
 
-        <h4> {{ $product->descripcion }}
+        <h4> {{ $product->nombre }}
 
                                         </h4>
 
@@ -100,7 +100,7 @@
 
                                         </p>
 
-                                        <a class="btn btn-primary" style="position: inherit;" href="{{ url('/Products1')}}">Ver Promociones</a>
+                                        @include('in_shopping_carts.formpromotion', ['product' => $product])
 
 
 
