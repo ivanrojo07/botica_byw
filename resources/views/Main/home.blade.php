@@ -76,7 +76,7 @@
                                     <div class="slider-container">
 
 
-                                        <img class="bt1 animated flash infinite" src="{{ url("/img_marzam/".str_pad($product->codigo_marzam,7,'0',STR_PAD_LEFT).".jpg")}}" onerror="this.src='{{ asset('img/12.jpg') }}'" class="product_avatar">
+                                        <img class="bt1 animated flash infinite" src="{{ url("/img_marzam/".str_pad($product->codigo_marzam,7,'0',STR_PAD_LEFT).".jpg")}}" onerror="this.src='{{ asset('img/dummie.jpg') }}'" class="product_avatar">
 
     {{-- @if($product->extension)
 
@@ -84,7 +84,7 @@
 
     @else
 
-        <img class="bt1 animated flash infinite" src="{{ asset('img/12.jpg') }}" class="product_avatar">
+        <img class="bt1 animated flash infinite" src="{{ asset('img/dummie.jpg') }}" class="product_avatar">
 
     @endif --}}
 
@@ -100,8 +100,31 @@
 
                                         </p>
 
-                                        @include('in_shopping_carts.formpromotion', ['product' => $product])
+                                        {!! Form::open(['url' => '/in_shopping_carts', 'method' => 'POST',"class" => "inline-block" ]) !!}
 
+                                        <input type="hidden" name="promotion_id" value="{{$product->id}}">
+
+
+
+                                        <div class="form-group">
+
+                                            <input type="hidden" name="qty" value="1" >
+
+                                        
+
+                                            
+                                            <div class="col-lg-6">
+
+                                               <p class="btn">
+                                                     <i class="price-text-color fa fa-shopping-cart"></i><button type="submit" class="btn btn-link hidden-sm" style="color: white;">Agregar al carrito</button>
+                                                </p>
+                                            </div>
+
+                                        </div>
+
+
+
+                                        {!! Form::close() !!}
 
 
                                        
@@ -139,7 +162,7 @@
                             <div class="col-item">
                                 <div class="photo">
 
-                                    <img class="img-responsive" src="{{ url("/img_marzam/".str_pad($product0->codigo_marzam,7,'0',STR_PAD_LEFT).".jpg")}}" onerror="this.src='{{ asset('img/12.jpg') }}'"  alt="a" width="350px" height="260px">
+                                    <img class="img-responsive" src="{{ url("/img_marzam/".str_pad($product0->codigo_marzam,7,'0',STR_PAD_LEFT).".jpg")}}" onerror="this.src='{{ asset('img/dummie.jpg') }}'"  alt="a" width="350px" height="260px">
                                     
                                 </div>
                                 <div class="info">
@@ -188,7 +211,7 @@
                         <div class="col-sm-3">
                             <div class="col-item">
                                 <div class="photo">
-                                     <img class="img-responsive" src="{{ url("/img_marzam/".str_pad($product1->codigo_marzam,7,'0',STR_PAD_LEFT).".jpg")}}" onerror="this.src='{{ asset('img/12.jpg') }}'"  alt="a" width="350px" height="260px">
+                                     <img class="img-responsive" src="{{ url("/img_marzam/".str_pad($product1->codigo_marzam,7,'0',STR_PAD_LEFT).".jpg")}}" onerror="this.src='{{ asset('img/dummie.jpg') }}'"  alt="a" width="350px" height="260px">
                                     
                                 </div>
                                 <div class="info">
