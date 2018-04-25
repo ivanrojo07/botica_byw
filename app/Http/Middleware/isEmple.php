@@ -1,44 +1,24 @@
 <?php
 
-
-
 namespace App\Http\Middleware;
 
-
-
-
-
 use Closure;
-
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
 
-
-
-class isAdmin {
-
-
-
+class isEmple
+{
     /**
-
      * Handle an incoming request.
-
      *
-
-     * @param  \Illuminate\Http\Request $request
-
-     * @param  \Closure $next
-
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
      * @return mixed
-
      */
-
     public function handle($request, Closure $next)
-
     {
-
-        if (!Auth::check() || Auth::user()->rol == 'admin') {
+        if (!Auth::check() || Auth::user()->rol == 'emple' || Auth::user()->rol == "admin") {
 
             return $next($request);
              
@@ -48,10 +28,5 @@ class isAdmin {
             return redirect()->back();
         }
 
-
-
-
     }
-
 }
-

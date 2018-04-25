@@ -44,13 +44,13 @@
 			@include('feedback')
 			<div class="panel-heading">
 				<h2>Empaquetado</h2>
-				<form name="buscar" id="buscar" method="GET" action="{{ url('') }}">
+				{{-- <form name="buscar" id="buscar" method="GET" action="{{ url('') }}">
 				  <div class="input-group center">
 				    {{ csrf_field() }}
 				    <input type="text" class="form-control" name="orden" placeholder="introduce el custom id" aria-describedby="basic-addon2" autofocus>
 				    <a onclick="document.getElementById('buscar').submit()" class="input-group-addon btn btn-success" id="basic-addon2"><i class="fa fa-search"></i></a>
 				  </div>
-				</form>
+				</form> --}}
 			</div>
 			<div class="panel-body">
 				<table class="table table-bordered tabla-status table-striped">

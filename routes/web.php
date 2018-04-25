@@ -178,83 +178,132 @@ Route::get('pedido/{id}','ShoppingCartsController@pedido');
 
 Route::group(['middleware' => 'auth'], function () {
 
-    Route::group(['middleware' => ['isAdmin']], function () {
+    
+    // Route::group(['middleware' => ['isAdmin']], function () {
 
 
 
-        Route::get('/admin/sales', 'Admin\SalesController@getIndex');
+    //     Route::get('/admin/sales', 'Admin\SalesController@getIndex');
 
-        // Route::get('/admin/sales/excel', 'Admin\SalesController@excel');
+    //     // Route::get('/admin/sales/excel', 'Admin\SalesController@excel');
 
-        Route::resource('/orders', 'OrdersController', [
+    //     Route::resource('/orders', 'OrdersController', [
 
-            'only' => ['index', 'update']
+    //         'only' => ['index', 'update']
 
-        ]);
+    //     ]);
 
-        Route::get('/order/info_address/{shoppingcart}', 'OrdersController@getAddressInfo');
-
-
-
-        Route::get('/admin/recetas', 'Admin\RecetasController@getIndex');
-
-        Route::resource('tracking','Tracking\TrackingController');
-        Route::resource('status','Tracking\StatusTrackingController');
-
-        Route::get('/promotions', 'PromotionsController@index');
-
-
-        // Route::get('user', "userprofileController@user");
-
-        // Route::get('user/profile', "userprofileController@profile");
-
-        // Route::post('user/updateprofile', "userprofileController@updateprofile");
-
-        // Route::get('user/password', 'userprofileController@password');
-
-        // Route::post('user/updatepassword', 'userprofileController@updatePassword');
+    //     Route::get('/order/info_address/{shoppingcart}', 'OrdersController@getAddressInfo');
 
 
 
-        // //Route::resource('user/direccion', 'Direccions');
+    //     Route::get('/admin/recetas', 'Admin\RecetasController@getIndex');
 
-        // Route::get('/user/direccion', 'Direccions@index');
+    //     Route::resource('tracking','Tracking\TrackingController');
+    //     Route::resource('status','Tracking\StatusTrackingController');
 
-        // Route::get('/user/direccion/create', 'Direccions@create');
-
-        // Route::post('/user/direccion/set_default', 'Direccions@setDefault');
-
+    //     Route::get('/promotions', 'PromotionsController@index');
 
 
-        // #rutas para los productos favoritos
+    //     // Route::get('user', "userprofileController@user");
 
-        // Route::get('/user/my-favorite-products', 'FavoriteProductsController@index');
+    //     // Route::get('user/profile', "userprofileController@profile");
 
-        // Route::get('/user/product/{product_id}/favorite/remove', 'FavoriteProductsController@addremove');
+    //     // Route::post('user/updateprofile', "userprofileController@updateprofile");
 
-        // Route::get('/user/product/{product_id}/favorite/add', 'FavoriteProductsController@addremove');
+    //     // Route::get('user/password', 'userprofileController@password');
 
-
-
-        // #rutas para ver las ordenes de un usuario
-
-        // Route::get('/user/my-orders', 'UserOrdersController@index');
+    //     // Route::post('user/updatepassword', 'userprofileController@updatePassword');
 
 
 
-        // #ruta para obtener la imagen de una receta
+    //     // //Route::resource('user/direccion', 'Direccions');
 
-        // Route::post('/user/order/get-receta', 'UserOrdersController@getReceta');
+    //     // Route::get('/user/direccion', 'Direccions@index');
+
+    //     // Route::get('/user/direccion/create', 'Direccions@create');
+
+    //     // Route::post('/user/direccion/set_default', 'Direccions@setDefault');
 
 
 
-        // #rutas para comentar un producto
+    //     // #rutas para los productos favoritos
 
-        // Route::get('/user/product/{product_id}/comment', 'ProductCommentController@getIndex');
+    //     // Route::get('/user/my-favorite-products', 'FavoriteProductsController@index');
 
-        // Route::post('/user/product/comment', 'ProductCommentController@storeComment');
+    //     // Route::get('/user/product/{product_id}/favorite/remove', 'FavoriteProductsController@addremove');
 
-    });
+    //     // Route::get('/user/product/{product_id}/favorite/add', 'FavoriteProductsController@addremove');
+
+
+
+    //     // #rutas para ver las ordenes de un usuario
+
+    //     // Route::get('/user/my-orders', 'UserOrdersController@index');
+
+
+
+    //     // #ruta para obtener la imagen de una receta
+
+    //     // Route::post('/user/order/get-receta', 'UserOrdersController@getReceta');
+
+
+
+    //     // #rutas para comentar un producto
+
+    //     // Route::get('/user/product/{product_id}/comment', 'ProductCommentController@getIndex');
+
+    //     // Route::post('/user/product/comment', 'ProductCommentController@storeComment');
+
+    // });
+
+    // Route::group(['middleware' => ['isEmple']], function () {
+
+
+
+    //     Route::get('/admin/sales', 'Admin\SalesController@getIndex');
+
+    //     // Route::get('/admin/sales/excel', 'Admin\SalesController@excel');
+
+    //     Route::resource('/orders', 'OrdersController', [
+
+    //         'only' => ['index', 'update']
+
+    //     ]);
+
+    //     Route::get('/order/info_address/{shoppingcart}', 'OrdersController@getAddressInfo');
+    //     Route::get('/order/info_shopping/{shoppingcart}', 'OrdersController@shoppingInfo');
+
+
+
+
+    //     Route::get('/admin/recetas', 'Admin\RecetasController@getIndex');
+
+    //     Route::resource('tracking','Tracking\TrackingController');
+    //     Route::get('buscartraking','Tracking\TrackingController@search');
+    //     Route::resource('status','Tracking\StatusTrackingController');
+
+    //     Route::get('/promotions', 'PromotionsController@index');
+
+    //     Route::post('moneda', 'CambioMonedaController@store');
+    //     Route::get('/ordens', 'OrdersController@getOrden');
+    //     Route::resource('envios','ZonaEnvio\ZonaEnvioController');
+
+    //     Route::post('generar_orden','OrdersController@generarOrden')->name('generar_orden');
+    //     Route::post('reenviar_orden', 'OrdersController@reenviarOrden')->name('reenviar_orden');
+    //     Route::get('/marzam_orders', 'OrdersController@pedidos');
+    //     Route::post('/marzam_verificado','OrdersController@verificado');
+    //     Route::get('/empaquetado','OrdersController@empaquetadoIndex')->name('empaquetado_index');
+    //     Route::post('/empaquetar','OrdersController@empaquetarCompra')->name('empaquetado');
+    //     Route::get('/tracking/create/{order}', 'OrdersController@createTracking');
+    //     Route::get('/order/checkproduct/{shoppingcart}', 'OrdersController@checkingProduct');
+    //     Route::post('/producto_check','OrdersController@productoCheck');
+    //     Route::post('/promotion_check', 'OrdersController@promotionCheck');
+    //     Route::resource('/empleados','Admin\UserController');
+    // });
+
+
+    
 
     Route::get('user', "userprofileController@user");
 
@@ -322,8 +371,17 @@ Route::group(['middleware' => ['isAdmin']], function () {
 
     Route::get('/admin/sales', 'Admin\SalesController@getIndex');
 
-    // Route::get('/admin/sales/excel', 'Admin\SalesController@excel');
+    Route::resource('envios','ZonaEnvio\ZonaEnvioController');
 
+    Route::post('moneda', 'CambioMonedaController@store');
+    
+    Route::resource('/empleados','Admin\UserController');
+});
+Route::group(['middleware' => ['isEmple']], function () {
+
+
+
+   
     Route::resource('/orders', 'OrdersController', [
 
         'only' => ['index', 'update']
@@ -342,11 +400,8 @@ Route::group(['middleware' => ['isAdmin']], function () {
     Route::get('buscartraking','Tracking\TrackingController@search');
     Route::resource('status','Tracking\StatusTrackingController');
 
-    Route::get('/promotions', 'PromotionsController@index');
-
-    Route::post('moneda', 'CambioMonedaController@store');
+    
     Route::get('/ordens', 'OrdersController@getOrden');
-    Route::resource('envios','ZonaEnvio\ZonaEnvioController');
 
     Route::post('generar_orden','OrdersController@generarOrden')->name('generar_orden');
     Route::post('reenviar_orden', 'OrdersController@reenviarOrden')->name('reenviar_orden');
@@ -358,58 +413,10 @@ Route::group(['middleware' => ['isAdmin']], function () {
     Route::get('/order/checkproduct/{shoppingcart}', 'OrdersController@checkingProduct');
     Route::post('/producto_check','OrdersController@productoCheck');
     Route::post('/promotion_check', 'OrdersController@promotionCheck');
-
-    // Route::get('user', "userprofileController@user");
-
-    // Route::get('user/profile', "userprofileController@profile");
-
-    // Route::post('user/updateprofile', "userprofileController@updateprofile");
-
-    // Route::get('user/password', 'userprofileController@password');
-
-    // Route::post('user/updatepassword', 'userprofileController@updatePassword');
-
-
-
-    // //Route::resource('user/direccion', 'Direccions');
-
-    // Route::get('/user/direccion', 'Direccions@index');
-
-    // Route::get('/user/direccion/create', 'Direccions@create');
-
-    // Route::post('/user/direccion/set_default', 'Direccions@setDefault');
-
-
-
-    // #rutas para los productos favoritos
-
-    // Route::get('/user/my-favorite-products', 'FavoriteProductsController@index');
-
-    // Route::get('/user/product/{product_id}/favorite/remove', 'FavoriteProductsController@addremove');
-
-    // Route::get('/user/product/{product_id}/favorite/add', 'FavoriteProductsController@addremove');
-
-
-
-    // #rutas para ver las ordenes de un usuario
-
-    // Route::get('/user/my-orders', 'UserOrdersController@index');
-
-
-
-    // #ruta para obtener la imagen de una receta
-
-    // Route::post('/user/order/get-receta', 'UserOrdersController@getReceta');
-
-
-
-    // #rutas para comentar un producto
-
-    // Route::get('/user/product/{product_id}/comment', 'ProductCommentController@getIndex');
-
-    // Route::post('/user/product/comment', 'ProductCommentController@storeComment');
-
+    
 });
+
+
 // Route::get('excel','FileController@importarExcel')->name('excel.import');
 // Route::post('import-csv-excel', 'FileController@importFileIntoDB')->name('import-csv-excel');
 
