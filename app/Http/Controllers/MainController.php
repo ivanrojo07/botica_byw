@@ -66,7 +66,7 @@ class MainController extends Controller {
         $products = Catalogo::where(function($q) use($wordsquery){
             foreach ($wordsquery as $word) {
                 # code...
-                $q->orWhere('descripcion','LIKE',"%$word%");
+                $q->orWhere('descripcion','LIKE',"%$word%")->orwhere('sustancia_activa','LIKE',"%$word%");
             }
         })->take(5)->get();
         return response()->json($products);

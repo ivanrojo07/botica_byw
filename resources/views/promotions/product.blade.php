@@ -5,7 +5,7 @@
 				
 			</div>
 			<br>
-			<h1 class="grey"><a href="#">{{$product->nombre}}</a></h1>
+			<h1 class="grey"><a href="{{ url('promotions/'.$product->id) }}">{{$product->nombre}}</a></h1>
 		</header>
 		
 		<img class="bt1" src="{{ url("/img_marzam/".str_pad($product->codigo_marzam,7,'0',STR_PAD_LEFT).".jpg")}}" class="product_avatar" onerror="this.src='{{ asset('img/dummie.jpg') }}'">

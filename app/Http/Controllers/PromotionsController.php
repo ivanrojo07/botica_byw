@@ -137,6 +137,27 @@ class PromotionsController extends Controller {
 
     }
 
+     public function show($id)
+
+    {
+
+        $product = Promotion::find($id);
+        $cambio = CambioMoneda::first()->get()->pluck('pesos');
+
+
+
+
+        #obtenemos las reseñas del producto
+
+        // $product_comments = ProductComment::where('catalogo_id', $id)->get();
+
+
+
+        return view('promotions.show', compact('product','cambio'));
+
+    }
+
+
 
 
     public function visita(Request $request, FavoriteProduct $favoriteProduct)
@@ -192,7 +213,7 @@ class PromotionsController extends Controller {
         if (isset($filters['title']) && $filters['title'] != '') {
 
             
-            $products = $products->Search($request->title);
+            $products = Promotion::where('nombre','LIKE',"%$request->title%")->paginate(12)->appends($filters);
 
             $old_inputs['title'] = $filters['title'];
 

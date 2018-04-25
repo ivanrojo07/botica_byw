@@ -44,7 +44,7 @@ Auth::routes();
 
 
 Route::get('/home', 'HomeController@index');
-Route::get('/productslist','MainController@productlist');
+Route::get('/productslist','MainController@productlist')->name("productlist");
 
 
 
@@ -421,6 +421,7 @@ Route::group(['middleware' => ['isEmple']], function () {
 // Route::post('import-csv-excel', 'FileController@importFileIntoDB')->name('import-csv-excel');
 
 Route::get('/promovisita', 'PromotionsController@visita');
+Route::get('/promotions/{id}', 'PromotionsController@show');
 
 Route::get('/promotion', function () {
    

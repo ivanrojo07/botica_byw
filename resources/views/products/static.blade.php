@@ -54,7 +54,7 @@
 
                 <div class="row uniform">
 
-                    <div class="col-lg-3">
+                    <div class="col-lg-4">
 
                         <h1 class="grey">Categoría</h1>
 
@@ -80,7 +80,7 @@
 
 
 
-                    <div class="col-lg-3">
+                    <div class="col-lg-4">
 
                         <h1 class="grey">
 
@@ -96,7 +96,7 @@
 
 
 
-                    <div class="col-lg-3">
+{{--                     <div class="col-lg-4">
 
                         <h1 class="grey">
 
@@ -109,10 +109,10 @@
                                value="{{ $max_price }}"/>
 
                     </div>
+ --}}
 
 
-
-                    <div class="col-lg-3">
+                    <div class="col-lg-4">
 
                         <h1 class="grey">
 
@@ -242,14 +242,14 @@
 
 
                <footer class="major">
-
+{{-- 
                     <ul class="actions">
 
                         <li><a href="{{ url('/products') }}" class="button blue-template1">Ver todos los Productos</a>
 
                         </li>
 
-                    </ul>
+                    </ul> --}}
 
                 </footer>
 

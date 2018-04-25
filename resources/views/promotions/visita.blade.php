@@ -36,7 +36,7 @@
 
 
 
-                    <div class="col-lg-3">
+                    <div class="col-lg-offset-3 col-lg-6">
 
                         <h1 class="grey">
 
@@ -52,7 +52,7 @@
 
 
 
-                    <div class="col-lg-3">
+                   {{--  <div class="col-lg-3">
 
                         <h1 class="grey">
 
@@ -65,7 +65,7 @@
                                value="{{ $max_price }}"/>
 
                     </div>
-
+ --}}
 
 
                    <!--  <div class="col-lg-3">

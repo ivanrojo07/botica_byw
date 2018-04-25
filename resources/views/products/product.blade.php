@@ -130,22 +130,6 @@
 
 
 
-    <h5 class="grey text-center">
-
-        <strong>descripcion</strong>
-
-    </h5>
-
-
-
-    <p class="grey text-center">
-
-        {{$product["descripcion_terapeutica"]}}
-
-    </p>
-
-
-
     <strong>
 
         <p class="costo orangep text-center">
