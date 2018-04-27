@@ -150,6 +150,11 @@ class ShoppingCartsController extends Controller {
         }
         
         $envio = ZonaEnvio::where('peso', '>=', "$peso")->first();
+        if ($envio->isEmpty()) {
+            # code...
+            $envio = ZonaEnvio::get()->last();
+
+        }
         // dd($envio);
 
 
@@ -286,6 +291,11 @@ class ShoppingCartsController extends Controller {
             }
         }
         $envio = ZonaEnvio::where('peso', '>=', "$peso")->first();
+        if ($envio->isEmpty()) {
+            # code...
+            $envio = ZonaEnvio::get()->last();
+
+        }
         
         // $cambio = CambioMoneda::first()->get()->pluck('pesos');
         // dd($request->all());

@@ -63,7 +63,7 @@
 					 		{{-- false expr --}}
 					 		value="{{ old('precio_a') }}"
 					 	@endif name="precio_a" id="precio_a" step="0.01" min="0.01">
-					  	<span class="input-group-addon">MXN</span>
+					  	<span class="input-group-addon">USD</span>
 					</div>	
 			  	</div>
 
@@ -78,7 +78,7 @@
 					 		{{-- false expr --}}
 					 		value="{{ old('precio_b') }}"
 					 	@endif name="precio_b" id="precio_b" step="0.01" min="0.01">
-					  	<span class="input-group-addon">MXN</span>
+					  	<span class="input-group-addon">USD</span>
 					</div>	
 			  	</div>
 
@@ -93,7 +93,7 @@
 					 		{{-- false expr --}}
 					 		value="{{ old('precio_c') }}"
 					 	@endif name="precio_c" id="precio_c" step="0.01" min="0.01">
-					  	<span class="input-group-addon">MXN</span>
+					  	<span class="input-group-addon">USD</span>
 					</div>	
 			  	</div>
 
@@ -108,7 +108,7 @@
 					 		{{-- false expr --}}
 					 		value="{{ old('precio_d') }}"
 					 	@endif name="precio_d" id="precio_d" step="0.01" min="0.01">
-					  	<span class="input-group-addon">MXN</span>
+					  	<span class="input-group-addon">USD</span>
 					</div>	
 			  	</div>
 
@@ -123,7 +123,7 @@
 					 		{{-- false expr --}}
 					 		value="{{ old('precio_e') }}"
 					 	@endif name="precio_e" id="precio_e" step="0.01" min="0.01">
-					  	<span class="input-group-addon">MXN</span>
+					  	<span class="input-group-addon">USD</span>
 					</div>	
 			  	</div>
 
@@ -138,7 +138,7 @@
 					 		{{-- false expr --}}
 					 		value="{{ old('precio_f') }}"
 					 	@endif name="precio_f" id="precio_f" step="0.01" min="0.01">
-					  	<span class="input-group-addon">MXN</span>
+					  	<span class="input-group-addon">USD</span>
 					</div>	
 			  	</div>
 
@@ -153,7 +153,7 @@
 					 		{{-- false expr --}}
 					 		value="{{ old('precio_g') }}"
 					 	@endif name="precio_g" id="precio_g" step="0.01" min="0.01">
-					  	<span class="input-group-addon">MXN</span>
+					  	<span class="input-group-addon">USD</span>
 					</div>	
 			  	</div>
 
@@ -168,7 +168,7 @@
 					 		{{-- false expr --}}
 					 		value="{{ old('precio_h') }}"
 					 	@endif name="precio_h" id="precio_h" step="0.01" min="0.01">
-					  	<span class="input-group-addon">MXN</span>
+					  	<span class="input-group-addon">USD</span>
 					</div>	
 			  	</div>
 
@@ -183,7 +183,7 @@
 					 		{{-- false expr --}}
 					 		value="{{ old('precio_i') }}"
 					 	@endif name="precio_i" id="precio_i" step="0.01" min="0.01">
-					  	<span class="input-group-addon">MXN</span>
+					  	<span class="input-group-addon">USD</span>
 					</div>	
 			  	</div>
 			  	<div class="col-lg-12">

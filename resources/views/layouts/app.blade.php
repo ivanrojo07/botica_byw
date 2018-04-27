@@ -456,7 +456,7 @@
           
           select: function(event, ui){
             $("#title").val(ui.item.label);
-            window.location.href = "/botica_byw/public/products/"+ui.item.url;
+            window.location.href = "/products/"+ui.item.url;
             
             
           }
