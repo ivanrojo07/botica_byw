@@ -3,46 +3,18 @@
 <html lang="{{ config('app.locale') }}">
 
 <head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
-
-    
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-
-
     <!-- CSRF Token -->
-
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-
-
     <title>TuFarmaciaLatina.com</title>
-
-
-
     <!-- Styles -->
-    <!-- ByW -->
-        <link href="css/byw.min.css" rel="stylesheet">
-
     <!--Import materialize.css-->
     {{-- <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/> --}}
-
     <!--Let browser know website is optimized for mobile-->
-
-
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
-
-
-
     {{-- <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> --}}
-
-
-
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    
-
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/responsive.css') }}">
@@ -52,186 +24,89 @@
     <link href="js/plugins/owl-carousel/owl.theme.css" rel="stylesheet">
     <link href="js/plugins/magnific-popup/magnific-popup.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/fileinput.min.css') }}">
-    <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/mdb.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/sweetalert.css') }}">
    {{--  <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/> --}}
     <!--load everything-->
     <script src="{{ asset('js/fontawesome-all.js') }}"></script>
-
-
-
-
     <!-- Scripts -->
-
     <script>
-
         window.Laravel = {!! json_encode([
-
             'csrfToken' => csrf_token(),
-
         ]) !!};
-
     </script>
-
-
 </head>
 
 <body class="landing">
-
-
-
 <div id="page-wrapper">
-
-    <header id="header" style="position: fixed !important">
-
+    <header id="header">
         @if(Auth::check() && (Auth::user()->rol == 'admin' || Auth::user()->rol == 'emple'))
         @else
-
             <h1 id="logo"><a href="{{ url('/') }}"><img src="{{ asset('img/logo_rxlatinmed.jpg') }}" height="60px"></a></h1>
-        
         @endif
-
         <nav id="nav">
-
             <ul style="font-size: 12px;">
-
                 @if(Auth::check() && (Auth::user()->rol == 'admin' || Auth::user()->rol == 'emple'))
                 @else
                 <li>
-
-
-
-
-
                     {!! Form::open(['url' => '/Products1', 'method' => 'GET', 'class' => 'navbar-form pull-left']) !!}
-
                     <div class="form-group">
-
                         {!! Form::text ('title', null, ['id'=> 'title', 'class' => 'form-control btn-search autocomplete', 'placeholder' => 'buscar tu medicamento'])!!}
-
                     </div>
-
-                    <button type="submit" class="btn btn-default btn-search2" id="search" aria-hidden="true">Buscar
-
-                    </button>
-
-
-
+                    <button type="submit" class="btn btn-default btn-search2" id="search" aria-hidden="true">Buscar</button>
                     {!! Form::close() !!}
-
                     <a id="carrito" href="{{url('/carrito')}}"><i class="fa fa-cart-plus blue" aria-hidden="true"></i>
-
                         {{$productsCount}}</a>
                 </li>
-            
                 @endif
-
                 <li>
                  @if(Request::is('/'))
-
                     @if(Auth::check() && Auth::user()->rol == 'admin')
-
-
                         <a class="product1" href="{{url('/products')}}">Productos</a>
                     @elseif(Auth::check() && Auth::user()->rol == 'emple')
                     @else
-
-
                         <a class="product1" href="#productos">Productos</a>
-
                     @endif
-
-
                  @else
-
                     @if(Auth::check() && Auth::user()->rol == 'admin')
-
-
                         <a class="product1" href="{{url('/products')}}">Productos</a>
                     @elseif(Auth::check() && Auth::user()->rol == 'emple')
-
                     @else
-
                         <a class="product1" href="{{url('/Products1')}}">Productos</a>
-                    
-
                     @endif
-
-
-                 @endif                        
-
+                 @endif
                 </li>
-
-
                 @if(Auth::check() && Auth::user()->rol == 'normal')
                 @endif
-
-
-
                 @if(Auth::check() && Auth::user()->rol == 'admin')
-
                     <li>
-
                         <a class="product1" href="{{url('/admin/sales')}}">Productos Vendidos</a>
-
                     </li>
                 @elseif(Auth::check() && Auth::user()->rol == 'emple')
-                    
-
                 @else
-
                     <li>
-
                         <a class="product1" href="{{url('/promotion')}}">Promociones</a>
-
                     </li>
-
                     <li>
-
-                            <a class="product1" href="{{url('/nosotros')}}">Nosotros</a>
-
-                        </li>
+                        <a class="product1" href="{{url('/nosotros')}}">Nosotros</a>
+                    </li>
                 @endif
-                
-
-                
-
-
-
                 @if(Auth::check() && (Auth::user()->rol == 'admin' || Auth::user()->rol == 'emple'))
-
-
                     <li>
-
                         <a class="product1" href="{{url('/orders')}}">Ordenes</a>
-
                     </li>
-
                     <li>
-
                         <a class="product1" href="{{url('/marzam_orders')}}">Pedidos a Marzam</a>
-
                     </li>
-
                     <li>
-
                         <a class="product1" href="{{url('/empaquetado')}}">Empaquetado</a>
-
                     </li>
-
                     <li>
-
                         <a class="product1" href="{{url('/tracking')}}">Rastreo</a>
-
                     </li>
-
                     <li>
-
                         <a class="product1" href="{{url('/admin/recetas')}}">Recetas</a>
-
                     </li>
-
                 @endif
 
 
@@ -244,77 +119,31 @@
                     <a class="product1" href="{{ url('/empleados') }}">Empleados</a>
                 </li>
                 @endif
-
-
                 @if (Auth::guest())
-
                     <li><a href="{{ route('login') }}">Ingresar</a></li>
-
                     <li><a class="button special" href="{{ route('register') }}">Registrate</a></li>
-
                 @else
-
-
-
                     <li>
-
                         <div class="dropdown">
-
-                            <button class="btn btn-primary dropdown-toggle" type="button"
-
-                                    data-toggle="dropdown"> {{ Auth::user()->name }}
-
-                            </button>
-
+                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> 
+                                {{ Auth::user()->name }}
                             <ul class="dropdown-menu dropdown1">
-
                                 <li>
-
                                     <a href="{{url('user')}}">Mi perfil</a>
-
                                 </li>
-
                                 <li role="presentation">
-
-                                    <a href="{{ route('logout') }}"
-
-                                       onclick="event.preventDefault();
-
-                                                         document.getElementById('logout-form').submit();">
-
+                                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         Cerrar Sesion
-
                                     </a>
-
-
-
-
-                                   
                                 </li>
-
-
                             </ul>
-
                         </div>
-
                     </li>
-
-
-
-
-
                 @endif
-
             </ul>
-
         </nav>
-        
-    <form id="logout-form" action="{{ route('logout') }}" method="POST"
-
-          style="display: none;">
-
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
         {{ csrf_field() }}
-
     </form>
     </header>
     <div class="compras1" id="compras1">
@@ -359,61 +188,33 @@
 
 
 
+    <!--*****************************FOOTER-->
 
-
-    <footer id="footer">
-
-         
-
-        <div class="column_footer"> 
-
-        <ul class="static">
-
-                <li><a href="{{url('/faq')}}" class=""><span class="label">Preguntas Frecuentes</span></a></li>
-
-                <br>
-
-                <li><a href="{{url('/nosotros')}}" class=""><span class="label">Nosotros</span></a></li>
-
-                <br>
-
-                <li><a href="{{url('/privacidad')}}" class=""><span class="label">Aviso de Privacidad</span></a></li>
-
-                <br>
-
-                <li><a href="{{url('/contact')}}" class=""><span class="label">Contactanos</span></a></li>
-
-                </ul>
-
-                <ul class="icons">
-
-                    <li><h3>CONTÁCTANOS</h3></li><br>
-
-                    <li><span>01 800 269 980 1</span></li>
-
-                    <li><span>info@tufarmacialatina.com</span></li>
-
-                </ul>
-
-                <ul class="copyright">
-
-                    <li><img src="{{ asset('img/pp.png') }}" alt=""></li>
-
-                </ul>
-
-        </div>
-
-       <ul class="copyright">
-
-
-                    <li>&copy; Untitled. All rights reserved.</li>
-
-                    <li>© 2017 RX LATIN MED</li>
-
-                </ul>
-
-
-
+    <footer id="footer" class="p-0">
+            <div class="row bg-dark">
+                <div class="col-12 col-sm-4">
+                    <a href="{{url('/faq')}}" class=""><span class="label">Preguntas Frecuentes</span></a><br>
+                    <a href="{{url('/nosotros')}}" class=""><span class="label">Nosotros</span></a><br>
+                    <a href="{{url('/privacidad')}}" class=""><span class="label">Aviso de Privacidad</span></a><br>
+                    <a href="{{url('/contact')}}" class=""><span class="label">Contactanos</span></a>
+                </div>
+                <div class="col-12 col-sm-4">
+                    <ul>
+                        <li><h3>CONTÁCTANOS</h3></li><br>
+                        <li><span>01 800 269 980 1</span></li>
+                        <li><span>info@tufarmacialatina.com</span></li>
+                    </ul>
+                    <ul>
+                        <li><img src="{{ asset('img/pp.png') }}" alt=""></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-sm-4">
+                    <ul>
+                        <li>&copy; Untitled. All rights reserved.</li>
+                        <li>© 2017 RX LATIN MED</li>
+                    </ul>
+                </div>
+            </div>
     </footer>
 </div>
 

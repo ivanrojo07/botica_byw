@@ -1,9 +1,8 @@
-*!
+/* *!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */
-/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
@@ -187,7 +186,7 @@ td,
 th {
   padding: 0;
 }
-/*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
+! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css
 @media print {
   *,
   *:before,
@@ -2280,14 +2279,14 @@ th {
   vertical-align: bottom;
   border-bottom: 2px solid #ddd;
 }
-/*.table > caption + thead > tr:first-child > th,
+.table > caption + thead > tr:first-child > th,
 .table > colgroup + thead > tr:first-child > th,
 .table > thead:first-child > tr:first-child > th,
 .table > caption + thead > tr:first-child > td,
 .table > colgroup + thead > tr:first-child > td,
 .table > thead:first-child > tr:first-child > td {
   border-top: 0;
-}*/
+}
 .table > tbody + tbody {
   border-top: 2px solid #ddd;
 }
@@ -6950,4 +6949,5 @@ button.close {
     display: none !important;
   }
 }
-/*# sourceMappingURL=bootstrap.css.map */
+# sourceMappingURL=bootstrap.css.map
+ */

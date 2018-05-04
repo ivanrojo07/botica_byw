@@ -150,7 +150,7 @@ class ShoppingCartsController extends Controller {
         }
         
         $envio = ZonaEnvio::where('peso', '>=', "$peso")->first();
-        if ($envio->isEmpty()) {
+        if (empty($envio)) {
             # code...
             $envio = ZonaEnvio::get()->last();
 
