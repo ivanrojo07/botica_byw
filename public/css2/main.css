@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Montserrat);
+/* @import url(http://fonts.googleapis.com/css?family=Montserrat);
 
 
 
@@ -12,19 +12,15 @@
 
 
 
-/*
-
-	Landed by HTML5 UP
+Landed by HTML5 UP
 
 	html5up.net | @ajlkn
 
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 
-*/
 
 
-
-/* Reset */
+Reset
 
 
 
@@ -106,7 +102,7 @@
 
 
 
-/* Box Model */
+Box Model
 
 
 
@@ -122,7 +118,7 @@
 
 
 
-/* Containers */
+Containers
 
 
 
@@ -175,8 +171,7 @@
 	.container {
 
 		width: 70em;
-		/*margin-top: 60px !important;
-*/
+		margin-top: 60px !important;
 	}
 
 	@media screen and (max-width: 2800px) {
@@ -457,7 +452,7 @@
 	}
 
 
-	/*@media only screen and (max-width: 1500px){
+	@media only screen and (max-width: 1500px){
 
 
 
@@ -508,7 +503,7 @@
 		}
 
 
-	}*/
+	}
 
 
 
@@ -740,7 +735,7 @@
 
 
 
-/* Grid */
+Grid
 
 
 
@@ -3406,7 +3401,7 @@
 
 
 
-/* Basic */
+Basic
 
 
 
@@ -3708,7 +3703,7 @@
 
 
 
-/* Loader */
+Loader
 
 
 
@@ -4490,7 +4485,7 @@
 
 
 
-/* Section/Article */
+Section/Article
 
 
 
@@ -4592,7 +4587,7 @@
 
 
 
-/* Form */
+Form
 
 
 
@@ -4808,7 +4803,7 @@
 
 
 
-/* Box */
+Box
 
 
 
@@ -4850,7 +4845,7 @@
 
 
 
-/* Icon */
+Icon
 
 
 
@@ -4996,7 +4991,7 @@
 
 
 
-/* Image */
+Image
 
 
 
@@ -5110,7 +5105,7 @@
 
 
 
-/* List */
+List
 
 
 
@@ -5368,7 +5363,7 @@
 
 
 
-/* Table */
+Table
 
 
 
@@ -5504,7 +5499,7 @@
 
 
 
-/* Button */
+Button
 
 
 
@@ -5738,7 +5733,7 @@
 
 
 
-/* Spotlight */
+Spotlight
 
 
 
@@ -6206,7 +6201,7 @@
 
 
 
-/* Wrapper */
+Wrapper
 
 
 
@@ -6442,7 +6437,7 @@
 
 
 
-/* Dropotron */
+Dropotron
 
 
 
@@ -6556,7 +6551,7 @@
 
 
 
-/* Header */
+Header
 
 
 
@@ -6716,7 +6711,7 @@
 
 
 
-/* Banner */
+Banner
 
 
 
@@ -6742,7 +6737,7 @@
 
 		box-shadow: 0 .5em 15px 0 rgba(0, 0, 0, 0.7) !important;
 
-		/*top: 60px;*/
+		top: 60px;
 	}
 
 
@@ -6807,15 +6802,15 @@
 
 			z-index: 1;
 
-			/*top: -85px !important;*/
+			top: -85px !important;
 
-			/*margin-top: -320px !important;*/
+			margin-top: -320px !important;
 
 		}
 
 		.info-header{
 
-			/*padding-top: 450px !important;*/
+			padding-top: 450px !important;
 
 		}
 
@@ -6887,7 +6882,7 @@
 
 
 
-/* Footer */
+Footer
 
 .column_footer{
 
@@ -6901,7 +6896,7 @@
 
 
 
-    /*Agrega una barra solida de color*/
+    Agrega una barra solida de color
 
     column-rule: 2px solid #666;
 
@@ -6944,11 +6939,11 @@
 		text-align: center;
 
 		height: 200px !important;
-	  	/*position: absolute;*/
+	  	position: absolute;
 	  	right: 0;
 	  	bottom: 0;
 	  	left: 0;
-	  	/*padding: 1rem;*/
+	  	padding: 1rem;
 	  	
 
 		
@@ -7047,7 +7042,7 @@
 
 
 
-/* XLarge */
+XLarge
 
 
 
@@ -7055,7 +7050,7 @@
 
 
 
-		/* Basic */
+		Basic
 
 
 
@@ -7071,7 +7066,7 @@
 
 
 
-/* Large */
+Large
 
 
 
@@ -7079,7 +7074,7 @@
 
 
 
-		/* Basic */
+		Basic
 
 
 
@@ -7091,7 +7086,7 @@
 
 
 
-		/* Spotlight */
+		Spotlight
 
 
 
@@ -7123,7 +7118,7 @@
 
 
 
-		/* Wrapper */
+		Wrapper
 
 
 
@@ -7135,7 +7130,7 @@
 
 
 
-		/* Dropotron */
+		Dropotron
 
 
 
@@ -7147,7 +7142,7 @@
 
 
 
-		/* Banner */
+		Banner
 
 
 
@@ -7159,7 +7154,7 @@
 
 
 
-		/* Footer */
+		Footer
 
 
 
@@ -7175,7 +7170,7 @@
 
 
 
-/* Medium */
+Medium
 
 
 
@@ -7183,7 +7178,7 @@
 
 
 
-		/* Basic */
+		Basic
 
 
 
@@ -7195,7 +7190,7 @@
 
 
 
-		/* Spotlight */
+		Spotlight
 
 
 
@@ -7259,7 +7254,7 @@
 
 
 
-		/* Wrapper */
+		Wrapper
 
 
 
@@ -7271,7 +7266,7 @@
 
 
 
-		/* Banner */
+		Banner
 
 
 
@@ -7321,7 +7316,7 @@
 
 
 
-		/* Footer */
+		Footer
 
 
 
@@ -7337,7 +7332,7 @@
 
 
 
-/* Small */
+Small
 
 
 
@@ -7353,7 +7348,7 @@
 
 
 
-		/* Basic */
+		Basic
 
 
 
@@ -7397,7 +7392,7 @@
 
 
 
-		/* Section/Article */
+		Section/Article
 
 
 
@@ -7445,7 +7440,7 @@
 
 
 
-		/* Goto Next */
+		Goto Next
 
 
 
@@ -7461,7 +7456,7 @@
 
 
 
-		/* Spotlight */
+		Spotlight
 
 
 
@@ -7491,7 +7486,7 @@
 
 
 
-		/* Wrapper */
+		Wrapper
 
 
 
@@ -7503,19 +7498,14 @@
 
 
 
-		/* Header */
+		Header
 
 
 
-			#header {
-
-				display: none;
-
-			}
 
 
 
-		/* Banner */
+		Banner
 
 
 
@@ -7563,7 +7553,7 @@
 
 
 
-		/* Off-Canvas Navigation */
+		Off-Canvas Navigation
 
 
 
@@ -7919,7 +7909,7 @@
 
 
 
-		/* Footer */
+		Footer
 
 
 
@@ -7935,7 +7925,7 @@
 
 
 
-/* XSmall */
+XSmall
 
 
 
@@ -7943,7 +7933,7 @@
 
 
 
-		/* Basic */
+		Basic
 
 
 
@@ -7963,7 +7953,7 @@
 
 
 
-		/* List */
+		List
 
 
 
@@ -8023,7 +8013,7 @@
 
 
 
-		/* Button */
+		Button
 
 
 
@@ -8041,7 +8031,7 @@
 
 
 
-		/* Spotlight */
+		Spotlight
 
 
 
@@ -8061,7 +8051,7 @@
 
 
 
-		/* Wrapper */
+		Wrapper
 
 
 
@@ -8073,7 +8063,7 @@
 
 
 
-		/* Banner */
+		Banner
 
 
 
@@ -8085,7 +8075,7 @@
 
 
 
-		/* Footer */
+		Footer
 
 
 
@@ -8438,7 +8428,7 @@ a:hover
 
 
 
-/**** slider ****/
+*** slider ***
 
 
 
@@ -8546,7 +8536,7 @@ a:hover
 
 
 
-/*** Content ***/
+** Content **
 
 
 
@@ -8592,7 +8582,7 @@ a:hover
 
 }
 
-/*** target hooks ****/
+** target hooks ***
 
 
 
@@ -8640,7 +8630,7 @@ a:hover
 
 
 
-/* use to paused the content on mouse over */
+use to paused the content on mouse over
 
 
 
@@ -8700,12 +8690,12 @@ div .compras1{
 
     background: #06b6c7 !important;
     z-index: 100;
-    /* margin-top: 45px !important; */
-    /* box-shadow: 0 0 black; */
+    margin-top: 45px !important;
+    box-shadow: 0 0 black;
     display: none;
     position: fixed;
     top: 45px;
-    /* bottom: 0 !important; */
+    bottom: 0 !important;
     right: 10px;
     width: 450px;
     
@@ -8944,7 +8934,7 @@ height: 260px;
 
 }
 
-/* Status Order*/
+Status Order
 
 
 
@@ -8968,4 +8958,4 @@ height: 260px;
 
 	text-align: center;
 
-}
+} */
