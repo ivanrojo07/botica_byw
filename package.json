@@ -8,8 +8,9 @@
   },
   "devDependencies": {
     "axios": "^0.15.2",
-    "bootstrap-sass": "^3.3.7",
-    "jquery": "^3.1.0",
+    "bootstrap": "^4.0.0",
+    "popper.js": "^1.12",
+    "jquery": "^3.2",
     "laravel-elixir": "^6.0.0-15",
     "laravel-elixir-vue-2": "^0.2.0",
     "lodash": "^4.16.2",

@@ -71,34 +71,53 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function($) {$('.flex_search_movil').click(function () {
+
 	$('.input_search').removeClass('input_search').addClass('input_search1');
 });
 
 $('.shownone').click(function () {
+
 	$('.input_search').removeClass('input_search').addClass('input_search1');
 });
+
 $(function () {
+
 	$("#nav .product1").on("click", irA);
+
 	$(window).scroll(scrollMenu);
 });
+
 function irA() {
+
 	var seccion = $(this).attr("href");
+
 	$('body,html').animate({
+
 		scrollTop: $(seccion).offset().top - 100
+
 	}, 800);
+
 	return false;
 }
 
 $(function () {
+
 	$('.ir-arriba').click(function () {
+
 		$('body,html').animate({
+
 			scrollTop: '0px'
+
 		}, 500);
 	});
+
 	$(window).scroll(function () {
+
 		if ($(this).scrollTop() > 100) {
+
 			$('.ir-arriba').fadeIn('250');
 		} else {
+
 			$('.ir-arriba').fadeOut('250');
 		};
 	});
@@ -109,7 +128,7 @@ $(function () {
 /* 1 */
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
+throw new Error("Module build failed: ModuleBuildError: Module build failed: \r\n@import \"node_modules/bootstrap/scss/bootstrap\";\r\n^\r\n      File to import not found or unreadable: node_modules/bootstrap/scss/bootstrap\nParent style sheet: stdin\r\n      in C:\\Users\\tarza\\Documents\\B&W\\botica_byw\\resources\\assets\\sass\\app.scss (line 10, column 1)\n    at runLoaders (C:\\Users\\tarza\\Documents\\B&W\\botica_byw\\node_modules\\webpack\\lib\\NormalModule.js:383:19)\n    at C:\\Users\\tarza\\Documents\\B&W\\botica_byw\\node_modules\\loader-runner\\lib\\LoaderRunner.js:727:11\n    at C:\\Users\\tarza\\Documents\\B&W\\botica_byw\\node_modules\\loader-runner\\lib\\LoaderRunner.js:459:18\n    at context.callback (C:\\Users\\tarza\\Documents\\B&W\\botica_byw\\node_modules\\loader-runner\\lib\\LoaderRunner.js:221:13)\n    at Object.onRender (C:\\Users\\tarza\\Documents\\B&W\\botica_byw\\node_modules\\sass-loader\\index.js:273:13)\n    at Object.<anonymous> (C:\\Users\\tarza\\Documents\\B&W\\botica_byw\\node_modules\\async\\dist\\async.js:2244:31)\n    at Object.callback (C:\\Users\\tarza\\Documents\\B&W\\botica_byw\\node_modules\\async\\dist\\async.js:906:16)\n    at options.error (C:\\Users\\tarza\\Documents\\B&W\\botica_byw\\node_modules\\node-sass\\lib\\index.js:289:32)");
 
 /***/ }),
 /* 2 */
@@ -10331,6 +10350,7 @@ if ( true ) {
 	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() {
 		return jQuery;
 	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 }
 
