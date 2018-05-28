@@ -17,15 +17,12 @@
 				</div>
 				</form>
 			</div>
-			
 		</div>
-			
 	<div class="panel panel-default" @if ($trackings->isEmpty())
 		{{-- expr --}}
 		style="height: 506px;" 
 	@endif>
 		<div class="page-header">
-
 			<button class="btn btn-warning" 
 			        data-toggle="modal" 
 					data-target="#modal">
@@ -40,18 +37,14 @@
 					<th style="color:black;text-align: center"><strong>Bultos</strong></th>
 					<th style="color:black;text-align: center"><strong>Peso</strong></th>
 					<th style="color:black;text-align: center"><strong>Fecha de Registro</strong></th>
-					
 				</tr>
 			</thead>
-			
 			@foreach ($trackings as $tracking)
 				{{-- expr --}}
 				<tr title="Has Click Aquì para Ver"
 					style="cursor: pointer;"
 					data-toggle="collapse" 
 					data-target="#{{$tracking->id}}">
-					
-					
 					<td >{{$tracking->hawb}}</td>
 					<td>{{$tracking->orden->shoppingCart->customid}}</td>
 					<td>{{$tracking->destino}}</td>
@@ -62,29 +55,16 @@
 			@endforeach
 			</table>
 		</div>
-			
-
-		</div>
-
+		</div
 		 @foreach ($trackings as $tracking)
 		<div class="panel-body collapse" id="{{$tracking->id}}" style="color: black;">
-
-			
 			<div class="panel-header">  <br><br>
-
 			<strong>Hitos/Status {{$tracking->hawb}}</strong>	
-
-
-			</div>
-
-
-			
+			</div>			
   <div class="panel">
   	<form method="POST" action="{{route('status.store')}}">
 			{{ csrf_field() }}
 			<input type="hidden" name="tracking_id" id="tracking_id" value="{{$tracking->id}}">
-
-			
 				<div class="form-group">
 					<div class="row">
 								        	<div class="col-sm-3">   
@@ -102,25 +82,17 @@
 											<div class="c2ol-sm-3"> 
 											<br>  
 								        		<input type="submit" class="btn btn-primary" value="Agregar">
-											</div>
-											
                   </div>
                 </div>
-
 	</form>
   	
-  </div>
- 
- 
-  	
+  </div>  	
   	<table class="table table-striped table-bordered table-hover" style="border-collapse: collapse; margin-bottom: 0px;">
 		<thead>
 			<tr class="info">
 				<th style="color:black;text-align: center"><strong>STATUS</strong></th>
 				<th style="color:black;text-align: center"><strong>HORA</strong></th>
-				<th style="color:black;text-align: center"><strong>FECHA</strong></th>
-				
-				
+				<th style="color:black;text-align: center"><strong>FECHA</strong></th>		
 			</tr>
 		</thead>
 		<tbody>
@@ -131,27 +103,12 @@
 		<td>{{$hito->fecha}}</td>
 		   <tr>
 		 @endforeach
-
 		</tbody>
-	  
 	</table>
-
-
-
-
 	</div>
-
-		
-
 		 @endforeach
 	</div>
 	</div>
-
-
-	
-
-
-
 	{{-- MODAL --}}
 					<div class="modal" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="position: 0,0 !important; ">
 								  <div class="modal-dialog" role="document">
@@ -188,16 +145,11 @@
      					    </select>
 											</div>
 											
-                 
                 </div>
                 <br>
                 <div class="row">
-                	<div class="col-sm-offset-1  col-sm-10">   
-							
-						
 			        		<label for="destino"> Destino:</label>
 								<input type="text" class="form-control" name="destino" id="destino" placeholder="Destino" required style="size: 200px; height: 35px;" value="">
-						
                 	</div>
                 </div>
                 <br>
@@ -227,19 +179,13 @@
                 	</div>
                 </div>
 			</div>
-
-
 				<div class="modal-footer">
-
 				<input type="submit" class="btn btn-primary" value="Guardar">
 				<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-							</div>	       
-			</form>
-
-								    
+				</div>	       
+			</form>  
 								  </div>
 								</div>
-
 					{{-- MODAL --}}
 
 

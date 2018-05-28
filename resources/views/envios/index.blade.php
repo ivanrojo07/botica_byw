@@ -7,7 +7,6 @@
 			<h4 style="color: black;">Zona de envios</h4>
 			<a href="{{ route('envios.create') }}" class="btn btn-success">Nueva Tarifa</a>
 			<br>
-
 			<table class="table table-bordered table-striped">
 				<thead>
 					<tr>
@@ -39,7 +38,6 @@
 							<td>${{$envio->precio_h}} US</td>
 							<td>${{$envio->precio_i}} US</td>
 							<td><a href="{{ route('envios.edit',['envio'=>$envio]) }}" class="btn btn-info">Editar Tarifa</a></td>
-
 						</tr>
 					@endforeach
 				</tbody>

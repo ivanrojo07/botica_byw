@@ -16,13 +16,10 @@ Resumen del pedido:
 @endforeach
 | Envio       |          | {{$order->shoppingcart->totalenvio}}  |
 | Total       |          | {{$order->total}}  |
-
 @endcomponent
-
 @component('mail::button', ['url' => $url])
 Ver mi pedido
 @endcomponent
-
 Gracias,<br>
 {{ config('app.name') }}
 @endcomponent

@@ -2,26 +2,17 @@
 @section('content')
 	{{-- expr --}}
 	<section id="four" class="wrapper style1 special fade-up">
-
         <div id="productos" class="container">
         	{{-- <div class="jumbotron"> --}}
 			  <h4 style="color: black;">Zona de envios</h4>
 			  	@if ($errors->any())
-
 	                <div class="alert alert-danger text-left">
-
 	                    <ul>
-
 	                        @foreach ($errors->all() as $error)
-
 	                            <li>{{ $error }}</li>
-
 	                        @endforeach
-
 	                    </ul>
-
 	                </div>
-
 	            @endif
 			  <form action=@if ($edit)
 			  	{{-- true expr --}}
@@ -30,12 +21,10 @@
 			  	{{-- false expr --}}
 			  	"{{ route('envios.store') }}"
 			  @endif method="POST" name="envioform">
-			  	
 			  	@if ($edit)
 			  		{{-- true expr --}}
 			  		<input type="hidden" name="_method" value="PUT">
 			  		<input type="hidden" name="id" value="{{$envio->id}}">
-
 			  	@endif
 			  	{{ csrf_field() }}
 			  	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 form-group">
@@ -111,7 +100,6 @@
 					  	<span class="input-group-addon">USD</span>
 					</div>	
 			  	</div>
-
 			  	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 form-group">
 			  		<label for="precio_e">Precio Zona E:</label>
 			  		<div class="input-group">
@@ -126,7 +114,6 @@
 					  	<span class="input-group-addon">USD</span>
 					</div>	
 			  	</div>
-
 			  	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 form-group">
 			  		<label for="precio_f">Precio Zona F:</label>
 			  		<div class="input-group">
@@ -141,7 +128,6 @@
 					  	<span class="input-group-addon">USD</span>
 					</div>	
 			  	</div>
-
 			  	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 form-group">
 			  		<label for="precio_g">Precio Zona G:</label>
 			  		<div class="input-group">
@@ -156,7 +142,6 @@
 					  	<span class="input-group-addon">USD</span>
 					</div>	
 			  	</div>
-
 			  	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 form-group">
 			  		<label for="precio_h">Precio Zona H:</label>
 			  		<div class="input-group">
@@ -171,7 +156,6 @@
 					  	<span class="input-group-addon">USD</span>
 					</div>	
 			  	</div>
-
 			  	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 form-group">
 			  		<label for="precio_i">Precio Zona I:</label>
 			  		<div class="input-group">
@@ -189,7 +173,6 @@
 			  	<div class="col-lg-12">
 			  		<input type="submit" value="Guardar" title="Guardar" class="btn btn-success">
 			  	</div>
-
 			  </form>
 			{{-- </div> --}}
         </div>

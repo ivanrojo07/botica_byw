@@ -2,10 +2,8 @@
 @section('content')
 	{{-- expr --}}
 	<section id="four" class="wrapper style1 special fade-up">
-
 		<div class="container">
 			<div id="productos" class="container">
-
 				<header class="major">
 					<img src="{{ asset('/img/sky.png') }}">
 					<br>
@@ -13,9 +11,7 @@
       				<br>
       				<h2 class="grey satisfic-font font1">Pedido # {{$shopping_cart->customid}}</h2>
       			</header>
-
 			</div>			
-			
 			@foreach ($trackings as $tracking)
 			{{-- expr --}}
 			<div class="10u$ 12u$(medium) important(medium) faq">
@@ -27,7 +23,6 @@
 				        <p class="pipe">Comprado el: {{$shopping_cart->created_at->format('d/m/Y')}} <span class="pipe">Total: ${{ $shopping_cart->total }} USD</span></p>
 				      </h4>
 				    </div>
-
           			<div class="item-row">
 				        <div class="col-lg-7 col-md-6">
 							<div class="product col-xs-12">
@@ -35,7 +30,6 @@
 				                <img src="{{ asset('/img/12.jpg') }}" height="100" width="auto">
 				              </div>
 				              <div class="detail-container col-lg-9 col-md-8 col-xs-10">
-
 				                <p class="col-lg-5 col-md-7">Número de Bultos: {{ $tracking->bultos}}</p>
 				                <p class="col-lg-5 col-md-7">Peso: {{ $tracking->peso}} Kg.</p>
 				              </div>
@@ -52,13 +46,10 @@
 				                    	<span>{{$hito->status}}</span>
 				              		</li>
 				              	@endforeach
-				                    
-								</ul>
-				                           
+								</ul>                
 				        </div>
       				</div>
       			</div>
-
 				<br>
 				<br>
 				<br>

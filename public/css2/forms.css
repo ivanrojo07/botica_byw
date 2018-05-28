@@ -1,0 +1,35 @@
+/*.navbar.navbar-default.navbar-static-top{
+	background: #55688a;
+}
+.navbar-default .navbar-nav>li>a, .navbar-default .navbar-text{
+	color: #ffffff;
+}*/
+.show {
+    display:block;
+}
+.persona{
+	display: none;
+}
+.pestana{
+	display: none;
+}
+.dropdown-submenu {
+    position: relative;
+}
+.modal-content {
+    position: absolute;
+    margin-left: -300px;
+    background-color: #fff;
+    border: 1px solid #999;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+    background-clip: padding-box;
+    outline: 0;
+}
+.dropdown-submenu .dropdown-menu {
+    margin-top: 0;
+    right: 0;
+    left: auto;
+}

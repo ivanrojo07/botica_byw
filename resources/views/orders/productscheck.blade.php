@@ -6,7 +6,6 @@
     </h4>
 
     <div class="col-lg-12">
-
         <table class="table" style=" padding: 5px !important;max-width: 60% !important;">
             <thead>
                 <tr>
@@ -63,54 +62,7 @@
         </table>
     </div>
 </div>
-
 <script>
-    // $( document ).ready(function() {
-    //     $('#producto').click(function(e) {
-    //         var producto = $(this).val();
-    //         console.log(producto);
-    //         $.ajaxSetup({
-    //             headers: {
-    //                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    //             }
-    //         });
-
-    //         $.ajax({
-    //             url: '{{ url('/producto_check') }}',
-    //             type: 'POST',
-    //             data: {
-    //                 checked: producto
-    //             },
-
-    //             success: function(data){
-    //                 // $(this).attr("disabled", data);
-    //             }
-    //         })
-    //     });
-    // });
-    // $( document ).ready(function() {
-    //     $('#promotion').click(function(e) {
-    //         var promotion = $(this).val();
-    //         console.log(promotion);
-    //         $.ajaxSetup({
-    //             headers: {
-    //                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    //             }
-    //         });
-
-    //         $.ajax({
-    //             url: '{{ url('/promotion_check') }}',
-    //             type: 'POST',
-    //             data: {
-    //                 checked: promotion
-    //             },
-
-    //             success: function(data){
-    //                 // $(this).attr("disabled", data);
-    //             }
-    //         })
-    //     });
-    // });
     function checkingProducto(id){
         var producto = document.getElementById("checked_prod "+id).value;
         console.log(id);
@@ -119,14 +71,12 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-
         $.ajax({
             url: '{{ url('/producto_check') }}',
             type: 'POST',
             data: {
                 checked: producto
             },
-
             success: function(data){
                 // $(this).attr("disabled", data);
             }

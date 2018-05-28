@@ -1,0 +1,390 @@
+/*  ====== valores por defecto de toda la pagina ======  */
+	/* estilos aplicados de forma general sobre cuerpo de la pagina */
+	body { font-family: Arial, Helvetica, sans-serif; font-size:11px; margin: 10px 0px 0px 0px; text-align: left; background:url(fondo.png) repeat-x top left #eff3ff; background-color:#02417E; }
+	
+	/* contorno no aplicado a ningun elemento de toda la pagina */
+	* { outline:0; }
+	
+	/* estilos generales de los links en la pagina, imagen sin borde */
+	a:link img, a:visited img { border:none }
+
+	/* estilos generales de los links visitados en la pagina */
+	a:visited { text-decoration:none; border:none; }
+	
+	/* estilos de las cajas de texto de toda la pagina */
+	input#text { background:#f5f5f5; font-size:11px; margin-bottom:0.5em; }
+	
+	/* estilos para los titulos de la pagina */
+	h1 { font-size:26px; color:#18517B; font-weight:bold; background-color:transparent; }
+	h2 { font-size:20px; color:#18517B; font-weight:bold; background-color:transparent; }
+	h3 { font-size:18px; color:#336699; font-weight:normal; background-color:transparent; }
+/* ===================================================== */
+
+/*  ============= estilos de tipo clase ===============  */
+	/* estilos para el borde de la columna superior, inferior y contenido */
+	.border-sup-inf { border-bottom: 1px #ABCE31 solid; }
+	
+	/* estilos para los campos obligatorios */
+	.obligatorio { font-size:11px; font-weight:bold; color:#900; }
+
+	/* estilos para mostrar el equivalente de un medicamento */
+	.equivalente { font-size:16px; color:#000; }
+	/* estilos para los vinculos en la muestra de un medicamento con equivalente */
+	.equivalente a { font-size:13px; }
+
+	/* estilos para los vinculos del abecedario de consulta de los medicamentos */
+	.b_search { font-size:12px; font-weight:bold; color:#336699; }
+	/* estilos del color del fondo para el menu principal */
+	.headerBarMenu { background-image: url('bgheader.gif'); background-repeat: repeat-x; display:block; height:22px; text-align:left; padding: 12px 0px 0px 0px; font-weight:bold; color: #FFF; }
+	
+	/* estilos que son aplicados en la muestra de las noticias y articulos */
+	.search { border:1px solid #18517B;	}
+	/* estilos aplicados sobre las celdas th en la muestra de noticias y articulos */
+	.search th{ border-bottom:1px solid #336699; background-color:#B5D8E3; padding:4px; font-size:12px; text-align:left; }
+	/* estilos aplicados sobre las celdas td en la muestra de noticias y articulos */
+	.search td{ background-color:#FFFFFF; padding:8px;font-size:11px; color:#000000; }
+	/* estilos aplicados sobre los vinculos en al muestra de noticias y articulos */
+	.search a{ color:#336699; }
+	
+	/* clase que me permite establecer los resultados el search */
+	.search-list { color:#000; background-color:#F0F0F0; padding:1px 8px 1px 8px; }
+	/* estilo de la etiqueta h4 */
+	.search-list h4 { color:#336699; }
+	/* estilos de los links en los resultados del search */
+	.search-list a { color:#336699;	}
+	
+	/* estilos de la fuente para el mensaje de error y para el codigo captcha */
+	.captcha, .mensaje-error { color: #900; font-style: italic; font-size: 11px; }
+	
+	/* estilos para la tabla que muestra los precios de un medicamento */
+	.price-meds { font-size:11px; font-weight:bold;	border:1px solid #336699; text-align:center; width:100%; }
+	/* estilos en las filas pares en la muestra de los precios de los medicamentos */
+	tr.price-par td { background:#FFF; }
+	/* estilos en las filas impares en la muestra de los precios de los medicamentos */
+	tr.price-impar td { background:#DFE7F2; }
+	/* propiedad o estilo para las celdas de la tabla de los precios de un medicamento */
+	.price-meds td { color:#336699;	font-size:12px;	height:29px; }
+	/* propiedad o estilo para las celdas de titulo de la tabla de los precios de un medicamento */
+	.price-meds th { height:25px; color: #666; font-size:13px; /*border: 1px solid #CCCCCC;*/ }
+	
+	/* vinculos de los correos */
+	.link-correo { color:#336699; }
+	/* vinculos de los list */
+	.link-list { color:#000; background-color:#F0F0F0; padding:1px 15px 1px 15px; }
+	/* vinculos del listado de los testimonios */
+	.testimonios-list {	color:#000; background-color:#F0F0F0; padding:1px 15px 1px 15px; }
+	
+	/* estilos que permiten el titulo en las sugerencias de busqueda */
+	.titulo { width:460px; color:#18517B; }
+	
+	.noshow { position:absolute; left:-1000px; top:-1000px; width:161px; height:27px; z-index:1; }
+	
+	/* estilo o fondo del titulo en la parte lateral izquierda */
+	.button{ background-image: url('bgheader.gif'); background-repeat:repeat-x; width:166px; height:30px; margin-left:0px; text-align:center; font-weight:bold;color:white; padding-top:13px; background-color:transparent; margin-right:3px; }
+/* ===================================================== */
+
+
+/*  =============== estilos de tipo id ================  */
+	/* estilos que contiene el header, cuerpo, footer, footer-link */
+	#contenedor { background-color:#FFF; font-size:11px; text-align: left; width: 1000px; margin: auto; }
+
+	/* estilos aplicados en la ubicacion en donde va el banner y el menu principal de la pagina */
+	#header { width: 1001px; height: 215px; color: #333300; font-size:12px; font-weight: bold; padding: 0px 0px 0px 0px; background-repeat:no-repeat; }
+	/* estilos sobre los links en el header */
+	#header a { font-weight:bold; text-decoration: none; border: none; color:#FFF; }
+	/* estilos del los links del header cuando se parena encima */
+	#header a:hover { color: #FFF; text-decoration: underline; }
+	
+	#languaje { margin:10px 10px 0px 45px; font-size:10px; }
+	#busqueda { padding:13px 0px 0px 5px; font-size:19px; color:#003366; }
+
+
+	/* estilos aplicados en tres secciones, menú vertical ubicado a la izquierda, contenido ubicado en el centro, y publicidad ubicada a la derecha */
+	#cuerpo { margin: 0px 0px 0px 0px; }
+	#phone{ font-size:17px; color: #003366; margin:9px 0px 0px 282px; font-weight:700; }
+
+	/* estilos para el borde y fondo de las columna lateral izquierda - menu medicamentos */
+	#border-lateral-left { border:1px #ABCE31 solid; background:#FFF; }
+	/* estilos de la columna lateral izquierda */
+	#lateral-left { font-size:12px; width: 166px; float:left; }
+	/* estilos del color de los vinculos de la columna izquierda */
+	#lateral-left a { color: #18517B; font-weight:bold; text-decoration: none; }
+
+	/* estilos formulario de busquedas dinamicas sobre en la pagina  */
+	#search-form { font-size:11px; text-align:center; width:166px; padding:8px 4px 4px 0px; }
+	/* estilos para los vinculos del formulario de busquedas dinamicas */
+	#search-form a { text-decoration: none; color:#000; }
+	/* estilos del boton de consulta del formulario de busquedas dinamicas */
+	#search-form #buscar{ font-size:10px; background-image:url('buscar.gif'); background-repeat:no-repeat; background-position:left; border:none; height:21px; width:79px; color:#000; font-weight:bold; }
+	/* estilos sobre las celda del formulario de busquedas dinamicas */
+	#search-form td{ color:#336699; font-size:12px }
+
+	#search-page
+	{
+		background:url('search-page.gif'); background-repeat:no-repeat; margin:8px 0px 0px 1px; height:123px; 
+	}
+	#msn_search { font-size:11px; color:#336699; font-weight:normal; }
+	
+	#title-med
+	{
+		background:url('title-med.gif'); background-repeat:no-repeat; margin:0px 0px 10px 1px; height:30px; padding:8px 0px 0px 47px; color:#FFF; 
+	}
+	#title-content
+	{
+		background:url('title-content.gif'); background-repeat:no-repeat; margin:0px 0px 10px 1px; height:30px;
+	}
+	#title-gen
+	{
+		background:url('title-gen.gif'); background-repeat:no-repeat; margin:0px 1px 10px 0px; height:30px;
+	}
+	
+	
+	/* estilos en la muestra de los medicamentos en top */
+	#topmeds { color:#18517B; }
+	/* estilos en la muestra de los vinculos de medicamentos en top */	
+	#topmeds a { color:#18517B; font-size:12px; }
+	/* estilos en la muestra de los vinculos de medicamentos en top cuando se paran encima de ellos */	
+	#topmeds a:hover{ color:#18517B; }
+
+	/* estilos aplicados en el contenido de la pagina */
+	#contenido { background-color: #FFF; color: #000; margin: 0px 15px 10px 15px; padding: 5px 2px 2px 2px; font-size:12px;	width: 630px; text-align:left; overflow: visible; }
+	/* estilos aplicados en los vinculos del contenido de la pagina */
+	#contenido a { text-decoration:none; color: #18517B; }
+
+
+
+	#links { font-size:11px; font-weight:bold; border:1px solid #336699; text-align:center;	width:100%; }
+	#links td { color:#336699; font-size:12px; border: 1px solid #CCC; }
+	#links th {	height:25px; color: #666; font-size:13px; }
+	
+	
+	
+	/* estilos aplicados en la muestra de los links exchange paginados */
+	#contenido-links { color: #333; }
+	/* estilos sobre los vinculos en la muestra de los links exchange paginados*/
+	#contenido-links a { color:#336699; font-weight:bold; text-decoration:none; cursor:pointer; }
+	
+	/* estilos aplicados en la muestra de los testimonios paginados*/
+	#contenido-testimonios { color: #333; }
+	/* estilos sobre los vinsulos en la muestra de los testimonios paginados */
+	#contenido-testimonios a { color:#336699; font-weight:bold; text-decoration:none; cursor:pointer; }
+
+	/* navegacion en cada na de las secciones de la paginaa */
+	#navegacion { font-size:12px; font-weight:700; color:#666; padding:10px 5px 15px 0px; margin-bottom:10px; }
+	#navegacion a{ font-weight:700; color:#18517B; text-decoration:none; }
+	#navegacion a:hover{ text-decoration:underline; color:#666; }
+	
+	
+#content-med ul { list-style:none; margin:0px; 	padding:2px 0px 0px 10px;}
+#content-med ul li{
+	
+	padding:0px 0px 0px 0px;
+}
+#content-med ul li a {
+	padding-left:28px;
+	font-size:13px;
+	font-weight:700;
+	color: #18517B;
+	text-decoration:none;
+	background: url(vineta-med.gif) no-repeat left 0px;
+}
+#content-med ul li a:hover { padding-left:28px; text-decoration:underline; color:#1A6BAA;background: url(vineta-med.gif) no-repeat left 0px;}
+#content-med ul li h4 { padding:3px 0px 3px 0px; margin:0px; }
+
+
+
+#content-cat ul { list-style:none; margin:0px; 	padding:2px 0px 0px 10px;}
+#content-cat ul li{
+	
+	padding:0px 0px 0px 0px;
+}
+#content-cat ul li a {
+	padding-left:28px;
+	font-size:13px;
+	font-weight:700;
+	color: #18517B;
+	text-decoration:none;
+	background: url(vineta-cat.gif) no-repeat left 0px;
+}
+#content-cat ul li a:hover { padding-left:28px; text-decoration:underline; color:#1A6BAA;background: url(vineta-cat.gif) no-repeat left 0px;}
+#content-cat ul li h4 { padding:3px 0px 3px 0px; margin:0px; }
+
+
+	#navlist
+	{
+		color:#FFF;
+		margin:3px 0px 0px 0px;
+		padding:2px 2px 2px 10px;
+	}
+	#navlist li
+	{
+		display: inline;
+		list-style-type: none;
+		padding:5px 2px 5px 2px;
+	}
+	/* estilos aplicados en la descripcion de los medicamentos */
+	#desc-medicamentos { color:#336699; }
+	/* estilo de la descripcion de los medicamentos en las celdas */
+	#desc-medicamentos td {	color:#336699; height:13px; }
+	/* estilo de los vinculos en las celdas para la descripcion de los medicamentos */
+	#desc-medicamentos td a { text-decoration:underline; }
+	
+	/* estilos para el borde y fondo de las columna lateral derecha - banners y chose languaje */
+	#border-lateral-right { border: 1px #ABCE31 solid; background:#FFF; }
+	/* estilos sobre la columna derecha - publicidad */
+	#lateral-right { font-size:12px; width: 166px; text-align: left; background-position:center; color: #18517B; margin: auto; }
+	/* estilos sobre la columna derecha- publicidad */
+	#lateral-right a { font-size:10px; color: #18517B; }
+
+
+	#url-art-not
+	{
+		margin-top:10px;
+		padding-left:15px;
+	}
+	#url-art-not a
+	{
+		font-size:12px;
+		color:#18517B;
+		text-decoration:underline;
+		font-weight:700;
+	}
+	
+	#busqueda-alfabetica { margin-top:5px; font-weight:700; }
+	#abcd {
+		padding:3px 0px 4px 0px;
+		margin:5px 0px 0px 0px;
+	}
+	
+	#abcd a{ font-size:10px; color:#18517B; text-decoration:none; }
+	
+	/* estilos aplicados sobre el boletin */
+	#newsletter { font-size:11px; border: 1px solid #336699; width: 115px; background-color:#336699; color:#FFF; background-position:center; }
+	/* estilos sobre las celdas del newsletter */
+	#newsletter td{ font-size:11px; color:#000; background-color:white; padding-left:4px; text-align:left; }
+	/* estilos del boton para realizar el envio de la informacion para le boletin */
+	#newsletter #signin{background-image:url('signin.gif'); background-repeat:no-repeat; background-position:left; padding-left:20px; border:1px solid #336699;width:98px; float:right; color:#336699; font-weight:bold; }
+	
+	/* estilo que permite mostrar el div de mensajes, ya sean de error o de confirmacion */
+	#cerrar-mensaje { background-color: #DDF2FF; border: 1px solid #CCC; color:#fff; padding:10px; margin-top:10px; }
+	
+	/* estilos de error en las validaciones de los formularios */
+	#error_nombre, #error_email, #mensaje_error, #error_name, #error_mail, #error_namigo, #error_eamigo, #error_captcha, #error_captchab, #error_captchar, #error_namigo2, #error_eamigo2, #error_namigo3, #error_eamigo3, #error_asunto, #error_captchac, #error_captchap, #error_orden, #error_captchat, #error_testimonio, #error_apellido, #error_usuario, #error_contrasena, #error_empresa, #error_telefono, #error_direccion, #error_ciudad, #error_estado, #error_pais, #error_cpostal, #error_sitio, #error_captchaf, #error_ver_contrasena, #error_captchale, #error_dominio, #error_titulo, #error_descripcion_link, #error_link_nosotros { color: #900; font-style: italic; font-size: 11px; font-weight:normal; }
+	
+	 #error_search { color: #900; font-style: italic; font-size: 11px; font-weight:normal; }
+
+	/* estilos del cambio de lenguaje */
+	#ch_lenguaje { font-size:11px; font-weight:bold; border:1px solid #336699; text-align:center; width:115px; }
+	/* estilos para los vinculos del cambio de idioma, estableciendo que no tendran underline el link */
+	#ch_lenguaje a { text-decoration: none; }
+	/* estilos para las celdas del cambio de idioma */
+	#ch_lenguaje th{ color:#FFF; background:#336699; font-size:12px }
+	
+	
+	/* estilos que permiten personalizar el mensaje de error 404 de contenido no encontrado */
+	#error404 { width:400px; height:50px; color:#18517B; font-style:italic; }
+
+	/* -- utilizacion de los formularios -- */
+	#contactenos
+	{
+		width:410px;
+		padding:10px 15px 0px 15px;
+		background:#E9F0FA;
+		border:1px solid #6BA7DC;
+		color:#18517B;
+		font-weight:700;
+		margin-top:10px;
+	}
+	
+	#afiliado { width:450px; padding:10px 15px 0px 15px; background:#E9F0FA; border:1px solid #6BA7DC; color:#18517B; font-weight:700; margin-top:10px; }
+	#testimonios { width:440px; padding:10px 15px 0px 15px; background:#E9F0FA; border:1px solid #6BA7DC; color:#18517B; font-weight:700; margin-top:10px; }
+	#recomendar, #estado-pedido, #boletin { width:430px; padding:10px 15px 0px 15px; background:#E9F0FA; border:1px solid #6BA7DC; color:#18517B; font-weight:700; margin-top:10px; }
+	
+	#links-exchange { width:510px; padding:10px 15px 0px 15px; background:#E9F0FA; border:1px solid #6BA7DC; color:#18517B;	font-weight:700; margin-top:10px; }
+	#enviar { background:#EBEBEB; color:#000; font-weight:700; }
+	/* --    -- */
+
+	#img-adsense{ float:left; margin-right:8px; }
+		
+	/* estilos que permiten personalizar el mensaje de seguridad cuando va a comprar un medicamento */
+	#secure-page { background-image:url('seguridad-pagos.jpg'); background-repeat:no-repeat; width:700px; height:500px;	}
+	#secure-page a { font-size:14px; color:#000; font-weight:700; text-decoration:underline; }
+	#secure-page a:hover { font-size:14px; color: #345F98; font-weight:bold; text-decoration:underline;	}
+	/* estilos aplicados al texto principal de la pagina secure-page */
+	#text-secure { width:400px; height:160px; font-size:15px; color:#345F98; position:relative; left:5px; top:125px; text-align:left; z-index:2; }
+	/* estilos aplicados al texto que indica los pagos en la pagina secure-page */
+	#text-pago { width:350px; height:50px; position:relative; font-size:11px; color:#000; left:140px; top:143px; text-align:left; z-index:1; }
+	/* estilos aplicados a la url que indica la continuacion del tramite de compra */
+	#url-continuar { width:250px; height:50px; position:relative; left:156px; top:225px; z-index:0; }
+	
+	/* estilos aplicados al pie de la pagina */
+	#footer { width:995px;	background-color:#D9E9A3; font-size:13px; padding: 0px 5px 0px 0px; text-align: left; clear: both; margin-top:1px; color:#02417E; font-weight:700; } 
+	/* estilo para los vinculos del footer */
+	#footer a{ text-decoration:none; color:#02417E; font-weight:normal; }
+
+	/* estilos del copyright */
+	#copy { width:970px; background-color:#FFF; font-weight:bold; font-size:11px; text-align:center; color:#000; padding:0px 16px 10px 15px; }
+	
+	/* estilos aplicados pie en donde se mostraran los links de la pagina */
+	#footer-links {	background-color: #02417E; padding: 13px 0px 5px 0px; text-align: left; width:1001px; font-size:11px; color:#4A92CE; } 	
+	/* estilos de los vinculos footer de links de la pagina*/
+	#footer-links a { text-decoration: none; color:#FFF; }
+	
+	/* estilos para personalizar el formulario de desactivacion de contactos */	
+	#desactivar { background:#FFF url(success_bg.jpg) bottom right no-repeat; border-top:none; color:#3A6AAB; font-size:13px; width:415px; height:150px; margin: 15px 15px 15px 15px; }
+	/* estilos aplicados al vinculo que permite redireccionar a la farmacia de inscripcion */
+	#desactivar a { font-size:13px;	color:#3A6AAB; font-weight:bold; text-decoration:underline; }
+/* ===================================================== */
+
+/* ========= Propiedades de estilos del menu =========== */
+	#menu { font-family:Verdana, Geneva, sans-serif; font-size:10px; width:164px; margin:0px; padding:0px; }	
+	#menu ul { list-style-type:none; margin:0px; padding:0px; position:relative; z-index:1; }
+	#menu ul li a.nivel1, #menu ul li a.nivel1ie { width:160px; display:block; background:url(right.gif) no-repeat 97% 50%; background-color:#FFF; }
+	#menu ul li a.primera { border-right:none; }
+	#menu ul li a { display:block; text-decoration:none; color:#18517B; border-bottom:solid 1px #ABCE31; border-right:solid 1px #ABCE31;  padding:3px;position:relative; text-align:left;}
+	#menu ul li:hover { position:relative; }
+	#menu ul li a:hover, #menu ul li:hover a.nivel1 { background-color:#D9E9A3; position:relative; }
+	#menu ul li a.nivel1 { display:block!important; display:none; position:relative; }
+	#menu ul li ul { display:none; top:-22px; margin-left:5px; }
+	#menu ul li a:hover ul, #menu ul li:hover ul { display:block; position:absolute; top:-1px!important; top:-22px; left: 161px!important; left:152px; width:650px; }
+	#menu ul li a:hover ul.primero, #menu ul li:hover ul.primero { top:0px!important; top:-22px; margin-left:1px; }
+	#menu ul li ul li { display:inline; }
+	#menu ul li ul li a { width:142px; float:left; background-color:#D9E9A3; margin-left:0px; }
+	#menu ul li ul li a:hover { position:relative; background-color:#FFF; }
+	table.falsa { border-collapse:collapse; border:0px; float:left; position:relative; }
+/* ===================================================== */
+
+/* ======= Menu desplegable de los medicamentos ======== */
+	.jqueryslidemenu { font: bold 11px Verdana;	background:#DDF2FF; width:213px;  z-index:1; float:right; margin:0px 15px 0px 0px; }
+	.jqueryslidemenu ul	{ margin:0px; padding:0px; list-style-type:none; }
+	/* top nivel del listado de items */
+	.jqueryslidemenu ul li { width:228px; position:relative; display:inline; float:left; }
+	/* top estilo de los links de nivel de items */
+	.jqueryslidemenu ul li a { display:block; background:#DDF2FF; color:white; padding:8px 10px; border-right:1px solid #778; color:#2d2b2b; text-decoration:none; }
+	* html .jqueryslidemenu ul li a {/* IE6 truco para conseguir enlaces del submenú que se comporten correctamente */ display:inline-block; }
+	.jqueryslidemenu ul li a:link, .jqueryslidemenu ul li a:visited	{ color:#FFF; }
+	.jqueryslidemenu ul li a:hover { background:#9ac1c9; color:white; }
+	/* sub lista de menu nivel */
+	.jqueryslidemenu ul li ul {	position:absolute; left:0; display:block; visibility:hidden; }
+	/* sub level menu list items (undo style from top level list items)*/
+	.jqueryslidemenu ul li ul li { display:list-item; float:none; }
+	/* all subsequent sub menu levels vertical offset after 1st level sub menu */
+	.jqueryslidemenu ul li ul li ul	{ top:0; }
+	/* sub level menu links style */
+	.jqueryslidemenu ul li ul li a { width:217px; padding:5px; margin:0; border-top-width:0; border-bottom:1px solid #FFF; }
+	.jqueryslidemenuz ul li ul li a:hover { background:#eff9ff; color:#3A6AAB; }
+	/* CSS classes applied to down and right arrow images */
+	.downarrowclass { position:absolute; top:12px; right:7px; }
+	.rightarrowclass{ position:absolute; top:6px; right:5px;}
+/* ===================================================== */
+
+/* ====== Sugerencias de búsquedas para el usuario ===== */
+	.suggestion_list { background-color:#F4F4F4; width:200px; border: 1px solid; padding: 0px; z-index:3; }
+	.suggestion_list ul { padding: 3px 3px 3px 3px; margin: 0px; list-style-type: none; } 
+	.suggestion_list a { color: #C6D9EA; text-decoration: none; height:20px; }
+	.suggestion_list .selected { background-color:#E0E0E0; color: #18517B; }
+	.suggestion_list .selected a { color: #C6D9EA; }
+	#autosuggest { display: none; color:#E0E0E0; }
+	#autosuggest a{ color:#18517B; text-decoration:none; font-weight:normal; }
+	#autosuggest a:hover { color:#18517B; text-decoration:none; font-weight:normal; }
+/* ===================================================== */
