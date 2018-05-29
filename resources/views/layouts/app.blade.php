@@ -7,16 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
     <title>TuFarmaciaLatina.com</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
     <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}">
-    <script  src="{{asset('js/app.js')}}"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-
+    
     <script>
         window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),
@@ -245,45 +243,92 @@
         </footer>
     </div>
     <!-- Scripts -->
-    <!-- <script src="{{ url('js/jquery.min.js') }}"></script>
-    <script src="{{ url('js/jquery-ui.js') }}"></script>
-    {{-- Import jQuery before materialize.js --}}
-     -->
-   
-    <script type="text/javascript" src="{{ url('js/jquery-3.1.1.min.js') }}"></script>
-    <script>
-    $(document).ready(function(){
-        
-        $( "#title" ).autocomplete({
-            // alert(products);
-            source: function(request, response) {
-            $.ajax({
-                url: "{{url('/productslist')}}",
-                type: "GET",
-                dataType:"json",
-                data:{products: this.term},
-                success: function (datos){
-                    response( $.map( datos, function( item ) {
-                    return {label: item.descripcion, value: item.descripcion, url: item.id};}));
-                }
-            });
-            },
-            select: function(event, ui){
-                $("#title").val(ui.item.label);
-                window.location.href = "/products/"+ui.item.url;
-                
-                
+
+    
+<script src="{{ url('js/jquery.min.js') }}"></script>
+<script src="{{ url('js/jquery-1.12.4.min.js') }}"></script>
+<script src="{{ url('js/jquery-ui.js') }}"></script>
+
+{{-- Import jQuery before materialize.js --}}
+ <script type="text/javascript" src="{{ url('js/jquery-3.1.1.min.js') }}"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
+
+<script src="{{ url('/js/editable.js') }}"></script>
+
+<script src="{{ url('/js/app.js') }}"></script>
+
+
+
+   <script>
+   $(document).ready(function(){
+     $( "#title" ).autocomplete({
+        // alert(products);
+          source: function(request, response) {
+        $.ajax({
+            url: "/productslist",
+            type: "GET",
+            dataType:"json",
+            data:{products: this.term},
+            success: function (datos){
+                 response( $.map( datos, function( item ) {
+                return {label: item.descripcion, value: item.descripcion, url: item.id};}));
             }
-            });
         });
-        $(document).ready(function(){
-            $("#carrito").hover(function() {
-                $("#compras1").show();
-                }, function(){
-                    $("#compras1").hide();                
-            });
+        },
+          
+          select: function(event, ui){
+            $("#title").val(ui.item.label);
+            window.location.href = "products/"+ui.item.url;
+            
+            
+          }
         });
-    </script>
+    });
+    $(document).ready(function(){
+        $("#carrito").hover(function() {
+            $("#compras1").show();
+            }, function(){
+            $("#compras1").hide();                            
+        });
+    });
+    // function productos(){
+    //     console.log({{$shopping_products}});
+    // }
+        
+    // var availableTags = [
+    //   "ActionScript",
+    //   "AppleScript",
+    //   "Asp",
+    //   "BASIC",
+    //   "C",
+    //   "C++",
+    //   "Clojure",
+    //   "COBOL",
+    //   "ColdFusion",
+    //   "Erlang",
+    //   "Fortran",
+    //   "Groovy",
+    //   "Haskell",
+    //   "Java",
+    //   "JavaScript",
+    //   "Lisp",
+    //   "Perl",
+    //   "PHP",
+    //   "Python",
+    //   "Ruby",
+    //   "Scala",
+    //   "Scheme"
+    // ];
+    // console.log(products);
+  </script>
+
+    <!-- <script  src="{{asset('js/app.js')}}"></script> -->
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script> -->
+
    @yield('scripts')
 </body>
 </html>

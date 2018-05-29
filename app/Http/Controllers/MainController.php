@@ -29,8 +29,7 @@ class MainController extends Controller {
 
     {
         $cambio = CambioMoneda::first()->get()->pluck('pesos');
-        $products0 = Catalogo::inRandomOrder()->take(4)->get();
-        $products1 = Catalogo::inrandomOrder()->take(4)->get();
+        $products = Catalogo::inRandomOrder()->take(8)->get();
 
 
 
@@ -41,6 +40,7 @@ class MainController extends Controller {
 
         // $products_slider = Product::where('category_id', 41)->inRandomOrder()->take(10)->get();
         $products_slider = Promotion::inRandomOrder()->take(10)->get();
+        $products_slider1 = Promotion::inRandomOrder()->take(1)->get();
         // dd($products_slider);
 
 
@@ -54,7 +54,7 @@ class MainController extends Controller {
 
 
 
-        return view('Main.home', compact('categories', 'products0', 'products1', 'products_slider','cambio'));
+        return view('Main.home', compact('categories', 'products', 'products_slider', 'products_slider1','cambio'));
 
 
 
