@@ -443,43 +443,9 @@
     </div>
                 
 
-    <span class="ir-arriba">
-        <i class="fas fa-arrow-up"></i>
-    </span>
-        
-    @yield('content')
          
 
 
-
-    <!--*****************************FOOTER-->
-
-    <footer id="footer" class="p-0">
-            <div class="row bg-dark">
-                <div class="col-12 col-sm-4">
-                    <a href="{{url('/faq')}}" class=""><span class="label">Preguntas Frecuentes</span></a><br>
-                    <a href="{{url('/nosotros')}}" class=""><span class="label">Nosotros</span></a><br>
-                    <a href="{{url('/privacidad')}}" class=""><span class="label">Aviso de Privacidad</span></a><br>
-                    <a href="{{url('/contact')}}" class=""><span class="label">Contactanos</span></a>
-                </div>
-                <div class="col-12 col-sm-4">
-                    <ul>
-                        <li><h3>CONTÁCTANOS</h3></li><br>
-                        <li><span>01 800 269 980 1</span></li>
-                        <li><span>info@tufarmacialatina.com</span></li>
-                    </ul>
-                    <ul>
-                        <li><img src="{{ asset('img/pp.png') }}" alt=""></li>
-                    </ul>
-                </div>
-                <div class="col-12 col-sm-4">
-                    <ul>
-                        <li>&copy; Untitled. All rights reserved.</li>
-                        <li>© 2017 RX LATIN MED</li>
-                    </ul>
-                </div>
-            </div>
-    </footer>
 </div>
 
 <!-- Scripts -->
@@ -536,40 +502,9 @@
             $("#compras1").hide();                            
         });
     });
-    // function productos(){
-    //     console.log({{$shopping_products}});
-    // }
-        
-    // var availableTags = [
-    //   "ActionScript",
-    //   "AppleScript",
-    //   "Asp",
-    //   "BASIC",
-    //   "C",
-    //   "C++",
-    //   "Clojure",
-    //   "COBOL",
-    //   "ColdFusion",
-    //   "Erlang",
-    //   "Fortran",
-    //   "Groovy",
-    //   "Haskell",
-    //   "Java",
-    //   "JavaScript",
-    //   "Lisp",
-    //   "Perl",
-    //   "PHP",
-    //   "Python",
-    //   "Ruby",
-    //   "Scala",
-    //   "Scheme"
-    // ];
-    // console.log(products);
   </script>
 
-    <!-- <script  src="{{asset('js/app.js')}}"></script> -->
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 
    @yield('scripts')
 </body>
