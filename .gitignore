@@ -1,4 +1,4 @@
-/node_modules
+/node_modules/*
 
 /public/hot
 
@@ -22,4 +22,14 @@ npm-debug.log
 
 yarn-error.log
 
+.envnode_modules/
+
 .env
+
+exist.
+
+needed.
+
+otherwise.
+
+\342\200\223

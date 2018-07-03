@@ -9,7 +9,6 @@
   "devDependencies": {
     "axios": "^0.15.2",
     "bootstrap": "^4.0.0",
-    "popper.js": "^1.12",
     "jquery": "^3.2",
     "laravel-elixir": "^6.0.0-15",
     "laravel-elixir-vue-2": "^0.2.0",

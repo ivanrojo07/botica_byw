@@ -191,41 +191,22 @@
             </div> 
         <!--CATEGORIAS-->
         <style>       
-            .cate {
-            position: relative !important;
-            width: 100% !important;
+            .contenedor{
+                position: static !important;
             }
-
-            .cate-img {
-            display: block !important;
-            width: 100% !important;
-            height: auto !important;
+            .sobre_cate{
+                position: static !important;
+                width: 100% !important;
+                height: 100% !important;
             }
-
-            .sobre_cate {
-            position: absolute !important;
-            top: 0 !important;
-            bottom:  !important;
-            left: 0 !important;
-            right: 0 !important;
-            height: 100% !important;
-            width: 100% !important;
-            opacity: 0 !important;
-            transition: .5s ease !important;
-            background-color: rgba(0, 0, 0, 0.55) !important;
+            .img_cate:hover{
+                opacity: 1.0 !important;
             }
-
-            .cate:hover .sobre_cate {
-            opacity: 1 !important;
-            }
-
-            .texto_sobre_cate {
-            position: absolute !important;
-            top: 50% !important;
-            left: 50% !important;
-            transform: translate(-50%, -50%) !important;
-            -ms-transform: translate(-50%, -50%) !important;
-            text-align: center !important;
+            .texto_sobre_cate{
+                position: absolute !important;
+                width: 100% !important;
+                height: 100% !important;
+                z-index: -1 !important;
             }
         </style>
         <div class="row mt-3" style="background: rgba(255, 255, 255, 0.51);">
@@ -235,19 +216,19 @@
                 <div class="row mb-3">
                     @if(count($categories))
                         @foreach ($categories as $index => $category)
-                        
-                        <a href="{{ url('/Products1?category=' . $category->slug) }}">
                             <div class="col-12 col-sm-4">
-                                <div class="cate">
-                                    <img  src="images/gallery/cuadros/category{{$index}}.jpg" style="max-width: 300px;" class="cate_img">
-                                    <div class="sobre_cate">
-                                        <div class="texto_sobre_cate  text-dark">
-                                            <p class="h4">{{$category->description}}</p>
+                                <!-- <a href="{{ url('/Products1?category=' . $category->slug) }}"> -->
+                                    <div class="contenedor">
+                                        <div class="texto_sobre_cate">
+                                                <p class="h4">{{$category->description}}</p>
                                         </div>
+                                        <div class="sobre_cate">
+                                            <img class="img_cate" src="images/gallery/cuadros/category{{$index}}.jpg" style="max-width: 300px;">
+                                        </div>
+                                        
                                     </div>
-                                </div>
+                                <!-- </a> -->
                             </div>
-                        </a>
                         @endforeach 
                     @else
                         <div class="col-12">
@@ -256,28 +237,14 @@
                         
                     @endif
                 </div>
-{{--
-                @if(count($categories))
-                @foreach ($categories as $index => $category)
-
-                <!--LINK-->
-                {{ url('/Products1?category=' . $category->slug) }}
-
-                <!--IMG-->
-                <img src="images/gallery/cuadros/category{{$index}}.jpg" style="max-width: 300px;">
-
-                <!--DESCRIPCIÓN-->
-                {{$category->description}}
-
-                @endforeach 
-                @else
-                No hay categorías disponibles.
-                @endif
-
-                --}}
             </div>
            
         </div>
-            
     </div>
+    
+        <script>
+            $(document).ready(function(){
+                alert("0");
+            });
+        </script> 
 @endsection

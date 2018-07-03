@@ -178,37 +178,40 @@
                 {{ csrf_field() }}
             </form>
         </header>
-        <div class="compras1" id="compras1" style="display:none;">
-            @if ($productsCount != 0)
-                {{-- true expr --}}
-            <div style="margin-left: 155px"><strong>EN TU CARRITO:</strong></div>
-            @else
-                {{-- false expr --}}
-            @endif
-            @foreach ($shopping_products as $element => $producto)
-                {{-- expr --}}
-            <div class="container">
-                <h5>
-                    <img class="img-circle" src="{{ url("/img_marzam/".str_pad($producto->codigo_marzam,7,'0',STR_PAD_LEFT).".jpg")}}" onerror="this.src='{{ asset('img/12.jpg') }}'" style="display: inline-block;" height="42" width="42">
-                {{ $producto->descripcion}} 
-                </h5></div>
-            @endforeach
-            @foreach ($shopping_promotions as $element => $producto)
-                {{-- expr --}}
-            <div class="container">
-                <h5>
-                @if($producto->extension)
-
-                    <img class="img-circle" src="{{ url("/img_prod/$producto->id.$producto->extension")}}"  style="display: inline-block;" height="42" width="42">
-                @else
-
-                    <img class="img-circle" src="{{ asset('img/12.jpg') }}" style="display: inline-block;" height="42" width="42">
-                @endif
-
-                OFERTA: {{ $producto->nombre}} 
-                </h5></div>
-            @endforeach
+        <div class="row">
+            <div class="offset-sm-3 col-sm-3">
+                <div class="compras1 list-group" id="compras1" style="display:none; z-index: 1900; position: absolute;">
+                    @if ($productsCount != 0)
+                    <li class="list-group-item"><strong>EN TU CARRITO:</strong></li>
+                    @else
+                        {{-- false expr --}}
+                    @endif
+                    @foreach ($shopping_products as $element => $producto)
+                        {{-- expr --}}
+                        <li class="list-group-item">
+                            <h5>
+                                <img class="img-circle" src="{{ url("/img_marzam/".str_pad($producto->codigo_marzam,7,'0',STR_PAD_LEFT).".jpg")}}" onerror="this.src='{{ asset('img/12.jpg') }}'" style="display: inline-block;" height="42" width="42">
+                            {{ $producto->descripcion}} 
+                            </h5>
+                        </li>
+                    @endforeach
+                    @foreach ($shopping_promotions as $element => $producto)
+                        {{-- expr --}}
+                        <li class="list-group-item">
+                            <h5>
+                                @if($producto->extension)
+                                    <img class="img-circle" src="{{ url("/img_prod/$producto->id.$producto->extension")}}"  style="display: inline-block;" height="42" width="42">
+                                @else
+                                    <img class="img-circle" src="{{ asset('img/12.jpg') }}" style="display: inline-block;" height="42" width="42">
+                                @endif
+                                    OFERTA: {{ $producto->nombre}} 
+                            </h5>
+                            </li>
+                    @endforeach
+                </div>
+            </div>
         </div>
+                
 
 
         <!--CONTENIDO-->
