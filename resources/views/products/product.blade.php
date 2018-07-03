@@ -21,7 +21,7 @@
             @endif
         </div>
         <br>
-        <h1 class="grey"><a href="{{ url('/products/'.$product->id) }}">{{$product["descripcion"]}}</a></h1>
+        <h5 class="grey"><a href="{{ url('/products/'.$product->id) }}">{{$product["descripcion"]}}</a></h5>
     </header>
         <div class="caption">
         <h5 class="grey text-center">
@@ -74,14 +74,10 @@
     @endif
     <strong>
         <p class="costo orangep text-center">
-            @if(isset($promotion) && $promotion)
-                $ {{$product->promotion_pricing}} usd
-            @else
                 $  {{number_format((($product["precio_publico"]{{-- Precio al publico --}}+($product["precio_publico"]*($product["iva"]/100){{-- Agregando IVA --}})+($product["precio_publico"]*($product["ieps"]/100){{-- Agregando IEPS --}})+($product["precio_publico"]*($product["impuesto_3"]/100) {{-- Agregando otros impuestos --}})+($product['precio_publico']*(0.40)){{-- Agregando Porcentaje ganancia --}})/$cambio[0]{{-- Agregando Cambio de moneda(Dolares) --}}),2)}}  USD
-            @endif
         </p>
     </strong>
-    @include("in_shopping_carts.form",["product" => $product])
+        @include("in_shopping_carts.form",["product" => $product])
       </div>
     </div>
   </div>
