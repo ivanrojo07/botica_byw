@@ -11,23 +11,18 @@
             @endif
             <br/>
             <form action="{{url('/promovisita') }}" method="GET">
-                <div class="row uniform">
-                    <div class="col-lg-offset-3 col-lg-6">
-                        <h1 class="grey">
-                        Nombre del Producto
-                        </h1>
-                        <input type="text" name="title" id="title" class="form-control" value="{{ $title }}"
-                               style="height: 36px !important;"/>
+                <h1 class="grey">
+                    Nombre del Producto
+                </h1>
+                <div class="input-group">
+                    <input type="text" name="title" id="title" class="form-control" value="{{ $title }}" placeholder="producto" aria-label="producto" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-success" type="button">Filtrar</button>
+                        <a href="{{ url('/promovisita') }}" class="btn btn-secondary">
+                            Limpiar Filtros
+                        </a>
                     </div>
-                     
-                     </div>
-                <br/>
-                <button type="submit" class="btn btn-primary">
-                    Filtrar
-                </button>
-                <a href="{{ url('/promovisita') }}" class="btn btn-info">
-                    Limpiar Filtros
-                </a>
+                </div>
             </form>
             @include('feedback')
             <hr/>

@@ -55,14 +55,7 @@
                         <input type="text" name="title" id="title" class="form-control" value="{{ $title }}"
                                style="height: 36px !important;"/>
                     </div>
-{{--                     <div class="col-lg-4">
-                        <h1 class="grey">
-                            Precio Máximo
-                        </h1>
-                        <input type="number" name="max_price" id="max_price" class="form-control"
-                               value="{{ $max_price }}"/>
-                    </div>
- --}}
+
                     <div class="col-lg-4">
                         <h1 class="grey">
                             Fecha de Creación
@@ -113,11 +106,5 @@
                 <div class="pagination">
                     {{ $products->links() }}
                 </div>
-               <footer class="major">
-{{--                <ul class="actions">
-                        <li><a href="{{ url('/products') }}" class="button blue-template1">Ver todos los Productos</a>
-                        </li>
-                    </ul> --}}
-                </footer>
     </section>
 @endsection

@@ -243,8 +243,6 @@
     </div>
     
         <script>
-            $(document).ready(function(){
-                alert("0");
-            });
+            
         </script> 
 @endsection
