@@ -422,6 +422,22 @@ class Direccions extends Controller {
 
     }
 
+    public function delete(Request $request){
+        $direccion_id = $request->input('direccion');
+
+        $direccion = Direccion::findOrFail($direccion_id);
+
+        $direccion->delete();
+
+        return redirect()->back()->with([
+
+                'feedback'   => '¡Dirección eliminada!',
+
+                'alert_type' => 'alert-success'
+
+            ]);
+    }
+
 
 
 }

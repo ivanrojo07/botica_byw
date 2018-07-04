@@ -9,14 +9,19 @@ namespace App;
 
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 
 class Direccion extends Model {
 
+	use SoftDeletes;
+
 
 
     protected $fillable = ['default'];
+
+    protected $dates = ['deleted_at'];
 
 
 

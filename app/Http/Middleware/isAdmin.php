@@ -38,15 +38,18 @@ class isAdmin {
 
     {
 
-        if (!Auth::check() || Auth::user()->rol != 'admin') {
+        if (!Auth::check() || Auth::user()->rol == 'admin') {
 
-            return redirect()->back();
+            return $next($request);
              
+        }
+        else{
+            
+            return redirect()->back();
         }
 
 
 
-        return $next($request);
 
     }
 

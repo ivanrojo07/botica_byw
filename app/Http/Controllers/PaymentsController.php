@@ -30,7 +30,7 @@ class PaymentsController extends Controller
 
 
 
-        $paypal = new Paypal($shopping_cart);
+        $paypal = new Paypal($shopping_cart,$shopping_cart->total_envio);
 
         $response = $paypal->execute($request->paymentId,$request->PayerID);
 

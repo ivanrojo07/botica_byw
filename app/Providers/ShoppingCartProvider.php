@@ -44,6 +44,7 @@ class ShoppingCartProvider extends ServiceProvider
 
             $view->with("productsCount", $shopping_cart->productsSize());
             $view->with("shopping_products",$shopping_cart->products);
+            $view->with("shopping_promotions",$shopping_cart->promotions);
 
         });
 

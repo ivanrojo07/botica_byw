@@ -342,7 +342,7 @@ class ProductsController extends Controller {
 
         if (isset($filters['title']) && $filters['title'] != '') {
 
-            $products = $products->where('descripcion',$request->title);
+            $products = $products->where('descripcion','LIKE',"%$request->title%")->orWhere('sustancia_activa','LIKE',"%$request->title%");
 
             $old_inputs['title'] = $filters['title'];
 

@@ -13,6 +13,7 @@ use App\Catalogo;
 use App\Category;
 use App\Http\Requests;
 use App\Product;
+use App\Promotion;
 use Illuminate\Http\Request;
 use Illuminate\Support\only;
 
@@ -39,7 +40,7 @@ class MainController extends Controller {
         #10 productos.
 
         // $products_slider = Product::where('category_id', 41)->inRandomOrder()->take(10)->get();
-        $products_slider = Catalogo::inRandomOrder()->take(10)->get();
+        $products_slider = Promotion::inRandomOrder()->take(10)->get();
         // dd($products_slider);
 
 
@@ -65,11 +66,13 @@ class MainController extends Controller {
         $products = Catalogo::where(function($q) use($wordsquery){
             foreach ($wordsquery as $word) {
                 # code...
-                $q->orWhere('descripcion','LIKE',"%$word%");
+                $q->orWhere('descripcion','LIKE',"%$word%")->orwhere('sustancia_activa','LIKE',"%$word%");
             }
         })->take(5)->get();
         return response()->json($products);
     }
+
+    
 
 }
 

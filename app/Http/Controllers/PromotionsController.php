@@ -5,16 +5,13 @@ namespace App\Http\Controllers;
 
 
 
+use App\CambioMoneda;
 use App\Category;
-
-use App\Product;
-
 use App\InShoppingCart;
-
+use App\Product;
+use App\Promotion;
 use App\Services\FavoriteProduct;
-
 use Illuminate\Http\Request;
- 
 use Illuminate\Support\Collection;
 
 class PromotionsController extends Controller {
@@ -140,13 +137,37 @@ class PromotionsController extends Controller {
 
     }
 
+     public function show($id)
+
+    {
+
+        $product = Promotion::find($id);
+        $cambio = CambioMoneda::first()->get()->pluck('pesos');
+
+
+
+
+        #obtenemos las reseñas del producto
+
+        // $product_comments = ProductComment::where('catalogo_id', $id)->get();
+
+
+
+        return view('promotions.show', compact('product','cambio'));
+
+    }
+
+
 
 
     public function visita(Request $request, FavoriteProduct $favoriteProduct)
 
     {
 
-        $products = new Product();
+        $products = Promotion::paginate(12);
+        $cambio = CambioMoneda::first()->get()->pluck('pesos');
+
+        // dd($products);
        
 
                 
@@ -192,7 +213,7 @@ class PromotionsController extends Controller {
         if (isset($filters['title']) && $filters['title'] != '') {
 
             
-            $products = $products->Search($request->title);
+            $products = Promotion::where('nombre','LIKE',"%$request->title%")->paginate(12)->appends($filters);
 
             $old_inputs['title'] = $filters['title'];
 
@@ -220,16 +241,16 @@ class PromotionsController extends Controller {
 
 
 
-        $promotions_category = Category::where('slug', 'Promociones')->first();
+        // $promotions_category = Category::where('slug', 'Promociones')->first();
 
 
        
-        $products = $products->where('category_id', $promotions_category->id)->orderBy('title','desc')->Paginate(9)->appends($filters);
+        // $products = $products->where('category_id', $promotions_category->id)->orderBy('title','desc')->Paginate(9)->appends($filters);
 
        
         
 
-        return view('promotions.visita', compact('products', 'category_selected', 'categories', 'favoriteProduct'))->with($old_inputs);
+        return view('promotions.visita', compact('products', 'category_selected','cambio', 'categories', 'favoriteProduct'))->with($old_inputs);
 
     }
 

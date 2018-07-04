@@ -10,6 +10,7 @@ namespace App\Http;
 
 use App\Http\Middleware\PromoChk;
 use App\Http\Middleware\isAdmin;
+use App\Http\Middleware\isEmple;
 use App\Http\Middleware\isUser;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -122,6 +123,8 @@ class Kernel extends HttpKernel {
         'isAdmin'    => isAdmin::class,
         
         'isUser'     => isUser::class,
+
+        'isEmple'    => isEmple::class,
 
         'PromoChk'   => PromoChk::class
 

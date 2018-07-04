@@ -26,7 +26,10 @@ class TrackingController extends Controller
     {
 
         $trackings=Tracking::orderBy('created_at', 'desc')->paginate(30);
-        $orders=Order::get();
+        $orders=Order::where(function ($query){
+            $query->where('status','empaquetado')
+            ->orWhere('status','en tramite');
+        })->get();
         $carts=ShoppingCart::get();
 
         return view('tracking.index',['trackings'=>$trackings,
@@ -54,11 +57,30 @@ class TrackingController extends Controller
      */
     public function store(Request $request)
     {
-
-       // dd($request);
+        $guide_numer = $request->input('hawb');
+        $orden = Order::find($request->input('orden_id'));
+        // dd(isset($orden->trackings));
+        $orden->guide_numer .= "$guide_numer ";
+        $orden->status = "en tramite";
+        if (isset($orden->trackings)) {
+            # code...
+            $orden->tracking_at = \Carbon\Carbon::now('America/Mexico_City');
+        }
         $tracking=Tracking::create($request->all());
+        $orden->save();
+        // dd($orden);
 
-        return redirect('tracking');
+        return redirect('tracking')->with(
+
+                [
+
+                    'feedback'   => "Se creo el tracking #$tracking->hawb correctamente!",
+
+                    'alert_type' => 'alert-success'
+
+                ]
+
+            );
     }
 
     /**

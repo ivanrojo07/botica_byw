@@ -75,39 +75,42 @@ class CatalogoFTP extends Command
                     if ($value["tipo_de_producto"]  != "CO") {
          //             # code...
          //             # code...
-                        $catalogo = Catalogo::updateOrCreate(
-                            [
-                                "codigo_marzam"=>$value["codigo_marzam"],
-                            ]
-                            ,[
-                                "fecha_actual"=>$value["fecha_actual"],
-                                "codigo_marzam"=>$value["codigo_marzam"],
-                                "descripcion"=>preg_replace('/\s\s+/', '', $value["descripcion"]),
-                                // "descripcion"=>preg_replace('/\s\s+/', '', $value["descipcion"]),
-                                "precio_farmacia"=>$value["precio_farmacia"],
-                                "precio_publico"=>$value["precio_publico"],
-                                "iva"=>$value["iva"],
-                                "ieps"=>$value["ieps"],
-                                "impuesto_3"=>$value["impuesto_3"],
-                                "tipo_de_producto"=>$value["tipo_de_producto"],
-                                "laboratorio"=>preg_replace('/\s\s+/', '',$value["laboratorio"]),
-                                "clasificacion_fiscal"=>$value["clasificacion_fiscal"],
-                                "descripcion_terapeutica"=>preg_replace('/\s\s+/', '', $value["descripcion_terapeutica"]),
-                                "sustancia_activa"=>preg_replace('/\s\s+/', '', $value["sustancia_activa"]),
-                                "refrigerado"=>$value["refrigerado"],
-                                "controlado"=>$value["controlado"],
-                                "codigo_de_barras"=> ($value["codigo_de_barras"] == "" ? "0000": $value["codigo_de_barras"]),
-                                "unidad_de_venta"=>$value["unidad_de_venta"],
-                                "fecha_de_caducidad"=>$value["fecha_de_caducidad"],
-                                "grupo_ssa"=>$value["grupo_ssa"],
-                                "accion_sobre_articulo"=>$value["accion_sobre_articulo"],
-                                "pzas_empaque_original"=>$value["pzas._empaque_original"],
-                                "descuento_comercial"=>$value["descuento_comercial"],
-                                "codigo_sat"=>$value["codigo_sat"],
-                                "unidad_sat"=>$value["unidad_sat"],
-                                "contador"=>$value["contador"]
-                            ]
-                        );
+                        if ($value["codigo_de_barras"] != "             ") {
+                            # code...
+                            $catalogo = Catalogo::updateOrCreate(
+                                [
+                                    "codigo_marzam"=>$value["codigo_marzam"],
+                                ]
+                                ,[
+                                    "fecha_actual"=>$value["fecha_actual"],
+                                    "codigo_marzam"=>$value["codigo_marzam"],
+                                    "descripcion"=>preg_replace('/\s\s+/', '', $value["descripcion"]),
+                                    // "descripcion"=>preg_replace('/\s\s+/', '', $value["descipcion"]),
+                                    "precio_farmacia"=>$value["precio_farmacia"],
+                                    "precio_publico"=>$value["precio_publico"],
+                                    "iva"=>$value["iva"],
+                                    "ieps"=>$value["ieps"],
+                                    "impuesto_3"=>$value["impuesto_3"],
+                                    "tipo_de_producto"=>$value["tipo_de_producto"],
+                                    "laboratorio"=>preg_replace('/\s\s+/', '',$value["laboratorio"]),
+                                    "clasificacion_fiscal"=>$value["clasificacion_fiscal"],
+                                    "descripcion_terapeutica"=>preg_replace('/\s\s+/', '', $value["descripcion_terapeutica"]),
+                                    "sustancia_activa"=>preg_replace('/\s\s+/', '', $value["sustancia_activa"]),
+                                    "refrigerado"=>$value["refrigerado"],
+                                    "controlado"=>$value["controlado"],
+                                    "codigo_de_barras"=> ($value["codigo_de_barras"] == "" ? "0000": $value["codigo_de_barras"]),
+                                    "unidad_de_venta"=>$value["unidad_de_venta"],
+                                    "fecha_de_caducidad"=>$value["fecha_de_caducidad"],
+                                    "grupo_ssa"=>$value["grupo_ssa"],
+                                    "accion_sobre_articulo"=>$value["accion_sobre_articulo"],
+                                    "pzas_empaque_original"=>$value["pzas._empaque_original"],
+                                    "descuento_comercial"=>$value["descuento_comercial"],
+                                    "codigo_sat"=>$value["codigo_sat"],
+                                    "unidad_sat"=>$value["unidad_sat"],
+                                    "contador"=>$value["contador"]
+                                ]
+                            );
+                        }
                     }
                     // else{
 
