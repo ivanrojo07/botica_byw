@@ -1,4 +1,4 @@
-/node_modules
+/node_modules/*
 
 /public/hot
 
@@ -21,5 +21,7 @@ Homestead.yaml
 npm-debug.log
 
 yarn-error.log
+
+.envnode_modules/
 
 .env

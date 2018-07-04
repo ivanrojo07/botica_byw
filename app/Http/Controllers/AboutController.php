@@ -22,7 +22,7 @@ class AboutController extends Controller
             'user_message' => $request->get('message')
         ), function($message)
     {
-        $message->to('santtyrebel20@gmail.com', 'Admin')->subject('Info Farmacia Latina');
+        $message->to('info@tufarmacialatina.com', 'TuFarmaciaLatina')->subject('Info Farmacia Latina');
     });
 
   return \Redirect::route('contact')->with('message', 'Gracias por Contactarnos, pronto recibiras respuesta');

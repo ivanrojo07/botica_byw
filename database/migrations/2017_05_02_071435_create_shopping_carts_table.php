@@ -40,6 +40,7 @@ class CreateShoppingCartsTable extends Migration
             $table->integer('direccion_id')->unsigned()->nullable();
             $table->foreign('direccion_id')->references('id')->on('direccions');
             $table->decimal('total', 8, 2)->default('0.00');
+            $table->decimal('totalenvio',8,2)->default('0.00');
             $table->string('receta_path');
             $table->string('customid')->nullable()->unique();
             $table->timestamps();

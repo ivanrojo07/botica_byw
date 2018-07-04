@@ -4,7 +4,6 @@
   <div class="panel panel-primary">
     <div class="panel-heading">Excel</div>
     <div class="panel-body">
-      
       {!! Form::open(array('route' => 'import-csv-excel','method'=>'POST','files'=>'true')) !!}
         <div class="row">
            <div class="col-xs-12 col-sm-12 col-md-12">

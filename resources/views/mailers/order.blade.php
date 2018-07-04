@@ -1,71 +1,25 @@
-<!DOCTYPE hmtl>
+@component('mail::message')
+# ¡Muchas gracias por tu compra!
 
-<html>
+Tu orden no. {{$order->shoppingcart->customid}} ha sido creada!
 
-<head>
+Resumen del pedido:
 
-	<meta charset="UTF-8">
-
-	<title>Mail</title>
-
-</head>
-
-<body>
-
-	<h1>!Hola</h1>
-
-	<p>Te enviamos los datos de tu compra realizada en Tufarmacialatina.com</p>
-
-
-
-	<table>
-
-		<thead>
-
-			<tr>
-
-				<th>
-
-					producto
-
-				</th>
-
-				<th>
-
-					costo
-
-				</th>
-
-			</tr>
-
-		</thead>
-
-		
-
-		<tbody>
-			<tr>
-				
-			@foreach($products as $product)
-
-				<td>{{ $product->descripcion}}</td>
-
-				<td>$ {{ $product->pivot->preciounit}} USD</td>
-
-			@endforeach
-			</tr>
-
-			<tr>
-
-				<td>Total</td>
-
-				<td>$ {{$order->total}} USD</td>
-
-			</tr>
-
-		</tbody>
-
-	</table>
-
-</body>
-
-</html>
+@component('mail::table')
+| Producto       | Cantidad         | Total  |
+|:------:   |:-----------:|:--------: |
+@foreach ($products as $producto)
+| {{$producto->descripcion}}     | {{$producto->pivot->qty}} |        {{$producto->pivot->preciounit*$producto->pivot->qty}} |
+@endforeach
+@foreach ($promotions as $promotion)
+| {{$promotion->nombre}} (promoción)     | {{$promotion->pivot->qty}} |        {{$promotion->pivot->preciounit*$promotion->pivot->qty}} |
+@endforeach
+| Envio       |          | {{$order->shoppingcart->totalenvio}}  |
+| Total       |          | {{$order->total}}  |
+@endcomponent
+@component('mail::button', ['url' => $url])
+Ver mi pedido
+@endcomponent
+Gracias,<br>
+{{ config('app.name') }}
+@endcomponent

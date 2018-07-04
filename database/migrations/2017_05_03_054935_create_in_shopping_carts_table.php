@@ -34,14 +34,18 @@ class CreateInShoppingCartsTable extends Migration
 
 
 
-            $table->integer('catalogo_id')->unsigned();
+            $table->integer('catalogo_id')->unsigned()->nullable();
+
+            $table->integer('promotion_id')->unsigned()->nullable();
 
             $table->integer('shopping_cart_id')->unsigned();
             $table->integer('qty');
             $table->decimal('preciounit', 9,2);
+            $table->boolean('empaquetado')->default('0');
 
 
             $table->foreign('catalogo_id')->references("id")->on("catalogo")->onDelete('cascade');
+            $table->foreign('promotion_id')->references("id")->on("promotions")->onDelete('cascade');
 
             $table->foreign('shopping_cart_id')->references("id")->on("shopping_carts");
 

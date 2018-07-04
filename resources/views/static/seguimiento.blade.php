@@ -1,25 +1,16 @@
 @extends('layouts.app')
-
 @section('content')
-
 <section id="four" class="wrapper style1 special fade-up">
-
 	<div class="container">
-
     <div id="productos" class="container">
-
   		<header class="major">
   			<img src="{{ asset('/img/sky.png') }}">
   			<br>
   			<br>
         <br>
-
   			<h2 class="grey satisfic-font font1">Aqui podras darle seguimiento a tu Pedido</h2>
-
   		</header>
-
   	</div>				
-
   @if (Auth::guest())
     <form name="buscar_tracking" id="buscar_tracking" method="GET" action="{{ url('/buscartracking') }}">
       <div class="input-group center">
@@ -28,14 +19,8 @@
         <a onclick="document.getElementById('buscar_tracking').submit()" class="input-group-addon btn btn-success" id="basic-addon2"><i class="fa fa-search"></i></a>
       </div>
     </form>
-      
-
   @else
-
-
-
     <h3 class="center">Consulta el status de tu paquete en este <a href="{{ url('/user/my-orders') }}">link</a>.</h3>
-
   @endif
   @if (isset($shopping_cart))
     {{-- true expr --}}
@@ -52,7 +37,6 @@
                 <p class="pipe">Comprado el: {{$shopping_cart->created_at->format('d/m/Y')}} <span class="pipe">Total: ${{ $shopping_cart->total }} USD</span></p>
               </h4>
             </div>
-
                 <div class="item-row">
                 <div class="col-lg-7 col-md-6">
               <div class="product col-xs-12">
@@ -75,13 +59,10 @@
                               <span>{{$shopping_cart->created_at->format('d/m/Y')}} | {{$shopping_cart->created_at->format('H:i')}}</span>
                               <span>Validando tu orden</span>
                           </li>
-                            
-                </ul>
-                                   
+                </ul>              
                 </div>
               </div>
             </div>
-
         <br>
         <br>
         <br>
@@ -101,7 +82,6 @@
                 <p class="pipe">Comprado el: {{$shopping_cart->created_at->format('d/m/Y')}} <span class="pipe">Total: ${{ $shopping_cart->total }} USD</span></p>
               </h4>
             </div>
-
                 <div class="item-row">
                 <div class="col-lg-7 col-md-6">
               <div class="product col-xs-12">
@@ -109,7 +89,6 @@
                         <img src="{{ asset('/img/12.jpg') }}" height="100" width="auto">
                       </div>
                       <div class="detail-container col-lg-9 col-md-8 col-xs-10">
-
                         <p class="col-lg-5 col-md-7">Número de Bultos: {{ $tracking->bultos}}</p>
                         <p class="col-lg-5 col-md-7">Peso: {{ $tracking->peso}} Kg.</p>
                       </div>
@@ -129,14 +108,11 @@
                               <span>{{$hito->fecha}} | {{$hito->hora}}</span>
                               <span>{{$hito->status}}</span>
                           </li>
-                        @endforeach
-                            
+                        @endforeach   
                 </ul>
-                                   
                 </div>
               </div>
             </div>
-
         <br>
         <br>
         <br>
@@ -155,7 +131,6 @@
                 <p class="pipe">Comprado el: {{$shopping_cart->created_at->format('d/m/Y')}} <span class="pipe">Total: ${{ $shopping_cart->total }} USD</span></p>
               </h4>
             </div>
-
                 <div class="item-row">
                 <div class="col-lg-7 col-md-6">
               <div class="product col-xs-12">
@@ -163,7 +138,7 @@
                         <img src="{{ asset('/img/12.jpg') }}" height="100" width="auto">
                       </div>
                       <div class="detail-container col-lg-9 col-md-8 col-xs-10">
-                        
+                      
                       </div>
                     </div>
                 </div>
