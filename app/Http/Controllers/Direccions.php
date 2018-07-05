@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 
 use App\Direccion;
+use App\Country;
 
 use Auth;
 
@@ -60,8 +61,8 @@ class Direccions extends Controller {
         $direccions = new Direccion;
 
 
-
-        return view('direccions.create', ["direccion" => $direccions]);
+        $countries = Country::orderBy('name','asc')->get();
+        return view('direccions.create', ["direccion" => $direccions,'countries'=>$countries]);
 
     }
 
@@ -93,9 +94,9 @@ class Direccions extends Controller {
 
             'email.max'          => 'El Email debe contener máximo 255 caracteres',
 
-            'telefono.required'  =>  'El telefono es requerido',
+            'telefono.required'  =>  'El telefono del remitente es requerido',
 
-            'telefono.min'       => 'El telefono debe de contener minimo 10 caracteres',
+            'telefono.min'       => 'El telefono del remitente debe de contener minimo 10 caracteres',
 
             'contacto.required'  => 'El telefono del destinatario es requerido',
 
@@ -127,11 +128,11 @@ class Direccions extends Controller {
 
             'num_int.max'        => 'El Número Interior debe contener máximo 10 caracteres',
 
-            'colonia.required'   => 'La Colonia es requerida',
+            // 'colonia.required'   => 'La Colonia es requerida',
 
             'colonia.max'        => 'La Colonia debe contener máximo 255 caracteres',
 
-            'codigop.required'   => 'El Código Postal es requerido',
+            // 'codigop.required'   => 'El Código Postal es requerido',
 
             'codigop.max'        => 'El Código Postal debe contener máximo 5 caracteres',
 
@@ -171,7 +172,7 @@ class Direccions extends Controller {
 
             'num_int'    => 'max:10',
 
-            'colonia'    => 'required|max:255',
+            'colonia'    => 'max:255',
 
             // 'codigop'    => 'required|max:5',
             'codigop'    => 'max:5',
@@ -237,7 +238,7 @@ class Direccions extends Controller {
 
             $direccion->telefono = $data['telefono'];
 
-            $direccion->contacto = $data['contacto'];
+            $direccion->contacto = $data['lada'].$data['contacto'];
 
 
 
@@ -398,7 +399,7 @@ class Direccions extends Controller {
 
         $direccions->email = Auth::user()->email;
 
-        $direccions->telefono = $request->telefono;
+        $direccions->telefono = $request->lada.$request->telefono;
 
         $direccions->contacto = $request->contacto;
 
@@ -438,7 +439,11 @@ class Direccions extends Controller {
             ]);
     }
 
-
+    public function pais($pais)
+    {
+        $country = Country::where('name',$pais)->first();
+        return response()->json(['pais'=>$country],200);
+    }
 
 }
 

@@ -73,4 +73,5 @@
             </div>
         </div>
     </section>
+    <hr>
 @endsection

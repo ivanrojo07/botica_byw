@@ -30,86 +30,43 @@
                 
                 </div>
                 <div class="form-group col-lg-4">
-                    <label for="name"><strong>*</strong> Nombre del destinatario:</label>
+                    <label for="name"><strong>*</strong> Nombre del destinatario (quien reciba):</label>
                     <input type="text" class="form-control" name="name" id="name" placeholder="Nombre"
                            value="{{ old('name') }}">
                 </div>
                 <div class="form-group col-lg-4">
-                    <label for="email"><strong>*</strong>Email:</label>
+                    <label for="email"><strong>*</strong> Email del destinatario (quien reciba):</label>
                     <input type="text" class="form-control" name="email" id="email" placeholder="Email"
                            value="{{ old('email') }}"/>
                 </div>
                 <div class="form-group col-lg-4">
-                    <label for="telefono"><strong>*</strong>Telefono:</label>
-                    <input type="text" class="form-control" name="telefono" id="telefono" placeholder="Telefono"
-                           value="{{ old('telefono') }}"/>
-                </div>
-                <div class="form-group col-lg-4">
-                    <label for="contaco"><strong>*</strong>Telefono del destinatario:</label>
+                    <label for="contacto"><strong>*</strong>  Telefono del destinatario (quien reciba):</label>
+                    <div class="input-group">
+                        
+                        <div class="col-4 input-group-prepend">
+                            <input id="lada" type="text" class="form-control" name="lada" readonly="" value="">
+                        </div>
                     <input type="text" class="form-control" name="contacto" id="contacto" placeholder="Telefono"
                            value="{{ old('contacto') }}"/>
+                    </div>
                 </div>
+                <div class="form-group col-lg-4">
+                    <label for="telefono"><strong>*</strong> Telefono del remitente (quien envia):</label>
+                    
+                        <input type="text" class="form-control" name="telefono" id="telefono" placeholder="Telefono"
+                               value="{{ old('telefono') }}"/>
+                </div>
+                
                 <div class="form-group col-lg-4">
                     <label for="pais"><strong>*</strong>País:</label>
                     {{-- <input type="text" class="form-control" name="pais" id="pais" placeholder="País"
                            value="{{ old('pais') }}"/> --}}
                     <select class="form-control" id="pais" name="pais">
-                        <option value="VENEZUELA">VENEZUELA</option>
-                        <option value="CUBA">CUBA</option>
-                        <option value="COSTA RICA">COSTA RICA</option>
-                        <option value="EL SALVADOR">EL SALVADOR</option>
-                        <option value="GUATEMALA">GUATEMALA</option>
-                        <option value="HONDURAS">HONDURAS</option>
-                        <option value="NICARAGUA">NICARAGUA</option>
-                        <option value="PANAMA">PANAMA</option>
-                        <option value="COLOMBIA">COLOMBIA</option>
-                        <option value="R. DOMINICANA">R. DOMINICANA</option>
-                        <option value="ARGENTINA">ARGENTINA</option>
-                        <option value="BOLIVIA">BOLIVIA</option>
-                        <option value="CHILE">CHILE</option>
-                        <option value="ECUADOR">ECUADOR</option>
-                        <option value="MÉXICO">MÉXICO</option>
-                        <option value="PARAGUAY">PARAGUAY</option>
-                        <option value="PERU">PERU</option>
-                        <option value="TRINIDAD Y TOBAGO">TRINIDAD Y TOBAGO</option>
-                        <option value="URUGUAY">URUGUAY</option>
-                        <option value="ARUBA">ARUBA</option>
-                        <option value="BRASIL">BRASIL</option>
-                        <option value="CURACAO">CURACAO</option>
-                        <option value="HAITI">HAITI</option>
-                        <option value="JAMAICA">JAMAICA</option>
-                        <option value="SINT MAARTEN">SINT MAARTEN</option>
-                        <option value="ANGUILA">ANGUILA</option>
-                        <option value="ANTIGUA Y BARBUDA">ANTIGUA Y BARBUDA</option>
-                        <option value="ANTILLAS HOLANDESAS">ANTILLAS HOLANDESAS</option>
-                        <option value="BAHAMAS">BAHAMAS</option>
-                        <option value="BARBADOS">BARBADOS</option>
-                        <option value="BELICE">BELICE</option>
-                        <option value="BERMUDAS">BERMUDAS</option>
-                        <option value="BONAIRE">BONAIRE</option>
-                        <option value="CANADA">CANADA</option>
-                        <option value="DOMINICA">DOMINICA</option>
-                        <option value="GRANADA">GRANADA</option>
-                        <option value="GUADALUPE">GUADALUPE</option>
-                        <option value="ISLAS CAIMAN">ISLAS CAIMAN</option>
-                        <option value="ISLAS MARIANAS">ISLAS MARIANAS</option>
-                        <option value="ISLAS MINOR">ISLAS MINOR</option>
-                        <option value="ISLAS VIRG BRITANICAS">ISLAS VIRG BRITANICAS</option>
-                        <option value="ISLAS VIRGINIAS AM">ISLAS VIRGINIAS AM</option>
-                        <option value="MARTINICA">MARTINICA</option>
-                        <option value="MONTSERRAT">MONTSERRAT</option>
-                        <option value="PUERTO RICO">PUERTO RICO</option>
-                        <option value="ROAD TOWN ARPT">ROAD TOWN ARPT</option>
-                        <option value="ROOSEVELT FIELD">ROOSEVELT FIELD</option>
-                        <option value="SANTA LUCIA">SANTA LUCIA</option>
-                        <option value="SANTA LUCIA">SANTA LUCIA</option>
-                        <option value="ST JEAN ARPT">ST JEAN ARPT</option>
-                        <option value="ST THOMAS">ST THOMAS</option>
-                        <option value="ST BARTOLOME">ST BARTOLOME</option>
-                        <option value="ST KITTS">ST KITTS</option>
-                        <option value="ST VINCENT">ST VINCENT</option>
-                        <option value="TURCAS Y CAICOS">TURCAS Y CAICOS</option>
-                        <option value="WALLIS FORTUNA">WALLIS FORTUNA</option>
+                        <option value="">Seleccione el país de envio</option>
+                        @foreach ($countries as $country)
+                            {{-- expr --}}
+                            <option value="{{$country->name}}">{{$country->nicename}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="form-group col-lg-4">
@@ -142,12 +99,12 @@
                     <input type="text" class="form-control" name="num_int" id="num_int" placeholder="Número Interior"
                            value="{{ old('num_int') }}"/>
                 </div>
-                <div class="form-group col-lg-2">
+                <div class="form-group col-lg-2" id="div_colonia">
                     <label for="colonia"><strong>*</strong>Colonia:</label>
                     <input type="text" class="form-control" name="colonia" id="colonia" placeholder="Colonia"
                            value="{{ old('colonia') }}"/>
                 </div>
-                <div class="form-group col-lg-2">
+                <div class="form-group col-lg-2" id="codigo_postal">
                     <label for="codigop">C.P:</label>
                     <input type="text" class="form-control" name="codigop" id="codigop" placeholder="Código Postal"
                            value="{{ old('codigop') }}"/>
@@ -176,4 +133,30 @@
             </form>
         </div>
     </section>
+    @section('scripts')
+        {{-- expr --}}
+        <script type="text/javascript"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+               $("#pais").change(function() {
+                   // body...
+                   pais = $('#pais').val()
+                   $.get('{{ url('/getPais') }}/'+pais,function (data) {
+                       // body...
+                       console.log(data);
+                       if (data.pais.name == "CUBA") {
+                        $("#codigo_postal").hide();
+                        $("#div_colonia").hide();
+                       }
+                       else{
+                         $("#codigo_postal").show();
+                        $("#div_colonia").show();
+                       }
+                       $('#lada').empty();
+                       $('#lada').val(data.pais.phonecode);
+                   });
+               });
+            });
+        </script>
+    @endsection
 @endsection

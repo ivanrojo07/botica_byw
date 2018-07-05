@@ -40,6 +40,7 @@ class MainController extends Controller {
 
         // $products_slider = Product::where('category_id', 41)->inRandomOrder()->take(10)->get();
         $products_slider = Promotion::inRandomOrder()->take(10)->get();
+        $products_slider1 = Promotion::inRandomOrder()->take(10)->get();
         // dd($products_slider);
 
 

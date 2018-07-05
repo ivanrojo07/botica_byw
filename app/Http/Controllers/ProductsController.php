@@ -238,6 +238,8 @@ class ProductsController extends Controller {
 
 
         $categories = DB::select("select distinct tipo_de_producto from catalogo");
+
+        // $categories = $categories->where('title','=!','OT');
         // dd($categories);
         // $value=array_count_values($categories);
         // $categories[0][1]->test = "test";
@@ -248,7 +250,7 @@ class ProductsController extends Controller {
 
             if ($category->tipo_de_producto == "ET") {
                 # code...
-                $category->nombre = "Ético";
+                $category->nombre = "Medicamentos de patente";
             }
 
             if ($category->tipo_de_producto == "VA") {
@@ -268,7 +270,7 @@ class ProductsController extends Controller {
 
             if ($category->tipo_de_producto == "OT") {
                 # code...
-                $category->nombre = "Medicamentos de Venta Libre";
+                $category->nombre = "Medicamentos Generales";
             }
 
             if ($category->tipo_de_producto == "CO") {
@@ -318,9 +320,15 @@ class ProductsController extends Controller {
 
             if ($category_selected) {
 
+                
                 $products = $products->where("tipo_de_producto", $category_selected);
 
-            } else {
+
+            } 
+
+            
+
+            else {
 
                 $products->all();
                 // dd($products);

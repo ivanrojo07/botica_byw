@@ -324,7 +324,7 @@ class ShoppingCartsController extends Controller {
             // dd('precio c');
             }
 
-        elseif ( mb_strtolower($direccion->pais) == "argentina" || mb_strtolower($direccion->pais) == "bolivia"  || mb_strtolower($direccion->pais) == "chile" || mb_strtolower($direccion->pais) == "ecuador" || mb_strtolower($direccion->pais) == "méxico" || mb_strtolower($direccion->pais) == "paraguay" || mb_strtolower($direccion->pais) == "peru" || mb_strtolower($direccion->pais) == "trinidad y tobago" || mb_strtolower($direccion->pais) == "uruguay"|| mb_strtolower($direccion->pais) == "venezuela") {
+        elseif ( mb_strtolower($direccion->pais) == "argentina" || mb_strtolower($direccion->pais) == "bolivia"  || mb_strtolower($direccion->pais) == "chile" || mb_strtolower($direccion->pais) == "ecuador" || mb_strtolower($direccion->pais) == "mexico" || mb_strtolower($direccion->pais) == "paraguay" || mb_strtolower($direccion->pais) == "peru" || mb_strtolower($direccion->pais) == "trinidad y tobago" || mb_strtolower($direccion->pais) == "uruguay"|| mb_strtolower($direccion->pais) == "venezuela") {
                 # code...
                 $precio_envio = number_format((($envio->precio_d+($envio->precio_d*(0.40)))),2);
                 // dd('precio d');

@@ -23,7 +23,7 @@
                         <td>Estado, Municipio</td>
                         <td>Calle, Número</td>
                         <td>C.P</td>
-                        <td>Predeterminada</td>
+                        {{-- <td>Predeterminada</td> --}}
                         <td></td>
                     </tr>
                     </thead>
@@ -35,13 +35,13 @@
                                 <td>{{ $direccion->calle . ', ' . 'Ext: ' . $direccion->num_ext . ', Int: ' . $direccion->num_int }}</td>
                                 <td>{{ $direccion->estado . ', ' . $direccion->municipio }}</td>
                                 <td>{{ $direccion->codigop }}</td>
-                                <td>
+                                {{-- <td>
                                     <form action="{{ url('/user/direccion/set_default') }}" method="POST" id="form-default-direction">
                                         {{ csrf_field() }}
                                     <input type="radio" class="default" name="default"
                                            {{$direccion->default ? 'checked' : ''}} value="{{ $direccion->id }}"/>
                                     </form>
-                                </td>
+                                </td> --}}
                                 <td>
                                     <form id="eliminar {{ $direccion->id }}" method="POST" action="{{ route('direccion_delete') }}">
                                         {{ csrf_field() }}
@@ -67,14 +67,6 @@
             });
         });
     </script>
-   {{--  <script>
-        function deleteFunction(etiqueta){
-            event.preventDefault(); // prevent form submit
-            if(confirm("¿Deseas eliminar esta dirección?")){
-                document.getElementById(etiqueta).submit();          // submitting the form when user press yes
-            }
-        }
-    </script> --}}
 @endsection
 
 

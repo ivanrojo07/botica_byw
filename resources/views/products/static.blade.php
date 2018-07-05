@@ -8,7 +8,7 @@
                         {{-- {{ $category_selected }} --}}
                        @if ($category_selected == "ET")
                            {{-- expr --}}
-                           ÉTICO
+                           MEDICAMENTOS DE PATENTE
                        @endif
                        @if ($category_selected == "VA")
                            {{-- expr --}}
@@ -24,7 +24,7 @@
                        @endif
                        @if ($category_selected == "OT")
                            {{-- expr --}}
-                            MEDICAMENTOS DE VENTA LIBRE
+                            MEDICAMENTOS GENERALES
 
                        @endif
                        @if ($category_selected == "CO")
@@ -41,10 +41,13 @@
                         <select name="category" id="category" class="form-control">
                             <option value="all" selected>Todas</option>
                             @foreach($categories as $category)
-                                <option value="{{ $category->tipo_de_producto }}"
-                                        {{ ($category_selected && $category_selected ==  $category->tipo_de_producto) ? 'selected' : ''}}>
-                                    {{ $category->nombre}}
-                                </option>
+
+                                
+                                  <option value="{{ $category->tipo_de_producto }}"
+                                          {{ ($category_selected && $category_selected ==  $category->tipo_de_producto) ? 'selected' : ''}}>
+                                      {{ $category->nombre}}
+                                  </option>
+                                
                             @endforeach
                         </select>        
                     </div>

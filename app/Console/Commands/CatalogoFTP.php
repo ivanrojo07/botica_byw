@@ -72,7 +72,7 @@ class CatalogoFTP extends Command
                         // );
          //            }
          //            elseif ($value["descripcion"]) {
-                    if ($value["tipo_de_producto"]  != "CO") {
+                    if ($value["tipo_de_producto"]  != "CO" && $value["tipo_de_producto"]  != "ET") {
          //             # code...
          //             # code...
                         if ($value["codigo_de_barras"] != "             ") {
