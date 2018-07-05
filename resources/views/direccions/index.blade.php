@@ -32,8 +32,8 @@
                             <tr>
                                 <td>{{ $direccion->name }}</td>
                                 <td>{{ $direccion->pais }}</td>
-                                <td>{{ $direccion->calle . ', ' . 'Ext: ' . $direccion->num_ext . ', Int: ' . $direccion->num_int }}</td>
                                 <td>{{ $direccion->estado . ', ' . $direccion->municipio }}</td>
+                                <td>{{ $direccion->calle . ', ' . 'Ext: ' . $direccion->num_ext . ', Int: ' . $direccion->num_int }}</td>
                                 <td>{{ $direccion->codigop }}</td>
                                 {{-- <td>
                                     <form action="{{ url('/user/direccion/set_default') }}" method="POST" id="form-default-direction">
