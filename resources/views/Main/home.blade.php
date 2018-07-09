@@ -22,7 +22,11 @@
                     <div id="carouselExampleSlidesOnly" class="carousel slide" data-interval="2300" data-ride="carousel">
                         <div class="carousel-inner">
                             @foreach($products_slider1 as $producto1)
-                            <div class="carousel-item active">
+                                @if ($loop->first)
+                                    <div class="carousel-item active">
+                                @else
+                                    <div class="carousel-item">
+                                @endif
                                 <div class="row no-gutters">
                                     <div class="col-8 offset-2">
                                         <div class="card bg-light pt-2">
