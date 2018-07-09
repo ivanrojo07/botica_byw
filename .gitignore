@@ -25,3 +25,7 @@ yarn-error.log
 .envnode_modules/
 
 .env
+
+vendor/
+
+vendor/*
