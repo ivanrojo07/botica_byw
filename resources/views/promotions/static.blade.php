@@ -101,7 +101,7 @@
                         </div>
                     @endif
                 <div class="pagination">
-                    {{ $products->links() }}
+                    {{ $products->links('pagination.bootstrap-4') }}
                 </div>
     </section>
 @endsection
