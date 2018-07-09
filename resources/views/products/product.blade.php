@@ -32,7 +32,7 @@
             {{-- true expr --}}
             @if ($product->tipo_de_producto == "ET")
                {{-- expr --}}
-               ÉTICO
+               MEDICAMENTOS GENERALES
             @endif
             @if ($product->tipo_de_producto == "VA")
                {{-- expr --}}
@@ -48,7 +48,7 @@
             @endif
             @if ($product->tipo_de_producto == "OT")
                {{-- expr --}}
-               MEDICAMENTOS DE VENTA LIBRE
+               MEDICAMENTOS GENERALES
 
             @endif
             @if ($product->tipo_de_producto == "CO")

@@ -90,21 +90,34 @@
 @endsection
 @section('scripts')
     {{-- expr --}}
-    {{-- <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> --}}
+    
+    
+    
     <script src="{{ asset('js/plugins/piexif.min.js') }}"></script>
-    <script src="{{ asset('js/plugins/sortable.min.js') }}"></script>
+    
     <script src="{{ asset('js/plugins/purify.min.js') }}"></script>
-    <script src=""></script>
-    <!-- popper.min.js below is needed if you use bootstrap 4.x. You can also use the bootstrap js 
-   3.3.x versions without popper.min.js. -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-    <!-- bootstrap.min.js below is needed if you wish to zoom and preview file content in a detail modal
-    dialog. bootstrap 4.x is supported. You can also use the bootstrap js 3.3.x versions. -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" type="text/javascript"></script>
+    
+    
+    
+    
+    
+    
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('css/fileinput.css') }}" media="all" rel="stylesheet" type="text/css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('themes/explorer-fa/theme.css')}}" media="all" rel="stylesheet" type="text/css"/>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="{{ asset('js/plugins/sortable.min.js') }}"></script>
     <script src="{{ asset('js/fileinput.min.js') }}"></script>
     <script src="{{ asset('js/locales/es.js') }}"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
+    <script src="{{ asset('themes/explorer-fa/theme.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('themes/fa/theme.js')}}" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" type="text/javascript"></script>
+
     @if (Auth::check())
         <script>
             $(document).ready(function(){
@@ -146,6 +159,7 @@
                 });
 
             });
+            
         </script>
         {{-- expr --}}
     @else
@@ -199,6 +213,9 @@
             showUpload: false,
             required: true,
             allowedFileExtensions: ["pdf", "jpg", "jpeg", "png"],
+        });
+        $('#receta').change(function(){
+            alert("Hola");
         });
     </script>
 @endsection

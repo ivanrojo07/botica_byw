@@ -42,7 +42,7 @@
                         </div>
                     @endif
                 <div class="pagination">
-                    {{ $products->links() }}
+                    {{ $products->links('vendor.pagination.bootstrap-4') }}
                 </div>
     </section>
 @endsection

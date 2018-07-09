@@ -100,8 +100,8 @@
                             <strong>No hay productos disponibles.</strong>
                         </div>
                     @endif
-                <div class="pagination">
-                    {{ $products->links('pagination.bootstrap-4') }}
-                </div>
+                    <div class="pagination">
+                    {{ $products->links('vendor.pagination.bootstrap-4') }}
+                    </div>
     </section>
 @endsection
