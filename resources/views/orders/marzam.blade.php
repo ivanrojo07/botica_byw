@@ -65,7 +65,7 @@
 	                            </td>
 	                            <td>{{$orden->status}}</td>
 	                            <td>{{ $orden->created_at }}</td>
-	                            <td><button type="button" class="btn btn-warning infoshopping" data-shoppingcart="{{ $orden->shopping_cart_id }}">
+	                            <td><button type="button" class="btn btn-info infoshopping" data-shoppingcart="{{ $orden->shopping_cart_id }}">
                                     <i class="fa fa-eye"></i>Productos
                                 </button>
                                 </td>
@@ -87,7 +87,7 @@
 	                                    <a type="submit" {{$orden->verificado ? 'disabled' : ''}} @if ($orden->verificado == 0)
 	                                    	{{-- expr --}}
 	                                    	onclick="deleteFunction('orden {{ $orden->id }}')"
-	                                    @endif  class="btn btn-sm btn-primary">Reenviar Orden
+	                                    @endif  class="btn btn-sm btn-secondary text-white">Reenviar Orden
 	                                     de <br> Compra</a>
 	                                </form>
                                 </td>

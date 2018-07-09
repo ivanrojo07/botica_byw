@@ -18,10 +18,7 @@
 				</form>
 			</div>
 		</div>
-	<div class="panel panel-default" @if ($trackings->isEmpty())
-		{{-- expr --}}
-		style="height: 506px;" 
-	@endif>
+	<div class="panel panel-default">
 		<div class="page-header">
 			<button class="btn btn-warning" 
 			        data-toggle="modal" 

@@ -21,7 +21,7 @@
 		<div class="panel panel-default dashadmin">
 			@include('feedback')
 			<div class="panel-heading">
-				<h2>Empaquetado</h2>
+				<h2 class="mt-4">Empaquetado</h2>
 				{{-- <form name="buscar" id="buscar" method="GET" action="{{ url('') }}">
 				  <div class="input-group center">
 				    {{ csrf_field() }}
@@ -64,7 +64,7 @@
 	                            <td>{{$orden->status}}</td>
 	                            <td>{{$orden->updated_at}}</td>
 	                            <td>
-									<button type="button" class="btn btn-warning infoshopping" data-shoppingcart="{{ $orden->shopping_cart_id }}">
+									<button type="button" class="btn btn-info infoshopping" data-shoppingcart="{{ $orden->shopping_cart_id }}">
 									<i class="fa fa-eye"></i>Productos
 									</button>
                                 </td>
@@ -79,7 +79,7 @@
 	                                           <label>empaquetado_at</label> --}}
 	                                    {{-- <button class="btn btn-sm btn-info">empaquetado</button> --}}
 	                                </form>
-	                                <button type="button" {{$orden->empaquetado_at ? '' : 'disabled'}} class="btn btn-sm btn-primary tracking_add"
+	                                <button type="button" {{$orden->empaquetado_at ? '' : 'disabled'}} class="btn btn-sm btn-secondary tracking_add"
 										data-ordentrack="{{ $orden->id }}">
 	                                    Agregar número de tracking
 							</tr>

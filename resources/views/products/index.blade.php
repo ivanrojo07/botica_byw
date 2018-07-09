@@ -1,9 +1,7 @@
 @extends('layouts.app')
 @section('content')
-    <div class="big-padding blue-grey white-text " style="margin-top: 80px;">
-        <h1>Productos</h1>
-    </div>
     <div class="container">
+    <h1 class="mt-4">Productos</h1>
         <table class="table table-hover text-center color-black">
             <thead>
             <tr>
