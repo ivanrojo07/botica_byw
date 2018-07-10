@@ -70,8 +70,8 @@ class Direccions extends Controller {
         $direccions = new Direccion;
 
 
-
-        return view('direccions.create', ["direccion" => $direccions]);
+        $countries = Country::orderBy('name','asc')->get();
+        return view('direccions.create', ["direccion" => $direccions,'countries'=>$countries]);
     }
 
 
