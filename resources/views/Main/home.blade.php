@@ -2,7 +2,7 @@
 @section('content')
     <!-- Banner -->
 
-    <div class="container-fluid mt-0 pt-3 background-image" style="background-image:{{url('img/bg-banner.jpg')}}">
+    <div class="container-fluid mt-0 pt-3 background-image" style="background-image:{{url('img/bg-banner.jpg')}}; background-size:cover;">
 
         <div class="row">
             <!--JUMBO-->

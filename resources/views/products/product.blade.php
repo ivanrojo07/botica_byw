@@ -24,7 +24,7 @@
         </div>
         <center>
             <img class="card-img-top" src="{{ url("/img_marzam/".str_pad($product->codigo_marzam,7,'0',STR_PAD_LEFT).".jpg")}}" onerror="this.src='{{ asset('img/dummie.jpg') }}'" alt="Card image cap" style="max-width: 200px; max-height:200px;">
-        </center>
+        </center>       
         <div class="card-body">
             <h5 class="grey text-center">
                 <strong>Categoria:</strong>
