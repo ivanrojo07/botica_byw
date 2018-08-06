@@ -1,5 +1,5 @@
 {!! Form::open(['url' => '/in_shopping_carts', 'method' => 'POST',"class" => " " ]) !!}
-        <input type="hidden" name="promotion_id" value="{{$product->id}}">
+        <input type="hidden" name="product_id" value="{{$product->id}}">
         <input type="hidden" name="qty" value="1" > 
         <div class="input-group mb-3">
             <div class="input-group-prepend">

@@ -35,6 +35,7 @@ class Kernel extends ConsoleKernel
         'App\Console\Commands\CatalogoFTP',
         'App\Console\Commands\OfertasFTP',
         'App\Console\Commands\FotosProducts',
+        'App\Console\Commands\ReportesSFTP',
 
     ];
 

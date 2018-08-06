@@ -2,7 +2,18 @@
 @section('content')
     <!-- Banner -->
 
-    <div class="container-fluid mt-0 pt-3 background-image" style="background-image:{{url('img/bg-banner.jpg')}}; background-size:cover;">
+    <div class="container-fluid mt-0 pt-3 background-image" style="    background-color: #424242;
+    background: url(../img/bg-banner.jpg)no-repeat fixed;
+    background-size: auto auto;
+    margin-top: 0px !important;
+    background-position: top center;
+    min-height: 100vh;
+    position: relative;
+    text-align: center;
+    /* background-repeat: no-repeat; */
+    background-color: #ABB5C1;
+    z-index: 21;
+    box-shadow: 0 .5em 15px 0 rgba(0, 0, 0, 0.7) !important;">
 
         <div class="row">
             <!--JUMBO-->
