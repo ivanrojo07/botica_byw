@@ -2,7 +2,7 @@
 @section('content')
     <!-- Banner -->
 
-    <div class="container-fluid mt-0 pt-3 background-image" style="    background-color: #424242;
+    <div class="container-fluid mt-0 pt-3 background-image" {{-- style="    background-color: #424242;
     background: url(../img/bg-banner.jpg)no-repeat fixed;
     background-size: auto auto;
     margin-top: 0px !important;
@@ -13,7 +13,7 @@
     /* background-repeat: no-repeat; */
     background-color: #ABB5C1;
     z-index: 21;
-    box-shadow: 0 .5em 15px 0 rgba(0, 0, 0, 0.7) !important;">
+    box-shadow: 0 .5em 15px 0 rgba(0, 0, 0, 0.7) !important;" --}}>
 
         <div class="row">
             <!--JUMBO-->
@@ -223,35 +223,80 @@
                 z-index: -1 !important;
             }
         </style>
-        <div class="row mt-3" style="background: rgba(255, 255, 255, 0.51);">
-            <div class="col">
-                <h1 class="display-4">Categorias</h1>
+        <div class="container mt-3" style="padding-top:15px; padding-bottom:15px;background: rgba(255, 255, 255, 0.51);">
+            
                 
-                <div class="row mb-3">
-                    @if(count($categories))
-                        @foreach ($categories as $index => $category)
-                            <div class="col-12 col-sm-4">
-                                <!-- <a href="{{ url('/Products1?category=' . $category->slug) }}"> -->
-                                    <div class="contenedor">
-                                        <div class="texto_sobre_cate">
-                                                <p class="h4">{{$category->description}}</p>
-                                        </div>
-                                        <div class="sobre_cate">
-                                            <img class="img_cate" src="images/gallery/cuadros/category{{$index}}.jpg" style="max-width: 300px;">
-                                        </div>
-                                        
-                                    </div>
-                                <!-- </a> -->
-                            </div>
-                        @endforeach 
-                    @else
-                        <div class="col-12">
-                            <h4>No hay categorías disponibles.</h4>
-                        </div>
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" style="background-color: black;" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" style="background-color: black;" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" style="background-color: black;" data-slide-to="2"></li>
+                <li data-target="#carouselExampleIndicators" style="background-color: black;" data-slide-to="3"></li>
+                <li data-target="#carouselExampleIndicators" style="background-color: black;" data-slide-to="4"></li>
+              </ol>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <a href="{{ url('/Products1?category=ET') }}">
                         
-                    @endif
+                      <img class="d-block w-100 h-100" height="825px" width="354px" src="{{ asset('/images/gallery/cuadros/patente.jpg') }}" alt="First slide">
+                      <div class="carousel-caption d-md-block" style="background: rgba(255, 255, 255, 0.85);">
+                        <h3 style="color:black!important;" >Medicamentos de patentes</h3>
+                        <p style="color:black!important;"> surgen de una investigación profunda que realiza un laboratorio con la intención de sanar un padecimiento específico, por este descubrimiento se le otorga la patente, la cual tiene un determinado período de duración, es decir, el inventor tiene la exclusividad de producción</p>
+                      </div>
+                    </a>
                 </div>
+                <div class="carousel-item">
+                    <a href="{{ url('/Products1?category=OT') }}">
+                        
+                      <img class="d-block w-100 h-100" height="825px" width="354px" src="{{ asset('/images/gallery/cuadros/category22.jpg') }}" alt="Second slide">
+                      <div class="carousel-caption d-md-block" style="background: rgba(255, 255, 255, 0.85);">
+                        <h3 style="color:black!important;" >Medicamentos generales</h3>
+                        <p style="color:black!important;">  Producen los mismos efectos que su contraparte de patente, ya que poseen el mismo principio activo.</p>
+                      </div>
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="{{ url('/Products1?category=MC') }}">
+                        <img class="d-block w-100 h-100" height="825px" width="354px" src="{{ asset('/images/gallery/cuadros/materialdecuracion.jpg') }}" alt="Second slide">
+                          <div class="carousel-caption d-md-block" style="background: rgba(255, 255, 255, 0.85);">
+                            <h3 style="color:black!important;" >Material de curación</h3>
+                            <p style="color:black!important;">  Agrupa los insumos como dispositivos, materiales y substancias, de un solo uso que se emplean en la atención médica, quirúrgica, procedimientos de exploración, diagnóstico y tratamiento.</p>
+                          </div>
+                    </a>
+                 
+                </div>
+                <div class="carousel-item">
+                    <a href="{{ url('/Products1?category=PF') }}">
+                        <img class="d-block w-100 h-100" height="825px" width="354px" src="{{ asset('/images/gallery/cuadros/perfumeria.jpg') }}" alt="Second slide">
+                          <div class="carousel-caption d-md-block" style="background: rgba(255, 255, 255, 0.85);">
+                            <h3 style="color:black!important;" >Perfumería</h3>
+                            <p style="color:black!important;">  Perfumes, lociones y todo el cuidado personal.</p>
+                          </div>
+                    </a>
+                 
+                </div>
+                <div class="carousel-item">
+                    <a href="{{ url('/Products1?category=VA') }}">
+                        <img class="d-block w-100 h-100" height="825px" width="354px" src="{{ asset('/images/gallery/cuadros/varios.jpg') }}" alt="Second slide">
+                          <div class="carousel-caption d-md-block" style="background: rgba(255, 255, 255, 0.85);">
+                            <h3 style="color:black!important;" >Varios</h3>
+                            <p style="color:black!important;">  Toda la farmacia a tu alcance.</p>
+                          </div>
+                    </a>
+                 
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true" ></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
             </div>
+
+        </div>
            
         </div>
     </div>

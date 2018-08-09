@@ -217,16 +217,18 @@
         <!--CONTENIDO-->
         @yield('content')
 
+    </div>
         <!--FOOTER-->
         <footer id="footer" class="p-0">
+            
                 <div class="row bg-dark text-white p-4">
-                    <div class="col-12 col-sm-4">
+                    <div class="col-11 col-sm-4">
                         <a href="{{url('/faq')}}" class="mx-auto"><p class="font-weight-bold">Preguntas Frecuentes</p></a><br>
                         <a href="{{url('/nosotros')}}" class=""><p class="font-weight-bold">Nosotros</p></a><br>
                         <a href="{{url('/privacidad')}}" class=""><p class="font-weight-bold">Aviso de Privacidad</p></a> <br>
                         <a href="{{url('/contact')}}" class=""><p class="font-weight-bold">Contáctanos</p></a>
                     </div>
-                    <div class="col-12 col-sm-4">
+                    <div class="col-11 col-sm-4">
                         <ul>
                             <li><h3>CONTÁCTANOS</h3></li>
                             <li><span>01 800 269 980 1</span></li>
@@ -236,7 +238,7 @@
                             <li><img src="{{ asset('img/pp.png') }}" alt=""></li>
                         </ul>
                     </div>
-                    <div class="col-12 col-sm-4">
+                    <div class="col-11 col-sm-4">
                         <ul>
                             <li>&copy; Untitled. All rights reserved.</li>
                             <li>© 2017 RX LATIN MED</li>
@@ -244,7 +246,6 @@
                     </div>
                 </div>
         </footer>
-    </div>
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
