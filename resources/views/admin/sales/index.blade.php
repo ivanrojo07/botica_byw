@@ -2,13 +2,13 @@
 @section('content')
 {{-- {{dd($sales->)}} --}}
     <section id="four" class="wrapper style1 special fade-up">
-        <div class="container">
+        <div class="container-fluid">
             <header class="major">
                 <h2 class="grey satisfic-font font1">
                     Ventas
                 </h2>
                 <p class="pprofile">
-                    Viazualiza los productos vendidos, TOTAL DE ({{ $count_products }}) PRODUCTOS Vendidos
+                    Viasualiza los productos vendidos, TOTAL DE ({{ $count_products }}) PRODUCTOS Vendidos
                 </p>
             </header>
              <br/>

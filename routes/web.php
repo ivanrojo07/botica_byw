@@ -398,6 +398,7 @@ Route::group(['middleware' => ['isEmple']], function () {
 
     Route::resource('tracking','Tracking\TrackingController');
     Route::get('buscartraking','Tracking\TrackingController@search');
+    Route::get('hitostracking/{tracking}','Tracking\TrackingController@status');
     Route::resource('status','Tracking\StatusTrackingController');
 
     

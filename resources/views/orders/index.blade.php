@@ -17,11 +17,11 @@
     </div>
 </div>
 @section("content")
-    <div class="row-8" @if (count($orders) == 0 )
+    <div class="container-fluid" @if (count($orders) == 0 )
         {{-- expr --}}
         style="height: 595px !important;" 
     @endif>
-        <div class="panel panel-default dashadmin ">
+        <div class="panel panel-default">
      @include('feedback')
             <div class="panel-heading">
                 <h2>Ordenes</h2>

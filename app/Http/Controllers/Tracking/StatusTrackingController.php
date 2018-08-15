@@ -14,6 +14,6 @@ class StatusTrackingController extends Controller
         
         $statustracking=StatusTracking::create($request->all());
         
-        return redirect('tracking');
+        return redirect('tracking')->with(['feedback'   => 'El status: "'.$statustracking->status.'" a sido agregado con exito al tracking hawb: '.$statustracking->tracking->hawb,'alert_type' => 'alert-success']);
     }
 }

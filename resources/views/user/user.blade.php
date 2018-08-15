@@ -12,7 +12,7 @@
                 </p>
             </header>
         </div>
-        <div class="container margin-12">
+        <div class="row">
             <div class="col-md-4">
                 <div class="list-group text-left">
                     <img src="{{url (Auth::user()->imgprofile)}}" class="img-responsive imgprofile " alt="">
@@ -50,12 +50,23 @@
                         {{ csrf_field() }}
                         <div class="col-md-offset-4 col-md-4">
                         <div class="form-group">
-                            <label for="moneda">Dolar</label>
-                            <div class="input-group">
-                              <span class="input-group-addon">$</span>
-                              <input class="form-control col-md-4" id="moneda" type="number" name="moneda" value="{{$cambio->pesos}}" step="0.01">
-                              <span class="input-group-addon">MXN</span>
+                            <label for="moneda" class="col-form-label col-form-label-lg">Dolar</label>
+                            <div class="input-group mb-3">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text">$</span>
+                              </div>
+                              <input type="text" class="form-control" id="moneda" type="number" name="moneda" value="{{$cambio->pesos}}" step="0.01">
+                              <div class="input-group-append">
+                                <span class="input-group-text">USD</span>
+                              </div>
                             </div>
+                            {{-- <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group">$</span>
+                                </div>
+                              <input class="form-control col-md-4" >
+                              <span class="input-group-addon">MXN</span>
+                            </div> --}}
                             <br>
                             <button type="submit" class="btn btn-success">Cambiar</button>
                         </div>

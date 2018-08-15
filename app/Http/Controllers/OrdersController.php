@@ -186,6 +186,7 @@ class OrdersController extends Controller {
         $num_orden = $request->input('orden');
         $orden = Order::find($num_orden);
         $direccion = $orden->shoppingCart->shoping_direccion;
+        dd($direccion);
         return response($direccion);
     }
 
@@ -236,20 +237,6 @@ class OrdersController extends Controller {
         if ($orden->pedido_file) {
             # code...
             // dd('ya se creo pedido a la orden');
-            return redirect()->back()->with(
-
-                [
-
-                    'feedback'   => 'Pedido realizado correctamente!',
-
-                    'alert_type' => 'alert-success'
-
-                ]
-
-            );
-        }
-        else{
-
             $orden->pedido_file = 'FF7380'.str_pad($contador, 4,'0',STR_PAD_LEFT).'.DAT';
             $orden->status = "orden de compra";
             $orden->pedido_at =  \Carbon\Carbon::now('America/Mexico_City');
@@ -269,6 +256,22 @@ class OrdersController extends Controller {
                 ]
 
             );
+            
+        }
+        else{
+
+            return redirect()->back()->with(
+
+                [
+
+                    'feedback'   => 'El pedido ya se realizo previamente',
+
+                    'alert_type' => 'alert-success'
+
+                ]
+
+            );
+
             
         }
 

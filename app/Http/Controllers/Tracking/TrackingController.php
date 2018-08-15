@@ -155,4 +155,9 @@ class TrackingController extends Controller
 
         return view('tracking.busqueda',['trackings'=>$trackings]);
     }
+
+    public function status(Tracking $tracking)
+    {
+        return view('tracking.statusform',['tracking'=>$tracking]);
+    }
 }

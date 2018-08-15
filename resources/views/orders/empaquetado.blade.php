@@ -17,7 +17,7 @@
 </div>
 @section('content')
 	{{-- expr --}}
-	<div class="container m-top">
+	<div class="container-fluid">
 		<div class="panel panel-default dashadmin">
 			@include('feedback')
 			<div class="panel-heading">
