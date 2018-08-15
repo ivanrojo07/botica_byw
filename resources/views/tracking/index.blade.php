@@ -10,7 +10,9 @@
 				<!-- {{ csrf_field() }} -->
 				<div class="input-group" id="datos1">
 					<input type="text" id="query" name="query" list="browsers" class="form-control" placeholder="Buscar..." autofocus>
-					<span class="input-group-addon" id="basic-addon2"><i class="fas fa-search"></i></span>
+					<div class="input-group-append">
+					    <span class="input-group-text" id="basic-addon2"><i class="fa fa-search"></i></span>
+					 </div>
 				</div>
 			</form>
 		</div>

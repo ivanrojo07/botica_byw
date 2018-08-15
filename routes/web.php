@@ -376,6 +376,7 @@ Route::group(['middleware' => ['isAdmin']], function () {
     Route::post('moneda', 'CambioMonedaController@store');
     
     Route::resource('/empleados','Admin\UserController');
+    Route::resource('tracking','Tracking\TrackingController');
 });
 Route::group(['middleware' => ['isEmple']], function () {
 

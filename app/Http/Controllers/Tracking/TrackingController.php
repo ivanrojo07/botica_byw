@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Tracking;
 
-use App\Tracking;
-use App\StatusTracking;
+use App\Http\Controllers\Controller;
 use App\Order;
 use App\ShoppingCart;
-
+use App\StatusTracking;
+use App\Tracking;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 
 class TrackingController extends Controller
@@ -24,17 +24,19 @@ class TrackingController extends Controller
      */
     public function index()
     {
+        // $carts=ShoppingCart::getAll();
+        // $carts=ShoppingCart::where('status','approve')->get();
+        // dd($carts);
 
-        $trackings=Tracking::orderBy('created_at', 'desc')->paginate(30);
+        $trackings=Tracking::orderBy('created_at', 'desc')->get();
         $orders=Order::where(function ($query){
             $query->where('status','empaquetado')
             ->orWhere('status','en tramite');
         })->get();
-        $carts=ShoppingCart::get();
+        // dd($orders);
 
-        return view('tracking.index',['trackings'=>$trackings,
-                                       'orders'  =>$orders,
-                                       'carts'   =>$carts]);
+
+        return view('tracking.index',['trackings'=>$trackings,'orders'=>$orders]);
     }
 
     /**
