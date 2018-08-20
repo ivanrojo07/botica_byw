@@ -67,7 +67,7 @@
             <label for="">
                <strong>La direccion que colocaste predeterminada es:</strong>
             </label>
-            <table class="table">
+            <table class="table table-responsive-md">
                 <thead>
                 <tr>
                     <td>Nombre</td>
