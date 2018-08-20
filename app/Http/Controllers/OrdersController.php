@@ -259,6 +259,25 @@ class OrdersController extends Controller {
             
         }
         else{
+            $orden->pedido_file = 'FF7380'.str_pad($contador, 4,'0',STR_PAD_LEFT).'.DAT';
+            $orden->status = "orden de compra";
+            $orden->pedido_at =  \Carbon\Carbon::now('America/Mexico_City');
+            $orden->save();
+            
+
+            $archivo = Storage::disk('local')->put('FF7380'.str_pad($contador, 4,'0',STR_PAD_LEFT).'.DAT', $contenido);
+            Storage::disk('ftp')->put('/in/FF7380'.str_pad($contador, 4,'0',STR_PAD_LEFT).'.DAT', $contenido);
+            return redirect()->back()->with(
+
+                [
+
+                    'feedback'   => 'Pedido realizado correctamente!',
+
+                    'alert_type' => 'alert-success'
+
+                ]
+
+            );
 
             return redirect()->back()->with(
 

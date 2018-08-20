@@ -4,24 +4,24 @@
         <h1>Tu carrito de compras</h1>
     </div>
     <div class="container margin-top">
-        <table class="table table-bordered">
+        <table class="table table-responsive-md table-bordered">
             <thead>
             <tr>
-                <td>
+                <th scope="col">
                     <strong>Producto</strong>
-                </td>
-                <td>
+                </th>
+                <th scope="col">
                     <strong>Precio</strong>
-                </td>
-                <td>
+                </th>
+                <th scope="col">
                     <strong>Cantidad</strong>
-                </td>
-                <td>
+                </th>
+                <th scope="col">
                     <strong>Subtotal</strong>
-                </td>
-                <td>
+                </th>
+                <th scope="col">
                     <strong></strong>
-                </td>
+                </th>
             </tr>
             </thead>
             <tbody>
@@ -95,21 +95,8 @@
     
     <script src="{{ asset('js/plugins/piexif.min.js') }}"></script>
     
-    <script src="{{ asset('js/plugins/purify.min.js') }}"></script>
-    
-    
-    
-    
-    
-    
-    
-    <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
-
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{ asset('css/fileinput.css') }}" media="all" rel="stylesheet" type="text/css"/>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet" type="text/css"/>
-    <link href="{{asset('themes/explorer-fa/theme.css')}}" media="all" rel="stylesheet" type="text/css"/>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+   
     <script src="{{ asset('js/plugins/sortable.min.js') }}"></script>
     <script src="{{ asset('js/fileinput.min.js') }}"></script>
     <script src="{{ asset('js/locales/es.js') }}"></script>

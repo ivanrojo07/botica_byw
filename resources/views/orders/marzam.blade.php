@@ -31,7 +31,7 @@
 				</form> --}}
 			</div>
 			<div class="panel-body">
-				<table class="table table-bordered tabla-status table-striped">
+				<table class="table table-responsive table-bordered tabla-status table-striped">
 					<thead>
 						<tr>
 							<td>Id de venta</td>
