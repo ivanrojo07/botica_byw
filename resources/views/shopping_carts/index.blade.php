@@ -47,7 +47,7 @@
                         {{ $product->pivot->qty }}
                     </td>
                     <td>
-                        $ {{ number_format($product->pivot->qty * ((is_object($product->cat) && $product->cat->slug == 'Promociones') ? $product->promotion_pricing : $product->pivot->preciounit), 2) }}
+                        $ {{ number_format($product->pivot->qty * ((is_object($product->cat) && $product->cat->slug == 'Promociones') ? $product->promotion_pricing : $product->pivot->preciounit), 2) }} USD
                     </td>
                     <td>
                         @include("shopping_carts.delete")

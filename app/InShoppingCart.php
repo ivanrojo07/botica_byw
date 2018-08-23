@@ -42,9 +42,9 @@ class InShoppingCart extends Model {
     	return $this->belongsTo('App\Promotion','promotion_id');
     }
 
-    
-
-
-
+    public function factura()
+    {
+        return $this->hasOne('App\Factura');
+    }
 }
 

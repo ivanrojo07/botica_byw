@@ -374,7 +374,8 @@ Route::group(['middleware' => ['isAdmin']], function () {
     Route::resource('envios','ZonaEnvio\ZonaEnvioController');
 
     Route::post('moneda', 'CambioMonedaController@store');
-    
+    Route::resource('facturas','FacturasController');
+    Route::post('facturas/pagar','FacturasController@pagar')->name('pagado');
     Route::resource('/empleados','Admin\UserController');
     Route::resource('tracking','Tracking\TrackingController');
 });

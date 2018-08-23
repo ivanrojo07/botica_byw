@@ -84,10 +84,10 @@
 	                                    {{ csrf_field() }}
 	                                    <input type="hidden" name="orden"
 	                                           value="{{ $orden->id }}"/>
-	                                    <a type="submit" {{$orden->verificado ? 'disabled' : ''}} @if ($orden->verificado == 0)
+	                                    <a type="submit" {{$orden->verificado ? 'disabled' : ''}}  @if ($orden->verificado == 0)
 	                                    	{{-- expr --}}
 	                                    	onclick="deleteFunction('orden {{ $orden->id }}')"
-	                                    @endif  class="btn btn-sm btn-secondary text-white">Reenviar Orden
+	                                    @endif  class='btn btn-sm btn-secondary text-white {{$orden->verificado ? "disabled" : ""}}'>Reenviar Orden
 	                                     de <br> Compra</a>
 	                                </form>
                                 </td>

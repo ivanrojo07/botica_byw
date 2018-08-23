@@ -94,11 +94,11 @@ class ShoppingCart extends Model {
 
     {
 
-        return $this->belongsToMany('App\Catalogo', 'in_shopping_carts')->withPivot('qty','preciounit','empaquetado','id');
+        return $this->belongsToMany('App\Catalogo', 'in_shopping_carts')->withPivot('qty','preciounit','empaquetado','id','pagado');
 
     }
     public function promotions(){
-        return $this->belongsToMany('App\Promotion','in_shopping_carts')->withPivot('qty','preciounit','empaquetado','id');
+        return $this->belongsToMany('App\Promotion','in_shopping_carts')->withPivot('qty','preciounit','empaquetado','id','pagado');
     }
 
     public function shoping_direccion(){

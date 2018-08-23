@@ -66,6 +66,9 @@
                             <li class="nav-item">
                                 <a class="nav-link product1" href="{{url('/envios')}}">Tarifas de envios</a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{ url('/facturas') }}" class="nav-link product1">Facturas</a>
+                            </li>
                             
                             <!--log-->
                             <li class="nav-item dropleft">

@@ -25,14 +25,28 @@
                             {{-- <form action="{{ url('/producto_check') }}" method="POST" style="margin: -8px 0 1em 0;">
  --}}
                                 {{-- {{ csrf_field() }} --}}
+                                @if ($producto->pivot->pagado == 1)
+                                    {{-- expr --}}
                                 <div class="checkbox producto" style="margin: 0px 0 1em 0;">
-                                    <label><input type="checkbox" class="check" value="{{$producto->pivot->id}}" {{$producto->pivot->empaquetado ? 'checked' : ''}}  {{$shopping_cart->order->empaquetado_at ? 'checked disabled' : ''}}  name="checked" id="checked_prod {{$producto->id}}" onclick="checkingProducto({{$producto->id}})" data-product="{{ $producto->id }}">Recibido</label>
+                                    <label><input type="checkbox" class="check" value="{{$producto->pivot->id}}" {{$producto->pivot->empaquetado ? 'checked' : ''}}  {{$shopping_cart->order->empaquetado_at ?  'checked disabled' : ''}}  name="checked" id="checked_prod {{$producto->id}}" onclick="checkingProducto({{$producto->id}})" data-product="{{ $producto->id }}">Recibido</label>
                                 </div>
+                                @endif
+                                @if ($producto->pivot->pagado)
+                                {{-- true expr --}}
+                                    <span class="badge badge-info">Pagado</span>
+                                @else
+                                    {{-- false expr --}}
+                                    <span class="badge badge-danger">Sin pagar</span>
+
+                                @endif
                             {{-- </form> --}}
 
                         </td>
-                        <td>{{$producto->descripcion}}</td>
                         <td>{{$producto->codigo_marzam}}</td>
+                        <td>
+                            {{$producto->descripcion}} 
+
+                        </td>
                         <td>{{$producto->codigo_de_barras}}</td>
                         <td>{{$producto->codigo_sat}}</td>
                         <td>{{$producto->pivot->qty}}</td>

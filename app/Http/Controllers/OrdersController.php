@@ -186,7 +186,7 @@ class OrdersController extends Controller {
         $num_orden = $request->input('orden');
         $orden = Order::find($num_orden);
         $direccion = $orden->shoppingCart->shoping_direccion;
-        dd($direccion);
+        // dd($direccion);
         return response($direccion);
     }
 
@@ -237,21 +237,21 @@ class OrdersController extends Controller {
         if ($orden->pedido_file) {
             # code...
             // dd('ya se creo pedido a la orden');
-            $orden->pedido_file = 'FF7380'.str_pad($contador, 4,'0',STR_PAD_LEFT).'.DAT';
-            $orden->status = "orden de compra";
-            $orden->pedido_at =  \Carbon\Carbon::now('America/Mexico_City');
-            $orden->save();
+            // $orden->pedido_file = 'FF7380'.str_pad($contador, 4,'0',STR_PAD_LEFT).'.DAT';
+            // $orden->status = "orden de compra";
+            // $orden->pedido_at =  \Carbon\Carbon::now('America/Mexico_City');
+            // $orden->save();
             
 
-            $archivo = Storage::disk('local')->put('FF7380'.str_pad($contador, 4,'0',STR_PAD_LEFT).'.DAT', $contenido);
-            Storage::disk('ftp')->put('/in/FF7380'.str_pad($contador, 4,'0',STR_PAD_LEFT).'.DAT', $contenido);
+            // $archivo = Storage::disk('local')->put('FF7380'.str_pad($contador, 4,'0',STR_PAD_LEFT).'.DAT', $contenido);
+            // Storage::disk('ftp')->put('/in/FF7380'.str_pad($contador, 4,'0',STR_PAD_LEFT).'.DAT', $contenido);
             return redirect()->back()->with(
 
                 [
 
-                    'feedback'   => 'Pedido realizado correctamente!',
+                    'feedback'   => 'Ya se creo la orden a marzam!',
 
-                    'alert_type' => 'alert-success'
+                    'alert_type' => 'alert-danger'
 
                 ]
 
@@ -271,7 +271,7 @@ class OrdersController extends Controller {
 
                 [
 
-                    'feedback'   => 'Pedido realizado correctamente!',
+                    'feedback'   => 'Orden realizado correctamente!',
 
                     'alert_type' => 'alert-success'
 
@@ -279,17 +279,10 @@ class OrdersController extends Controller {
 
             );
 
-            return redirect()->back()->with(
-
-                [
-
-                    'feedback'   => 'El pedido ya se realizo previamente',
-
-                    'alert_type' => 'alert-success'
-
-                ]
-
-            );
+            return redirect()->back()->with([
+                'feedback'   => 'El pedido ya se realizo previamente',
+                'alert_type' => 'alert-success'
+            ]);
 
             
         }
@@ -323,7 +316,17 @@ class OrdersController extends Controller {
 
     public function pedidos(){
         $ordenes = Order::where("status", "orden de compra")->get();
-
+        foreach ($ordenes as $orden) {
+            $response_ftp = str_replace("FF","RF",$orden->pedido_file);
+            $exists = Storage::disk('ftp')->exists('/out/'.$response_ftp);
+            if($exists){
+                $orden->verificado = 1;
+                $orden->orden_compra_at =  \Carbon\Carbon::now('America/Mexico_City');
+                $orden->save();
+            }
+        }
+        
+        // dd($array);
         return view('orders.marzam',['ordenes' => $ordenes]);
 
         // dd($ordenes);
