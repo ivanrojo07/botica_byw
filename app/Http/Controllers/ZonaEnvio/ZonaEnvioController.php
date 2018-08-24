@@ -152,7 +152,7 @@ class ZonaEnvioController extends Controller
         $envio = ZonaEnvio::find($request->input('envio_id'));
         $direccion = Direccion::find($request->input('direccion_id'));
         $cambio = CambioMoneda::first()->get()->pluck('pesos');
-        // dd($request->all());
+        // dd($direccion);
         if ($direccion->pais == "USA" || $direccion->pais == "usa" || $direccion->pais == "Estados Unidos de América" || $direccion->pais == 'Estados Unidos' || $direccion->pais == 'estados unidos' || $direccion->pais == "Estados Unidos de America" || $direccion->pais == "estados unidos de america" || $direccion->pais == "EE UU"|| $direccion->pais == "ee uu"|| $direccion->pais == "eu") {
             # code...
             if ($direccion->estado == "Florida" || $direccion->estado == "florida" ||$direccion->estado == "FL" || $direccion->estado == "fl") {
@@ -178,7 +178,7 @@ class ZonaEnvioController extends Controller
             // dd('precio c');
             }
 
-        elseif ( mb_strtolower($direccion->pais) == "argentina" || mb_strtolower($direccion->pais) == "bolivia"  || mb_strtolower($direccion->pais) == "chile" || mb_strtolower($direccion->pais) == "ecuador" || mb_strtolower($direccion->pais) == "méxico" || mb_strtolower($direccion->pais) == "paraguay" || mb_strtolower($direccion->pais) == "peru" || mb_strtolower($direccion->pais) == "trinidad y tobago" || mb_strtolower($direccion->pais) == "uruguay"|| mb_strtolower($direccion->pais) == "venezuela") {
+        elseif ( mb_strtolower($direccion->pais) == "argentina" || mb_strtolower($direccion->pais) == "bolivia"  || mb_strtolower($direccion->pais) == "chile" || mb_strtolower($direccion->pais) == "ecuador" || mb_strtolower($direccion->pais) == "mexico" || mb_strtolower($direccion->pais) == "paraguay" || mb_strtolower($direccion->pais) == "peru" || mb_strtolower($direccion->pais) == "trinidad y tobago" || mb_strtolower($direccion->pais) == "uruguay"|| mb_strtolower($direccion->pais) == "venezuela") {
                 # code...
                 $precio_envio = number_format((($envio->precio_d+($envio->precio_d*(0.40)))),2);
                 // dd('precio d');

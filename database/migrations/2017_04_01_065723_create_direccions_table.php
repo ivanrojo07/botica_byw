@@ -52,7 +52,7 @@ class CreateDireccionsTable extends Migration
 
             $table->string('codigop')->nullable(); 
 
-            $table->string('colonia'); 
+            $table->string('colonia')->nullable(); 
 
             $table->string('estado');
 

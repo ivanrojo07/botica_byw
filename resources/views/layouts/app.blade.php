@@ -226,25 +226,25 @@
             
                 <div class="row bg-dark text-white p-4">
                     <div class="col-11 col-sm-4">
-                        <a href="{{url('/faq')}}" class="mx-auto"><p class="font-weight-bold">Preguntas Frecuentes</p></a><br>
-                        <a href="{{url('/nosotros')}}" class=""><p class="font-weight-bold">Nosotros</p></a><br>
-                        <a href="{{url('/privacidad')}}" class=""><p class="font-weight-bold">Aviso de Privacidad</p></a> <br>
+                        <a href="{{url('/faq')}}" class="mx-auto"><p class="font-weight-bold">Preguntas Frecuentes</p></a>
+                        <a href="{{url('/nosotros')}}" class=""><p class="font-weight-bold">Nosotros</p></a>
+                        <a href="{{url('/privacidad')}}" class=""><p class="font-weight-bold">Aviso de Privacidad</p></a> 
                         <a href="{{url('/contact')}}" class=""><p class="font-weight-bold">Contáctanos</p></a>
                     </div>
                     <div class="col-11 col-sm-4">
                         <ul>
-                            <li><h3>CONTÁCTANOS</h3></li>
-                            <li><span>01 800 269 980 1</span></li>
-                            <li><span>info@tufarmacialatina.com</span></li>
+                            <dd><h3>CONTÁCTANOS</h3></dd>
+                            <dd><span>01 800 269 980 1</span></dd>
+                            <dd><span>info@tufarmacialatina.com</span></dd>
                         </ul>
                         <ul>
-                            <li><img src="{{ asset('img/pp.png') }}" alt=""></li>
+                            <dd><img src="{{ asset('img/pp.png') }}" alt=""></dd>
                         </ul>
                     </div>
                     <div class="col-11 col-sm-4">
                         <ul>
-                            <li>&copy; Untitled. All rights reserved.</li>
-                            <li>© 2017 RX LATIN MED</li>
+                            <dd>© {{date('Y')}} RX LATIN MED</dd>
+                            <dd>All rights reserved.</dd>
                         </ul>
                     </div>
                 </div>

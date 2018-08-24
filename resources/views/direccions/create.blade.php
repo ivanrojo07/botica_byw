@@ -7,13 +7,11 @@
 @endsection--}}
 @extends('layouts.app')
 @section('content')
-    <section id="four" class="wrapper style1 special fade-up">
+    <div id="four" class="container mt-5  mb-5">
         <div class="container">
-            <header class="major">
-                <h2 class="grey satisfic-font font1">Agrega tu Dirección de Envio</h2>
-            </header>
+          <h2>Agrega tu Dirección de Envio <small class="text-muted"><strong>*</strong> Campos requeridos</small></h2> 
         </div>
-        <div class="container">
+        <div class="container mt-4">
             @if ($errors->any())
                 <div class="alert alert-danger text-left">
                     <ul>
@@ -25,19 +23,16 @@
             @endif
             <form action="{{ url('/user/direccion/create') }}" method="POST">
                 {{ csrf_field() }}
-                <div class="container">
-                <h3 style="color: black;"><strong>*</strong> Campos requeridos</h3>
-                
-                </div>
+              <div class="row">
                 <div class="form-group col-lg-4">
                     <label for="name"><strong>*</strong> Nombre del destinatario (quien reciba):</label>
                     <input type="text" class="form-control" name="name" id="name" placeholder="Nombre"
-                           value="{{ old('name') }}">
+                           value="{{ old('name') }}" required>
                 </div>
                 <div class="form-group col-lg-4">
                     <label for="email"><strong>*</strong> Email del destinatario (quien reciba):</label>
                     <input type="text" class="form-control" name="email" id="email" placeholder="Email"
-                           value="{{ old('email') }}"/>
+                           value="{{ old('email') }}" required/>
                 </div>
                 <div class="form-group col-lg-4">
                     <label for="contacto"><strong>*</strong>  Telefono del destinatario (quien reciba):</label>
@@ -47,21 +42,22 @@
                             <input id="lada" type="text" class="form-control" name="lada" readonly="" value="">
                         </div>
                     <input type="text" class="form-control" name="contacto" id="contacto" placeholder="Telefono"
-                           value="{{ old('contacto') }}"/>
+                           value="{{ old('contacto') }}" required/>
                     </div>
                 </div>
+              </div>
+              <div class="row">
                 <div class="form-group col-lg-4">
                     <label for="telefono"><strong>*</strong> Telefono del remitente (quien envia):</label>
                     
                         <input type="text" class="form-control" name="telefono" id="telefono" placeholder="Telefono"
-                               value="{{ old('telefono') }}"/>
+                               value="{{ old('telefono') }}" required/>
                 </div>
-                
                 <div class="form-group col-lg-4">
                     <label for="pais"><strong>*</strong>País:</label>
                     {{-- <input type="text" class="form-control" name="pais" id="pais" placeholder="País"
                            value="{{ old('pais') }}"/> --}}
-                    <select class="form-control" id="pais" name="pais">
+                    <select class="form-control" id="pais" name="pais" required>
                         <option value="">Seleccione el país de envio</option>
                         @foreach ($countries as $country)
                             {{-- expr --}}
@@ -70,45 +66,51 @@
                     </select>
                 </div>
                 <div class="form-group col-lg-4">
-                    <label for="estado"><strong>*</strong>Estado o Población:</label>
-                    <input type="text" class="form-control" name="estado" id="estado" placeholder="Estado o Poblacion"
-                           value="{{ old('estado') }}"/>
+                    <label for="estado"><strong>*</strong>Estado, condado, población o provincia:</label>
+                    <input type="text" class="form-control" name="estado" id="estado" placeholder="Estado, condado, población o provincia"
+                           value="{{ old('estado') }}" required/>
                 </div>
+              </div>
+              <div class="row">
                 <div class="form-group col-lg-4">
                     <label for="ciudad"><strong>*</strong>Ciudad</label>
                     <input type="text" class="form-control" name="ciudad" id="ciudad" placeholder="Ciudad"
-                           value="{{ old('ciudad') }}"/>
+                           value="{{ old('ciudad') }}" required/>
                 </div>
                 <div class="form-group col-lg-4">
                     <label for="municipio"><strong>*</strong>Municipio:</label>
                     <input type="text" class="form-control" name="municipio" id="municipio" placeholder="Municipio"
-                           value="{{ old('municipio') }}"/>
+                           value="{{ old('municipio') }}" required/>
                 </div>
                 <div class="form-group col-lg-4">
                     <label for="calle"><strong>*</strong>Calle:</label>
                     <input type="text" class="form-control" name="calle" id="calle" placeholder="Calle"
-                           value="{{ old('calle') }}"/>
+                           value="{{ old('calle') }}" required/>
                 </div>
-                <div class="form-group col-lg-2">
+              </div>
+              <div class="row">
+                <div class="form-group col-lg-3">
                     <label for="num_ext"><strong>*</strong>Número Exterior:</label>
                     <input type="text" class="form-control" name="num_ext" id="num_ext" placeholder="Número Exterior"
-                           value="{{ old('num_ext') }}"/>
+                           value="{{ old('num_ext') }}" required/>
                 </div>
-                <div class="form-group col-lg-2">
+                <div class="form-group col-lg-3">
                     <label for="num_int">Número Interior:</label>
                     <input type="text" class="form-control" name="num_int" id="num_int" placeholder="Número Interior"
                            value="{{ old('num_int') }}"/>
                 </div>
-                <div class="form-group col-lg-2" id="div_colonia">
-                    <label for="colonia"><strong>*</strong>Colonia:</label>
+                <div class="form-group col-lg-3" id="div_colonia">
+                    <label for="colonia">Colonia:</label>
                     <input type="text" class="form-control" name="colonia" id="colonia" placeholder="Colonia"
                            value="{{ old('colonia') }}"/>
                 </div>
-                <div class="form-group col-lg-2" id="codigo_postal">
-                    <label for="codigop">C.P:</label>
+                <div class="form-group col-lg-3" id="codigo_postal">
+                    <label for="codigop">C.P. o Zip Code (recomendable):</label>
                     <input type="text" class="form-control" name="codigop" id="codigop" placeholder="Código Postal"
                            value="{{ old('codigop') }}"/>
                 </div>
+              </div>
+              <div class="row">
                 <div class="form-group col-lg-4">
                     <label for="entre1">Entre Calle:</label>
                     <input type="text" class="form-control" name="entre1" id="entre1" placeholder="Entre Calle?"
@@ -125,14 +127,15 @@
                            placeholder="Referencias Adicionales"
                            value="{{ old('references') }}"/>
                 </div>
-                <div class=" col-md-12 pull-center">
+              </div>
+                <div class="col justify-content-center">
                     <br>
                     <a href="{{ url('/user/direccion') }}" class="btn btn-warning">Regresar</a>
                     <button type="submit" class="btn btn-primary">Guardar Dirección</button>
                 </div>
             </form>
         </div>
-    </section>
+    </div>
     @section('scripts')
         {{-- expr --}}
         <script type="text/javascript"></script>
