@@ -368,20 +368,21 @@ class ShoppingCartsController extends Controller {
         ]);
         // dd($shopping_cart);
 
+        // Pruebas
+
+        return redirect('payments/store');
+
+
+// PAYPAL
+        // $paypal = new PayPal($shopping_cart,$precio_envio);
 
 
 
-
-
-        $paypal = new PayPal($shopping_cart,$precio_envio);
-
-
-
-        $payment = $paypal->generate();
+        // $payment = $paypal->generate();
 
 
 
-        return redirect($payment->getApprovalLink());
+        // return redirect($payment->getApprovalLink());
 
     }
 

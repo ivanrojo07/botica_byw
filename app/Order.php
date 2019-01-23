@@ -145,25 +145,36 @@ class Order extends Model {
 
     {
 
-        $payer = $response->payer;
+        $orderData = [];
 
 
 
-        $orderData = (array) $payer->payer_info->shipping_address;
-
-
-
-        $orderData = $orderData[key($orderData)];
-
-
-
-        $orderData["email"] = $payer->payer_info->email;
+        $orderData["email"] = 'irojo@byw-si.com.mx';
 
         $orderData["total"] = $shopping_cart->total();
 
         $orderData["shopping_cart_id"] = $shopping_cart->id;
 
         $orderData['direccion_id'] = (!is_null($shopping_cart->direccion_id)) ? $shopping_cart->direccion_id : 0;
+        // $payer = $response->payer;
+
+
+
+        // $orderData = (array) $payer->payer_info->shipping_address;
+
+
+
+        // $orderData = $orderData[key($orderData)];
+
+
+
+        // $orderData["email"] = $payer->payer_info->email;
+
+        // $orderData["total"] = $shopping_cart->total();
+
+        // $orderData["shopping_cart_id"] = $shopping_cart->id;
+
+        // $orderData['direccion_id'] = (!is_null($shopping_cart->direccion_id)) ? $shopping_cart->direccion_id : 0;
 
         return Order::create($orderData);
 

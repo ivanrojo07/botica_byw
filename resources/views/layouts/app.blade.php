@@ -237,9 +237,9 @@
                             <dd><span>01 800 269 980 1</span></dd>
                             <dd><span>info@tufarmacialatina.com</span></dd>
                         </ul>
-                        <ul>
+                        {{-- <ul>
                             <dd><img src="{{ asset('img/pp.png') }}" alt=""></dd>
-                        </ul>
+                        </ul> --}}
                     </div>
                     <div class="col-11 col-sm-4">
                         <ul>

@@ -29,27 +29,41 @@ class PaymentsController extends Controller
         $shopping_cart = ShoppingCart::findOrCreateBySessionID($shopping_cart_id);
 
 
+        // Pruebas
+        \Session::remove('shopping_cart_id');
+        $response=['payer'=>"payer"];
+        $order = Order::createFromPayPalResponse($response,$shopping_cart);
+        // $order = Order::first();
+        $shopping_cart = $order->shoppingcart;
+        // dd($shopping_cart);
+        
 
-        $paypal = new Paypal($shopping_cart,$shopping_cart->total_envio);
+        $shopping_cart->approve();
 
-        $response = $paypal->execute($request->paymentId,$request->PayerID);
+        $order->sendMail();
 
-        if($response->state == "approved"){
-        // if("approved" == "approved"){
 
-          \Session::remove('shopping_cart_id');
+        // Paypal
+        // $paypal = new Paypal($shopping_cart,$shopping_cart->total_envio);
 
-          $order = Order::createFromPayPalResponse($response,$shopping_cart);
-          // $order = Order::first();
-          $shopping_cart = $order->shoppingcart;
-          // dd($shopping_cart);
+        // $response = $paypal->execute($request->paymentId,$request->PayerID);
+
+        // if($response->state == "approved"){
+        // // if("approved" == "approved"){
+
+        //   \Session::remove('shopping_cart_id');
+
+        //   $order = Order::createFromPayPalResponse($response,$shopping_cart);
+        //   // $order = Order::first();
+        //   $shopping_cart = $order->shoppingcart;
+        //   // dd($shopping_cart);
           
 
-          $shopping_cart->approve();
+        //   $shopping_cart->approve();
 
-          $order->sendMail();
+        //   $order->sendMail();
 
-        }
+        // }
 
 
 

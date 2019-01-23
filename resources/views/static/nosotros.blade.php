@@ -6,10 +6,10 @@
 			<h2>Nosotros</h2>
 		</div>
 		<div class="panel-content mt-3">
-			<h5>IMPORTANTE</h5>
-			<p>
-				Compre la medicina y nosotros se la entregamos a su familiar en Latino América, Sur América y Cuba.<strong>NO vendemos para consumo en los Estados Unidos.</strong>
-			</p>
+			{{-- <h5>IMPORTANTE</h5> --}}
+			{{-- <p>
+				Compre la medicina y nosotros se la entregamos a su familiar en Latino América, Sur América y Cuba. <strong>NO vendemos para consumo en los Estados Unidos.</strong>
+			</p> --}}
 			<h5>MISIÓN</h5>
 			<p>
 				Satisfacer las necesidades de nuestros clientes ofreciéndoles productos farmacéuticos y de cuidado de la salud, con los mejores estándares de calidad, los mejores precios y la mejor atención.

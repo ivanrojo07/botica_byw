@@ -20,9 +20,9 @@
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                     <div class="jumbotron" style="background: rgba(255, 255, 255, 0.51);">
                         <h2 class="titulo">TuFarmaciaLatina.com</h2>
-                        <p class="lead"><strong> Entregamos a CUALQUIER país de Centroamérica, Sudamérica y el Caribe.</strong></p>
+                        <p class="lead"><strong> Entregamos tus medicinas a tus seres queridos.</strong></p>
                         <hr class="my-4">
-                        <a href="{{ url('/seguimiento')}}"><p><strong>¡Dale Seguimiento a tu pedido!</strong></p></a>
+                        {{-- <a href="{{ url('/seguimiento')}}"><p><strong>¡Dale Seguimiento a tu pedido!</strong></p></a> --}}
                         <p class="lead">
                             <a class="btn btn-primary btn-lg" href="{{ url('/Products1')}}" role="button">¡COMPRAR!</a>
                         </p>
@@ -201,7 +201,6 @@
                             </div>
                         </div>
                     </div> 
-     * P
                 </div>
             </div>
         <!--VER MÁS-->
@@ -211,7 +210,7 @@
                 </div>
                 <div class="col-12">
                     <p class="font-italic">
-                   recio exclusivo de Tienda en Línea. <br>Puede variar por zona geográfica.
+                   *Precio exclusivo de Tienda en Línea. <br>Puede variar por zona geográfica.
                     </p>
                 </div>
             </div> 
