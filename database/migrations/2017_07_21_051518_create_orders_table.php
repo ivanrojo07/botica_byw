@@ -35,18 +35,18 @@ class CreateOrdersTable extends Migration
             $table->integer("shopping_cart_id")->unsigned();
 
             $table->foreign("shopping_cart_id")->references("id")->on("shopping_carts");
-            $table->integer("direccion_id")->unsigned();
+            $table->integer("direccion_id")->unsigned()->nullable();
             $table->foreign("direccion_id")->references("id")->on("direccions");
 
-            $table->string('line1'); 
+            $table->string('line1')->nullable(); 
 
-            $table->string('line2'); 
+            $table->string('line2')->nullable(); 
 
-            $table->string('city'); 
+            $table->string('city')->nullable(); 
 
             $table->string('postal_code')->nullable(); 
 
-            $table->string('country_code'); 
+            $table->string('country_code')->nullable(); 
 
             $table->string('state'); 
 

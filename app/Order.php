@@ -155,7 +155,8 @@ class Order extends Model {
 
         $orderData["shopping_cart_id"] = $shopping_cart->id;
 
-        $orderData['direccion_id'] = (!is_null($shopping_cart->direccion_id)) ? $shopping_cart->direccion_id : 0;
+        $orderData['direccion_id'] = (!is_null($shopping_cart->direccion_id)) ? $shopping_cart->direccion_id : null;
+        // $orderData['direccion_id'] = $shopping_cart->direccion_id;
         // $payer = $response->payer;
 
 

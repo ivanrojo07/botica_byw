@@ -10,43 +10,32 @@
 @endif
 <form action="{{ url('carrito') }}" method="POST" class="inline-block" enctype='multipart/form-data'>
     {{ csrf_field() }}
-    @if($direcctions != "")
+    {{-- @if($direcctions != "")
         <div class="form-group">
             <label><strong>Dirección de envio:</strong></label>
             @foreach ($direcctions as $direccion)
-                {{-- expr --}}
                 <div class="radio">
                     <label><input type="radio" name="direccion_default" value="{{$direccion->id}}" @if ($direccion->default == 1)
-                        {{-- expr --}}
                         checked
                     @endif><strong>Nombre:</strong> {{$direccion->name}}, <strong>País:</strong> {{$direccion->pais}}, <strong>Estado y Municipio:</strong> {{$direccion->estado}}, {{$direccion->municipio}} ,<strong>Calle y Número:</strong> {{$direccion->calle}}, #Exterior. {{$direccion->num_ext}}, #Interior. @if ($direccion->num_int == null)
-                        {{-- true expr --}}
                         S/N
                     @else
-                        {{-- false expr --}}
                         {{$direccion->num_int}}
                     @endif , <strong>Colonia:</strong> {{$direccion->colonia}}, <strong>C.P.:</strong> @if ($direccion->codigop == null)
-                        {{-- expr --}}
                         S/C
                     @else
                         {{$direccion->codigop}}
                     @endif , <strong>Entre calles:</strong> @if ($direccion->entre1 == null)
-                        {{-- true expr --}}
                         Información no agregada
                     @else
-                        {{-- false expr --}}
                         {{$direccion->entre1}} 
                     @endif y @if ($direccion->entre2 == null)
-                        {{-- true expr --}}
                         Información no agregada
                     @else
-                        {{-- false expr --}}
                         {{$direccion->entre2}} 
                     @endif, <strong>Referencia adicional:</strong> @if ($direccion->references == null)
-                        {{-- true expr --}}
                         Sin Referencia adicional
                     @else
-                        {{-- false expr --}}
                         {{$direccion->references}}
                     @endif</label>
                     <br>
@@ -113,14 +102,41 @@
             </table>
         </div>
     @else
-            {{-- false expr --}}
         <div class="form-group">
         <div class="alert alert-danger">
           <strong>¡Importante!</strong> Antes de continuar por favor ingrese sus datos de envio.</a>.
         </div>
         <label for="">Si no has establecido tus datos de envio favor de ingresar al siguiente <a class="btn btn-sm btn-success" href="{{ url('/creardireccion') }}">link</a></label>
         </div>
-    @endif
+    @endif --}}
+    <div class="row mt-1 mb-1">
+        <h4 class="title">Ayudanos a terminar su compra agregando algunos datos de contacto.</h4>
+    </div>
+    <div class="row mt-2 mb-2">
+        <div class="col-3 form-group">
+            <label class="control-label">
+                Nombre:
+            </label>
+            <input type="text" class="form-control" name="nombre" value="{{Auth::user() ? Auth::user()->name : ''}}" required>
+        </div>
+        <div class="col-3 form-group">
+            <label class="control-label">
+                email:
+            </label>
+            <input type="text" class="form-control" name="email" value="{{Auth::user() ? Auth::user()->email : ''}}" required>
+        </div> 
+        <div class="col-6 form-group">
+            <label class="control-label">
+                Teléfono:
+            </label>
+            <div class="input-group-prepend">
+                <select class="col-4 form-control" id="codigo_pais" name="codigo_pais" required>
+                    <option value="">código de su país</option>
+                </select>
+                <input type="text" class="col-8 form-control" name="telefono" placeholder="Número telefonico" pattern="[0-9]{8,15}" title="Sólo incluir digitos numericos con longitud máxima de 15">
+            </div>
+        </div>
+    </div>
     <div class="form-group">
         <label for=""><strong>Selecciona el archivo de tu receta en formato (pdf, jpg, png o jpeg):</strong></label>
         <input id="receta" name="receta_file" type="file" class="file">
@@ -132,7 +148,7 @@
  @else --}}
  {{--    @endif --}}
     @if($total > 0)
-        <input type="submit" class="btn btn-success special Special" value="Pagar con Paypal">
+        <input type="submit" class="btn btn-success special Special" value="Terminar compra">
     @endif
 </form>
 {{--{!!Form::open(['url' => '/carrito', 'method' => 'POST', 'class'=>"inline-block"])!!}

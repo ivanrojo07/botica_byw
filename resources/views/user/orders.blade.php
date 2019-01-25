@@ -56,7 +56,7 @@
                                         {{ $order->created_at }}
                                     </td>
                                     <td>
-                                        <a href="{{ url('/pedido/' . $order->customid)  }}">Ver Tracking</a>
+                                        {{-- <a href="{{ url('/pedido/' . $order->customid)  }}">Ver Tracking</a> --}}
                                         <br>
                                         <a href="{{ url('/compras/' . $order->customid)  }}">Ver Pedido</a>
                                     </td>

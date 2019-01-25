@@ -250,6 +250,10 @@ class ShoppingCart extends Model {
         ]);
 
     }
+    public function contacto()
+    {
+        return $this->hasOne('App\Contacto');
+    }
 
 }
 

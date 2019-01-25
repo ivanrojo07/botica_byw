@@ -29,7 +29,7 @@
         <header id="header">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-light">
                 @if((Auth::check() && Auth::user()->rol == 'normal') || Auth::guest())
-                    <a class="navbar-brand" href="/">
+                    <a class="navbar-brand" href="{{ url('/') }}">
                         <img src="{{asset('img/logo_rxlatinmed.jpg')}}" height="60px">
                     </a>
                     @endif

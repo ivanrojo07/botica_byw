@@ -27,9 +27,9 @@
                     </a>
                     @if (Auth::user()->rol == "normal")
                         {{-- expr --}}
-                        <a href="{{url('user/direccion')}}" class="list-group-item">
+                        {{-- <a href="{{url('user/direccion')}}" class="list-group-item">
                             Gestiona tus Direcciones
-                        </a>
+                        </a> --}}
                         <a href="{{url('user/my-favorite-products')}}" class="list-group-item">
                             Mis Productos Favoritos
                         </a>
