@@ -49,4 +49,10 @@ class UserOrdersController extends Controller {
 
     }
 
+    public function wish()
+    {
+        $shoppingcarts = ShoppingCart::where('user_id',Auth::user()->id)->where('status','create')->get();
+        return view('user.wish',['shoppingcarts'=>$shoppingcarts]);
+    }
+
 }

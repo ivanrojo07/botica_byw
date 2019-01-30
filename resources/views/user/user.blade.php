@@ -36,6 +36,7 @@
                         <a href="{{ url('user/my-orders') }}" class="list-group-item">
                             Mis Ordenes
                         </a>
+                        <a href="{{ route('users.pedidos') }}" class="list-group-item">Mis Pedidos</a>
                     @endif
                 </div>
             </div>    

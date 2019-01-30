@@ -7,7 +7,9 @@ namespace App\Http\Controllers;
 
 
 use App\CambioMoneda;
+use App\Contacto;
 use App\Direccion;
+use App\Events\PedidoCreated;
 use App\Http\Controllers\InShoppingCartsController;
 use App\InShoppingCart;
 use App\Mail\OrderCreated;
@@ -15,7 +17,6 @@ use App\Order;
 use App\Paypal;
 use App\ShoppingCart;
 use App\ZonaEnvio;
-use App\Contacto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -41,16 +42,16 @@ class ShoppingCartsController extends Controller {
         return view("shopping_carts.completed", ["shopping_cart" => $shopping_cart, "order" => $order, 'tracking'=>$tracking]);
 
     }
-    public function pedido($id){
+    public function wish(ShoppingCart $shopping_cart){
 
-        $shopping_cart = ShoppingCart::where('customid', $id)->first();
-
-        $order = $shopping_cart->order;
-        
-        $trackings = $order->trackings;
+        // dd( $shopping_cart);
         // dd($tracking);
-
-        return view("shopping_carts.status", ["shopping_cart" => $shopping_cart, "order" => $order, 'trackings'=>$trackings]);
+        if(Auth::user()->id == $shopping_cart->user_id){
+            return view("shopping_carts.status", ["shopping_cart" => $shopping_cart]);
+        }
+        else{
+            return redirect()->route('users.pedidos');
+        }
     }
     public function buscar(Request $request)
     {
@@ -373,10 +374,12 @@ class ShoppingCartsController extends Controller {
         $shopping_cart->contacto()->save($contacto);
 
         // dd($shopping_cart);
-         // \Session::remove('shopping_cart_id');
+         \Session::remove('shopping_cart_id');
 
         // Pruebas
-        return view('shopping_carts.send_order',['shopping_cart'=>$shopping_cart]);
+         event(new PedidoCreated($shopping_cart));
+        return redirect()->route('shopping_carts.wish_complete',['shopping_cart'=>$shopping_cart]);
+        // return view('shopping_carts.send_order');
 
         // return redirect('payments/store');
 
@@ -392,6 +395,15 @@ class ShoppingCartsController extends Controller {
 
         // return redirect($payment->getApprovalLink());
 
+    }
+    public function complete(ShoppingCart $shopping_cart)
+    {
+        if(Auth::user()->id == $shopping_cart->user_id){
+            return view("shopping_carts.send_order", ["shopping_cart" => $shopping_cart]);
+        }
+        else{
+            return redirect('/carrito');
+        }
     }
 
 

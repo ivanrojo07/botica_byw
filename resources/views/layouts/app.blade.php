@@ -124,6 +124,16 @@
                         <a id="carrito" href="{{url('/carrito')}}"><i class="fa fa-cart-plus blue" aria-hidden="true"></i>
                         {{$productsCount}}</a>
                         <ul class="navbar-nav mr-auto">
+                            {{-- alertas --}}
+                            <li class="nav-item dropdown dropdown-notifications">
+                              <a href="#notifications-panel" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-bell" aria-hidden="true"></i>
+
+                              </a>
+
+                              <ul class="dropdown-menu">
+                              </ul>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link product1" href="{{url('/promotion')}}">Promociones</a> 
                             </li>
@@ -268,6 +278,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 {{-- no sirve xD --}}
 {{-- <script src="{{ url('/js/app.js') }}"></script> --}}
+<script src="//js.pusher.com/3.1/pusher.min.js"></script>
 
    <script>
    $(document).ready(function(){
@@ -302,6 +313,61 @@
         });
     });
   </script>
+<script type="text/javascript">
+      var notificationsWrapper   = $('.dropdown-notifications');
+      var notificationsToggle    = notificationsWrapper.find('a[data-toggle]');
+      var notificationsCountElem = notificationsToggle.find('i[data-count]');
+      var notificationsCount     = parseInt(notificationsCountElem.data('count'));
+      var notifications          = notificationsWrapper.find('ul.dropdown-menu');
+
+      if (notificationsCount <= 0) {
+        notificationsWrapper.hide();
+      }
+
+      // Enable pusher logging - don't include this in production
+      // Pusher.logToConsole = true;
+
+      var pusher = new Pusher('4cf65a2c78ff63f7a70a', {
+        encrypted: true,
+        cluster: 'us2',
+      });
+
+      // Subscribe to the channel we specified in our Laravel Event
+      var channel = pusher.subscribe('pedido-created');
+      // console.log(channel);
+
+      // Bind a function to a Event (the full Laravel class)
+      // channel.bind('App\\Events\\PedidoCreated', function(data) {
+      channel.bind('pedido-creado', function(data) {
+        console.log("data",data)
+        var existingNotifications = notifications.html();
+        var avatar = Math.floor(Math.random() * (71 - 20 + 1)) + 20;
+        var newNotificationHtml = `
+          <li class="notification active">
+              <div class="media">
+                <div class="media-left">
+                  <div class="media-object">
+                    <img src="https://api.adorable.io/avatars/71/`+avatar+`.png" class="img-circle" alt="50x50" style="width: 50px; height: 50px;">
+                  </div>
+                </div>
+                <div class="media-body">
+                  <strong class="notification-title">`+data.message+`</strong>
+                  <!--p class="notification-desc">Extra description can go here</p-->
+                  <div class="notification-meta">
+                    <small class="timestamp">about a minute ago</small>
+                  </div>
+                </div>
+              </div>
+          </li>
+        `;
+        notifications.html(newNotificationHtml + existingNotifications);
+
+        notificationsCount += 1;
+        notificationsCountElem.attr('data-count', notificationsCount);
+        notificationsWrapper.find('.notif-count').text(notificationsCount);
+        notificationsWrapper.show();
+      });
+    </script>
 
    @yield('scripts')
 </body>

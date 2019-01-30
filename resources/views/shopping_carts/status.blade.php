@@ -1,62 +1,109 @@
 @extends('layouts.app')
 @section('content')
-	{{-- expr --}}
-	<section id="four" class="wrapper style1 special fade-up">
-		<div class="container">
-			<div id="productos" class="container">
-				<header class="major">
-					<img src="{{ asset('/img/sky.png') }}">
-					<br>
-					<br>
-      				<br>
-      				<h2 class="grey satisfic-font font1">Pedido # {{$shopping_cart->customid}}</h2>
-      			</header>
-			</div>			
-			@foreach ($trackings as $tracking)
-			{{-- expr --}}
-			<div class="10u$ 12u$(medium) important(medium) faq">
-				<section id="content">
-				<div class="row jumbotron">
-				    <div class="title">
-				      <h4 class="col-xs-12" style="color: black;">
-				        <strong>Rastrear pedido no. {{$shopping_cart->customid}}</strong>
-				        <p class="pipe">Comprado el: {{$shopping_cart->created_at->format('d/m/Y')}} <span class="pipe">Total: ${{ $shopping_cart->total }} USD</span></p>
-				      </h4>
-				    </div>
-          			<div class="item-row">
-				        <div class="col-lg-7 col-md-6">
-							<div class="product col-xs-12">
-				              <div class="image-container col-lg-3 col-md-4 col-xs-2">
-				                <img src="{{ asset('/img/12.jpg') }}" height="100" width="auto">
-				              </div>
-				              <div class="detail-container col-lg-9 col-md-8 col-xs-10">
-				                <p class="col-lg-5 col-md-7">Número de Bultos: {{ $tracking->bultos}}</p>
-				                <p class="col-lg-5 col-md-7">Peso: {{ $tracking->peso}} Kg.</p>
-				              </div>
-				            </div>
-				        </div>
-				        <div class="tracking col-lg-5 col-md-6 col-xs-12">
-				                      <p class="row">Paquetería: Sky Conexión</p>
-				            <p class="row tracking-number">Número de guía (HAWB):{{$tracking->hawb}}</p>
-				              	<ul id="tracking-events" class="tracking-events-container in">
-				              	@foreach ($tracking->hito as $hito)
-				              		{{-- expr --}}
-				              		<li>
-				                    	<span>{{$hito->fecha}} | {{$hito->hora}}</span>
-				                    	<span>{{$hito->status}}</span>
-				              		</li>
-				              	@endforeach
-								</ul>                
-				        </div>
-      				</div>
-      			</div>
-				<br>
-				<br>
-				<br>
-				<br>
-				</section>
+<div class="container">
+	<div class="card card-default">
+		<div class="card-header">
+			<div class="d-flex bd-highlight">
+				<div class="p-2 flex-grow-1 bd-highlight">
+					<h2 class="title">
+						Pedido #{{$shopping_cart->id}} realizado el {{$shopping_cart->updated_at->format('d-m-Y')}}
+					</h2>
+				</div>
+				<div class="p-2 bd-highlight">
+					<img src="{{asset('img/logo_rxlatinmed.jpg')}}" height="60px">
+				</div>
+				<div class="p-2 bd-highlight">
+					<img src="{{ asset('/img/sky.png') }}" height="60px">
+				</div>
 			</div>
-			@endforeach
 		</div>
-	</section>
+		<div class="card-body">
+			<table class="table table-hover table-bordered table-striped table-dark">
+				<thead>
+					<tr class="text-center">
+						<th scope="col">Producto</th>
+						<th scope="col">Cantidad</th>
+						<th scope="col">Precio unitario</th>
+						<th scope="col">Total</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach ($shopping_cart->products as $producto)
+						<tr>
+							<td class="text-center">
+								<a href="{{ url('products/'.$producto->id) }}" class="btn btn-link" style="color:white;">
+									{{$producto->descripcion}}
+								</a>
+							</td>
+							<td class="text-center">
+								{{$producto->pivot->qty}}
+							</td>
+							<td class="text-center">
+								$ {{$producto->pivot->preciounit}} USD
+							</td>
+							<td class="text-center">
+								$ {{$producto->pivot->preciounit* $producto->pivot->qty}} USD
+							</td>
+						</tr>
+					@endforeach
+					<tr>
+						
+					</tr>
+					<tr>
+						<td class="text-center">
+							Total
+						</td>
+						<td></td>
+						<td></td>
+						<td class="text-center">
+							$ {{$shopping_cart->total}} USD
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="row">
+				<div class="col align-self-center">
+					<p>
+						<strong>
+							Para finalizar tú pedido es necesario corroborar algunos datos.
+						</strong>
+					</p>
+					<p>
+						Por favor comuniquese a los telefonos de TuFarmaciaLatina.com para que uno de nuestros agentes ayude en la finalización de esta compra.
+					</p>
+					<p>
+						<strong>Aviso importante:</strong>
+					</p>
+					<p>
+						Nuestros agentes de TuFarmaciaLatina.com nunca pedirán información bancaria para la finalización de esta compra.
+					</p>
+				</div>
+				<div class="col align-self-center">
+					<p class="text-center">
+						<strong>
+							Telefonos de atención al cliente:
+						</strong>
+					</p>
+					<p class="text-center">
+						<strong>
+							01-800-269-980-1
+						</strong>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="card-footer">
+			<div class="d-flex justify-content-around">
+				<div class="p-2">
+					<a href="#" class="btn btn-success disabled">
+						<i class="fa fa-credit-card-alt" aria-hidden="true"> PAGAR</i>
+					</a>
+				</div>
+				<div class="p-2">
+					<a href="{{ route('users.pedidos') }}" class="btn btn-secondary"> Regresar</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 @endsection

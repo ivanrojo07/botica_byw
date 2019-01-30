@@ -30,9 +30,10 @@
     26 => 'Maatwebsite\\Excel\\ExcelServiceProvider',
     27 => 'App\\Providers\\AppServiceProvider',
     28 => 'App\\Providers\\AuthServiceProvider',
-    29 => 'App\\Providers\\EventServiceProvider',
-    30 => 'App\\Providers\\RouteServiceProvider',
-    31 => 'UxWeb\\SweetAlert\\SweetAlertServiceProvider',
+    29 => 'App\\Providers\\BroadcastServiceProvider',
+    30 => 'App\\Providers\\EventServiceProvider',
+    31 => 'App\\Providers\\RouteServiceProvider',
+    32 => 'UxWeb\\SweetAlert\\SweetAlertServiceProvider',
   ),
   'eager' => 
   array (
@@ -51,9 +52,10 @@
     12 => 'Maatwebsite\\Excel\\ExcelServiceProvider',
     13 => 'App\\Providers\\AppServiceProvider',
     14 => 'App\\Providers\\AuthServiceProvider',
-    15 => 'App\\Providers\\EventServiceProvider',
-    16 => 'App\\Providers\\RouteServiceProvider',
-    17 => 'UxWeb\\SweetAlert\\SweetAlertServiceProvider',
+    15 => 'App\\Providers\\BroadcastServiceProvider',
+    16 => 'App\\Providers\\EventServiceProvider',
+    17 => 'App\\Providers\\RouteServiceProvider',
+    18 => 'UxWeb\\SweetAlert\\SweetAlertServiceProvider',
   ),
   'deferred' => 
   array (

@@ -15,16 +15,16 @@
             <div class="row">
                 <div class="col-lg-12">
                     @if(count($orders))
-                        <table class="table table-hover table-striped">
-                            <thead>
-                            <tr>
-                                <td>#</td>
-                                <td>Estatus</td>
-                                <td>Total</td>
-                                <td>Receta</td>
-                                <td>Fecha Creación</td>
-                                <td>Detalle</td>
-                            </tr>
+                        <table class=" table table-bordered table-hover table-striped">
+                            <thead  class="thead-light">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Estatus</th>
+                                    <th>Total</th>
+                                    <th>Receta</th>
+                                    <th>Fecha Creación</th>
+                                    <th>Detalle</th>
+                                </tr>
                             </thead>
                             <tbody>
                             @foreach($orders as $order)

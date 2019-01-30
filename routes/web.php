@@ -61,6 +61,7 @@ Route::resource('shopping_carts', 'ShoppingCartsController', [
     'only' => ['show', 'destroy']
 
 ]);
+Route::get('shopping_carts/{shopping_cart}/complete',"ShoppingCartsController@complete")->name('shopping_carts.wish_complete');
 Route::delete('promotion/{id}','ShoppingCartsController@destroypromo')->name("eliminar_promocion");
 
 
@@ -173,7 +174,7 @@ Route::resource('compras', 'ShoppingCartsController', [
     'only' => ['show']
 
 ]);
-Route::get('pedido/{id}','ShoppingCartsController@pedido');
+Route::get('wish/{shopping_cart}','ShoppingCartsController@wish')->name('wish');
 
 
 Route::group(['middleware' => 'auth'], function () {
@@ -340,6 +341,7 @@ Route::group(['middleware' => 'auth'], function () {
     #rutas para ver las ordenes de un usuario
 
     Route::get('/user/my-orders', 'UserOrdersController@index');
+    Route::get('/user/my-wish','UserOrdersController@wish')->name('users.pedidos');
 
 
 
