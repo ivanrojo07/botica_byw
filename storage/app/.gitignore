@@ -1,5 +1,8 @@
-*
-!public/
-!images/
-!recetas/
-!.gitignore
+*
+
+public/*
+images/*
+recetas/*
+
+!.gitignore
+
