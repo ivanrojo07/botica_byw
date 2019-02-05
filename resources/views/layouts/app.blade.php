@@ -249,10 +249,10 @@
             
                 <div class="row bg-dark text-white p-4">
                     <div class="col-11 col-sm-4">
-                        <a href="{{url('/faq')}}" class="mx-auto"><p class="font-weight-bold">Preguntas Frecuentes</p></a>
-                        <a href="{{url('/nosotros')}}" class=""><p class="font-weight-bold">Nosotros</p></a>
-                        <a href="{{url('/privacidad')}}" class=""><p class="font-weight-bold">Aviso de Privacidad</p></a> 
-                        <a href="{{url('/contact')}}" class=""><p class="font-weight-bold">Contáctanos</p></a>
+                        <a href="{{url('/faq')}}" class="text-white mx-auto"><p class="font-weight-bold">Preguntas Frecuentes</p></a>
+                        <a href="{{url('/nosotros')}}" class="text-white"><p class="font-weight-bold">Nosotros</p></a>
+                        <a href="{{url('/privacidad')}}" class="text-white"><p class="font-weight-bold">Aviso de Privacidad</p></a> 
+                        <a href="{{url('/contact')}}" class="text-white"><p class="font-weight-bold">Contáctanos</p></a>
                     </div>
                     <div class="col-11 col-sm-4">
                         <ul>

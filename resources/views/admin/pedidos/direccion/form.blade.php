@@ -215,7 +215,7 @@
 						<div class="col-4 mb-2">
 							<label for="contacto" class="control-label"><strong>*</strong>Peso aproximado del pedido (agregar si hay productos sin definir el peso)</label>
 							<div class="input-group mb-3">
-								<input type="number" class="form-control" placeholder="Peso" id="peso" name="peso" min="0.5" value="{{$edit ? $pedido->peso['peso'] : $pedido->peso['peso']}}" required="">
+								<input type="number" class="form-control" placeholder="Peso" id="peso" name="peso" min="0.000001" value="{{$edit ? $pedido->peso['peso'] : $pedido->peso['peso']}}" required="">
 								<div class="input-group-append w-25">
 									<span class="input-group-text" id="basic-addon2">Kilogramos</span>
 								</div>
