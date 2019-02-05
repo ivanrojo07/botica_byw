@@ -26,7 +26,7 @@ class PedidoCreated implements ShouldBroadcast
     {
         //
         $this->shopping_cart = $shopping_cart;
-        $this->message = "Pedido {$shopping_cart->id} a sido creado";
+        $this->message = "El pedido {$shopping_cart->id} a sido creado";
     }
 
     /**

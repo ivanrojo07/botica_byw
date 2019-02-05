@@ -20,7 +20,7 @@ class Contacto extends Model
    		'updated_at'
    	];
 
-   	public function hoppingCart()
+   	public function shoppingCart()
    	{
    		return $this->belognsTo('App\ShoppingCart');
    	}

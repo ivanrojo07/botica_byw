@@ -19,7 +19,27 @@ class Direccion extends Model {
 
 
 
-    protected $fillable = ['default'];
+    protected $fillable = [
+        'name',
+        'calle',
+        'num_ext',
+        'num_int',
+        'colonia',
+        'codigop',
+        'estado',
+        'municipio',
+        'ciudad',
+        'pais',
+        'entre1',
+        'entre2',
+        'references',
+        'contacto',
+        'email',
+        'telefono',
+        'status',
+        'guide_numer',
+        'default'
+    ];
 
     protected $dates = ['deleted_at'];
 

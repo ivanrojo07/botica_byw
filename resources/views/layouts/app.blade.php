@@ -39,6 +39,28 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     @if( Auth::check() && Auth::user()->rol == 'admin')
                         <ul class="navbar-nav mr-auto">
+                            {{-- <li class="nav-item dropdown dropdown-notifications">
+                              <a href="#notifications-panel" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-bell" aria-hidden="true"></i>
+                              </a>
+                              <ul class="dropdown-menu">
+                              </ul>
+                            </li> --}}
+                            <li class="nav-item dropdown-notifications">
+                                <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Pedidos <span data-count="0" class="badge badge-light notif-count">0</span>
+                                </a>
+                                <div class="dropdown-container">
+                                    <ul class="dropdown-menu">
+                                        {{-- <a class="dropdown-item" href="#">Action</a> --}}
+                                        <div class="dropdown-divider"></div>
+                                        <div class="notification-label">
+                                        </div>
+                                        <div class="dropdown-divider"></div>
+                                        {{-- <a class="dropdown-item" href="#">Separated link</a> --}}
+                                    </ul>
+                                </div>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link product1" href="{{url('/products')}}">Productos</a>
                             </li>
@@ -124,16 +146,6 @@
                         <a id="carrito" href="{{url('/carrito')}}"><i class="fa fa-cart-plus blue" aria-hidden="true"></i>
                         {{$productsCount}}</a>
                         <ul class="navbar-nav mr-auto">
-                            {{-- alertas --}}
-                            <li class="nav-item dropdown dropdown-notifications">
-                              <a href="#notifications-panel" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-bell" aria-hidden="true"></i>
-
-                              </a>
-
-                              <ul class="dropdown-menu">
-                              </ul>
-                            </li>
                             <li class="nav-item">
                                 <a class="nav-link product1" href="{{url('/promotion')}}">Promociones</a> 
                             </li>
@@ -219,11 +231,12 @@
                                 @endif
                                     OFERTA: {{ $producto->nombre}} 
                             </h5>
-                            </li>
+                        </li>
                     @endforeach
                 </div>
             </div>
         </div>
+
                 
 
 
@@ -316,12 +329,12 @@
 <script type="text/javascript">
       var notificationsWrapper   = $('.dropdown-notifications');
       var notificationsToggle    = notificationsWrapper.find('a[data-toggle]');
-      var notificationsCountElem = notificationsToggle.find('i[data-count]');
+      var notificationsCountElem = notificationsToggle.find('span[data-count]');
       var notificationsCount     = parseInt(notificationsCountElem.data('count'));
-      var notifications          = notificationsWrapper.find('ul.dropdown-menu');
+      var notifications          = notificationsWrapper.find('div.notification-label');
 
       if (notificationsCount <= 0) {
-        notificationsWrapper.hide();
+        notificationsWrapper.find('div.dropdown-container').hide();
       }
 
       // Enable pusher logging - don't include this in production
@@ -343,29 +356,20 @@
         var existingNotifications = notifications.html();
         var avatar = Math.floor(Math.random() * (71 - 20 + 1)) + 20;
         var newNotificationHtml = `
-          <li class="notification active">
-              <div class="media">
-                <div class="media-left">
-                  <div class="media-object">
-                    <img src="https://api.adorable.io/avatars/71/`+avatar+`.png" class="img-circle" alt="50x50" style="width: 50px; height: 50px;">
-                  </div>
+            <a class="notification dropdown-item" href="{{ url('/pedidos') }}/${data.shopping_cart.id}">
+                <div class="media">
+                    <div class="media-body">
+                        <strong class="notification-title">`+data.message+`</strong>
+                    </div>
                 </div>
-                <div class="media-body">
-                  <strong class="notification-title">`+data.message+`</strong>
-                  <!--p class="notification-desc">Extra description can go here</p-->
-                  <div class="notification-meta">
-                    <small class="timestamp">about a minute ago</small>
-                  </div>
-                </div>
-              </div>
-          </li>
+            </a>
         `;
         notifications.html(newNotificationHtml + existingNotifications);
 
         notificationsCount += 1;
         notificationsCountElem.attr('data-count', notificationsCount);
         notificationsWrapper.find('.notif-count').text(notificationsCount);
-        notificationsWrapper.show();
+        notificationsWrapper.find('div.dropdown-container').show();
       });
     </script>
 

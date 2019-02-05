@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 
 
 use App\CambioMoneda;
+use App\Country;
 use App\Contacto;
 use App\Direccion;
 use App\Events\PedidoCreated;
@@ -166,8 +167,8 @@ class ShoppingCartsController extends Controller {
         // dd($direcctions);
 
 
-
-        return view("shopping_carts.index", compact('products','promotions', 'total', 'direccion_default','direcctions','envio'));
+        $countries = Country::orderBy('name','asc')->get();
+        return view("shopping_carts.index", compact('products','promotions', 'total', 'direccion_default','direcctions','envio','countries'));
 
 
 
@@ -398,7 +399,8 @@ class ShoppingCartsController extends Controller {
     }
     public function complete(ShoppingCart $shopping_cart)
     {
-        if(Auth::user()->id == $shopping_cart->user_id){
+        if(Auth::user() && Auth::user()->id == $shopping_cart->user_id){
+            // event(new PedidoCreated($shopping_cart));
             return view("shopping_carts.send_order", ["shopping_cart" => $shopping_cart]);
         }
         else{

@@ -76,4 +76,39 @@ class Catalogo extends Model
         return $this->belongsToMany('App\User', 'user_favorite_products', 'catalogo_id', 'user_id');
 
     }
+
+     public function getPesoAttribute(){
+        $kg=strpos($this->descripcion,'KG');
+        $g= strpos($this->descripcion, 'G');
+        $mg =  strpos($this->descripcion, 'MG');
+        if ($kg) {
+            $cadena = substr($this->descripcion, 0, $kg);
+            $numero = $this->getNumeros($cadena);
+            return ['peso'=>$numero,'medida'=>'Kilogramos'];
+        } 
+        elseif($mg){
+            $cadena = substr($this->descripcion, 0, $mg);
+            $numero = $this->getNumeros($cadena);
+            // dd($numero);
+            $numero = $numero/100000;
+            return ['peso'=>$numero,'medida'=>'Kilogramos'];
+        }
+        else {
+            if($g){
+                $cadena = substr($this->descripcion, 0, $g);
+                $numero = $this->getNumeros($cadena);
+                $numero = $numero/1000;
+                return ['peso'=>$numero,'medida'=>'kilogramos'];
+            }
+            else{
+                return ['peso'=>0,'medida'=>'Indefinido'];;
+            }
+        }
+    }
+    public function getNumeros($string)
+    {
+        preg_match_all('/\d+/', $string, $matches);
+        return end($matches[0]);
+    }
+
 }

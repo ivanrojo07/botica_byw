@@ -132,6 +132,9 @@
             <div class="input-group-prepend">
                 <select class="col-4 form-control" id="codigo_pais" name="codigo_pais" required>
                     <option value="">código de su país</option>
+                    @foreach ($countries as $country)
+                        <option value="{{$country->phonecode}}">{{$country->iso3." ".$country->phonecode}}</option>
+                    @endforeach
                 </select>
                 <input type="text" class="col-8 form-control" name="telefono" placeholder="Número telefonico" pattern="[0-9]{8,15}" title="Sólo incluir digitos numericos con longitud máxima de 15">
             </div>

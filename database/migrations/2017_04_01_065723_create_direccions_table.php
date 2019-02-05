@@ -44,15 +44,9 @@ class CreateDireccionsTable extends Migration
 
             $table->string('num_int')->nullable(); 
 
-            $table->string('entre1')->nullable(); 
-
-            $table->string('entre2')->nullable(); 
-
-            $table->text('references')->nullable(); 
+            $table->string('colonia')->nullable(); 
 
             $table->string('codigop')->nullable(); 
-
-            $table->string('colonia')->nullable(); 
 
             $table->string('estado');
 
@@ -62,9 +56,15 @@ class CreateDireccionsTable extends Migration
 
             $table->string('pais');
 
-            $table->string('email');
+            $table->string('entre1')->nullable(); 
+
+            $table->string('entre2')->nullable(); 
+
+            $table->text('references')->nullable(); 
 
             $table->string('contacto')->nullable();
+
+            $table->string('email');
 
             $table->string('telefono');
 

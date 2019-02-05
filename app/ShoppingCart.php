@@ -22,7 +22,7 @@ class ShoppingCart extends Model {
 
     // Mass assignment
 
-    protected $fillable = ['status', 'user_id', 'direccion_id', 'total', 'totalenvio', 'receta_path'];
+    protected $fillable = ['status', 'user_id', 'direccion_id', 'total', 'totalenvio', 'peso' ,'receta_path'];
 
 
 
@@ -64,7 +64,7 @@ class ShoppingCart extends Model {
 
     {
 
-        return $this->belongsTo("App\Direccion", 'direccion_id', 'id');
+        return $this->belongsTo("App\Direccion");
 
     }
 
@@ -253,6 +253,25 @@ class ShoppingCart extends Model {
     public function contacto()
     {
         return $this->hasOne('App\Contacto');
+    }
+
+    public function getPesoAttribute()
+    {
+        $products = $this->products()->get();;
+        // dd($products);
+
+
+
+        $total = 0;
+
+        foreach ($products as $producto) {
+
+            // dd($producto->peso);
+            if($producto->peso){
+                $total += $producto->peso['peso'];
+            }
+        }
+        return ['peso'=>$total,'medida'=>'Kilogramos'];
     }
 
 }

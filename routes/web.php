@@ -175,6 +175,9 @@ Route::resource('compras', 'ShoppingCartsController', [
 
 ]);
 Route::get('wish/{shopping_cart}','ShoppingCartsController@wish')->name('wish');
+Route::get('payment',function(){
+dd('terminal banco');
+})->name('payment');
 
 
 Route::group(['middleware' => 'auth'], function () {
@@ -380,6 +383,8 @@ Route::group(['middleware' => ['isAdmin']], function () {
     Route::post('facturas/pagar','FacturasController@pagar')->name('pagado');
     Route::resource('/empleados','Admin\UserController');
     Route::resource('tracking','Tracking\TrackingController');
+    Route::resource('pedidos','Empleado\EmpleadoShoppingCartsController');
+    Route::resource('pedidos.direccions','Empleado\EmpleadoDireccionController');
 });
 Route::group(['middleware' => ['isEmple']], function () {
 
@@ -418,6 +423,8 @@ Route::group(['middleware' => ['isEmple']], function () {
     Route::get('/order/checkproduct/{shoppingcart}', 'OrdersController@checkingProduct');
     Route::post('/producto_check','OrdersController@productoCheck');
     Route::post('/promotion_check', 'OrdersController@promotionCheck');
+    Route::resource('pedidos','Empleado\EmpleadoShoppingCartsController');
+    Route::resource('pedidos.direccions','Empleado\EmpleadoDireccionController');
     
 });
 

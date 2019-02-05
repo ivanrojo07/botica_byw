@@ -41,6 +41,14 @@
 								<p class="d-flex justify-content-center align-items-center">
 									$ {{$cart->total}} USD
 								</p>
+								@if ($cart->totalenvio != 0.00)
+									<p class="d-flex justify-content-center align-items-center">
+										Más costo de envio: $ {{$cart->totalenvio}} USD
+									</p>
+									<p class="d-flex justify-content-center align-items-center">
+										Total a pagar: $ {{$cart->total+$cart->totalenvio}} USD
+									</p>
+								@endif
 							</td>
 							<td>
 								<form action="{{ url('/user/order/get-receta') }}" method="POST">
@@ -59,7 +67,7 @@
 							</td>
 							<td>
 								<div class="d-flex bd-highlight mb-3">
-									 <a class="align-self-center p-2 ml-2 bd-highlight btn btn-success disabled" href="#">
+									 <a class="align-self-center p-2 ml-2 bd-highlight btn btn-success {{$cart->totalenvio =! 0.00 && $cart->direccion ? '' : 'disabled'}}" href="{{$cart->totalenvio =! 0.00 && $cart->direccion ? route('payment') : '#'}}">
 									 	<i class="fa fa-credit-card-alt" aria-hidden="true"> Pagar</i>
 									 </a>
 								</div>

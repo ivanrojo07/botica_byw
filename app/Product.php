@@ -79,8 +79,7 @@ class Product extends Model {
     }
 
 
-
-
+   
 
 }
 

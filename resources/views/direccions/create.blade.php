@@ -131,7 +131,7 @@
                 <div class="col justify-content-center">
                     <br>
                     <a href="{{ url('/user/direccion') }}" class="btn btn-warning">Regresar</a>
-                    <button type="submit" class="btn btn-primary">Guardar Dirección</button>
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar Dirección</button>
                 </div>
             </form>
         </div>
