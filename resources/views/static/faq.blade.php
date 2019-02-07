@@ -24,8 +24,8 @@
 			<p>R. Cuando su orden ha sido aprovada y reune los requisitos de prescripcion y pago, se procesa la orden desde nuestro almacen en Norte America y es despachado en 24 horas al punto de embarque.  Le notificaremos por email a medida que el proceso esta avanzando.  Tambien puede ingresar a nuestra pagina con el codigo de usuario y clave que creo cuando hizo la compra para revisar el estado de su compra.</p>
 			<h4>¿Puedo cancelar mi orden?</h4>
 			<p>R. Si desea cancelar su orden, debe hacerlo antes de las 9PM hora del Este de Estados Unidos y se le reintegrara el 100% del costo de su compra. Para hacer una cancelacion y asegurarse de su proceso, contactenos al 1-800-tufarmacia lo antes posible.</p>
-			<h4>¿Puedo importar mi medicina a mi pais?</h4>
-			<p>R. Importacion de medicinas con recetra es legal en la mayoria de paises latinoamericanos, siempre y cuando la medicina sea para uso personal y no tenga una substancia controlada por el departamento de salud de su pais.  Si tiene duda sobre las regulaciones de su pais, verifique en su oficina de correo local.<br /><br />El contenido de este Web Site incluyendo todo el texto y graficos es proveido por motivos informacionales solamente y no substituye el consejo profesional de su medico.  La informacion en este web site no debe ser utilizado para diagnosticar o tratar ninguna condicion medica o problema medico.</p>
+			{{-- <h4>¿Puedo importar mi medicina a mi pais?</h4>
+			<p>R. Importacion de medicinas con recetra es legal en la mayoria de paises latinoamericanos, siempre y cuando la medicina sea para uso personal y no tenga una substancia controlada por el departamento de salud de su pais.  Si tiene duda sobre las regulaciones de su pais, verifique en su oficina de correo local.<br /><br />El contenido de este Web Site incluyendo todo el texto y graficos es proveido por motivos informacionales solamente y no substituye el consejo profesional de su medico.  La informacion en este web site no debe ser utilizado para diagnosticar o tratar ninguna condicion medica o problema medico.</p> --}}
 		</div>
 	</div>
 </div>
