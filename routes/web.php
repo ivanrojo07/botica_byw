@@ -84,6 +84,12 @@ Route::get('/privacidad', function () {
 
 });
 
+Route::get('/cancelacion', function () {
+
+    return view('static/cancelacion');
+
+});
+
 Route::get('/seguimiento', function () {
 
     return view('static/seguimiento');

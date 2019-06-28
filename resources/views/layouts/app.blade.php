@@ -251,12 +251,13 @@
                     <div class="col-11 col-sm-4">
                         <a href="{{url('/faq')}}" class="text-white mx-auto"><p class="font-weight-bold">Preguntas Frecuentes</p></a>
                         <a href="{{url('/nosotros')}}" class="text-white"><p class="font-weight-bold">Nosotros</p></a>
-                        <a href="{{url('/privacidad')}}" class="text-white"><p class="font-weight-bold">Aviso de Privacidad</p></a> 
-                        <a href="{{url('/contact')}}" class="text-white"><p class="font-weight-bold">Contáctanos</p></a>
+                        <a href="{{url('/privacidad')}}" class="text-white"><p class="font-weight-bold">Aviso de Privacidad</p></a>
+                        <a href="{{url('/cancelacion')}}" class="text-white"><p class="font-weight-bold">Politicas de Cancelación</p></a> 
+                        <a href="{{url('/contact')}}" class="text-white"><p class="font-weight-bold">Contactanos</p></a>
                     </div>
                     <div class="col-11 col-sm-4">
                         <ul>
-                            <dd><h3>CONTÁCTANOS</h3></dd>
+                            <dd><h3>CONTACTANOS</h3></dd>
                             <dd><span>01 800 269 980 1</span></dd>
                             <dd><span>info@tufarmacialatina.com</span></dd>
                         </ul>
@@ -266,7 +267,7 @@
                     </div>
                     <div class="col-11 col-sm-4">
                         <ul>
-                            <dd>© {{date('Y')}} RX LATIN MED</dd>
+                            <dd> ®{{date('Y')}} RX LATIN MED</dd>
                             <dd>All rights reserved.</dd>
                         </ul>
                     </div>
@@ -350,7 +351,7 @@
       // console.log(channel);
 
       // Bind a function to a Event (the full Laravel class)
-      // channel.bind('App\\Events\\PedidoCreated', function(data) {
+      // channel.bind('App¥¥Events¥¥PedidoCreated', function(data) {
       channel.bind('pedido-creado', function(data) {
         console.log("data",data)
         var existingNotifications = notifications.html();
@@ -376,4 +377,3 @@
    @yield('scripts')
 </body>
 </html>
-
