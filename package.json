@@ -13,7 +13,7 @@
     "jquery": "^3.2",
     "laravel-elixir": "^6.0.0-15",
     "laravel-elixir-vue-2": "^0.2.0",
-    "lodash": "^4.16.2",
+    "lodash": "^4.17.19",
     "vue": "^2.0.1",
     "webpack": "2.2.1",
     "laravel-mix": "^0.8.1"
